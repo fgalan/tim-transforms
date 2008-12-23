@@ -1,0 +1,213 @@
+module TIM2VNUML; -- Module Template
+create OUT : XML from IN : TIMSmall;
+
+helper def: TranslateMask(m : String ) : String =
+	-- FIXME: only works by the moment for "8-bit dotted"
+	if (m = '255.255.255.0') then
+		'24'
+	else
+		if (m = '255.255.0.0') then
+			'16'
+		else
+			if (m = '255.0.0.0') then
+				'8'
+			else
+				'0'
+			endif
+		endif
+	endif
+	;
+
+rule Root {
+	from 
+		i: TIMSmall!TIM_TestbedScenario
+	to
+		root: XML!Root (
+			name <- 'vnuml',
+			children <- global
+		),
+		global: XML!Element (
+			name <- 'global',
+			-- FIXME: currently we are taking all the TIM_LinkConectivityCollection objects, but only the
+			-- ones with a CIM_HostedCollection with the TIM_TestbedScenarios of a maching i.Name
+			-- FIXME: currently we are taking all the CIM_ComputerSystem objects, but only the
+			-- ones with a CIM_SystemComponent with the TIM_TestbedScenarios of a maching i.Name
+			children <- Sequence{version, simulationName, automac, vmMgmt, vmDefaults,
+					TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'net')),
+					TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'vm')) }
+		),
+		version: XML!Element (
+			name <- 'version',
+			children <- version_Text
+		),
+		version_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '1.8'
+		),
+		simulationName: XML!Element (
+			name <- 'simulation_name',
+			children <- simulationName_Text
+		),
+		simulationName_Text: XML!TextNode (
+			value <- i.Name
+		),
+		automac: XML!Element (
+			name <- 'automac'
+		),
+		vmMgmt: XML!Element (
+			name <- 'vm_mgmt',
+			children <- vmMgmt_attType
+		),
+		vmMgmt_attType: XML!Attribute (
+			name <- 'type',
+			value <- 'none'
+		),
+		vmDefaults: XML!Element (
+			name <- 'vm_defaults',
+			children <- Sequence{vmDefaults_attExecMode, filesystem, kernel, console}
+		),
+		vmDefaults_attExecMode: XML!Attribute (
+			name <- 'exec_mode',
+			value <- 'mconsole'
+		),
+		filesystem: XML!Element (
+			name <- 'filesystem',
+			children <- filesystem_attType,
+			children <- filesystem_Text
+		),
+		filesystem_attType: XML!Attribute (
+			name <- 'type',
+			-- FIXME: unhardwire
+			value <- 'cow'
+		),
+		filesystem_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/usr/share/vnuml/filesystems/root_fs_tutorial'
+		),
+		kernel: XML!Element (
+			name <- 'kernel',
+			children <- kernel_Text
+		),
+		kernel_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/usr/share/vnuml/kernels/linux'
+		),
+		console: XML!Element (
+			name <- 'console',
+			children <- console_attId,
+			children <- console_Text
+		),
+		console_attId: XML!Attribute (
+			name <- 'id',
+			value <- '0'
+		),
+		console_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- 'xterm'
+		)
+}
+
+rule Net {
+	from
+		i: TIMSmall!TIM_LinkConnectivityCollection
+	to
+		net: XML!Element (
+			name <- 'net',
+			children <- net_attName,
+			children <- net_attMode
+		),
+		net_attName: XML!Attribute (
+			name <- 'name',
+			value <- i.InstanceID
+		),
+		net_attMode: XML!Attribute (
+			name <- 'mode',
+			value <- 'uml_switch'
+		)
+}
+
+rule Vm {
+	from
+		i: TIMSmall!CIM_ComputerSystem
+	to
+		vm: XML!Element (
+			name <- 'vm',
+			children <- vm_attName
+		),
+		vm_attName: XML!Attribute (
+			name <- 'name',
+			value <- i.Name
+		)
+}
+
+rule Intf {
+	from
+		i: TIMSmall!CIM_IPProtocolEndpoint
+	to
+		intf: XML!Element (
+			name <- 'if'
+		)
+}
+
+rule Ipv4 {
+	from
+		i: TIMSmall!CIM_StaticIPAssignmentSettingData
+	to
+		ipv4: XML!Element (
+			name <- 'ipv4',
+			children <- ipv4_attMask,
+			children <- ipv4_Text
+		),
+		ipv4_attMask: XML!Attribute (
+			name <- 'mask',
+			value <- i.SubnetMask
+		),
+		ipv4_Text: XML!TextNode (
+			value <- i.IPv4Address
+		)
+}
+
+rule Ipv6 {
+	from
+		i: TIMSmall!TIM_StaticIPv6AssignmentSettingData
+	to
+		ipv6: XML!Element (
+			name <- 'ipv6',
+			children <- ipv6_attMask,
+			children <- ipv6_Text
+		),
+		ipv6_attMask: XML!Attribute (
+			name <- 'mask',
+			value <- '/' + i.PrefixLength.toString()
+		),
+		ipv6_Text: XML!TextNode (
+			value <- i.IPv6Address
+		)
+}
+
+rule Route {
+	from
+		i: TIMSmall!TIM_NextHopAddressedIPRoute
+	to
+		route: XML!Element (
+			name <- 'route',
+			children <- route_attGw,
+			children <- route_attType,
+			children <- route_Text
+		),
+		route_attGw: XML!Attribute (
+			name <- 'gw',
+			value <- i.NextHopAddress
+		),
+		route_attType: XML!Attribute (
+			name <- 'type',
+			value <- (if i.AddressType = '1' then 'ipv4' else 'ipv6' endif)
+		),
+		route_Text: XML!TextNode (
+			value <- (if i.AddressType = '1' then 
+						i.DestinationAddress + '/' + thisModule.TranslateMask(i.DestinationMask)
+					  else
+					  	i.DestinationAddress + '/' + i.PrefixLength
+					  endif)
+		)
+}
