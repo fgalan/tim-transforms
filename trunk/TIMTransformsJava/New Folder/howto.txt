@@ -1,0 +1,193 @@
+INSTALACIÓN DE SOFTWARE
+
+1. OpenPegasus
+--------------
+
+1.1. Instalación
+
+Considerando la versión 2.8.0 (liberada el 07/Ago/08)
+
+# cd /usr/local/src
+# sudo wget http://www.openpegasus.org/uploads/40/17276/pegasus-2.8.0.tar.gz
+# sudo tar xfvz pegasus-2.8.0.tar.gz
+# sudo chown -R fermin:fermin pegasus
+# cd pegasus
+# export PEGASUS_HOME=`pwd`
+# export PEGASUS_ROOT=`pwd`
+# export PEGASUS_PLATFORM=LINUX_IX86_GNU
+# export PATH=$PATH:$PEGASUS_HOME/bin
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PEGASUS_HOME/lib
+# make
+(puede tardar un buen rato)
+# cd Schemas
+# make repository
+
+Para arrancar el servidor:
+
+# cimserver
+
+Para comprobar que está funcionando:
+
+- Prueba básica:
+
+  # ps ax | grep cimserver
+
+- Prueba más compleja: arrancar un cliente CIM y acceder al servidor. Por ejemplo, el CIM browser
+  de SNIA:
+
+  # cd /usr/local/src/snia
+  # sh cimbrowser.sh
+
+  Usando:
+
+  * Username y password: irrelevantes (no queremos configurar autenticación en el servidor)
+  * Hostname: phoenix
+  * Namescpe: root/cimv2
+
+Puerto del CIMOM (http): 5988
+
+1.2 Utilización habitual
+------------------------
+
+Es necesario establecer las variables de estado para tener acceso a los binarios.
+
+ export PEGASUS_HOME=/usr/local/src/pegasus
+ export PEGASUS_ROOT=/usr/local/src/pegasus
+ export PEGASUS_PLATFORM=LINUX_IX86_GNU
+ export PATH=$PATH:$PEGASUS_HOME/bin
+ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PEGASUS_HOME/lib
+
+Gestión del servidor:
+
+* Para arrancar el servidor:
+
+  # cimserver
+
+* Para parar el servidor:
+
+  # cimserver -s
+
+Operaciones habituales:
+
+* Cargar un fichero MOF de instancias de clases (al namespace 'root/cimv2', en caso de
+  ser otro, usar la opción -n), desde la máquina local (es decir, el .mof está en la misma
+  máquina que el servidor)
+
+  # cimmof sample_testbed.mof
+
+* Eliminar instancias de clases: se puede hacer desde el propio CIM browser (al menos el
+  de SNIA lo permite)
+
+2. WBEM Services CIMOM
+----------------------
+
+2.1 Instalación
+---------------
+
+Considerando la versión 1.0.2 (liberada el 02/NB/08)
+
+# cd /usr/local/src
+# sudo wget http://kent.dl.sourceforge.net/sourceforge/wbemservices/wbemservices-1.0.2.bin.zip
+# sudo unzip wbemservices-1.0.2.bin.zip
+# sudo chown -R fermin:fermin wbemservices
+# cd wbemservices
+
+Necesitamos un JDK Java instalado:
+
+# cd /usr/local
+# sudo cp /tmp/jdk-6u6-linux-i586.bin .
+# sudo sh jdk-6u6-linux-i586.bin
+# sudo rm jdk-6u6-linux-i586.bin
+# vi /usr/local/src/wbemservices/cimom/bin/star_cimom.sh
+(añadir "export JAVA_HOME=/usr/local/jdk1.6.0_06/" en el preámbulo del script)
+# vi /usr/local/src/wbemservices/bin/mofcomp.sh
+(añadir "export JAVA_HOME=/usr/local/jdk1.6.0_06/" en el preámbulo del script)
+
+2.2. Operaciones habituales
+---------------------------
+
+Gestión del servidor:
+
+* Para arrancar el servidor:
+
+  # cd /usr/local/src/wbemservices/cimom/bin/
+  # sudo sh start_cimom.sh
+
+* Para parar el servidor:
+
+  # cd /usr/local/src/wbemservices/cimom/bin/
+  # sh stop_cimom.sh
+  # sudo kill -9 <pid>
+
+Operaciones habituales:
+
+* Cargar un fichero MOF con definición de clases (al namespace 'root/cimv2', en caso de
+  ser otro, usar la opción -n)
+
+  # cd /usr/local/src/wbemservices/bin
+  # sh mofcomp -u fermin -p x -n root/cimv2 -c phoenix tim.mof
+  (El usuario comprueba que existe en el sistema de ejecución, pero el password que pide
+  es irrelevante)
+
+* Cargar un fichero MOF de instancias de clases (al namespace 'root/cimv2', en caso de
+  ser otro, usar la opción -n)
+
+  # cd /usr/local/src/wbemservices/bin
+  # sh mofcomp -u fermin -p x -n root/cimv2 -c phoenix sample_testbed.mof
+  (El usuario comprueba que existe en el sistema de ejecución, pero el password que pide
+  es irrelevante)
+
+* Eliminar instancias de clases: se puede hacer desde el propio CIM browser. El navegador
+  de SNIA tiene problemas (la opción "Delete Instance" aparece sombreada y se puede ver
+  en la salida estándar -por la excepción Java que salta- que algo cruje por dentro) pero 
+  con el CIMWorkshop (basado en WBEM Services) si funciona el borrado.
+
+* Cargar una nueva versión del CIMSchema a partir del .mof fuente de la DMTF en un nuevo
+  namespace (ej., 2.18.1)
+
+  # cd /usr/local/src/wbemservices/mof/dmtf
+  # mkdir 2.18.1
+  # cd 2.18.1
+  # wget http://www.dmtf.org/standards/cim/cim_schema_v2181/cim_schema_2.18.1-Final-MOFs.zip
+  # unzip cim_schema_2.18.1-Final-MOFs.zip
+  # cd /usr/local/src/wbemservices/bin
+  # sh mofcomp -u fermin -p x -n root/cimv2181 -c phoenix /usr/local/src/wbemservices/mof/dmtf/2.18.1/cimv218.mof
+  (El usuario comprueba que existe en el sistema de ejecución, pero el password que pide
+  es irrelevante. Tarda un rato)
+
+* Resetear el CIMOM a su estado inicial de repositorio. Partir de una situación en la que el
+  CIMOM esté parado.
+
+  # cd /usr/local/src/
+  # cp wbemservices-1.0.2.bin.zip /tmp/
+  # cd /tmp/ && unzip wbemservices-1.0.2.bin.zip
+  # cd /usr/local/src/wbemservices/cimom
+  # rm -f logr/*
+  # mv /tmp/wbemservices/cimom/logr/* logr/
+  # rm -rf /tmp/wbemservices
+
+3. Implementación del cliente
+-----------------------------
+
+Basado en la libreria WBEM Services. Documentación:
+
+  * Tutorial: http://wbemservices.sourceforge.net/WBEMSDKDG_html/toc.html
+  * API (JavaDoc): file:///data/fermin/Ph.D/validation/PFC-David_Davila/api_final/index.html
+
+(También hay una API de lo que llaman la versión 1.0.0 en http://wbemservices.sourceforge.net/javadoc/api/index.html, pero esta API no está alineada
+ni con el wbem.jar, ni con el tutorial, ni con el PFC de David Davila; entiendo que está
+alineada con el source de WBEM Services en el repositorio CVS de SourceForge, pero no lo
+he comprobado).
+
+
+Entorno de desarrollo. En Eclipse 3.4 y 3.3.2 instalando con .tar.gz se ha detectado un problema
+rarísimo (cuelgue al intentar abrir un fichero .java) que paso de investigar e instalo la versión
+que viene con Debian (3.2) con APT (eso sí, usando un JRE que no sea el de Debian, por los
+problemas que da).
+
+La API se encuentra almacenada en wbem.jar (/usr/local/src/wbemservices/wbem.jar), que importamos
+como JAR externo en el proyecto Eclipse.
+
+Parece ser que OpenPegasus es muy estricto en cuanto al formato de las peticiones HTTP de
+CIM-XML y da problemas de encoding. Probando con el CIMOM de WBEM Services estos problemas 
+no se dan. Por tanto, preferimos usar este último.

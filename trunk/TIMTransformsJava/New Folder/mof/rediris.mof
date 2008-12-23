@@ -1,0 +1,3811 @@
+// RedIris testbed scenario, v0.2008_10_15
+// 
+// This file can be mofified/distributed under the terms of 
+// Creative Commons Attribution-Share Alike 2.5 Spain License.
+// See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+//
+// Copyright (C) 2008 Fermin Galan Marquez
+
+// This testbed is inspired in the RedIris network, which is the
+// Spanish NREN (National Reserach and Educational Network)
+// (VNUML model at http://www.dit.upm.es/vnumlwiki/index.php/Example-RedIris)
+
+// the testbed itself (1)
+
+instance of TIM_TestbedScenario as $SCENARIO {
+
+	// key properties
+	CreationClassName = "TIM_TestbedScenario";
+	Name = "rediris";
+
+};
+
+// the nodes (19)
+
+instance of CIM_ComputerSystem as $AST {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "AST";
+
+};
+
+instance of CIM_ComputerSystem as $CAN {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CAN";
+
+};
+
+instance of CIM_ComputerSystem as $PVC {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "PVC";
+
+};
+
+instance of CIM_ComputerSystem as $NAV {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "NAV";
+
+};
+
+instance of CIM_ComputerSystem as $GAL {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "GAL";
+
+};
+
+instance of CIM_ComputerSystem as $CYL {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CYL";
+
+};
+
+instance of CIM_ComputerSystem as $RIO {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "RIO";
+
+};
+
+instance of CIM_ComputerSystem as $ARA {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "ARA";
+
+};
+
+instance of CIM_ComputerSystem as $MAD {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "MAD";
+
+};
+
+instance of CIM_ComputerSystem as $IX {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "IX";
+
+};
+
+instance of CIM_ComputerSystem as $CAT {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CAT";
+
+};
+
+instance of CIM_ComputerSystem as $CLM {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CLM";
+
+};
+
+instance of CIM_ComputerSystem as $VAL {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "VAL";
+
+};
+
+instance of CIM_ComputerSystem as $EXT {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "EXT";
+
+};
+
+instance of CIM_ComputerSystem as $BAL {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "BAL";
+
+};
+
+instance of CIM_ComputerSystem as $AND {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "AND";
+
+};
+
+instance of CIM_ComputerSystem as $MUR {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "MUR";
+
+};
+
+instance of CIM_ComputerSystem as $TEF {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "TEF";
+
+};
+
+instance of CIM_ComputerSystem as $PAL {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "PAL";
+
+};
+
+// node loopback interfaces (19)
+
+instance of CIM_IPProtocolEndpoint as $AST_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ast-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AST";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAN_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "can-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAN";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PVC_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pvc-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NAV_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nav-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NAV";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GAL_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "gal-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CYL_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cyl-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CYL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $RIO_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "rio-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "RIO";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $ARA_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ara-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MAD_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mad-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MAD";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAT_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cat-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CLM_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "clm-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CLM";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $VAL_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "val-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $EXT_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ext-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "EXT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $BAL_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "bal-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "BAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MUR_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mur-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MUR";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TEF_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tef-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TEF";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PAL_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pal-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PAL";
+
+};
+
+// node PPP interfaces (62)
+
+instance of CIM_IPProtocolEndpoint as $AST_GAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ast-gal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AST";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AST_CAN_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ast-can-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AST";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAN_AST_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "can-ast-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAN";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAN_PVC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "can-pvc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAN";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PVC_CAN_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pvc-can-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PVC_GAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pvc-gal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PVC_NAV_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pvc-nav-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PVC_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pvc-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NAV_PVC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nav-pvc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NAV";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NAV_ARA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nav-ara-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NAV";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GAL_AST_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "gal-ast-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GAL_PVC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "gal-pvc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GAL_CYL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "gal-cyl-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GAL_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "gal-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CYL_GAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cyl-gal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CYL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CYL_RIO_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cyl-rio-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CYL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CYL_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cyl-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CYL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $RIO_CYL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "rio-cyl-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "RIO";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $RIO_ARA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "rio-ara-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "RIO";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $ARA_NAV_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ara-nav-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $ARA_RIO_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ara-rio-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $ARA_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ara-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $ARA_CAT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ara-cat-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MAD_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mad-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MAD";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_MAD_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-mad-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_GAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-gal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_CYL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-cyl-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_PVC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-pvc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_ARA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-ara-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_CAT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-cat-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_VAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-val-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_CLM_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-clm-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_AND_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-and-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_EXT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-ext-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IX_TEF_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ix-tef-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAT_ARA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cat-ara-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAT_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cat-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAT_VAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cat-val-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CAT_BAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "cat-bal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CLM_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "clm-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CLM";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CLM_AND_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "clm-and-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CLM";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $VAL_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "val-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $VAL_CAT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "val-cat-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $VAL_BAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "val-bal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $VAL_MUR_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "val-mur-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $VAL_AND_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "val-and-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $EXT_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ext-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "EXT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $EXT_AND_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ext-and-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "EXT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $BAL_CAT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "bal-cat-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "BAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $BAL_VAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "bal-val-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "BAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_EXT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-ext-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_CLM_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-clm-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_VAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-val-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_MUR_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-mur-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $AND_PAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "and-pal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MUR_VAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mur-val-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MUR";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MUR_AND_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mur-and-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MUR";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TEF_IX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tef-ix-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TEF";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TEF_PAL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tef-pal-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TEF";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PAL_TEF_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pal-tef-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PAL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PAL_AND_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pal-and-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PAL";
+
+};
+
+// the IPv4 addresses for the loopback interfaces (19)
+
+instance of CIM_StaticIPAssignmentSettingData as $AST_LO_IP {
+
+	// key properties
+	InstanceID = "ast-lo-ip";
+
+	IPv4Address = "10.0.50.1";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAN_LO_IP {
+
+	// key properties
+	InstanceID = "can-lo-ip";
+
+	IPv4Address = "10.0.50.2";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PVC_LO_IP {
+
+	// key properties
+	InstanceID = "pvc-lo-ip";
+
+	IPv4Address = "10.0.50.3";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NAV_LO_IP {
+
+	// key properties
+	InstanceID = "nav-lo-ip";
+
+	IPv4Address = "10.0.50.4";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GAL_LO_IP {
+
+	// key properties
+	InstanceID = "gal-lo-ip";
+
+	IPv4Address = "10.0.50.5";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CYL_LO_IP {
+
+	// key properties
+	InstanceID = "cyl-lo-ip";
+
+	IPv4Address = "10.0.50.6";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $RIO_LO_IP {
+
+	// key properties
+	InstanceID = "rio-lo-ip";
+
+	IPv4Address = "10.0.50.7";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $ARA_LO_IP {
+
+	// key properties
+	InstanceID = "ara-lo-ip";
+
+	IPv4Address = "10.0.50.8";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MAD_LO_IP {
+
+	// key properties
+	InstanceID = "mad-lo-ip";
+
+	IPv4Address = "10.0.50.9";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_LO_IP {
+
+	// key properties
+	InstanceID = "ix-lo-ip";
+
+	IPv4Address = "10.0.50.10";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAT_LO_IP {
+
+	// key properties
+	InstanceID = "cat-lo-ip";
+
+	IPv4Address = "10.0.50.11";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CLM_LO_IP {
+
+	// key properties
+	InstanceID = "clm-lo-ip";
+
+	IPv4Address = "10.0.50.12";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $VAL_LO_IP {
+
+	// key properties
+	InstanceID = "val-lo-ip";
+
+	IPv4Address = "10.0.50.13";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $EXT_LO_IP {
+
+	// key properties
+	InstanceID = "ext-lo-ip";
+
+	IPv4Address = "10.0.50.14";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $BAL_LO_IP {
+
+	// key properties
+	InstanceID = "bal-lo-ip";
+
+	IPv4Address = "10.0.50.15";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_LO_IP {
+
+	// key properties
+	InstanceID = "and-lo-ip";
+
+	IPv4Address = "10.0.50.16";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MUR_LO_IP {
+
+	// key properties
+	InstanceID = "mur-lo-ip";
+
+	IPv4Address = "10.0.50.17";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TEF_LO_IP {
+
+	// key properties
+	InstanceID = "tef-lo-ip";
+
+	IPv4Address = "10.0.50.18";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PAL_LO_IP {
+
+	// key properties
+	InstanceID = "pal-lo-ip";
+
+	IPv4Address = "10.0.50.19";
+	SubnetMask = "255.255.255.0";
+
+};
+
+// the IPv4 addresses for the PPP interfaces (62) (/30 = 255.255.255.252)
+
+instance of CIM_StaticIPAssignmentSettingData as $AST_GAL_IP {
+
+	// key properties
+	InstanceID = "ast-gal-ip";
+
+	IPv4Address = "10.0.0.1";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AST_CAN_IP {
+
+	// key properties
+	InstanceID = "ast-can-ip";
+
+	IPv4Address = "10.0.0.5";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAN_AST_IP {
+
+	// key properties
+	InstanceID = "can-ast-ip";
+
+	IPv4Address = "10.0.0.6";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAN_PVC_IP {
+
+	// key properties
+	InstanceID = "can-pvc-ip";
+
+	IPv4Address = "10.0.0.9";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PVC_CAN_IP {
+
+	// key properties
+	InstanceID = "pvc-can-ip";
+
+	IPv4Address = "10.0.0.10";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PVC_GAL_IP {
+
+	// key properties
+	InstanceID = "pvc-gal-ip";
+
+	IPv4Address = "10.0.0.13";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PVC_NAV_IP {
+
+	// key properties
+	InstanceID = "pvc-nav-ip";
+
+	IPv4Address = "10.0.0.21";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PVC_IX_IP {
+
+	// key properties
+	InstanceID = "pvc-ix-ip";
+
+	IPv4Address = "10.0.0.17";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NAV_PVC_IP {
+
+	// key properties
+	InstanceID = "nav-pvc-ip";
+
+	IPv4Address = "10.0.0.22";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NAV_ARA_IP {
+
+	// key properties
+	InstanceID = "nav-ara-ip";
+
+	IPv4Address = "10.0.0.25";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GAL_AST_IP {
+
+	// key properties
+	InstanceID = "gal-ast-ip";
+
+	IPv4Address = "10.0.0.2";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GAL_PVC_IP {
+
+	// key properties
+	InstanceID = "gal-pvc-ip";
+
+	IPv4Address = "10.0.0.14";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GAL_CYL_IP {
+
+	// key properties
+	InstanceID = "gal-cyl-ip";
+
+	IPv4Address = "10.0.0.29";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GAL_IX_IP {
+
+	// key properties
+	InstanceID = "gal-ix-ip";
+
+	IPv4Address = "10.0.0.33";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CYL_GAL_IP {
+
+	// key properties
+	InstanceID = "cyl-gal-ip";
+
+	IPv4Address = "10.0.0.30";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CYL_RIO_IP {
+
+	// key properties
+	InstanceID = "cyl-rio-ip";
+
+	IPv4Address = "10.0.0.37";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CYL_IX_IP {
+
+	// key properties
+	InstanceID = "cyl-ix-ip";
+
+	IPv4Address = "10.0.0.41";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $RIO_CYL_IP {
+
+	// key properties
+	InstanceID = "rio-cyl-ip";
+
+	IPv4Address = "10.0.0.38";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $RIO_ARA_IP {
+
+	// key properties
+	InstanceID = "rio-ara-ip";
+
+	IPv4Address = "10.0.0.45";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $ARA_NAV_IP {
+
+	// key properties
+	InstanceID = "ara-nav-ip";
+
+	IPv4Address = "10.0.0.26";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $ARA_RIO_IP {
+
+	// key properties
+	InstanceID = "ara-rio-ip";
+
+	IPv4Address = "10.0.0.46";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $ARA_IX_IP {
+
+	// key properties
+	InstanceID = "ara-ix-ip";
+
+	IPv4Address = "10.0.0.53";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $ARA_CAT_IP {
+
+	// key properties
+	InstanceID = "ara-cat-ip";
+
+	IPv4Address = "10.0.0.49";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MAD_IX_IP {
+
+	// key properties
+	InstanceID = "mad-ix-ip";
+
+	IPv4Address = "10.0.0.57";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_MAD_IP {
+
+	// key properties
+	InstanceID = "ix-mad-ip";
+
+	IPv4Address = "10.0.0.58";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_GAL_IP {
+
+	// key properties
+	InstanceID = "ix-gal-ip";
+
+	IPv4Address = "10.0.0.34";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_CYL_IP {
+
+	// key properties
+	InstanceID = "ix-cyl-ip";
+
+	IPv4Address = "10.0.0.42";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_PVC_IP {
+
+	// key properties
+	InstanceID = "ix-pvc-ip";
+
+	IPv4Address = "10.0.0.18";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_ARA_IP {
+
+	// key properties
+	InstanceID = "ix-ara-ip";
+
+	IPv4Address = "10.0.0.54";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_CAT_IP {
+
+	// key properties
+	InstanceID = "ix-cat-ip";
+
+	IPv4Address = "10.0.0.61";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_VAL_IP {
+
+	// key properties
+	InstanceID = "ix-val-ip";
+
+	IPv4Address = "10.0.0.65";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_CLM_IP {
+
+	// key properties
+	InstanceID = "ix-clm-ip";
+
+	IPv4Address = "10.0.0.69";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_AND_IP {
+
+	// key properties
+	InstanceID = "ix-and-ip";
+
+	IPv4Address = "10.0.0.73";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_EXT_IP {
+
+	// key properties
+	InstanceID = "ix-ext-ip";
+
+	IPv4Address = "10.0.0.77";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IX_TEF_IP {
+
+	// key properties
+	InstanceID = "ix-tef-ip";
+
+	IPv4Address = "10.0.0.81";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAT_ARA_IP {
+
+	// key properties
+	InstanceID = "cat-ara-ip";
+
+	IPv4Address = "10.0.0.50";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAT_IX_IP {
+
+	// key properties
+	InstanceID = "cat-ix-ip";
+
+	IPv4Address = "10.0.0.62";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAT_VAL_IP {
+
+	// key properties
+	InstanceID = "cat-val-ip";
+
+	IPv4Address = "10.0.0.85";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CAT_BAL_IP {
+
+	// key properties
+	InstanceID = "cat-bal-ip";
+
+	IPv4Address = "10.0.0.89";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CLM_IX_IP {
+
+	// key properties
+	InstanceID = "clm-ix-ip";
+
+	IPv4Address = "10.0.0.70";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CLM_AND_IP {
+
+	// key properties
+	InstanceID = "clm-and-ip";
+
+	IPv4Address = "10.0.0.93";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $VAL_IX_IP {
+
+	// key properties
+	InstanceID = "val-ix-ip";
+
+	IPv4Address = "10.0.0.66";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $VAL_CAT_IP {
+
+	// key properties
+	InstanceID = "val-cat-ip";
+
+	IPv4Address = "10.0.0.86";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $VAL_BAL_IP {
+
+	// key properties
+	InstanceID = "val-bal-ip";
+
+	IPv4Address = "10.0.0.97";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $VAL_MUR_IP {
+
+	// key properties
+	InstanceID = "val-mur-ip";
+
+	IPv4Address = "10.0.0.101";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $VAL_AND_IP {
+
+	// key properties
+	InstanceID = "val-and-ip";
+
+	IPv4Address = "10.0.0.105";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $EXT_IX_IP {
+
+	// key properties
+	InstanceID = "ext-ix-ip";
+
+	IPv4Address = "10.0.0.78";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $EXT_AND_IP {
+
+	// key properties
+	InstanceID = "ext-and-ip";
+
+	IPv4Address = "10.0.0.109";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $BAL_CAT_IP {
+
+	// key properties
+	InstanceID = "bal-cat-ip";
+
+	IPv4Address = "10.0.0.90";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $BAL_VAL_IP {
+
+	// key properties
+	InstanceID = "bal-val-ip";
+
+	IPv4Address = "10.0.0.98";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_EXT_IP {
+
+	// key properties
+	InstanceID = "and-ext-ip";
+
+	IPv4Address = "10.0.0.110";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_IX_IP {
+
+	// key properties
+	InstanceID = "and-ix-ip";
+
+	IPv4Address = "10.0.0.74";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_CLM_IP {
+
+	// key properties
+	InstanceID = "and-clm-ip";
+
+	IPv4Address = "10.0.0.94";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_VAL_IP {
+
+	// key properties
+	InstanceID = "and-val-ip";
+
+	IPv4Address = "10.0.0.106";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_MUR_IP {
+
+	// key properties
+	InstanceID = "and-mur-ip";
+
+	IPv4Address = "10.0.0.117";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $AND_PAL_IP {
+
+	// key properties
+	InstanceID = "and-pal-ip";
+
+	IPv4Address = "10.0.0.113";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MUR_VAL_IP {
+
+	// key properties
+	InstanceID = "mur-val-ip";
+
+	IPv4Address = "10.0.0.102";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MUR_AND_IP {
+
+	// key properties
+	InstanceID = "mur-and-ip";
+
+	IPv4Address = "10.0.0.118";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TEF_IX_IP {
+
+	// key properties
+	InstanceID = "tef-ix-ip";
+
+	IPv4Address = "10.0.0.82";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TEF_PAL_IP {
+
+	// key properties
+	InstanceID = "tef-pal-ip";
+
+	IPv4Address = "10.0.0.121";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PAL_TEF_IP {
+
+	// key properties
+	InstanceID = "pal-tef-ip";
+
+	IPv4Address = "10.0.0.122";
+	SubnetMask = "255.255.255.252";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PAL_AND_IP {
+
+	// key properties
+	InstanceID = "pal-and-ip";
+
+	IPv4Address = "10.0.0.114";
+	SubnetMask = "255.255.255.252";
+
+};
+
+// the interconnection networks (31) (MaxConnections = 2 => PPP)
+
+instance of TIM_LinkConnectivityCollection as $AST_GAL_NET {
+
+	// key properties
+	InstanceID = "ast-gal";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AST_CAN_NET {
+
+	// key properties
+	InstanceID = "ast-can";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CAN_PVC_NET {
+
+	// key properties
+	InstanceID = "can-pvc";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $GAL_PVC_NET {
+
+	// key properties
+	InstanceID = "gal-pvc";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $NAV_PVC_NET {
+
+	// key properties
+	InstanceID = "nav-pvc";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IX_PVC_NET {
+
+	// key properties
+	InstanceID = "ix-pvc";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $ARA_NAV_NET {
+
+	// key properties
+	InstanceID = "ara-nav";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CYL_GAL_NET {
+
+	// key properties
+	InstanceID = "cyl-gal";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $GAL_IX_NET {
+
+	// key properties
+	InstanceID = "gal-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CYL_IX_NET {
+
+	// key properties
+	InstanceID = "cyl-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CYL_RIO_NET {
+
+	// key properties
+	InstanceID = "cyl-rio";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $ARA_RIO_NET {
+
+	// key properties
+	InstanceID = "ara-rio";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $ARA_IX_NET {
+
+	// key properties
+	InstanceID = "ara-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $ARA_CAT_NET {
+
+	// key properties
+	InstanceID = "ara-cat";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IX_MAD_NET {
+
+	// key properties
+	InstanceID = "ix-mad";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CAT_IX_NET {
+
+	// key properties
+	InstanceID = "cat-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IX_VAL_NET {
+
+	// key properties
+	InstanceID = "ix-val";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CLM_IX_NET {
+
+	// key properties
+	InstanceID = "clm-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AND_IX_NET {
+
+	// key properties
+	InstanceID = "and-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $EXT_IX_NET {
+
+	// key properties
+	InstanceID = "ext-ix";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IX_TEF_NET {
+
+	// key properties
+	InstanceID = "ix-tef";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CAT_VAL_NET {
+
+	// key properties
+	InstanceID = "cat-val";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $BAL_CAT_NET {
+
+	// key properties
+	InstanceID = "bal-cat";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $MUR_VAL_NET {
+
+	// key properties
+	InstanceID = "mur-val";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AND_VAL_NET {
+
+	// key properties
+	InstanceID = "and-val";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AND_EXT_NET {
+
+	// key properties
+	InstanceID = "and-ext";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $BAL_VAL_NET {
+
+	// key properties
+	InstanceID = "bal-val";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AND_CLM_NET {
+
+	// key properties
+	InstanceID = "and-clm";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AND_MUR_NET {
+
+	// key properties
+	InstanceID = "and-mur";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $AND_PAL_NET {
+
+	// key properties
+	InstanceID = "and-pal";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $PAL_TEF_NET {
+
+	// key properties
+	InstanceID = "tef-pal";
+
+	MaxConnections = 2;
+
+};
+
+// node associations to the testbed (19)
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $AST;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CAN;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $PVC;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $NAV;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $GAL;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CYL;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $RIO;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $ARA;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $MAD;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $IX;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CAT;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CLM;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $VAL;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $EXT;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $BAL;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $AND;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $MUR;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $TEF;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $PAL;
+};
+
+// interfaces associations to networks (62)
+
+instance of TIM_MemberOfLink {
+	Collection = $AST_GAL_NET;
+	Member = $AST_GAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AST_CAN_NET;
+	Member = $AST_CAN_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AST_CAN_NET;
+	Member = $CAN_AST_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CAN_PVC_NET;
+	Member = $CAN_PVC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CAN_PVC_NET;
+	Member = $PVC_CAN_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GAL_PVC_NET;
+	Member = $PVC_GAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NAV_PVC_NET;
+	Member = $PVC_NAV_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_PVC_NET;
+	Member = $PVC_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NAV_PVC_NET;
+	Member = $NAV_PVC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_NAV_NET;
+	Member = $NAV_ARA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AST_GAL_NET;
+	Member = $GAL_AST_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GAL_PVC_NET;
+	Member = $GAL_PVC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CYL_GAL_NET;
+	Member = $GAL_CYL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GAL_IX_NET;
+	Member = $GAL_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CYL_GAL_NET;
+	Member = $CYL_GAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CYL_RIO_NET;
+	Member = $CYL_RIO_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CYL_IX_NET;
+	Member = $CYL_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CYL_RIO_NET;
+	Member = $RIO_CYL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_RIO_NET;
+	Member = $RIO_ARA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_NAV_NET;
+	Member = $ARA_NAV_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_RIO_NET;
+	Member = $ARA_RIO_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_IX_NET;
+	Member = $ARA_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_CAT_NET;
+	Member = $ARA_CAT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_MAD_NET;
+	Member = $MAD_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_MAD_NET;
+	Member = $IX_MAD_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GAL_IX_NET;
+	Member = $IX_GAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CYL_IX_NET;
+	Member = $IX_CYL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_PVC_NET;
+	Member = $IX_PVC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_IX_NET;
+	Member = $IX_ARA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CAT_IX_NET;
+	Member = $IX_CAT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_VAL_NET;
+	Member = $IX_VAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CLM_IX_NET;
+	Member = $IX_CLM_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_IX_NET;
+	Member = $IX_AND_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $EXT_IX_NET;
+	Member = $IX_EXT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_TEF_NET;
+	Member = $IX_TEF_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $ARA_CAT_NET;
+	Member = $CAT_ARA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CAT_IX_NET;
+	Member = $CAT_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CAT_VAL_NET;
+	Member = $CAT_VAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $BAL_CAT_NET;
+	Member = $CAT_BAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CLM_IX_NET;
+	Member = $CLM_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_CLM_NET;
+	Member = $CLM_AND_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_VAL_NET;
+	Member = $VAL_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CAT_VAL_NET;
+	Member = $VAL_CAT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $BAL_VAL_NET;
+	Member = $VAL_BAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MUR_VAL_NET;
+	Member = $VAL_MUR_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_VAL_NET;
+	Member = $VAL_AND_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $EXT_IX_NET;
+	Member = $EXT_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_EXT_NET;
+	Member = $EXT_AND_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $BAL_CAT_NET;
+	Member = $BAL_CAT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $BAL_VAL_NET;
+	Member = $BAL_VAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_EXT_NET;
+	Member = $AND_EXT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_IX_NET;
+	Member = $AND_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_CLM_NET;
+	Member = $AND_CLM_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_VAL_NET;
+	Member = $AND_VAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_MUR_NET;
+	Member = $AND_MUR_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_PAL_NET;
+	Member = $AND_PAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MUR_VAL_NET;
+	Member = $MUR_VAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_MUR_NET;
+	Member = $MUR_AND_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IX_TEF_NET;
+	Member = $TEF_IX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $PAL_TEF_NET;
+	Member = $TEF_PAL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $PAL_TEF_NET;
+	Member = $PAL_TEF_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $AND_PAL_NET;
+	Member = $PAL_AND_IF;
+};
+
+// IPv4 associations to loopback interfaces (19)
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AST_LO;
+	SettingData = $AST_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAN_LO;
+	SettingData = $CAN_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PVC_LO;
+	SettingData = $PVC_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NAV_LO;
+	SettingData = $NAV_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GAL_LO;
+	SettingData = $GAL_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CYL_LO;
+	SettingData = $CYL_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $RIO_LO;
+	SettingData = $RIO_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $ARA_LO;
+	SettingData = $ARA_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MAD_LO;
+	SettingData = $MAD_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_LO;
+	SettingData = $IX_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAT_LO;
+	SettingData = $CAT_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CLM_LO;
+	SettingData = $CLM_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $VAL_LO;
+	SettingData = $VAL_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $EXT_LO;
+	SettingData = $EXT_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $BAL_LO;
+	SettingData = $BAL_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_LO;
+	SettingData = $AND_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MUR_LO;
+	SettingData = $MUR_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TEF_LO;
+	SettingData = $TEF_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PAL_LO;
+	SettingData = $PAL_LO_IP;
+};
+
+// IPv4 associations to PPP interfaces (62)
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AST_GAL_IF;
+	SettingData = $AST_GAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AST_CAN_IF;
+	SettingData = $AST_CAN_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAN_AST_IF;
+	SettingData = $CAN_AST_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAN_PVC_IF;
+	SettingData = $CAN_PVC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PVC_CAN_IF;
+	SettingData = $PVC_CAN_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PVC_GAL_IF;
+	SettingData = $PVC_GAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PVC_NAV_IF;
+	SettingData = $PVC_NAV_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PVC_IX_IF;
+	SettingData = $PVC_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NAV_PVC_IF;
+	SettingData = $NAV_PVC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NAV_ARA_IF;
+	SettingData = $NAV_ARA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GAL_AST_IF;
+	SettingData = $GAL_AST_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GAL_PVC_IF;
+	SettingData = $GAL_PVC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GAL_CYL_IF;
+	SettingData = $GAL_CYL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GAL_IX_IF;
+	SettingData = $GAL_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CYL_GAL_IF;
+	SettingData = $CYL_GAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CYL_RIO_IF;
+	SettingData = $CYL_RIO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CYL_IX_IF;
+	SettingData = $CYL_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $RIO_CYL_IF;
+	SettingData = $RIO_CYL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $RIO_ARA_IF;
+	SettingData = $RIO_ARA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $ARA_NAV_IF;
+	SettingData = $ARA_NAV_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $ARA_RIO_IF;
+	SettingData = $ARA_RIO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $ARA_IX_IF;
+	SettingData = $ARA_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $ARA_CAT_IF;
+	SettingData = $ARA_CAT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MAD_IX_IF;
+	SettingData = $MAD_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_MAD_IF;
+	SettingData = $IX_MAD_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_GAL_IF;
+	SettingData = $IX_GAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_CYL_IF;
+	SettingData = $IX_CYL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_PVC_IF;
+	SettingData = $IX_PVC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_ARA_IF;
+	SettingData = $IX_ARA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_CAT_IF;
+	SettingData = $IX_CAT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_VAL_IF;
+	SettingData = $IX_VAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_CLM_IF;
+	SettingData = $IX_CLM_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_AND_IF;
+	SettingData = $IX_AND_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_EXT_IF;
+	SettingData = $IX_EXT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IX_TEF_IF;
+	SettingData = $IX_TEF_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAT_ARA_IF;
+	SettingData = $CAT_ARA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAT_IX_IF;
+	SettingData = $CAT_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAT_VAL_IF;
+	SettingData = $CAT_VAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CAT_BAL_IF;
+	SettingData = $CAT_BAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CLM_IX_IF;
+	SettingData = $CLM_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CLM_AND_IF;
+	SettingData = $CLM_AND_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $VAL_IX_IF;
+	SettingData = $VAL_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $VAL_CAT_IF;
+	SettingData = $VAL_CAT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $VAL_BAL_IF;
+	SettingData = $VAL_BAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $VAL_MUR_IF;
+	SettingData = $VAL_MUR_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $VAL_AND_IF;
+	SettingData = $VAL_AND_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $EXT_IX_IF;
+	SettingData = $EXT_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $EXT_AND_IF;
+	SettingData = $EXT_AND_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $BAL_CAT_IF;
+	SettingData = $BAL_CAT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $BAL_VAL_IF;
+	SettingData = $BAL_VAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_EXT_IF;
+	SettingData = $AND_EXT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_IX_IF;
+	SettingData = $AND_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_CLM_IF;
+	SettingData = $AND_CLM_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_VAL_IF;
+	SettingData = $AND_VAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_MUR_IF;
+	SettingData = $AND_MUR_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $AND_PAL_IF;
+	SettingData = $AND_PAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MUR_VAL_IF;
+	SettingData = $MUR_VAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MUR_AND_IF;
+	SettingData = $MUR_AND_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TEF_IX_IF;
+	SettingData = $TEF_IX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TEF_PAL_IF;
+	SettingData = $TEF_PAL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PAL_TEF_IF;
+	SettingData = $PAL_TEF_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PAL_AND_IF;
+	SettingData = $PAL_AND_IP;
+};
+
+// loopback interfaces associations to nodes (19)
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AST;
+	Dependent = $AST_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAN;
+	Dependent = $CAN_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PVC;
+	Dependent = $PVC_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NAV;
+	Dependent = $NAV_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GAL;
+	Dependent = $GAL_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CYL;
+	Dependent = $CYL_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $RIO;
+	Dependent = $RIO_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $ARA;
+	Dependent = $ARA_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MAD;
+	Dependent = $MAD_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAT;
+	Dependent = $CAT_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CLM;
+	Dependent = $CLM_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $VAL;
+	Dependent = $VAL_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $EXT;
+	Dependent = $EXT_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $BAL;
+	Dependent = $BAL_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MUR;
+	Dependent = $MUR_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TEF;
+	Dependent = $TEF_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PAL;
+	Dependent = $PAL_LO;
+};
+
+// PPP interfaces associations to nodes (62)
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AST;
+	Dependent = $AST_GAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AST;
+	Dependent = $AST_CAN_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAN;
+	Dependent = $CAN_AST_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAN;
+	Dependent = $CAN_PVC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PVC;
+	Dependent = $PVC_CAN_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PVC;
+	Dependent = $PVC_GAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PVC;
+	Dependent = $PVC_NAV_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PVC;
+	Dependent = $PVC_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NAV;
+	Dependent = $NAV_PVC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NAV;
+	Dependent = $NAV_ARA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GAL;
+	Dependent = $GAL_AST_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GAL;
+	Dependent = $GAL_PVC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GAL;
+	Dependent = $GAL_CYL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GAL;
+	Dependent = $GAL_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CYL;
+	Dependent = $CYL_GAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CYL;
+	Dependent = $CYL_RIO_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CYL;
+	Dependent = $CYL_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $RIO;
+	Dependent = $RIO_CYL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $RIO;
+	Dependent = $RIO_ARA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $ARA;
+	Dependent = $ARA_NAV_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $ARA;
+	Dependent = $ARA_RIO_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $ARA;
+	Dependent = $ARA_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $ARA;
+	Dependent = $ARA_CAT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MAD;
+	Dependent = $MAD_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_MAD_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_GAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_CYL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_PVC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_ARA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_CAT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_VAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_CLM_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_AND_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_EXT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IX;
+	Dependent = $IX_TEF_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAT;
+	Dependent = $CAT_ARA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAT;
+	Dependent = $CAT_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAT;
+	Dependent = $CAT_VAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CAT;
+	Dependent = $CAT_BAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CLM;
+	Dependent = $CLM_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CLM;
+	Dependent = $CLM_AND_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $VAL;
+	Dependent = $VAL_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $VAL;
+	Dependent = $VAL_CAT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $VAL;
+	Dependent = $VAL_BAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $VAL;
+	Dependent = $VAL_MUR_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $VAL;
+	Dependent = $VAL_AND_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $EXT;
+	Dependent = $EXT_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $EXT;
+	Dependent = $EXT_AND_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $BAL;
+	Dependent = $BAL_CAT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $BAL;
+	Dependent = $BAL_VAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_EXT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_CLM_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_VAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_MUR_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $AND;
+	Dependent = $AND_PAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MUR;
+	Dependent = $MUR_VAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MUR;
+	Dependent = $MUR_AND_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TEF;
+	Dependent = $TEF_IX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TEF;
+	Dependent = $TEF_PAL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PAL;
+	Dependent = $PAL_TEF_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PAL;
+	Dependent = $PAL_AND_IF;
+};
+
+// the QoS constrainst for each link (31). This example
+// uses delay, loss and duplication parameters
+
+instance of TIM_TransmissionCharacteristics as $AST_GAL_QOS {
+
+	// key properties
+	InstanceID = "ast-gal-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AST_CAN_QOS {
+
+	// key properties
+	InstanceID = "ast-can-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CAN_PVC_QOS {
+
+	// key properties
+	InstanceID = "can-pvc-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $GAL_PVC_QOS {
+
+	// key properties
+	InstanceID = "gal-pvc-qos";
+
+	DelayMean = 4;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $NAV_PVC_QOS {
+
+	// key properties
+	InstanceID = "nav-pvc-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IX_PVC_QOS {
+
+	// key properties
+	InstanceID = "ix-pvc-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $ARA_NAV_QOS {
+
+	// key properties
+	InstanceID = "ara-nav-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CYL_GAL_QOS {
+
+	// key properties
+	InstanceID = "cyl-gal-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $GAL_IX_QOS {
+
+	// key properties
+	InstanceID = "gal-ix-qos";
+
+	DelayMean = 5;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CYL_IX_QOS {
+
+	// key properties
+	InstanceID = "cyl-ix-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CYL_RIO_QOS {
+
+	// key properties
+	InstanceID = "cyl-rio-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $ARA_RIO_QOS {
+
+	// key properties
+	InstanceID = "ara-rio-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $ARA_IX_QOS {
+
+	// key properties
+	InstanceID = "ara-ix-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $ARA_CAT_QOS {
+
+	// key properties
+	InstanceID = "ara-cat-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IX_MAD_QOS {
+
+	// key properties
+	InstanceID = "ix-mad-qos";
+
+	DelayMean = 1;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CAT_IX_QOS {
+
+	// key properties
+	InstanceID = "cat-ix-qos";
+
+	DelayMean = 4;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IX_VAL_QOS {
+
+	// key properties
+	InstanceID = "ix-val-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CLM_IX_QOS {
+
+	// key properties
+	InstanceID = "clm-ix-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AND_IX_QOS {
+
+	// key properties
+	InstanceID = "and-ix-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $EXT_IX_QOS {
+
+	// key properties
+	InstanceID = "ext-ix-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IX_TEF_QOS {
+
+	// key properties
+	InstanceID = "ix-tef-qos";
+
+	DelayMean = 10;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CAT_VAL_QOS {
+
+	// key properties
+	InstanceID = "cat-val-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $BAL_CAT_QOS {
+
+	// key properties
+	InstanceID = "bal-cat-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $MUR_VAL_QOS {
+
+	// key properties
+	InstanceID = "mur-val-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AND_VAL_QOS {
+
+	// key properties
+	InstanceID = "and-val-qos";
+
+	DelayMean = 4;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AND_EXT_QOS {
+
+	// key properties
+	InstanceID = "and-ext-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $BAL_VAL_QOS {
+
+	// key properties
+	InstanceID = "bal-val-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AND_CLM_QOS {
+
+	// key properties
+	InstanceID = "and-clm-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AND_MUR_QOS {
+
+	// key properties
+	InstanceID = "and-mur-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $AND_PAL_QOS {
+
+	// key properties
+	InstanceID = "and-pal-qos";
+
+	DelayMean = 10;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $TEF_PAL_QOS {
+
+	// key properties
+	InstanceID = "tef-pal-qos";
+
+	DelayMean = 2;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+// QoS constrainst associations to links (31)
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AST_GAL_NET;
+	Dependent = $AST_GAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AST_CAN_NET;
+	Dependent = $AST_CAN_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CAN_PVC_NET;
+	Dependent = $CAN_PVC_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $GAL_PVC_NET;
+	Dependent = $GAL_PVC_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $NAV_PVC_NET;
+	Dependent = $NAV_PVC_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IX_PVC_NET;
+	Dependent = $IX_PVC_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $ARA_NAV_NET;
+	Dependent = $ARA_NAV_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CYL_GAL_NET;
+	Dependent = $CYL_GAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $GAL_IX_NET;
+	Dependent = $GAL_IX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CYL_IX_NET;
+	Dependent = $CYL_IX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CYL_RIO_NET;
+	Dependent = $CYL_RIO_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $ARA_RIO_NET;
+	Dependent = $ARA_RIO_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $ARA_IX_NET;
+	Dependent = $ARA_IX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $ARA_CAT_NET;
+	Dependent = $ARA_CAT_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IX_MAD_NET;
+	Dependent = $IX_MAD_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CAT_IX_NET;
+	Dependent = $CAT_IX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IX_VAL_NET;
+	Dependent = $IX_VAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CLM_IX_NET;
+	Dependent = $CLM_IX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AND_IX_NET;
+	Dependent = $AND_IX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $EXT_IX_NET;
+	Dependent = $EXT_IX_QOS;
+};
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IX_TEF_NET;
+	Dependent = $IX_TEF_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CAT_VAL_NET;
+	Dependent = $CAT_VAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $BAL_CAT_NET;
+	Dependent = $BAL_CAT_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $MUR_VAL_NET;
+	Dependent = $MUR_VAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AND_VAL_NET;
+	Dependent = $AND_VAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AND_EXT_NET;
+	Dependent = $AND_EXT_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $BAL_VAL_NET;
+	Dependent = $BAL_VAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AND_CLM_NET;
+	Dependent = $AND_CLM_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AND_MUR_NET;
+	Dependent = $AND_MUR_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $AND_PAL_NET;
+	Dependent = $AND_PAL_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $PAL_TEF_NET;
+	Dependent = $TEF_PAL_QOS;
+};

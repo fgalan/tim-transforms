@@ -1,0 +1,2870 @@
+// NSFNET testbed scenario, v0.2008_10_15
+// 
+// This file can be mofified/distributed under the terms of 
+// Creative Commons Attribution-Share Alike 2.5 Spain License.
+// See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+//
+// Copyright (C) 2008 Fermin Galan Marquez
+
+// This testbed is inspired in the NSFNET network
+// (VNUML model at http://www.dit.upm.es/vnumlwiki/index.php/Example-NSF-14, 
+// also extensively used in CTTC ADRENALINE testbed)
+
+// the testbed itself (1)
+
+instance of TIM_TestbedScenario as $SCENARIO {
+
+	// key properties
+	CreationClassName = "TIM_TestbedScenario";
+	Name = "nsfnet";
+
+};
+
+// the nodes (14)
+
+instance of CIM_ComputerSystem as $WA {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "WA";
+
+};
+
+instance of CIM_ComputerSystem as $CA1 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CA1";
+
+};
+
+instance of CIM_ComputerSystem as $CA2 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CA2";
+
+};
+
+instance of CIM_ComputerSystem as $UT {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "UT";
+
+};
+
+instance of CIM_ComputerSystem as $CO {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "CO";
+
+};
+
+instance of CIM_ComputerSystem as $NE {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "NE";
+
+};
+
+instance of CIM_ComputerSystem as $IL {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "IL";
+
+};
+
+instance of CIM_ComputerSystem as $MI {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "MI";
+
+};
+
+instance of CIM_ComputerSystem as $PA {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "PA";
+
+};
+
+instance of CIM_ComputerSystem as $NY {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "NY";
+
+};
+
+instance of CIM_ComputerSystem as $NJ {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "NJ";
+
+};
+
+instance of CIM_ComputerSystem as $DC {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "DC";
+
+};
+
+instance of CIM_ComputerSystem as $GA {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "GA";
+
+};
+
+instance of CIM_ComputerSystem as $TX {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "TX";
+
+};
+
+// node loopback interfaces (14)
+  
+instance of CIM_IPProtocolEndpoint as $WA_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "wa-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "WA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA1_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca1-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA1";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA2_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca2-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA2";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UT_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ut-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "UT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CO_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "co-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CO";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NE_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ne-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NE";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IL_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "il-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MI_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mi-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MI";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PA_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pa-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NY_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ny-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NY";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NJ_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nj-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NJ";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $DC_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "dc-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "DC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GA_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ga-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TX_LO {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tx-lo";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TX";
+
+};
+      
+// node PPP interfaces (42)
+
+instance of CIM_IPProtocolEndpoint as $WA_CA1_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "wa-ca1-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "WA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $WA_CA2_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "wa-ca2-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "WA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $WA_IL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "wa-il-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "WA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA1_CA2_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca1-ca2-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA1";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA1_UT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca1-ut-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA1";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA1_WA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca1-wa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA1";
+
+};
+      
+instance of CIM_IPProtocolEndpoint as $CA2_CA1_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca2-ca1-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA2";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA2_WA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca2-wa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA2";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CA2_TX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ca2-tx-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA2";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UT_CA1_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ut-ca1-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "UT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UT_MI_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ut-mi-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "UT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UT_CO_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ut-co-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "UT";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CO_UT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "co-ut-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CO";
+
+};      
+
+instance of CIM_IPProtocolEndpoint as $CO_NE_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "co-ne-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CO";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $CO_TX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "co-tx-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CO";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NE_CO_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ne-co-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NE";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NE_IL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ne-il-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NE";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IL_NE_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "il-ne-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IL_WA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "il-wa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $IL_PA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "il-pa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IL";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MI_UT_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mi-ut-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MI";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MI_NJ_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mi-nj-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MI";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $MI_NY_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "mi-ny-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MI";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PA_IL_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pa-il-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PA_GA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pa-ga-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PA_NY_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pa-ny-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $PA_NJ_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "pa-nj-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NY_MI_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ny-mi-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NY";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NY_PA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ny-pa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NY";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NY_DC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ny-dc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NY";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NJ_MI_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nj-mi-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NJ";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NJ_PA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nj-pa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NJ";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $NJ_DC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "nj-dc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NJ";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $DC_TX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "dc-tx-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "DC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $DC_NY_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "dc-ny-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "DC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $DC_NJ_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "dc-nj-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "DC";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GA_PA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ga-pa-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $GA_TX_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "ga-tx-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GA";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TX_CA2_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tx-ca2-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TX_CO_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tx-co-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TX_DC_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tx-dc-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TX";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $TX_GA_IF {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "tx-ga-if";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TX";
+
+};
+
+// the IPv4 addresses for the loopback interfaces (14)
+
+instance of CIM_StaticIPAssignmentSettingData as $WA_LO_IP {
+
+	// key properties
+	InstanceID = "wa-lo-ip";
+
+	IPv4Address = "10.0.50.1";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA1_LO_IP {
+
+	// key properties
+	InstanceID = "ca1-lo-ip";
+
+	IPv4Address = "10.0.50.2";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA2_LO_IP {
+
+	// key properties
+	InstanceID = "ca2-lo-ip";
+
+	IPv4Address = "10.0.50.3";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UT_LO_IP {
+
+	// key properties
+	InstanceID = "ut-lo-ip";
+
+	IPv4Address = "10.0.50.4";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CO_LO_IP {
+
+	// key properties
+	InstanceID = "co-lo-ip";
+
+	IPv4Address = "10.0.50.5";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NE_LO_IP {
+
+	// key properties
+	InstanceID = "ne-lo-ip";
+
+	IPv4Address = "10.0.50.6";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IL_LO_IP {
+
+	// key properties
+	InstanceID = "il-lo-ip";
+
+	IPv4Address = "10.0.50.7";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MI_LO_IP {
+
+	// key properties
+	InstanceID = "mi-lo-ip";
+
+	IPv4Address = "10.0.50.8";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PA_LO_IP {
+
+	// key properties
+	InstanceID = "pa-lo-ip";
+
+	IPv4Address = "10.0.50.9";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NY_LO_IP {
+
+	// key properties
+	InstanceID = "ny-lo-ip";
+
+	IPv4Address = "10.0.50.10";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NJ_LO_IP {
+
+	// key properties
+	InstanceID = "nj-lo-ip";
+
+	IPv4Address = "10.0.50.11";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $DC_LO_IP {
+
+	// key properties
+	InstanceID = "dc-lo-ip";
+
+	IPv4Address = "10.0.50.12";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GA_LO_IP {
+
+	// key properties
+	InstanceID = "ga-lo-ip";
+
+	IPv4Address = "10.0.50.13";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TX_LO_IP {
+
+	// key properties
+	InstanceID = "tx-lo-ip";
+
+	IPv4Address = "10.0.50.14";
+	SubnetMask = "255.255.255.0";
+
+};
+
+// the IPv4 addresses for the PPP interfaces (42) (/30 = 255.255.255.252)
+
+
+instance of CIM_StaticIPAssignmentSettingData as $WA_CA1_IP {
+
+	// key properties
+	InstanceID = "wa-ca1-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.1";
+	//SubnetMask = "255.255.255.252";
+	
+	// Based on GRE
+	IPv4Address = "10.0.5.21";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $WA_CA2_IP {
+
+	// key properties
+	InstanceID = "wa-ca2-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.5";
+	//SubnetMask = "255.255.255.252";
+	
+	// Based on GRE
+	IPv4Address = "10.0.5.23";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $WA_IL_IP {
+
+	// key properties
+	InstanceID = "wa-il-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.9";
+	//SubnetMask = "255.255.255.252";
+	
+	// Based on GRE
+	IPv4Address = "10.0.5.28";
+	SubnetMask = "255.255.255.0";
+	
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA1_CA2_IP {
+
+	// key properties
+	InstanceID = "ca1-ca2-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.13";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.13";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA1_UT_IP {
+
+	// key properties
+	InstanceID = "ca1-ut-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.17";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.14";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA1_WA_IP {
+
+	// key properties
+	InstanceID = "ca1-wa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.2";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.12";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA2_CA1_IP {
+
+	// key properties
+	InstanceID = "ca2-ca1-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.14";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.31";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA2_WA_IP {
+
+	// key properties
+	InstanceID = "ca2-wa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.6";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.32";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CA2_TX_IP {
+
+	// key properties
+	InstanceID = "ca2-tx-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.21";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.37";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UT_CA1_IP {
+
+	// key properties
+	InstanceID = "ut-ca1-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.18";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.41";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UT_MI_IP {
+
+	// key properties
+	InstanceID = "ut-mi-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.25";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.49";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UT_CO_IP {
+
+	// key properties
+	InstanceID = "ut-co-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.29";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.45";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CO_UT_IP {
+
+	// key properties
+	InstanceID = "co-ut-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.30";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.54";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CO_NE_IP {
+
+	// key properties
+	InstanceID = "co-ne-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.33";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.56";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $CO_TX_IP {
+
+	// key properties
+	InstanceID = "co-tx-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.37";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.57";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NE_CO_IP {
+
+	// key properties
+	InstanceID = "ne-co-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.34";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.65";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NE_IL_IP {
+
+	// key properties
+	InstanceID = "ne-il-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.41";
+	//SubnetMask = "255.255.255.252";
+	
+	// Based on GRE
+	IPv4Address = "10.0.5.68";
+	SubnetMask = "255.255.255.0";
+	
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IL_NE_IP {
+
+	// key properties
+	InstanceID = "il-ne-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.42";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.86";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IL_WA_IP {
+
+	// key properties
+	InstanceID = "il-wa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.10";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.82";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $IL_PA_IP {
+
+	// key properties
+	InstanceID = "il-pa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.45";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.102";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MI_UT_IP {
+
+	// key properties
+	InstanceID = "mi-ut-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.26";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.94";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MI_NJ_IP {
+
+	// key properties
+	InstanceID = "mi-nj-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.49";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.135";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $MI_NY_IP {
+
+	// key properties
+	InstanceID = "mi-ny-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.53";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.141";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PA_IL_IP {
+
+	// key properties
+	InstanceID = "pa-il-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.46";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.101";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PA_GA_IP {
+
+	// key properties
+	InstanceID = "pa-ga-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.57";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.114";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PA_NY_IP {
+
+	// key properties
+	InstanceID = "pa-ny-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.61";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.144";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $PA_NJ_IP {
+
+	// key properties
+	InstanceID = "pa-nj-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.65";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.132";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NY_MI_IP {
+
+	// key properties
+	InstanceID = "ny-mi-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.54";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.142";
+	SubnetMask = "255.255.255.0";
+
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NY_PA_IP {
+
+	// key properties
+	InstanceID = "ny-pa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.62";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.143";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NY_DC_IP {
+
+	// key properties
+	InstanceID = "ny-dc-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.69";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.145";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NJ_MI_IP {
+
+	// key properties
+	InstanceID = "nj-mi-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.50";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.136";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NJ_PA_IP {
+
+	// key properties
+	InstanceID = "nj-pa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.66";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.131";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $NJ_DC_IP {
+
+	// key properties
+	InstanceID = "nj-dc-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.73";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.133";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $DC_TX_IP {
+
+	// key properties
+	InstanceID = "dc-tx-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.77";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.121";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $DC_NY_IP {
+
+	// key properties
+	InstanceID = "dc-ny-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.70";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.146";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $DC_NJ_IP {
+
+	// key properties
+	InstanceID = "dc-nj-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.74";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.134";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GA_PA_IP {
+
+	// key properties
+	InstanceID = "ga-pa-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.58";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.113";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $GA_TX_IP {
+
+	// key properties
+	InstanceID = "ga-tx-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.81";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.111";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TX_CA2_IP {
+
+	// key properties
+	InstanceID = "tx-ca2-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.22";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.73";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TX_CO_IP {
+
+	// key properties
+	InstanceID = "tx-co-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.38";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.75";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TX_DC_IP {
+
+	// key properties
+	InstanceID = "tx-dc-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.78";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.122";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $TX_GA_IP {
+
+	// key properties
+	InstanceID = "tx-ga-ip";
+
+	// Based on VLAN
+	//IPv4Address = "10.10.0.82";
+	//SubnetMask = "255.255.255.252";
+
+	// Based on GRE
+	IPv4Address = "10.0.5.112";
+	SubnetMask = "255.255.255.0";
+
+};
+
+// the interconnection networks (21) (MaxConnections = 2 => PPP)
+
+instance of TIM_LinkConnectivityCollection as $CA1_WA_NET {
+
+	// key properties
+	InstanceID = "ca1-wa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CA2_WA_NET {
+
+	// key properties
+	InstanceID = "ca2-wa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IL_WA_NET {
+
+	// key properties
+	InstanceID = "il-wa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CA1_CA2_NET {
+
+	// key properties
+	InstanceID = "ca1-ca2";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CA1_UT_NET {
+
+	// key properties
+	InstanceID = "ca1-ut";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CA2_TX_NET {
+
+	// key properties
+	InstanceID = "ca2-tx";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $MI_UT_NET {
+
+	// key properties
+	InstanceID = "mi-ut";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CO_UT_NET {
+
+	// key properties
+	InstanceID = "co-ut";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CO_NE_NET {
+
+	// key properties
+	InstanceID = "co-ne";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $CO_TX_NET {
+
+	// key properties
+	InstanceID = "co-tx";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IL_NE_NET {
+
+	// key properties
+	InstanceID = "il-ne";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $IL_PA_NET {
+
+	// key properties
+	InstanceID = "il-pa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $MI_NJ_NET {
+
+	// key properties
+	InstanceID = "mi-nj";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $MI_NY_NET {
+
+	// key properties
+	InstanceID = "mi-ny";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $GA_PA_NET {
+
+	// key properties
+	InstanceID = "ga-pa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $NY_PA_NET {
+
+	// key properties
+	InstanceID = "ny-pa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $NJ_PA_NET {
+
+	// key properties
+	InstanceID = "nj-pa";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $DC_NY_NET {
+
+	// key properties
+	InstanceID = "dc-ny";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $DC_NJ_NET {
+
+	// key properties
+	InstanceID = "dc-nj";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $DC_TX_NET {
+
+	// key properties
+	InstanceID = "dc-tx";
+
+	MaxConnections = 2;
+
+};
+
+instance of TIM_LinkConnectivityCollection as $GA_TX_NET {
+
+	// key properties
+	InstanceID = "ga-tx";
+
+	MaxConnections = 2;
+
+};
+
+// node associations to the testbed (14)
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $WA;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CA1;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CA2;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $UT;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $CO;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $NE;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $IL;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $MI;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $PA;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $NY;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $NJ;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $DC;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $GA;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $TX;
+};
+
+// interfaces associations to networks (42)
+
+instance of TIM_MemberOfLink {
+	Collection = $CA1_WA_NET;
+	Member = $CA1_WA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA1_WA_NET;
+	Member = $WA_CA1_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA2_WA_NET;
+	Member = $CA2_WA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA2_WA_NET;
+	Member = $WA_CA2_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IL_WA_NET;
+	Member = $IL_WA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IL_WA_NET;
+	Member = $WA_IL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA1_CA2_NET;
+	Member = $CA1_CA2_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA1_CA2_NET;
+	Member = $CA2_CA1_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA1_UT_NET;
+	Member = $CA1_UT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA1_UT_NET;
+	Member = $UT_CA1_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA2_TX_NET;
+	Member = $CA2_TX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CA2_TX_NET;
+	Member = $TX_CA2_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MI_UT_NET;
+	Member = $MI_UT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MI_UT_NET;
+	Member = $UT_MI_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CO_UT_NET;
+	Member = $CO_UT_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CO_UT_NET;
+	Member = $UT_CO_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CO_NE_NET;
+	Member = $CO_NE_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CO_NE_NET;
+	Member = $NE_CO_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CO_TX_NET;
+	Member = $CO_TX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $CO_TX_NET;
+	Member = $TX_CO_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IL_NE_NET;
+	Member = $IL_NE_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IL_NE_NET;
+	Member = $NE_IL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IL_PA_NET;
+	Member = $IL_PA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $IL_PA_NET;
+	Member = $PA_IL_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MI_NJ_NET;
+	Member = $MI_NJ_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MI_NJ_NET;
+	Member = $NJ_MI_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MI_NY_NET;
+	Member = $MI_NY_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $MI_NY_NET;
+	Member = $NY_MI_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GA_PA_NET;
+	Member = $GA_PA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GA_PA_NET;
+	Member = $PA_GA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NY_PA_NET;
+	Member = $NY_PA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NY_PA_NET;
+	Member = $PA_NY_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NJ_PA_NET;
+	Member = $NJ_PA_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NJ_PA_NET;
+	Member = $PA_NJ_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $DC_NY_NET;
+	Member = $DC_NY_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $DC_NY_NET;
+	Member = $NY_DC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $DC_NJ_NET;
+	Member = $DC_NJ_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $DC_NJ_NET;
+	Member = $NJ_DC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $DC_TX_NET;
+	Member = $DC_TX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $DC_TX_NET;
+	Member = $TX_DC_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GA_TX_NET;
+	Member = $GA_TX_IF;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $GA_TX_NET;
+	Member = $TX_GA_IF;
+};
+
+// IPv4 associations to loopback interfaces (14)
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $WA_LO;
+	SettingData = $WA_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA1_LO;
+	SettingData = $CA1_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA2_LO;
+	SettingData = $CA2_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UT_LO;
+	SettingData = $UT_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CO_LO;
+	SettingData = $CO_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NE_LO;
+	SettingData = $NE_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IL_LO;
+	SettingData = $IL_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MI_LO;
+	SettingData = $MI_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PA_LO;
+	SettingData = $PA_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NY_LO;
+	SettingData = $NY_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NJ_LO;
+	SettingData = $NJ_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $DC_LO;
+	SettingData = $DC_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GA_LO;
+	SettingData = $GA_LO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TX_LO;
+	SettingData = $TX_LO_IP;
+};
+
+// IPv4 associations to PPP interfaces (42)
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $WA_CA1_IF;
+	SettingData = $WA_CA1_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $WA_CA2_IF;
+	SettingData = $WA_CA2_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $WA_IL_IF;
+	SettingData = $WA_IL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA1_CA2_IF;
+	SettingData = $CA1_CA2_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA1_UT_IF;
+	SettingData = $CA1_UT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA1_WA_IF;
+	SettingData = $CA1_WA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA2_CA1_IF;
+	SettingData = $CA2_CA1_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA2_WA_IF;
+	SettingData = $CA2_WA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CA2_TX_IF;
+	SettingData = $CA2_TX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UT_CA1_IF;
+	SettingData = $UT_CA1_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UT_MI_IF;
+	SettingData = $UT_MI_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UT_CO_IF;
+	SettingData = $UT_CO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CO_UT_IF;
+	SettingData = $CO_UT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CO_NE_IF;
+	SettingData = $CO_NE_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $CO_TX_IF;
+	SettingData = $CO_TX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NE_CO_IF;
+	SettingData = $NE_CO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NE_IL_IF;
+	SettingData = $NE_IL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IL_NE_IF;
+	SettingData = $IL_NE_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IL_WA_IF;
+	SettingData = $IL_WA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $IL_PA_IF;
+	SettingData = $IL_PA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MI_UT_IF;
+	SettingData = $MI_UT_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MI_NJ_IF;
+	SettingData = $MI_NJ_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $MI_NY_IF;
+	SettingData = $MI_NY_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PA_IL_IF;
+	SettingData = $PA_IL_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PA_GA_IF;
+	SettingData = $PA_GA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PA_NY_IF;
+	SettingData = $PA_NY_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $PA_NJ_IF;
+	SettingData = $PA_NJ_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NY_MI_IF;
+	SettingData = $NY_MI_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NY_PA_IF;
+	SettingData = $NY_PA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NY_DC_IF;
+	SettingData = $NY_DC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NJ_MI_IF;
+	SettingData = $NJ_MI_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NJ_PA_IF;
+	SettingData = $NJ_PA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $NJ_DC_IF;
+	SettingData = $NJ_DC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $DC_TX_IF;
+	SettingData = $DC_TX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $DC_NY_IF;
+	SettingData = $DC_NY_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $DC_NJ_IF;
+	SettingData = $DC_NJ_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GA_PA_IF;
+	SettingData = $GA_PA_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $GA_TX_IF;
+	SettingData = $GA_TX_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TX_CA2_IF;
+	SettingData = $TX_CA2_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TX_CO_IF;
+	SettingData = $TX_CO_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TX_DC_IF;
+	SettingData = $TX_DC_IP;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $TX_GA_IF;
+	SettingData = $TX_GA_IP;
+};
+
+// loopback interfaces associations to nodes (14)
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $WA;
+	Dependent = $WA_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA1;
+	Dependent = $CA1_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA2;
+	Dependent = $CA2_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UT;
+	Dependent = $UT_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CO;
+	Dependent = $CO_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NE;
+	Dependent = $NE_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IL;
+	Dependent = $IL_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MI;
+	Dependent = $MI_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PA;
+	Dependent = $PA_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NY;
+	Dependent = $NY_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NJ;
+	Dependent = $NJ_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $DC;
+	Dependent = $DC_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GA;
+	Dependent = $GA_LO;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TX;
+	Dependent = $TX_LO;
+};
+
+// PPP interfaces associations to nodes (42)
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $WA;
+	Dependent = $WA_CA1_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $WA;
+	Dependent = $WA_CA2_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $WA;
+	Dependent = $WA_IL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA1;
+	Dependent = $CA1_CA2_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA1;
+	Dependent = $CA1_UT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA1;
+	Dependent = $CA1_WA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA2;
+	Dependent = $CA2_CA1_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA2;
+	Dependent = $CA2_WA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CA2;
+	Dependent = $CA2_TX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UT;
+	Dependent = $UT_CA1_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UT;
+	Dependent = $UT_MI_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UT;
+	Dependent = $UT_CO_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CO;
+	Dependent = $CO_UT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CO;
+	Dependent = $CO_NE_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $CO;
+	Dependent = $CO_TX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NE;
+	Dependent = $NE_CO_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NE;
+	Dependent = $NE_IL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IL;
+	Dependent = $IL_NE_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IL;
+	Dependent = $IL_WA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $IL;
+	Dependent = $IL_PA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MI;
+	Dependent = $MI_UT_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MI;
+	Dependent = $MI_NJ_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $MI;
+	Dependent = $MI_NY_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PA;
+	Dependent = $PA_IL_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PA;
+	Dependent = $PA_GA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PA;
+	Dependent = $PA_NY_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $PA;
+	Dependent = $PA_NJ_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NY;
+	Dependent = $NY_MI_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NY;
+	Dependent = $NY_PA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NY;
+	Dependent = $NY_DC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NJ;
+	Dependent = $NJ_MI_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NJ;
+	Dependent = $NJ_PA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $NJ;
+	Dependent = $NJ_DC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $DC;
+	Dependent = $DC_TX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $DC;
+	Dependent = $DC_NY_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $DC;
+	Dependent = $DC_NJ_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GA;
+	Dependent = $GA_PA_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $GA;
+	Dependent = $GA_TX_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TX;
+	Dependent = $TX_CA2_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TX;
+	Dependent = $TX_CO_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TX;
+	Dependent = $TX_DC_IF;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $TX;
+	Dependent = $TX_GA_IF;
+};
+
+// the QoS constrainst for each link (21). This example
+// uses delay, loss and duplication parameters
+
+instance of TIM_TransmissionCharacteristics as $CA1_WA_QOS {
+
+	// key properties
+	InstanceID = "ca1-wa-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CA2_WA_QOS {
+
+	// key properties
+	InstanceID = "ca2-wa-qos";
+
+	DelayMean = 6;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IL_WA_QOS {
+
+	// key properties
+	InstanceID = "il-wa-qos";
+
+	DelayMean = 15;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CA1_CA2_QOS {
+
+	// key properties
+	InstanceID = "ca1-ca2-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CA1_UT_QOS {
+
+	// key properties
+	InstanceID = "ca1-ut-qos";
+
+	DelayMean = 6;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CA2_TX_QOS {
+
+	// key properties
+	InstanceID = "ca2-tx-qos";
+
+	DelayMean = 7.5;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $MI_UT_QOS {
+
+	// key properties
+	InstanceID = "mi-ut-qos";
+
+	DelayMean = 15;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CO_UT_QOS {
+
+	// key properties
+	InstanceID = "co-ut-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CO_NE_QOS {
+
+	// key properties
+	InstanceID = "co-ne-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $CO_TX_QOS {
+
+	// key properties
+	InstanceID = "co-tx-qos";
+
+	DelayMean = 3.75;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IL_NE_QOS {
+
+	// key properties
+	InstanceID = "il-ne-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $IL_PA_QOS {
+
+	// key properties
+	InstanceID = "il-pa-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $MI_NJ_QOS {
+
+	// key properties
+	InstanceID = "mi-nj-qos";
+
+	DelayMean = 6;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $MI_NY_QOS {
+
+	// key properties
+	InstanceID = "mi-ny-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $GA_PA_QOS {
+
+	// key properties
+	InstanceID = "ga-pa-qos";
+
+	DelayMean = 5.25;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $NY_PA_QOS {
+
+	// key properties
+	InstanceID = "ny-pa-qos";
+
+	DelayMean = 3.75;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $NJ_PA_QOS {
+
+	// key properties
+	InstanceID = "nj-pa-qos";
+
+	DelayMean = 6;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $DC_NY_QOS {
+
+	// key properties
+	InstanceID = "dc-ny-qos";
+
+	DelayMean = 6;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $DC_NJ_QOS {
+
+	// key properties
+	InstanceID = "dc-nj-qos";
+
+	DelayMean = 3;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $DC_TX_QOS {
+
+	// key properties
+	InstanceID = "dc-tx-qos";
+
+	DelayMean = 15;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+
+};
+
+instance of TIM_TransmissionCharacteristics as $GA_TX_QOS {
+
+	// key properties
+	InstanceID = "ga-tx-qos";
+
+	DelayMean = 7.5;
+	LossProbabilityValue = 0.001;
+	DuplicationProbabilityValue = 0.0001;
+};
+
+// QoS constrainst associations to links (21)
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CA1_WA_NET;
+	Dependent = $CA1_WA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CA2_WA_NET;
+	Dependent = $CA2_WA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IL_WA_NET;
+	Dependent = $IL_WA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CA1_CA2_NET;
+	Dependent = $CA1_CA2_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CA1_UT_NET;
+	Dependent = $CA1_UT_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CA2_TX_NET;
+	Dependent = $CA2_TX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $MI_UT_NET;
+	Dependent = $MI_UT_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CO_UT_NET;
+	Dependent = $CO_UT_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CO_NE_NET;
+	Dependent = $CO_NE_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $CO_TX_NET;
+	Dependent = $CO_TX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IL_NE_NET;
+	Dependent = $IL_NE_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $IL_PA_NET;
+	Dependent = $IL_PA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $MI_NJ_NET;
+	Dependent = $MI_NJ_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $MI_NY_NET;
+	Dependent = $MI_NY_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $GA_PA_NET;
+	Dependent = $GA_PA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $NY_PA_NET;
+	Dependent = $NY_PA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $NJ_PA_NET;
+	Dependent = $NJ_PA_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $DC_NY_NET;
+	Dependent = $DC_NY_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $DC_NJ_NET;
+	Dependent = $DC_NJ_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $DC_TX_NET;
+	Dependent = $DC_TX_QOS;
+};
+
+instance of TIM_LinkTransmissionElement {
+	Antecedent = $GA_TX_NET;
+	Dependent = $GA_TX_QOS;
+};
