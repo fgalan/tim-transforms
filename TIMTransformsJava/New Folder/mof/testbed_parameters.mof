@@ -1,0 +1,44 @@
+// VNUML and ADRENALINE testbed context MOF specification, v0.2008_10_15
+//
+// This file can be mofified/distributed under the terms of 
+// Creative Commons Attribution-Share Alike 2.5 Spain License.
+// See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+// 
+// Copyright (C) 2008 Fermin Galan Marquez
+
+// This file describes two extensions of CIM_SettingData (one for VNUML-based
+// testbeds and other for ADRENALINE) to define the testbed parameters that
+// the transformators would need. They are used when initializeFromCIMOM=true
+
+[Version("2.18.1"),
+ Description(
+    "CTM_VNUMLTestbedParameters define testbed context for VNUML-based testbeds." )]
+class CTM_VNUMLTestbedParameters : CIM_SettingData {
+	string specVersion;
+	string defaultExecMode;
+	string defaultFilesystemType;
+	string defaultFilesystem;
+	string defaultKernel;
+	string defaultConsole;
+};
+
+[Version("2.18.1"),
+ Description(
+    "CTM_AdrenalineTestbedParameters define testbed parameters for the ADRENALINE testbed." )]
+class CTM_AdrenalineTestbedParameters : CIM_SettingData {
+
+	string zebraBin;
+	string ospfdBin;
+	string lrmBin;
+	string rsvpdBin;
+	string rtapBin;
+	string snmpdBin;
+	string olrmBin;
+	string cpbwmBin;
+	
+	string baseMgtAddress;
+	string baseConnectAddress;
+	uint16 baseVlan;
+	string vlanDev;
+};
+

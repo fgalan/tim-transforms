@@ -1,0 +1,205 @@
+// Testbed Independent Model (TIM) MOF specification, v0.2008_10_15
+//
+// This file can be mofified/distributed under the terms of 
+// Creative Commons Attribution-Share Alike 2.5 Spain License.
+// See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+// 
+// Copyright (C) 2008 Fermin Galan Marquez
+
+// This is the Testbed Indepenent Model (TIM) specification
+
+// conventional classes
+
+[Version("2.18.1"),
+ Description(
+    "TIM_TestbedScenario models the scenario itself, as a specialization of CIM_Network." )]
+class TIM_TestbedScenario : CIM_Network {
+    // No new information is yet required 
+};
+
+[Version("2.18.1"),
+ Description(
+    "TIM_LinkConnectivityCollection models the scenario links (i.e. node"
+    "interconnections)." )]
+class TIM_LinkConnectivityCollection : CIM_ConnectivityCollection {
+
+    [Description(
+        "The max number of connection allowed in the TIM_LinkConnectivityCollection. "
+        "For example, MaxConnections=2 implies a point-to-point connection." )]
+    uint16 MaxConnections;
+
+};
+
+[Version("2.18.1"),
+ Description(
+    "TIM_TransmissionCharacteristics objects encapsulate a"
+    "set of QoS constraints (delay, loss probability, etc.) for a pair of"
+    "interfaces belonging to the link (specified through the"
+    "TIM_LinkOrigin and TIM_LinkDestination)."
+    "The TIM_TransmissionCharacteristics as described in D1.6 was modeled"
+    "as a subclass of CIM_LogicalElement. However, it has been found that"
+    "several properties in CIM_LogialElement has no sense for "
+    "TIM_TransmissionCharacteristics (such as InstallDate, HealthState, etc.),"
+    "so it has been finally subclassed from CIM_SettingData, which seems to"
+    "be the most proper choice." )]
+class TIM_TransmissionCharacteristics : CIM_SettingData {
+
+    [Description("The mean transmission delay."),
+     Units ( "MilliSeconds" )]
+    uint64 DelayMean;
+
+    [Description("The transmission delay deviation.")]
+    real32 DelayDeviation;
+
+    [Description("The transmissiond delay distribution function (normal, uniform, etc.)." ),
+     ValueMap {"0","1","2"},
+     Values {"Normal","Uniform","Pareto"}]
+    uint16 DelayDistributionFunction;
+
+    [Description("The package loss probability value (0..1)." )]
+    real32 LossProbabilityValue;
+
+    [Description("The package loss probability correlation." )]
+    real32 LossProbabilityCorrelation;
+
+    [Description("The package corruption probability (0..1)." )]
+    real32 CorruptionProbabilityValue;
+
+    [Description("The package corruption probability correlation." )]
+    real32 CorruptionProbabilityCorrelation;
+
+    [Description("The package duplication probability value (0..1)." )]
+    real32 DuplicationProbabilityValue;
+
+    [Description("The package duplication probability correlation." )]
+    real32 DuplicationProbabilityCorrelation;
+
+    [Description("The package disordering probability value (0..1)." )]
+    real32 DisorderingProbabilityValue;
+
+    [Description("The package disordering probability correlation." )]
+    real32 DisorderingProbabilityCorrelation;
+
+    [Description("The link throughput." ),
+     Units ( "bps" )]
+    uint64 Throughput;
+ 
+    [Description("The maximum tranfer unit (MTU) in the link." ),
+     Units ( "bytes" )]
+    uint64 MTU;
+
+};
+
+[Version("2.18.1"),
+ Description(
+    "TIM_NextHopAddressIPRoute models static routes in scenario"
+    "nodes (CIM_ComputerSystem objects actually). It is needed because"
+    "of the existing CIM_NextHopIpRoute from it derives does not allow a"
+    "direct specification of the route destination (it uses the"
+    "CIM_AssociatedNextHop, which is not appropriated in some"
+    "situations) so the NextHopAddress field needs to be"
+    "introduced." )]
+class TIM_NextHopAddressedIPRoute : CIM_NextHopIPRoute {
+
+    [Description("A IP value, specifying the next hop in the route.)" )]
+    string NextHopAddress;
+
+};
+
+[Version("2.18.1"),
+ Description( 
+    "TIM_StaticIPv6AssignemntSettingData objects model network interface"
+    "IPv6 addresses. It is needed due to the existing CIM_StaticIPAssignmentSettingData"
+    "only considers IPv4 addresses." )]
+class TIM_StaticIPv6AssignmentSettingData : CIM_IPAssignmentSettingData {
+
+    [Description ("The IPv6 address that will be assigned to the ProtocolEndpoint.")]
+    string IPv6Address;
+
+    [Description ("The prefix lenght for the IPv6 address of this ProtocolEndpoint.")]
+    uint8 PrefixLength;
+
+    [Description ("The IP v4 address of the default gateway.")]
+    string GatewayIPv6Address;
+
+};
+
+// association classes
+
+// WARNING: some implementations of MOF compilers (at least the mofcomp that comes
+// with WBEM Services) doesn't work if 'Association' qualifier is put the very first
+// (before 'Version').
+
+[Association, Version("2.18.1"),
+ Description(
+    "TIM_LinkTransmissionElement associate TIM_TransmissionCharacteristics"
+    "objects to TIM_LinkConnectivityCollection." )]
+class TIM_LinkTransmissionElement : CIM_HostedDependency {
+
+    [Description("The LinkConnectivityCollection modeling the link." ),
+     Override ("Antecedent"),
+     Max(1),
+     Min(1)]
+    TIM_LinkConnectivityCollection REF Antecedent;
+
+    [Description("The TransmissionCharacteristic associated to the link."),
+     Override ("Dependent"),
+     Weak]
+    TIM_TransmissionCharacteristics REF Dependent;
+
+};
+
+[Association, Version("2.18.1"),
+ Description(
+    "TIM_MemberOfLink associate a TIM_LinkConnectivityConnection to"
+    "the CIM_IPProtocolEndPoints belonging to it." )]
+class TIM_MemberOfLink : CIM_MemberOfCollection {
+
+    [Description("The LinkConnectivityCollection modeling the link." ),
+     Override ("Collection")]
+    TIM_LinkConnectivityCollection REF Collection;
+
+    [Description("The IPProtocolEndPoint member of the link."),
+     Override ("Member")]
+    CIM_IPProtocolEndPoint REF Member;
+};
+
+[Association, Version("2.18.1"),
+ Description(
+    "TIM_LinkOrigin associates the origin CIM_IPProtocolEndPoint to"
+    "the TIM_TransmissionCharacteristic object.")]
+class TIM_LinkOrigin : CIM_Dependency {
+
+    [Description("The link origin IPProtocolEndPoint." ),
+     Override ("Antecedent"),
+     Max(1),
+     Min(1)]
+    CIM_IPProtocolEndPoint REF Antecedent;
+
+    [Description("The TransmissionCharacteristic."),
+     Override ("Dependent"),
+     Min(0),
+     Max(1)]
+    TIM_TransmissionCharacteristics REF Dependent;
+
+};
+
+[Association, Version("2.18.1"),
+ Description(
+    "TIM_LinkDestination associates the destination CIM_IPProtocolEndPoint to"
+    "the TIM_TransmissionCharacteristic object.")]
+class TIM_LinkDestination : CIM_Dependency {
+    [Description("The link destination IPProtocolEndPoint." ),
+     Override ("Antecedent"),
+     Max(1),
+     Min(1)]
+    CIM_IPProtocolEndPoint REF Antecedent;
+
+    [Description("The TransmissionCharacteristic."),
+     Override ("Dependent"),
+     Min(0),
+     Max(1)]
+    TIM_TransmissionCharacteristics REF Dependent;
+
+};
+

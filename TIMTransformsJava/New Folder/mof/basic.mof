@@ -1,0 +1,716 @@
+// Basic testbed scenario, v0.2008_10_15
+// 
+// This file can be mofified/distributed under the terms of 
+// Creative Commons Attribution-Share Alike 2.5 Spain License.
+// See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+//
+// Copyright (C) 2008 Fermin Galan Marquez
+
+// This testbed is inspired in the clasical VNUML tutorial example
+// (http://www.dit.upm.es/vnumlwiki/index.php/Example-basic)
+
+// the testbed itself (1)
+
+instance of TIM_TestbedScenario as $SCENARIO {
+
+	// key properties
+	CreationClassName = "TIM_TestbedScenario";
+	Name = "basic";
+
+};
+
+// the nodes (5)
+
+instance of CIM_ComputerSystem as $UML1 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "uml1";
+
+};
+
+instance of CIM_ComputerSystem as $UML2 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "uml2";
+
+};
+
+instance of CIM_ComputerSystem as $UML3 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "uml3";
+
+};
+
+instance of CIM_ComputerSystem as $UML4 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "uml4";
+
+};
+
+instance of CIM_ComputerSystem as $UML5 {
+
+	// key properties
+	CreationClassName = "CIM_ComputerSystem";
+	Name = "uml5";
+
+};
+
+// the node interfaces (7)
+
+instance of CIM_IPProtocolEndpoint as $UML1_IF1 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml1-if1";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml1";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UML2_IF1 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml2-if1";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml2";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UML3_IF1 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml3-if1";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml3";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UML3_IF2 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml3-if2";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml3";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UML4_IF1 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml4-if1";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml4";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UML4_IF2 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml4-if2";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml4";
+
+};
+
+instance of CIM_IPProtocolEndpoint as $UML5_IF1 {
+
+	// key properties
+	CreationClassName = "CIM_IPProtocolEndpoint";
+	Name = "uml5-if1";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml5";
+
+};
+
+// the IPv4 addresses for the interfaces (7)
+
+instance of CIM_StaticIPAssignmentSettingData as $UML1_IPV4_1 {
+
+	// key properties
+	InstanceID = "uml1-ip1";
+
+	IPv4Address = "10.0.0.1";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UML2_IPV4_1 {
+
+	// key properties
+	InstanceID = "uml2-ip1";
+
+	IPv4Address = "10.0.0.2";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UML3_IPV4_1 {
+
+	// key properties
+	InstanceID = "uml3-ip1";
+
+	IPv4Address = "10.0.0.3";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UML3_IPV4_2 {
+
+	// key properties
+	InstanceID = "uml3-ip2";
+
+	IPv4Address = "10.0.1.1";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UML4_IPV4_1 {
+
+	// key properties
+	InstanceID = "uml4-ip1";
+
+	IPv4Address = "10.0.1.2";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UML4_IPV4_2 {
+
+	// key properties
+	InstanceID = "uml4-ip2";
+
+	IPv4Address = "10.0.2.1";
+	SubnetMask = "255.255.255.0";
+
+};
+
+instance of CIM_StaticIPAssignmentSettingData as $UML5_IPV4_1 {
+
+	// key properties
+	InstanceID = "uml5-ip1";
+
+	IPv4Address = "10.0.2.2";
+	SubnetMask = "255.255.255.0";
+
+};
+
+// the IPv6 addresses for the interfaces (7)
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML1_IPV6_1 {
+
+	// key properties
+	InstanceID = "uml1-ip1";
+
+	IPv6Address = "2001:db8:0::1";
+	PrefixLength = 64;
+
+};
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML2_IPV6_1 {
+
+	// key properties
+	InstanceID = "uml2-ip1";
+
+	IPv6Address = "2001:db8:0::2";
+	PrefixLength = 64;
+	
+};
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML3_IPV6_1 {
+
+	// key properties
+	InstanceID = "uml3-ip1";
+
+	IPv6Address = "2001:db8:0::3";
+	PrefixLength = 64;
+
+};
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML3_IPV6_2 {
+
+	// key properties
+	InstanceID = "uml3-ip2";
+
+	IPv6Address = "2001:db8:1::1";
+	PrefixLength = 64;
+
+};
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML4_IPV6_1 {
+
+	// key properties
+	InstanceID = "uml4-ip1";
+
+	IPv6Address = "2001:db8:1::2";
+	PrefixLength = 64;
+
+};
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML4_IPV6_2 {
+
+	// key properties
+	InstanceID = "uml4-ip2";
+
+	IPv6Address = "2001:db8:2::1";
+	PrefixLength = 64;
+
+};
+
+instance of TIM_StaticIPv6AssignmentSettingData as $UML5_IPV6_1 {
+
+	// key properties
+	InstanceID = "uml5-ip1";
+
+	IPv6Address = "2001:db8:2::2";
+	PrefixLength = 64;
+
+};
+
+// the interconnection networks (3)
+
+instance of TIM_LinkConnectivityCollection as $NET0 {
+
+	// key properties
+	InstanceID = "net0";
+
+};
+
+instance of TIM_LinkConnectivityCollection as $NET1 {
+
+	// key properties
+	InstanceID = "net1";
+
+};
+
+instance of TIM_LinkConnectivityCollection as $NET2 {
+
+	// key properties
+	InstanceID = "net2";
+
+};
+
+// node associations to the testbed (5)
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $UML1;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $UML2;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $UML3;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $UML4;
+};
+
+instance of CIM_SystemComponent {
+	GroupComponent = $SCENARIO;
+	PartComponent = $UML5;
+};
+
+// interfaces associations to networks (7)
+
+instance of TIM_MemberOfLink {
+	Collection = $NET0;
+	Member = $UML1_IF1;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NET0;
+	Member = $UML2_IF1;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NET0;
+	Member = $UML3_IF1;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NET1;
+	Member = $UML3_IF2;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NET1;
+	Member = $UML4_IF1;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NET2;
+	Member = $UML4_IF2;
+};
+
+instance of TIM_MemberOfLink {
+	Collection = $NET2;
+	Member = $UML5_IF1;
+};
+
+// IPv4 associations to interfaces (7)
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML1_IF1;
+	SettingData = $UML1_IPV4_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML2_IF1;
+	SettingData = $UML2_IPV4_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML3_IF1;
+	SettingData = $UML3_IPV4_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML3_IF2;
+	SettingData = $UML3_IPV4_2;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML4_IF1;
+	SettingData = $UML4_IPV4_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML4_IF2;
+	SettingData = $UML4_IPV4_2;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML5_IF1;
+	SettingData = $UML5_IPV4_1;
+};
+
+// IPv6 associations to interfaces (7)
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML1_IF1;
+	SettingData = $UML1_IPV6_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML2_IF1;
+	SettingData = $UML2_IPV6_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML3_IF1;
+	SettingData = $UML3_IPV6_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML3_IF2;
+	SettingData = $UML3_IPV6_2;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML4_IF1;
+	SettingData = $UML4_IPV6_1;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML4_IF2;
+	SettingData = $UML4_IPV6_2;
+};
+
+instance of CIM_ElementSettingData {
+	ManagedElement = $UML5_IF1;
+	SettingData = $UML5_IPV6_1;
+};
+
+// interfaces associations to nodes (7)
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML1;
+	Dependent = $UML1_IF1;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML2;
+	Dependent = $UML2_IF1;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML3;
+	Dependent = $UML3_IF1;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML3;
+	Dependent = $UML3_IF2;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML4;
+	Dependent = $UML4_IF1;
+
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML4;
+	Dependent = $UML4_IF2;
+};
+
+instance of CIM_HostedAccessPoint {
+	Antecedent = $UML5;
+	Dependent = $UML5_IF1;
+};
+
+// IPv4 routes definition (AddressType = 1) (5)
+
+instance of TIM_NextHopAddressedIPRoute as $UML1_IPV4_RT1 {
+
+	// key properties
+	InstanceID = "uml1-ipv4-rt1";
+
+	AddressType = 1;
+	DestinationAddress = "0.0.0.0";
+	DestinationMask = "0.0.0.0";
+	NextHopAddress = "10.0.0.3";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML2_IPV4_RT1 {
+
+	// key properties
+	InstanceID = "uml2-ipv4-rt1";
+
+	AddressType = 1;
+	DestinationAddress = "0.0.0.0";
+	DestinationMask = "0.0.0.0";
+	NextHopAddress = "10.0.0.3";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML3_IPV4_RT1 {
+
+	// key properties
+	InstanceID = "uml3-ipv4-rt1";
+
+	AddressType = 1;
+	DestinationAddress = "10.0.2.0";
+	DestinationMask = "255.255.255.0";
+	NextHopAddress = "10.0.1.2";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML4_IPV4_RT1 {
+
+	// key properties
+	InstanceID = "uml4-ipv4-rt1";
+
+	AddressType = 1;
+	DestinationAddress = "0.0.0.0";
+	DestinationMask = "0.0.0.0";
+	NextHopAddress = "10.0.1.1";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML5_IPV4_RT1 {
+
+	// key properties
+	InstanceID = "uml5-ipv4-rt1";
+
+	AddressType = 1;
+	DestinationAddress = "0.0.0.0";
+	DestinationMask = "0.0.0.0";
+	NextHopAddress = "10.0.2.1";
+	
+};
+
+// IPv6 routes definition (AddressType = 2) (5)
+
+instance of TIM_NextHopAddressedIPRoute as $UML1_IPV6_RT1 {
+
+	// key properties
+	InstanceID = "uml1-ipv6-rt1";
+
+	AddressType = 2;
+	DestinationAddress = "2000::";
+	PrefixLength = "3";
+	NextHopAddress = "2001:db8:0::3";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML2_IPV6_RT1 {
+
+	// key properties
+	InstanceID = "uml2-ipv6-rt1";
+
+	AddressType = 2;
+	DestinationAddress = "2000::";
+	PrefixLength = "3";
+	NextHopAddress = "2001:db8:0::3";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML3_IPV6_RT1 {
+
+	// key properties
+	InstanceID = "uml3-ipv6-rt1";
+
+	AddressType = 2;
+	DestinationAddress = "2001:db8:2::";
+	PrefixLength = "64";
+	NextHopAddress = "2001:db8:1::2";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML4_IPV6_RT1 {
+
+	// key properties
+	InstanceID = "uml4-ipv6-rt1";
+
+	AddressType = 2;
+	DestinationAddress = "2000::";
+	PrefixLength = "3";
+	NextHopAddress = "2001:db8:1::1";
+	
+};
+
+instance of TIM_NextHopAddressedIPRoute as $UML5_IPV6_RT1 {
+
+	// key properties
+	InstanceID = "uml5-ipv6-rt1";
+
+	AddressType = 2;
+	DestinationAddress = "2000::";
+	PrefixLength = "3";
+	NextHopAddress = "2001:db8:2::1";
+	
+};
+
+// IPv4 routes associations to hosts (5)
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML1;
+	Dependent = $UML1_IPV4_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML2;
+	Dependent = $UML2_IPV4_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML3;
+	Dependent = $UML3_IPV4_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML4;
+	Dependent = $UML4_IPV4_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML5;
+	Dependent = $UML5_IPV4_RT1;
+};
+
+// IPv6 routes associations to hosts (5)
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML1;
+	Dependent = $UML1_IPV6_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML2;
+	Dependent = $UML2_IPV6_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML3;
+	Dependent = $UML3_IPV6_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML4;
+	Dependent = $UML4_IPV6_RT1;
+};
+
+instance of CIM_HostedRoute {
+	Antecedent = $UML5;
+	Dependent = $UML5_IPV6_RT1;
+};
+
+// Forwaring services (2)
+// ProtoclType = 2 (IPv4), 3 (IPv6), 4 (IPv4/IPv6)
+
+instance of CIM_ForwardingService as $UML3_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "uml3-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml3";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $UML4_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "uml4-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "uml4";
+
+	ProtocolType = 4;
+
+};
+
+// ForwardingServices associations to hosts (2)
+
+instance of CIM_HostedService {
+	Antecedent = $UML3;
+	Dependent = $UML3_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $UML4;
+	Dependent = $UML4_FW;
+};
+
+// ForwardingServices associations to interfaces (4)
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UML3_IF1;
+	Dependent = $UML3_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UML3_IF2;
+	Dependent = $UML3_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UML4_IF1;
+	Dependent = $UML4_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UML4_IF2;
+	Dependent = $UML4_FW;
+};
