@@ -132,7 +132,10 @@ rule Vm {
 	to
 		vm: XML!Element (
 			name <- 'vm',
-			children <- vm_attName
+			children <- Sequence{vm_attName,
+					TIMSmall!CIM_IPProtocolEndpoint.allInstances()->collect (e | thisModule.resolveTemp(e,'intf')),
+					TIMSmall!TIM_NextHopAddressedIPRoute.allInstances()->collect (e | thisModule.resolveTemp(e,'route')),
+					TIMSmall!CIM_ForwardingService.allInstances()->collect (e | thisModule.resolveTemp(e,'forwarding')) }
 		),
 		vm_attName: XML!Attribute (
 			name <- 'name',
@@ -145,7 +148,19 @@ rule Intf {
 		i: TIMSmall!CIM_IPProtocolEndpoint
 	to
 		intf: XML!Element (
-			name <- 'if'
+			name <- 'if',
+			children <- Sequence{intf_attId, intf_attNet,
+					TIMSmall!CIM_StaticIPAssignmentSettingData.allInstances()->collect (e | thisModule.resolveTemp(e,'ipv4')),
+					TIMSmall!TIM_StaticIPv6AssignmentSettingData.allInstances()->collect (e | thisModule.resolveTemp(e,'ipv6')) }
+
+		),
+		intf_attId: XML!Attribute (
+			name <- 'id',
+			value <- 'TODO'
+		),
+		intf_attNet: XML!Attribute (
+			name <- 'net',
+			value <- 'TODO'
 		)
 }
 
@@ -210,4 +225,28 @@ rule Route {
 					  	i.DestinationAddress + '/' + i.PrefixLength
 					  endif)
 		)
+}
+
+rule Forwarding {
+	from
+		i: TIMSmall!CIM_ForwardingService 
+	to
+		forwarding: XML!Element (
+			name <- 'forwarding',
+			children <- forwarding_attType
+		),
+		forwarding_attType: XML!Attribute (
+			name <- 'type',
+			value <- (if i.ProtocolType = '2' then
+						'ipv4'
+					  else
+					  	if i.ProtocolType = '3' then
+							'ipv6'
+						else
+							-- i.Protocol = '4'
+							'ip'
+						endif
+				      endif )
+		)
+		
 }
