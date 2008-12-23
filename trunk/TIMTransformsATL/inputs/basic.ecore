@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:TIM="http:///TIM.ecore">
+  <!-- the testbed itself (1) -->
+  <TIM:TIM_TestbedScenario Name="basic" xmi:id="basicID"/>
+  
+  <!-- the nodes (5) -->
+  <TIM:CIM_ComputerSystem Name="uml1" xmi:id="uml1ID"/>
+  <TIM:CIM_ComputerSystem Name="uml2" xmi:id="uml2ID"/>
+  <TIM:CIM_ComputerSystem Name="uml3" xmi:id="uml3ID"/>
+  <TIM:CIM_ComputerSystem Name="uml4" xmi:id="uml4ID"/>
+  <TIM:CIM_ComputerSystem Name="uml5" xmi:id="uml5ID"/>
+  
+  <!-- the node interfaces (7) -->
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml1-if1"/>
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml2-if1"/>
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml3-if1"/>
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml3-if2"/>  
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml4-if1"/>
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml4-if2"/>
+  <TIM:CIM_IPProtocolEndpoint xmi:id="uml5-if1"/>
+  
+  <!-- the IPv4 addresses for the interfaces (7) -->
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.0.1" SubnetMask="255.255.255.0" xmi:id="uml1-ip1"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.0.2" SubnetMask="255.255.255.0" xmi:id="uml2-ip1"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.0.3" SubnetMask="255.255.255.0" xmi:id="uml3-ip1"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.1.1" SubnetMask="255.255.255.0" xmi:id="uml3-ip2"/>  
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.1.2" SubnetMask="255.255.255.0" xmi:id="uml4-ip1"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.2.1" SubnetMask="255.255.255.0" xmi:id="uml4-ip2"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.2.2" SubnetMask="255.255.255.0" xmi:id="uml5-ip1"/>
+  
+  <!-- the IPv6 addresses for the interfaces (7) -->
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:0::1" PrefixLength="64" xmi:id="uml1-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:0::2" PrefixLength="64" xmi:id="uml2-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:0::3" PrefixLength="64" xmi:id="uml3-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:1::1" PrefixLength="64" xmi:id="uml3-ip2v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:1::2" PrefixLength="64" xmi:id="uml4-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:2::1" PrefixLength="64" xmi:id="uml4-ip2v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:2::2" PrefixLength="64" xmi:id="uml5-ip1v6"/>
+  
+  <!-- the interconnection networks (3) -->
+  <TIM:TIM_LinkConnectivityCollection InstanceID="net0" xmi:id="net0ID"/>
+  <TIM:TIM_LinkConnectivityCollection InstanceID="net1" xmi:id="net1ID"/>
+  <TIM:TIM_LinkConnectivityCollection InstanceID="net2" xmi:id="net2ID"/>
+  
+  <!-- node associations to the testbed (5) -->  
+  <TIM:CIM_SystemComponent GroupComponent="#basicID" PartComponent="#uml1ID" />
+  <TIM:CIM_SystemComponent GroupComponent="#basicID" PartComponent="#uml2ID" />
+  <TIM:CIM_SystemComponent GroupComponent="#basicID" PartComponent="#uml3ID" />
+  <TIM:CIM_SystemComponent GroupComponent="#basicID" PartComponent="#uml4ID" />
+  <TIM:CIM_SystemComponent GroupComponent="#basicID" PartComponent="#uml5ID" />
+  
+  <!-- nets associations to the testbed (3) -->
+  <TIM:CIM_HostedCollection Antecedent="#basicID" Dependent="#net0ID"/>
+  <TIM:CIM_HostedCollection Antecedent="#basicID" Dependent="#net1ID"/>
+  <TIM:CIM_HostedCollection Antecedent="#basicID" Dependent="#net2ID"/>
+  
+  <!-- interfaces associations to networks (7) -->
+  <TIM:TIM_MemberOfLink Collection="#net0ID" Member="#uml1-if1"/>
+  <TIM:TIM_MemberOfLink Collection="#net0ID" Member="#uml2-if1"/>
+  <TIM:TIM_MemberOfLink Collection="#net0ID" Member="#uml3-if1"/>
+  <TIM:TIM_MemberOfLink Collection="#net1ID" Member="#uml3-if2"/>
+  <TIM:TIM_MemberOfLink Collection="#net1ID" Member="#uml4-if1"/>
+  <TIM:TIM_MemberOfLink Collection="#net2ID" Member="#uml4-if2"/>
+  <TIM:TIM_MemberOfLink Collection="#net2ID" Member="#uml5-if1"/>
+  
+  <!-- IPv4 associations to interfaces (7) -->
+  <TIM:CIM_ElementSettingData ManagedElement="#uml1-if1" SettingData="#uml1-ip1"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml2-if1" SettingData="#uml2-ip1"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml3-if1" SettingData="#uml3-ip1"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml3-if2" SettingData="#uml3-ip2"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml4-if1" SettingData="#uml4-ip1"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml4-if2" SettingData="#uml4-ip2"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml5-if1" SettingData="#uml5-ip1"/>
+  
+  <!-- IPv6 associations to interfaces (7) -->
+  <TIM:CIM_ElementSettingData ManagedElement="#uml1-if1" SettingData="#uml1-ip1v6"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml2-if1" SettingData="#uml2-ip1v6"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml3-if1" SettingData="#uml3-ip1v6"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml3-if2" SettingData="#uml3-ip2v6"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml4-if1" SettingData="#uml4-ip1v6"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml4-if2" SettingData="#uml4-ip2v6"/>
+  <TIM:CIM_ElementSettingData ManagedElement="#uml5-if1" SettingData="#uml5-ip1v6"/>
+  
+  <!-- interfaces associations to nodes (7) -->
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml1ID" Dependent="#uml1-if1"/>
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml2ID" Dependent="#uml2-if1"/>
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml3ID" Dependent="#uml3-if1"/>
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml3ID" Dependent="#uml3-if2"/>
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml4ID" Dependent="#uml4-if1"/>
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml4ID" Dependent="#uml4-if2"/>
+  <TIM:CIM_HostedAccessPoint Antecedent="#uml5ID" Dependent="#uml5-if1"/>
+  
+  <!-- IPv4 routes definition (AddressType = 1) (5) -->
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="1" DestinationAddress="0.0.0.0" DestinationMask="0.0.0.0" NextHopAddress="10.0.0.3" xmi:id="uml1-ipv4-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="1" DestinationAddress="0.0.0.0" DestinationMask="0.0.0.0" NextHopAddress="10.0.0.3" xmi:id="uml2-ipv4-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="1" DestinationAddress="10.0.2.0" DestinationMask="255.255.255.0" NextHopAddress="10.0.1.2" xmi:id="uml3-ipv4-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="1" DestinationAddress="0.0.0.0" DestinationMask="0.0.0.0" NextHopAddress="10.0.1.1" xmi:id="uml4-ipv4-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="1" DestinationAddress="0.0.0.0" DestinationMask="0.0.0.0" NextHopAddress="10.0.2.1" xmi:id="uml5-ipv4-rt1"/>
+  
+  <!-- IPv6 routes definition (AddressType = 2) (5) -->
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="2" DestinationAddress="2000::" PrefixLength="3" NextHopAddress="2001:db8:0::3" xmi:id="uml1-ipv6-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="2" DestinationAddress="2000::" PrefixLength="3" NextHopAddress="2001:db8:0::3" xmi:id="uml2-ipv6-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="2" DestinationAddress="2001:db8:2::" PrefixLength="64" NextHopAddress="2001:db8:1::2" xmi:id="uml3-ipv6-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="2" DestinationAddress="2000::" PrefixLength="3" NextHopAddress="2001:db8:1::1" xmi:id="uml4-ipv6-rt1"/>
+  <TIM:TIM_NextHopAddressedIPRoute AddressType="2" DestinationAddress="2000::" PrefixLength="3" NextHopAddress="2001:db8:2::1" xmi:id="uml5-ipv6-rt1"/>
+  
+  <!-- IPv4 routes associations to hosts (5) -->
+  <TIM:CIM_HostedRoute Antecedent="#uml1ID" Dependent="#uml1-ipv4-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml2ID" Dependent="#uml2-ipv4-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml3ID" Dependent="#uml3-ipv4-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml4ID" Dependent="#uml4-ipv4-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml5ID" Dependent="#uml5-ipv4-rt1"/>
+  
+  <!-- IPv6 routes associations to hosts (5) -->
+  <TIM:CIM_HostedRoute Antecedent="#uml1ID" Dependent="#uml1-ipv6-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml2ID" Dependent="#uml2-ipv6-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml3ID" Dependent="#uml3-ipv6-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml4ID" Dependent="#uml4-ipv6-rt1"/>
+  <TIM:CIM_HostedRoute Antecedent="#uml5ID" Dependent="#uml5-ipv6-rt1"/>
+  
+   <!-- Forwaring services (2) -->
+   <!-- ProtocolType = 2 (IPv4), 3 (IPv6), 4 (IPv4/IPv6) -->
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="uml3-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="uml4-fw"/>
+  
+  <!-- ForwardingServices associations to hosts (2) -->
+  <TIM:CIM_HostedService Antecedent="#uml3ID" Dependent="#uml3-fw"/>
+  <TIM:CIM_HostedService Antecedent="#uml4ID" Dependent="#uml4-fw"/>
+  
+  <!-- ForwardingServices associations to interfaces (4) -->
+  <TIM:CIM_ForwardsAmong Antecedent="#uml3-if1" Dependent="#uml3-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#uml3-if2" Dependent="#uml3-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#uml4-if1" Dependent="#uml4-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#uml4-if2" Dependent="#uml4-fw"/>
+  
+</xmi:XMI>
