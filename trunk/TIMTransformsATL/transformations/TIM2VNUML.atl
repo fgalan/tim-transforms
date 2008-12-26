@@ -18,6 +18,79 @@ helper def: TranslateMask(m : String ) : String =
 	endif
 	;
 
+helper def: vmInterfaces(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
+	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+		if e.Antecedent = vm		
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+
+helper def: vmRoutes(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) =
+	TIMSmall!CIM_HostedRoute.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) = Sequence {} | 
+		if e.Antecedent = vm		
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+
+helper def: vmForwarding(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_ForwardingService) =
+	TIMSmall!CIM_HostedService.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_ForwardingService) = Sequence {} | 
+		if e.Antecedent = vm		
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+	
+helper def: intfIpv4(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
+	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
+	-- TIM metamodel
+	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
+		if e.ManagedElement->first() = intf
+		then
+			if e.SettingData->first().oclIsTypeOf(TIMSmall!CIM_StaticIPAssignmentSettingData)
+			then
+				res->including(e.SettingData->first())
+			else
+				res
+			endif
+		else
+			res
+		endif	
+	);
+
+helper def: intfIpv6(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) =
+	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
+	-- TIM metamodel
+	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) = Sequence {} | 
+		if e.ManagedElement->first() = intf
+		then
+			if e.SettingData->first().oclIsTypeOf(TIMSmall!TIM_StaticIPv6AssignmentSettingData)
+			then
+				res->including(e.SettingData->first())
+			else
+				res
+			endif
+		else
+			res
+		endif	
+	);
+
+helper def: netNameForIntf(intf : TIMSmall!CIM_IPProtocolEndpoint) : String =
+	if TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
+	then
+		TIMSmall!TIM_MemberOfLink.allInstances()->select(e | e.Member->first() = intf)->first().Collection->first().InstanceID
+	else
+		'lo'
+	endif
+	;
+
 rule Root {
 	from 
 		i: TIMSmall!TIM_TestbedScenario
@@ -28,10 +101,9 @@ rule Root {
 		),
 		global: XML!Element (
 			name <- 'global',
-			-- FIXME: currently we are taking all the TIM_LinkConectivityCollection objects, but only the
-			-- ones with a CIM_HostedCollection with the TIM_TestbedScenarios of a maching i.Name
-			-- FIXME: currently we are taking all the CIM_ComputerSystem objects, but only the
-			-- ones with a CIM_SystemComponent with the TIM_TestbedScenarios of a maching i.Name
+			-- We assume that each input model containts exactly one testbed scenario, so we don't need
+			-- to navigate through the CIM_HostedCollection and CIM_SystemComponent associations: we
+			-- just include all the TIM_LinkConnectivityCollection and CIM_ComputerSystem instances
 			children <- Sequence{version, simulationName, automac, vmMgmt, vmDefaults,
 					TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'net')),
 					TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'vm')) }
@@ -133,9 +205,9 @@ rule Vm {
 		vm: XML!Element (
 			name <- 'vm',
 			children <- Sequence{vm_attName,
-					TIMSmall!CIM_IPProtocolEndpoint.allInstances()->collect (e | thisModule.resolveTemp(e,'intf')),
-					TIMSmall!TIM_NextHopAddressedIPRoute.allInstances()->collect (e | thisModule.resolveTemp(e,'route')),
-					TIMSmall!CIM_ForwardingService.allInstances()->collect (e | thisModule.resolveTemp(e,'forwarding')) }
+					thisModule.vmInterfaces(i)->collect (e | thisModule.resolveTemp(e,'intf')),
+					thisModule.vmRoutes(i)->collect (e | thisModule.resolveTemp(e,'route')),
+					thisModule.vmForwarding(i)->collect (e | thisModule.resolveTemp(e,'forwarding')) }
 		),
 		vm_attName: XML!Attribute (
 			name <- 'name',
@@ -150,8 +222,8 @@ rule Intf {
 		intf: XML!Element (
 			name <- 'if',
 			children <- Sequence{intf_attId, intf_attNet,
-					TIMSmall!CIM_StaticIPAssignmentSettingData.allInstances()->collect (e | thisModule.resolveTemp(e,'ipv4')),
-					TIMSmall!TIM_StaticIPv6AssignmentSettingData.allInstances()->collect (e | thisModule.resolveTemp(e,'ipv6')) }
+					thisModule.intfIpv4(i)->collect (e | thisModule.resolveTemp(e,'ipv4')),
+					thisModule.intfIpv6(i)->collect (e | thisModule.resolveTemp(e,'ipv6')) }
 
 		),
 		intf_attId: XML!Attribute (
@@ -160,7 +232,7 @@ rule Intf {
 		),
 		intf_attNet: XML!Attribute (
 			name <- 'net',
-			value <- 'TODO'
+			value <- thisModule.netNameForIntf(i)
 		)
 }
 
@@ -220,8 +292,10 @@ rule Route {
 		),
 		route_Text: XML!TextNode (
 			value <- (if i.AddressType = '1' then 
+					    -- IPv4
 						i.DestinationAddress + '/' + thisModule.TranslateMask(i.DestinationMask)
 					  else
+					    -- IPv6
 					  	i.DestinationAddress + '/' + i.PrefixLength
 					  endif)
 		)
@@ -248,5 +322,4 @@ rule Forwarding {
 						endif
 				      endif )
 		)
-		
 }
