@@ -1,6 +1,9 @@
 module TIM2VNUML; 
 create OUT : XML from IN : TIMSmall;
 
+-- use TIMHelpers;
+
+-- FIXME use a context and put in the TIMHelpers library
 helper def: TranslateMask(m : String ) : String =
 	-- FIXME: only works by the moment for "8-bit dotted"
 	if (m = '255.255.255.0') then
@@ -18,6 +21,7 @@ helper def: TranslateMask(m : String ) : String =
 	endif
 	;
 
+-- FIXME use a context and put in the TIMHelpers library
 helper def: vmInterfaces(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
 	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
 		if e.Antecedent = vm		
@@ -47,7 +51,8 @@ helper def: vmForwarding(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!C
 			res
 		endif
 	);
-	
+
+-- FIXME use a context and put in the TIMHelpers library
 helper def: intfIpv4(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
 	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
 	-- TIM metamodel
@@ -82,10 +87,12 @@ helper def: intfIpv6(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall
 		endif	
 	);
 
+-- FIXME use a context and put in the TIMHelpers library
 helper def: associatedVm (intf : TIMSmall!CIM_IPProtocolEndpoint) : TIMSmall!CIM_ComputerSystem =
 	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = intf)->first().Antecedent
 	;
 
+-- FIXME use a context and put in the TIMHelpers library
 helper def: isLoopback (intf : TIMSmall!CIM_IPProtocolEndpoint) : Boolean =
 	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
 	;
