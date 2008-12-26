@@ -1,4 +1,4 @@
-module TIM2VNUML; -- Module Template
+module TIM2VNUML; 
 create OUT : XML from IN : TIMSmall;
 
 helper def: TranslateMask(m : String ) : String =
@@ -82,8 +82,25 @@ helper def: intfIpv6(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall
 		endif	
 	);
 
+helper def: associatedVm (intf : TIMSmall!CIM_IPProtocolEndpoint) : TIMSmall!CIM_ComputerSystem =
+	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = intf)->first().Antecedent
+	;
+
+helper def: isLoopback (intf : TIMSmall!CIM_IPProtocolEndpoint) : Boolean =
+	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
+	;
+
+helper def: idForIntf(intf: TIMSmall!CIM_IPProtocolEndpoint) : Integer =
+	if not thisModule.isLoopback(intf)
+	then
+		thisModule.vmInterfaces(thisModule.associatedVm(intf))->select(e | not thisModule.isLoopback(e))->indexOf(intf)
+	else
+		thisModule.vmInterfaces(thisModule.associatedVm(intf))->select(e | thisModule.isLoopback(e))->indexOf(intf)
+	endif
+;
+
 helper def: netNameForIntf(intf : TIMSmall!CIM_IPProtocolEndpoint) : String =
-	if TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
+	if not thisModule.isLoopback(intf)
 	then
 		TIMSmall!TIM_MemberOfLink.allInstances()->select(e | e.Member->first() = intf)->first().Collection->first().InstanceID
 	else
@@ -228,7 +245,7 @@ rule Intf {
 		),
 		intf_attId: XML!Attribute (
 			name <- 'id',
-			value <- 'TODO'
+			value <- thisModule.idForIntf(i).toString()
 		),
 		intf_attNet: XML!Attribute (
 			name <- 'net',
