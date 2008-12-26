@@ -1,25 +1,7 @@
 module TIM2VNUML; 
 create OUT : XML from IN : TIMSmall;
 
--- use TIMHelpers;
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: TranslateMask(m : String ) : String =
-	-- FIXME: only works by the moment for "8-bit dotted"
-	if (m = '255.255.255.0') then
-		'24'
-	else
-		if (m = '255.255.0.0') then
-			'16'
-		else
-			if (m = '255.0.0.0') then
-				'8'
-			else
-				'0'
-			endif
-		endif
-	endif
-	;
+uses TIMHelpers;
 
 -- FIXME use a context and put in the TIMHelpers library
 helper def: vmInterfaces(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
@@ -317,7 +299,7 @@ rule Route {
 		route_Text: XML!TextNode (
 			value <- (if i.AddressType = '1' then 
 					    -- IPv4
-						i.DestinationAddress + '/' + thisModule.TranslateMask(i.DestinationMask)
+						i.DestinationAddress + '/' + i.DestinationMask.TranslateMask()
 					  else
 					    -- IPv6
 					  	i.DestinationAddress + '/' + i.PrefixLength
