@@ -7,7 +7,7 @@
     <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
     <eClassifiers xsi:type="ecore:EDataType" name="String"/>
   </ecore:EPackage>
-  <ecore:EPackage name="XML" nsURI="" nsPrefix="">
+  <ecore:EPackage name="XML" nsURI="http:///XML.ecore" nsPrefix="XML">
     <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           lowerBound="1" eType="#/0/String"/>
