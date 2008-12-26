@@ -47,6 +47,8 @@
         eType="#//PrimitiveTypes/Uint64"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Throughput" ordered="false"
         lowerBound="1" eType="#//PrimitiveTypes/Uint64"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" lowerBound="1"
+        eType="#//PrimitiveTypes/String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TIM_NextHopAddressedIPRoute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestinationAddress" eType="#//PrimitiveTypes/String"/>
