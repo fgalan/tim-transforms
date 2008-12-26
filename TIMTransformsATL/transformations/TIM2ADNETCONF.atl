@@ -1,0 +1,337 @@
+module TIM2ADNETCONF; 
+create OUT : XML from IN : TIMSmall;
+
+uses TIMHelpers;
+
+-- FIXME: unhardwire managementIp, currentVlan, currentConnectIp
+-- 10.1.1.120 => 10*(256)^3 +  1*(256)^2 + 1*(256)^1 + 120*(256)^0 = 167838072
+-- 10.10.0.0  => 10*(256)^3 + 10*(256)^2 + 0*(256)^1 +   0*(256)^0 = 168427520
+helper def: managementIp : Integer = 167838072;
+helper def: currentVlan : Integer = 600;
+helper def: currentConnectIp: Integer = 168427520;
+
+helper def: gre: Integer = 0;
+
+helper context Integer def: translateIp() : String =
+	self.div(256*256*256).toString() + '.' 
+	+ self.mod(256*256*256).div(256*256).toString() + '.'
+	+ self.mod(256*256*256).mod(256*256).div(256).toString() + '.' 
+	+ self.mod(256*256*256).mod(256*256).mod(256).toString()
+	;
+
+-- FIXME use a context and put in the TIMHelpers library
+helper def: intfIpv4(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
+	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
+	-- TIM metamodel
+	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
+		if e.ManagedElement->first() = intf
+		then
+			if e.SettingData->first().oclIsTypeOf(TIMSmall!CIM_StaticIPAssignmentSettingData)
+			then
+				res->including(e.SettingData->first())
+			else
+				res
+			endif
+		else
+			res
+		endif	
+	);
+
+-- FIXME use a context and put in the TIMHelpers library
+helper def: vmInterfaces(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
+	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+		if e.Antecedent = vm		
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+
+-- FIXME use a context and put in the TIMHelpers library
+helper def: linkInterfaces(link : TIMSmall!TIM_LinkConnectivityCollection) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
+	TIMSmall!TIM_MemberOfLink.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+		if e.Collection->first() = link	
+		then
+			res->including(e.Member->first())
+		else
+			res
+		endif
+	);
+
+-- FIXME use a context and put in the TIMHelpers library
+helper def: isLoopback (intf : TIMSmall!CIM_IPProtocolEndpoint) : Boolean =
+	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
+	;
+
+-- FIXME use a context and put in the TIMHelpers library
+helper def: associatedVm (intf : TIMSmall!CIM_IPProtocolEndpoint) : TIMSmall!CIM_ComputerSystem =
+	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = intf)->first().Antecedent
+	;
+
+helper def: linkQoS(link : TIMSmall!TIM_LinkConnectivityCollection) : Sequence(TIMSmall!TIM_TransmissionCharacteristics) =
+	TIMSmall!TIM_LinkTransmissionElement.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_TransmissionCharacteristics) = Sequence {} | 
+		if e.Antecedent = link
+		then
+			res->including(e.Dependent->first())
+		else
+			res
+		endif
+	);
+
+rule Root {
+	from 
+		i: TIMSmall!TIM_TestbedScenario
+	to
+		root: XML!Root (
+			name <- 'adrenaline_netconf',
+			children <- Sequence{conf,nodes,links}
+		),
+		conf: XML!Element (
+			name <- 'conf'
+		),
+		nodes: XML!Element (
+			name <- 'nodes',
+			-- We assume that each input model containts exactly one testbed scenario, so we don't need
+			-- to navigate through the CIM_SystemComponent association: we just include all the 
+			-- CIM_ComputerSystem instances			
+			children <-	TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'node'))
+		),
+		links: XML!Element (
+			name <- 'links',
+			-- We assume that each input model containts exactly one testbed scenario, so we don't need
+			-- to navigate through the CIM_HostedCollection association: we just include all the 
+			-- TIM_LinkConnectivityCollection instances
+			children <-	TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'link'))
+		)		
+}
+
+rule Node {
+	from
+		i: TIMSmall!CIM_ComputerSystem
+	to
+		node: XML!Element (
+			name <- 'node',
+			children <- Sequence{node_attId, m_ip, lo_ip, 
+				zebra_bin, ospfd_bin, lrm_bin, rsvpd_bin, rtap_bin, snmpd_bin, olrm_bin, cpbwm_bin}
+		),
+		node_attId: XML!Attribute (
+			name <- 'id',
+			value <- i.Name
+		),
+		m_ip: XML!Element (
+			name <- 'm_ip',
+			children <- m_ip_Text
+		),
+		m_ip_Text: XML!TextNode (
+			value <- thisModule.managementIp.translateIp()
+		),
+		lo_ip: XML!Element (
+			name <- 'lo_ip',
+			children <- lo_ip_Text
+		),
+		lo_ip_Text: XML!TextNode (
+			value <- thisModule.intfIpv4(thisModule.vmInterfaces(i)->select(e | thisModule.isLoopback(e))->first())->first().IPv4Address
+		),
+		zebra_bin: XML!Element (
+			name <- 'zebra_bin',
+			children <- zebra_bin_Text
+		),
+		zebra_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/users/home/grups/zebra/test_bin/zebra'
+		),
+		ospfd_bin: XML!Element (
+			name <- 'ospfd_bin',
+			children <- ospfd_bin_Text
+		),
+		ospfd_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd'
+		),
+		lrm_bin: XML!Element (
+			name <- 'lrm_bin',
+			children <- lrm_bin_Text
+		),
+		lrm_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/users/home/grups/zebra/lrm/lrm/lrm'
+		),
+		rsvpd_bin: XML!Element (
+			name <- 'rsvpd_bin',
+			children <- rsvpd_bin_Text
+		),
+		rsvpd_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/users/home/grups/rsvpte-svn/rsvpd/rsvpd'
+		),
+		rtap_bin: XML!Element (
+			name <- 'rtap_bin',
+			children <- rtap_bin_Text
+		),
+		rtap_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/users/home/grups/rsvpte-svn/apitools/rtap'
+		),
+		snmpd_bin: XML!Element (
+			name <- 'snmpd_bin',
+			children <- snmpd_bin_Text
+		),
+		snmpd_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/users/home/grups/nms/Agent/snmpd_project/snmpd_project'
+		),
+		olrm_bin: XML!Element (
+			name <- 'olrm_bin',
+			children <- olrm_bin_Text
+		),
+		olrm_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/mnt/server/grups/cci/before_protection_modifications/src/olrm'
+		),
+		cpbwm_bin: XML!Element (
+			name <- 'cpbwm_bin',
+			children <- cpbwm_bin_Text
+		),
+		cpbwm_bin_Text: XML!TextNode (
+			-- FIXME: unhardwire
+			value <- '/mnt/server/grups/cpbwmon/src/release/cpbwm'
+		)
+	do {
+		thisModule.managementIp <- thisModule.managementIp +1;
+	}
+}
+
+rule Link {
+	from
+		i: TIMSmall!TIM_LinkConnectivityCollection --(
+			--i.MaxConnections = '2'
+		--)
+	to
+		link: XML!Element (
+			name <- 'link',
+			children <- Sequence{peer0, peer1,
+				thisModule.linkQoS(i)->collect (e | thisModule.resolveTemp(e,'qos')) }
+		),
+		peer0: XML!Element (
+			name <- 'peer',
+			children <- Sequence{peer0_attNode,peer0_attVlanDev,vlan_connection0}
+		),
+		peer0_attNode: XML!Attribute (
+			name <- 'node',
+			value <- thisModule.associatedVm(thisModule.linkInterfaces(i)->at(1)).Name
+		),
+		peer0_attVlanDev: XML!Attribute (
+			name <- 'vlan_dev',
+			-- FIXME: unhardwire
+			value <- 'eth0'
+		),
+		vlan_connection0: XML!Element (
+			name <- 'vlan_connection',
+			children <- Sequence{vlan_connection0_attNet,vlan0,gre0}
+		),
+		vlan_connection0_attNet: XML!Attribute (
+			name <- 'net',
+			value <- thisModule.currentConnectIp.translateIp()
+		),
+		vlan0: XML!Element (
+			-- Note that due to ADNETCONF model, vlan appers only in the peer0
+			name <- 'vlan',
+			children <- vlan0_Text
+		),
+		vlan0_Text: XML!TextNode (
+			value <- thisModule.currentVlan.toString()
+		),
+		gre0: XML!Element (
+			name <- 'gre',
+			children <- name0,
+			children <- ip0
+		),
+		name0: XML!Element (
+			name <- 'name',
+			children <- name0_Text
+		),
+		name0_Text: XML!TextNode (
+			value <- 'gre'.concat(thisModule.gre.toString())
+		),		
+		ip0: XML!Element (
+			name <- 'ip',
+			children <- ip0_Text
+		),
+		ip0_Text: XML!TextNode (
+			value <- thisModule.intfIpv4(thisModule.linkInterfaces(i)->at(1))->first().IPv4Address
+		),		
+		peer1: XML!Element (
+			name <- 'peer',
+			children <- Sequence{peer1_attNode,peer1_attVlanDev,vlan_connection1}
+		),
+		peer1_attNode: XML!Attribute (
+			name <- 'node',
+			value <- thisModule.associatedVm(thisModule.linkInterfaces(i)->at(2)).Name
+		),
+		peer1_attVlanDev: XML!Attribute (
+			name <- 'vlan_dev',
+			-- FIXME: unhardwire
+			value <- 'eth0'
+		),
+		vlan_connection1: XML!Element (
+			name <- 'vlan_connection',
+			-- Note that due to ADNETCONF model, net attribute doesn't appear in the second peer
+			children <- gre1
+		),
+		gre1: XML!Element (
+			name <- 'gre',
+			children <- name1,
+			children <- ip1
+		),
+		name1: XML!Element (
+			name <- 'name',
+			children <- name1_Text
+		),
+		name1_Text: XML!TextNode (
+			value <- 'gre'.concat((thisModule.gre + 1).toString())
+		),		
+		ip1: XML!Element (
+			name <- 'ip',
+			children <- ip1_Text
+		),
+		ip1_Text: XML!TextNode (
+			value <- thisModule.intfIpv4(thisModule.linkInterfaces(i)->at(2))->first().IPv4Address
+		)
+	do {
+		thisModule.gre <- thisModule.gre + 2;
+		thisModule.currentVlan <- thisModule.currentVlan + 1;
+		thisModule.currentConnectIp <- thisModule.currentConnectIp + 4;
+	}
+}
+
+rule QoS {
+	from 
+		i: TIMSmall!TIM_TransmissionCharacteristics
+	to
+		qos: XML!Element (
+			name <- 'qos',
+			children <- Sequence{delay, loss, dup}
+		),
+		delay: XML!Element (
+			name <- 'delay',
+			children <- delay_Text
+		),
+		loss: XML!Element (
+			name <- 'loss',
+			children <- loss_Text
+		),
+		dup: XML!Element (
+			name <- 'dup',
+			children <- dup_Text
+		),
+		delay_Text: XML!TextNode (
+			value <- i.DelayMean
+		),
+		loss_Text: XML!TextNode (
+			value <- i.LossProbabilityValue
+		),
+		dup_Text: XML!TextNode (
+			value <- i.DuplicationProbabilityValue
+		)
+}
