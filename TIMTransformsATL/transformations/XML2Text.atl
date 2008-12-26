@@ -1,6 +1,6 @@
 query XML2Text = XML!Root.allInstances()->first().dumpXml('').writeTo('C:\\test\\output.xml');
 
-helper context XML!Root def: toString2(indent : String) : String =
+helper context XML!Root def: dumpXml(indent : String) : String =
 	'<?xml version="1.0"?>'+'\r\n' + self.children->iterate(e; acc : String = '' |
 		acc + ' ' + e.dumpXml('')
 	);
