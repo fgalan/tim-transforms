@@ -1,0 +1,41 @@
+query XML2Text = XML!Root.allInstances()->first().dumpXml('').writeTo('C:\\test\\output.xml');
+
+helper context XML!Root def: toString2(indent : String) : String =
+	'<?xml version="1.0"?>'+'\r\n' + self.children->iterate(e; acc : String = '' |
+		acc + ' ' + e.dumpXml('')
+	);
+
+helper context XML!Element def: dumpXml(indent : String) : String =
+	let na : Sequence(XML!Node) =
+		self.children->select(e | not e.oclIsKindOf(XML!Attribute)) in
+	let a : Sequence(XML!Node) =
+		self.children->select(e | e.oclIsKindOf(XML!Attribute)) in
+	indent + '<' + self.name + 
+	a->iterate(e; acc : String = '' |
+		acc + ' ' + e.dumpXml()
+	) +
+	if na->size() > 0 then
+		'>'
+		+ na->iterate(e; acc : String = '' |
+			acc + 
+			if e.oclIsKindOf(XML!TextNode) then
+				''
+			else
+				'\r\n'
+			endif
+			+ e.dumpXml(indent + '  ')
+		) +
+		if na->first().oclIsKindOf(XML!TextNode) then
+			'</' + self.name + '>'
+			else
+				'\r\n' + indent + '</' + self.name + '>'
+		endif
+	else
+		'/>'
+	endif;
+
+helper context XML!Attribute def: dumpXml() : String =
+	self.name + '=\"' + self.value + '\"';
+
+helper context XML!TextNode def: dumpXml(indent: String) : String =
+	self.value;
