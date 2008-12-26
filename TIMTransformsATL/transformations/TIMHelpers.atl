@@ -1,0 +1,18 @@
+library TIMHelpers; -- Library Template
+
+helper context String def: TranslateMask() : String =
+	-- FIXME: only works by the moment for "8-bit dotted"
+	if (self = '255.255.255.0') then
+		'24'
+	else
+		if (self = '255.255.0.0') then
+			'16'
+		else
+			if (self = '255.0.0.0') then
+				'8'
+			else
+				'0'
+			endif
+		endif
+	endif
+	;
