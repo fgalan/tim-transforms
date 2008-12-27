@@ -1,7 +1,29 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2008 Fermin Galan Marquez
+
 module TIM2ADNETCONF; 
 create OUT : XML from IN : TIMSmall;
 
 uses TIMHelpers;
+
+-------------
+-- Helpers --
+-------------
 
 -- FIXME: unhardwire managementIp, currentVlan, currentConnectIp
 -- 10.1.1.120 => 10*(256)^3 +  1*(256)^2 + 1*(256)^1 + 120*(256)^0 = 167838072
@@ -12,72 +34,9 @@ helper def: currentConnectIp: Integer = 168427520;
 
 helper def: gre: Integer = 0;
 
-helper context Integer def: translateIp() : String =
-	self.div(256*256*256).toString() + '.' 
-	+ self.mod(256*256*256).div(256*256).toString() + '.'
-	+ self.mod(256*256*256).mod(256*256).div(256).toString() + '.' 
-	+ self.mod(256*256*256).mod(256*256).mod(256).toString()
-	;
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: intfIpv4(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
-	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
-	-- TIM metamodel
-	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
-		if e.ManagedElement->first() = intf
-		then
-			if e.SettingData->first().oclIsTypeOf(TIMSmall!CIM_StaticIPAssignmentSettingData)
-			then
-				res->including(e.SettingData->first())
-			else
-				res
-			endif
-		else
-			res
-		endif	
-	);
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: vmInterfaces(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
-	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
-		if e.Antecedent = vm		
-		then
-			res->including(e.Dependent)
-		else
-			res
-		endif
-	);
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: linkInterfaces(link : TIMSmall!TIM_LinkConnectivityCollection) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
-	TIMSmall!TIM_MemberOfLink.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
-		if e.Collection->first() = link	
-		then
-			res->including(e.Member->first())
-		else
-			res
-		endif
-	);
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: isLoopback (intf : TIMSmall!CIM_IPProtocolEndpoint) : Boolean =
-	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
-	;
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: associatedVm (intf : TIMSmall!CIM_IPProtocolEndpoint) : TIMSmall!CIM_ComputerSystem =
-	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = intf)->first().Antecedent
-	;
-
-helper def: linkQoS(link : TIMSmall!TIM_LinkConnectivityCollection) : Sequence(TIMSmall!TIM_TransmissionCharacteristics) =
-	TIMSmall!TIM_LinkTransmissionElement.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_TransmissionCharacteristics) = Sequence {} | 
-		if e.Antecedent = link
-		then
-			res->including(e.Dependent->first())
-		else
-			res
-		endif
-	);
+-----------
+-- Rules --
+-----------
 
 rule Root {
 	from 
@@ -131,7 +90,7 @@ rule Node {
 			children <- lo_ip_Text
 		),
 		lo_ip_Text: XML!TextNode (
-			value <- thisModule.intfIpv4(thisModule.vmInterfaces(i)->select(e | thisModule.isLoopback(e))->first())->first().IPv4Address
+			value <- (i.vmInterfaces()->select(e | e.isLoopback())->first()).intfIpv4()->first().IPv4Address
 		),
 		zebra_bin: XML!Element (
 			name <- 'zebra_bin',
@@ -211,7 +170,7 @@ rule Link {
 		link: XML!Element (
 			name <- 'link',
 			children <- Sequence{peer0, peer1,
-				thisModule.linkQoS(i)->collect (e | thisModule.resolveTemp(e,'qos')) }
+				i.linkQoS()->collect (e | thisModule.resolveTemp(e,'qos')) }
 		),
 		peer0: XML!Element (
 			name <- 'peer',
@@ -219,7 +178,7 @@ rule Link {
 		),
 		peer0_attNode: XML!Attribute (
 			name <- 'node',
-			value <- thisModule.associatedVm(thisModule.linkInterfaces(i)->at(1)).Name
+			value <- (i.linkInterfaces()->at(1)).associatedVm().Name
 		),
 		peer0_attVlanDev: XML!Attribute (
 			name <- 'vlan_dev',
@@ -259,7 +218,7 @@ rule Link {
 			children <- ip0_Text
 		),
 		ip0_Text: XML!TextNode (
-			value <- thisModule.intfIpv4(thisModule.linkInterfaces(i)->at(1))->first().IPv4Address
+			value <- (i.linkInterfaces()->at(1)).intfIpv4()->first().IPv4Address
 		),		
 		peer1: XML!Element (
 			name <- 'peer',
@@ -267,7 +226,7 @@ rule Link {
 		),
 		peer1_attNode: XML!Attribute (
 			name <- 'node',
-			value <- thisModule.associatedVm(thisModule.linkInterfaces(i)->at(2)).Name
+			value <- (i.linkInterfaces()->at(2)).associatedVm().Name
 		),
 		peer1_attVlanDev: XML!Attribute (
 			name <- 'vlan_dev',
@@ -296,7 +255,7 @@ rule Link {
 			children <- ip1_Text
 		),
 		ip1_Text: XML!TextNode (
-			value <- thisModule.intfIpv4(thisModule.linkInterfaces(i)->at(2))->first().IPv4Address
+			value <- (i.linkInterfaces()->at(2)).intfIpv4()->first().IPv4Address
 		)
 	do {
 		thisModule.gre <- thisModule.gre + 2;

@@ -1,101 +1,54 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2008 Fermin Galan Marquez
+
 module TIM2VNUML; 
 create OUT : XML from IN : TIMSmall;
 
 uses TIMHelpers;
 
--- FIXME use a context and put in the TIMHelpers library
-helper def: vmInterfaces(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
-	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
-		if e.Antecedent = vm		
-		then
-			res->including(e.Dependent)
-		else
-			res
-		endif
-	);
+-------------
+-- Helpers --
+-------------
 
-helper def: vmRoutes(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) =
-	TIMSmall!CIM_HostedRoute.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) = Sequence {} | 
-		if e.Antecedent = vm		
-		then
-			res->including(e.Dependent)
-		else
-			res
-		endif
-	);
-
-helper def: vmForwarding(vm : TIMSmall!CIM_ComputerSystem) : Sequence(TIMSmall!CIM_ForwardingService) =
-	TIMSmall!CIM_HostedService.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_ForwardingService) = Sequence {} | 
-		if e.Antecedent = vm		
-		then
-			res->including(e.Dependent)
-		else
-			res
-		endif
-	);
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: intfIpv4(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
-	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
-	-- TIM metamodel
-	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
-		if e.ManagedElement->first() = intf
-		then
-			if e.SettingData->first().oclIsTypeOf(TIMSmall!CIM_StaticIPAssignmentSettingData)
-			then
-				res->including(e.SettingData->first())
-			else
-				res
-			endif
-		else
-			res
-		endif	
-	);
-
-helper def: intfIpv6(intf : TIMSmall!CIM_IPProtocolEndpoint) : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) =
-	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
-	-- TIM metamodel
-	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) = Sequence {} | 
-		if e.ManagedElement->first() = intf
-		then
-			if e.SettingData->first().oclIsTypeOf(TIMSmall!TIM_StaticIPv6AssignmentSettingData)
-			then
-				res->including(e.SettingData->first())
-			else
-				res
-			endif
-		else
-			res
-		endif	
-	);
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: associatedVm (intf : TIMSmall!CIM_IPProtocolEndpoint) : TIMSmall!CIM_ComputerSystem =
-	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = intf)->first().Antecedent
-	;
-
--- FIXME use a context and put in the TIMHelpers library
-helper def: isLoopback (intf : TIMSmall!CIM_IPProtocolEndpoint) : Boolean =
-	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = intf)
-	;
-
+-- Calculates the id associated to a given interface
 helper def: idForIntf(intf: TIMSmall!CIM_IPProtocolEndpoint) : Integer =
-	if not thisModule.isLoopback(intf)
+	if not intf.isLoopback()
 	then
-		thisModule.vmInterfaces(thisModule.associatedVm(intf))->select(e | not thisModule.isLoopback(e))->indexOf(intf)
+		(intf.associatedVm()).vmInterfaces()->select(e | not e.isLoopback())->indexOf(intf)
 	else
-		thisModule.vmInterfaces(thisModule.associatedVm(intf))->select(e | thisModule.isLoopback(e))->indexOf(intf)
+		(intf.associatedVm()).vmInterfaces()->select(e | e.isLoopback())->indexOf(intf)
 	endif
 ;
 
+-- Calculates the net name associated to a given interface (or loopback, if the interface is not)
+-- associated to any net
 helper def: netNameForIntf(intf : TIMSmall!CIM_IPProtocolEndpoint) : String =
-	if not thisModule.isLoopback(intf)
+	if not intf.isLoopback()
 	then
 		TIMSmall!TIM_MemberOfLink.allInstances()->select(e | e.Member->first() = intf)->first().Collection->first().InstanceID
 	else
 		'lo'
 	endif
 	;
+
+-----------
+-- Rules --
+-----------
 
 rule Root {
 	from 
@@ -211,9 +164,9 @@ rule Vm {
 		vm: XML!Element (
 			name <- 'vm',
 			children <- Sequence{vm_attName,
-					thisModule.vmInterfaces(i)->collect (e | thisModule.resolveTemp(e,'intf')),
-					thisModule.vmRoutes(i)->collect (e | thisModule.resolveTemp(e,'route')),
-					thisModule.vmForwarding(i)->collect (e | thisModule.resolveTemp(e,'forwarding')) }
+					i.vmInterfaces()->collect (e | thisModule.resolveTemp(e,'intf')),
+					i.vmRoutes()->collect (e | thisModule.resolveTemp(e,'route')),
+					i.vmForwarding()->collect (e | thisModule.resolveTemp(e,'forwarding')) }
 		),
 		vm_attName: XML!Attribute (
 			name <- 'name',
@@ -228,8 +181,8 @@ rule Intf {
 		intf: XML!Element (
 			name <- 'if',
 			children <- Sequence{intf_attId, intf_attNet,
-					thisModule.intfIpv4(i)->collect (e | thisModule.resolveTemp(e,'ipv4')),
-					thisModule.intfIpv6(i)->collect (e | thisModule.resolveTemp(e,'ipv6')) }
+					i.intfIpv4()->collect (e | thisModule.resolveTemp(e,'ipv4')),
+					i.intfIpv6()->collect (e | thisModule.resolveTemp(e,'ipv6')) }
 
 		),
 		intf_attId: XML!Attribute (
