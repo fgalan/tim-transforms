@@ -270,15 +270,15 @@ rule QoS {
 	to
 		qos: XML!Element (
 			name <- 'qos',
-			children <- Sequence{delay, loss, dup}
+			children <- Sequence{delay, drop, dup}
 		),
 		delay: XML!Element (
 			name <- 'delay',
 			children <- delay_Text
 		),
-		loss: XML!Element (
-			name <- 'loss',
-			children <- loss_Text
+		drop: XML!Element (
+			name <- 'drop',
+			children <- drop_Text
 		),
 		dup: XML!Element (
 			name <- 'dup',
@@ -287,7 +287,7 @@ rule QoS {
 		delay_Text: XML!TextNode (
 			value <- i.DelayMean
 		),
-		loss_Text: XML!TextNode (
+		drop_Text: XML!TextNode (
 			value <- i.LossProbabilityValue
 		),
 		dup_Text: XML!TextNode (
