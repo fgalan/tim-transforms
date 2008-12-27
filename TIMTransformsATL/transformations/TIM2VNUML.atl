@@ -56,16 +56,16 @@ rule Root {
 	to
 		root: XML!Root (
 			name <- 'vnuml',
-			children <- global
+			children <- Sequence{global,
+						TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'net')),
+						TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'vm')) }
 		),
 		global: XML!Element (
 			name <- 'global',
 			-- We assume that each input model containts exactly one testbed scenario, so we don't need
 			-- to navigate through the CIM_HostedCollection and CIM_SystemComponent associations: we
 			-- just include all the TIM_LinkConnectivityCollection and CIM_ComputerSystem instances
-			children <- Sequence{version, simulationName, automac, vmMgmt, vmDefaults,
-					TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'net')),
-					TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'vm')) }
+			children <- Sequence{version, simulationName, automac, vmMgmt, vmDefaults}
 		),
 		version: XML!Element (
 			name <- 'version',
