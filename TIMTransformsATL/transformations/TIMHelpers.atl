@@ -1,4 +1,26 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2008 Fermin Galan Marquez
+
 library TIMHelpers; -- Library Template
+
+-------------------------------
+-- Helpers to manipulate IPs --
+-------------------------------
 
 helper context String def: TranslateMask() : String =
 	-- FIXME: only works by the moment for "8-bit dotted"
@@ -15,4 +37,126 @@ helper context String def: TranslateMask() : String =
 			endif
 		endif
 	endif
+	;
+
+helper context Integer def: translateIp() : String =
+	self.div(256*256*256).toString() + '.' 
+	+ self.mod(256*256*256).div(256*256).toString() + '.'
+	+ self.mod(256*256*256).mod(256*256).div(256).toString() + '.' 
+	+ self.mod(256*256*256).mod(256*256).mod(256).toString()
+	;
+
+----------------------------------------
+-- Helpers to check object properties --
+----------------------------------------
+helper context TIMSmall!CIM_IPProtocolEndpoint def: isLoopback () : Boolean =
+	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = self)
+	;
+
+------------------------------------------------------
+-- Helpers to navigate through object relationships --
+------------------------------------------------------
+
+-- Returns all the CIM_StaticIPAssignmentSettingData associated to a given CIM_IPProtocolEndpoint, navigating
+-- through the CIM_ElementSettingData association
+helper context TIMSmall!CIM_IPProtocolEndpoint def: intfIpv4() : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
+	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
+	-- TIM metamodel
+	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
+		if e.ManagedElement->first() = self
+		then
+			if e.SettingData->first().oclIsTypeOf(TIMSmall!CIM_StaticIPAssignmentSettingData)
+			then
+				res->including(e.SettingData->first())
+			else
+				res
+			endif
+		else
+			res
+		endif	
+	);
+
+-- Returns all the TIM_StaticIPv6AssignmentSettingData associated to a given CIM_IPProtocolEndpoint, navigating
+-- through the CIM_ElementSettingData association
+helper context TIMSmall!CIM_IPProtocolEndpoint def: intfIpv6() : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) =
+	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
+	-- TIM metamodel
+	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) = Sequence {} | 
+		if e.ManagedElement->first() = self
+		then
+			if e.SettingData->first().oclIsTypeOf(TIMSmall!TIM_StaticIPv6AssignmentSettingData)
+			then
+				res->including(e.SettingData->first())
+			else
+				res
+			endif
+		else
+			res
+		endif	
+	);
+
+-- Returns all the CIM_IPProtocolEndpoint associated to a given CIM_ComputerSystem, navigating
+-- through the CIM_HostedAccessPoint association
+helper context TIMSmall!CIM_ComputerSystem def: vmInterfaces() : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
+	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+		if e.Antecedent = self
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+
+-- Returns all the TIM_NextHopAddressedIPRoute associated to a given CIM_ComputerSystem, navigating
+-- through the CIM_HostedRoute association
+helper context TIMSmall!CIM_ComputerSystem def: vmRoutes() : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) =
+	TIMSmall!CIM_HostedRoute.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) = Sequence {} | 
+		if e.Antecedent = self	
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+
+-- Returns all the CIM_ForwardingService associated to a given CIM_ComputerSystem, navigating
+-- through the CIM_HostedService association
+helper context TIMSmall!CIM_ComputerSystem def: vmForwarding() : Sequence(TIMSmall!CIM_ForwardingService) =
+	TIMSmall!CIM_HostedService.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_ForwardingService) = Sequence {} | 
+		if e.Antecedent = self
+		then
+			res->including(e.Dependent)
+		else
+			res
+		endif
+	);
+
+-- Returns all the CIM_IPProtocolEndpoint associated to a given TIM_LinkConnectivityCollection, navigating
+-- through the TIM_MemberOfLink association
+helper context TIMSmall!TIM_LinkConnectivityCollection def: linkInterfaces() : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
+	TIMSmall!TIM_MemberOfLink.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+		if e.Collection->first() = self
+		then
+			res->including(e.Member->first())
+		else
+			res
+		endif
+	);
+
+-- Returns all the TIM_TransmissionCharacteristics associated to a given TIM_LinkConnectivityCollection, navigating
+-- through the TIM_LinkTransmissionElement association
+helper context TIMSmall!TIM_LinkConnectivityCollection def: linkQoS() : Sequence(TIMSmall!TIM_TransmissionCharacteristics) =
+	TIMSmall!TIM_LinkTransmissionElement.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_TransmissionCharacteristics) = Sequence {} | 
+		if e.Antecedent = self
+		then
+			res->including(e.Dependent->first())
+		else
+			res
+		endif
+	);
+
+-- Returns the CIM_ComputerSystem associated to a given CIM_IPProtocolEndpoint, navigating
+-- through the CIM_HostedAccessPoint association
+helper context TIMSmall!CIM_IPProtocolEndpoint def: associatedVm() : TIMSmall!CIM_ComputerSystem =
+	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = self)->first().Antecedent
 	;
