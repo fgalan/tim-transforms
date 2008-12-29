@@ -163,9 +163,9 @@ rule Node {
 
 rule Link {
 	from
-		i: TIMSmall!TIM_LinkConnectivityCollection --(
-			--i.MaxConnections = '2'
-		--)
+		i: TIMSmall!TIM_LinkConnectivityCollection (
+			i.MaxConnections = 2
+		)
 	to
 		link: XML!Element (
 			name <- 'link',
