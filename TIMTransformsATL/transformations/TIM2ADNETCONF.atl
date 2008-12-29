@@ -17,7 +17,7 @@
 -- Copyright (C) 2008 Fermin Galan Marquez
 
 module TIM2ADNETCONF; 
-create OUT : XML from IN : TIMSmall;
+create OUT : XML from IN : TIMSmall, SETTINGS : TestbedParameters;
 
 uses TIMHelpers;
 
@@ -25,12 +25,14 @@ uses TIMHelpers;
 -- Helpers --
 -------------
 
--- FIXME: unhardwire managementIp, currentVlan, currentConnectIp
--- 10.1.1.120 => 10*(256)^3 +  1*(256)^2 + 1*(256)^1 + 120*(256)^0 = 167838072
--- 10.10.0.0  => 10*(256)^3 + 10*(256)^2 + 0*(256)^1 +   0*(256)^0 = 168427520
-helper def: managementIp : Integer = 167838072;
-helper def: currentVlan : Integer = 600;
-helper def: currentConnectIp: Integer = 168427520;
+-- Return the VNUML setting object
+helper def: settings : TestbedParameters!VNUMLTestbedParameters = 
+	TestbedParameters!ADRENALINETestbedParameters.allInstances()->first()
+	;
+
+helper def: managementIp : Integer = thisModule.settings.baseMgtAddress;
+helper def: currentVlan : Integer = thisModule.settings.baseVlan;
+helper def: currentConnectIp: Integer = thisModule.settings.baseConnectAddress;
 
 helper def: gre: Integer = 0;
 
@@ -97,64 +99,56 @@ rule Node {
 			children <- zebra_bin_Text
 		),
 		zebra_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/users/home/grups/zebra/test_bin/zebra'
+			value <- thisModule.settings.zebraBin
 		),
 		ospfd_bin: XML!Element (
 			name <- 'ospfd_bin',
 			children <- ospfd_bin_Text
 		),
 		ospfd_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd'
+			value <- thisModule.settings.ospfdBin
 		),
 		lrm_bin: XML!Element (
 			name <- 'lrm_bin',
 			children <- lrm_bin_Text
 		),
 		lrm_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/users/home/grups/zebra/lrm/lrm/lrm'
+			value <- thisModule.settings.lrmBin
 		),
 		rsvpd_bin: XML!Element (
 			name <- 'rsvpd_bin',
 			children <- rsvpd_bin_Text
 		),
 		rsvpd_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/users/home/grups/rsvpte-svn/rsvpd/rsvpd'
+			value <- thisModule.settings.rsvpdBin
 		),
 		rtap_bin: XML!Element (
 			name <- 'rtap_bin',
 			children <- rtap_bin_Text
 		),
 		rtap_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/users/home/grups/rsvpte-svn/apitools/rtap'
+			value <- thisModule.settings.rtapBin
 		),
 		snmpd_bin: XML!Element (
 			name <- 'snmpd_bin',
 			children <- snmpd_bin_Text
 		),
 		snmpd_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/users/home/grups/nms/Agent/snmpd_project/snmpd_project'
+			value <- thisModule.settings.snmpdBin
 		),
 		olrm_bin: XML!Element (
 			name <- 'olrm_bin',
 			children <- olrm_bin_Text
 		),
 		olrm_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/mnt/server/grups/cci/before_protection_modifications/src/olrm'
+			value <- thisModule.settings.olrmBin
 		),
 		cpbwm_bin: XML!Element (
 			name <- 'cpbwm_bin',
 			children <- cpbwm_bin_Text
 		),
 		cpbwm_bin_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/mnt/server/grups/cpbwmon/src/release/cpbwm'
+			value <- thisModule.settings.cpbwmBin
 		)
 	do {
 		thisModule.managementIp <- thisModule.managementIp +1;
@@ -182,8 +176,7 @@ rule Link {
 		),
 		peer0_attVlanDev: XML!Attribute (
 			name <- 'vlan_dev',
-			-- FIXME: unhardwire
-			value <- 'eth0'
+			value <- thisModule.settings.vlanDev
 		),
 		vlan_connection0: XML!Element (
 			name <- 'vlan_connection',
@@ -230,8 +223,7 @@ rule Link {
 		),
 		peer1_attVlanDev: XML!Attribute (
 			name <- 'vlan_dev',
-			-- FIXME: unhardwire
-			value <- 'eth0'
+			value <- thisModule.settings.vlanDev
 		),
 		vlan_connection1: XML!Element (
 			name <- 'vlan_connection',
