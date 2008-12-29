@@ -17,13 +17,18 @@
 -- Copyright (C) 2008 Fermin Galan Marquez
 
 module TIM2VNUML; 
-create OUT : XML from IN : TIMSmall;
+create OUT : XML from IN : TIMSmall, SETTINGS : TestbedParameters;
 
 uses TIMHelpers;
 
 -------------
 -- Helpers --
 -------------
+
+-- Return the VNUML setting object
+helper def: settings : TestbedParameters!VNUMLTestbedParameters = 
+	TestbedParameters!VNUMLTestbedParameters.allInstances()->first()
+	;
 
 -- Calculates the id associated to a given interface
 helper def: idForIntf(intf: TIMSmall!CIM_IPProtocolEndpoint) : Integer =
@@ -72,8 +77,7 @@ rule Root {
 			children <- version_Text
 		),
 		version_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '1.8'
+			value <- thisModule.settings.specVersion
 		),
 		simulationName: XML!Element (
 			name <- 'simulation_name',
@@ -99,7 +103,7 @@ rule Root {
 		),
 		vmDefaults_attExecMode: XML!Attribute (
 			name <- 'exec_mode',
-			value <- 'mconsole'
+			value <- thisModule.settings.defaultExecMode
 		),
 		filesystem: XML!Element (
 			name <- 'filesystem',
@@ -108,20 +112,17 @@ rule Root {
 		),
 		filesystem_attType: XML!Attribute (
 			name <- 'type',
-			-- FIXME: unhardwire
-			value <- 'cow'
+			value <- thisModule.settings.defaultFilesystemType
 		),
 		filesystem_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/usr/share/vnuml/filesystems/root_fs_tutorial'
+			value <- thisModule.settings.defaultFilesystem
 		),
 		kernel: XML!Element (
 			name <- 'kernel',
 			children <- kernel_Text
 		),
 		kernel_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- '/usr/share/vnuml/kernels/linux'
+			value <- thisModule.settings.defaultKernel
 		),
 		console: XML!Element (
 			name <- 'console',
@@ -133,8 +134,7 @@ rule Root {
 			value <- '0'
 		),
 		console_Text: XML!TextNode (
-			-- FIXME: unhardwire
-			value <- 'xterm'
+			value <- thisModule.settings.defaultConsole
 		)
 }
 
@@ -247,15 +247,15 @@ rule Route {
 		),
 		route_attType: XML!Attribute (
 			name <- 'type',
-			value <- (if i.AddressType = '1' then 'ipv4' else 'ipv6' endif)
+			value <- (if i.AddressType = 1 then 'ipv4' else 'ipv6' endif)
 		),
 		route_Text: XML!TextNode (
-			value <- (if i.AddressType = '1' then 
+			value <- (if i.AddressType = 1 then 
 					    -- IPv4
 						i.DestinationAddress + '/' + i.DestinationMask.TranslateMask()
 					  else
 					    -- IPv6
-					  	i.DestinationAddress + '/' + i.PrefixLength
+					  	i.DestinationAddress + '/' + i.PrefixLength.toString()
 					  endif)
 		)
 }
@@ -270,13 +270,13 @@ rule Forwarding {
 		),
 		forwarding_attType: XML!Attribute (
 			name <- 'type',
-			value <- (if i.ProtocolType = '2' then
+			value <- (if i.ProtocolType = 2 then
 						'ipv4'
 					  else
-					  	if i.ProtocolType = '3' then
+					  	if i.ProtocolType = 3 then
 							'ipv6'
 						else
-							-- i.Protocol = '4'
+							-- i.ProtocolType = 4
 							'ip'
 						endif
 				      endif )
