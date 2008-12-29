@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Real"/>
+  </ecore:EPackage>
+  <ecore:EPackage name="TestbedParameters" nsURI="http:///TP.ecore" nsPrefix="TP">
+    <eClassifiers xsi:type="ecore:EClass" name="GenericTestbedParameters"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VNUMLTestbedParameters" eSuperTypes="#/1/GenericTestbedParameters">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="specVersion" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultExecMode" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultFilesystemType"
+          lowerBound="1" eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultFilesystem" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultKernel" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultConsole" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/GenericTestbedParameters">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lrmBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rsvpdBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtapBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="snmpdBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="olrmBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpbwmBin" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseMgtAddress" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseConnectAddress" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseVlan" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vlanDev" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>
