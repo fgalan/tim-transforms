@@ -30,13 +30,13 @@
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.2.2" SubnetMask="255.255.255.0" xmi:id="uml5-ip1"/>
   
   <!-- the IPv6 addresses for the interfaces (7) -->
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:0::1" PrefixLength="64" xmi:id="uml1-ip1v6"/>
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:0::2" PrefixLength="64" xmi:id="uml2-ip1v6"/>
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:0::3" PrefixLength="64" xmi:id="uml3-ip1v6"/>
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:1::1" PrefixLength="64" xmi:id="uml3-ip2v6"/>
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:1::2" PrefixLength="64" xmi:id="uml4-ip1v6"/>
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:2::1" PrefixLength="64" xmi:id="uml4-ip2v6"/>
-  <TIM:TIM_StaticIPv6AssignmentSettingData 	IPv6Address="2001:db8:2::2" PrefixLength="64" xmi:id="uml5-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:0::1" PrefixLength="64" xmi:id="uml1-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:0::2" PrefixLength="64" xmi:id="uml2-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:0::3" PrefixLength="64" xmi:id="uml3-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:1::1" PrefixLength="64" xmi:id="uml3-ip2v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:1::2" PrefixLength="64" xmi:id="uml4-ip1v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:2::1" PrefixLength="64" xmi:id="uml4-ip2v6"/>
+  <TIM:TIM_StaticIPv6AssignmentSettingData IPv6Address="2001:db8:2::2" PrefixLength="64" xmi:id="uml5-ip1v6"/>
   
   <!-- the interconnection networks (3) -->
   <TIM:TIM_LinkConnectivityCollection InstanceID="net0" xmi:id="net0ID"/>
