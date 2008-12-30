@@ -277,12 +277,12 @@ rule QoS {
 			children <- dup_Text
 		),
 		delay_Text: XML!TextNode (
-			value <- i.DelayMean
+			value <- i.DelayMean.toString()
 		),
 		drop_Text: XML!TextNode (
-			value <- i.LossProbabilityValue
+			value <- i.LossProbabilityValue.toString()
 		),
 		dup_Text: XML!TextNode (
-			value <- i.DuplicationProbabilityValue
+			value <- i.DuplicationProbabilityValue.toString()
 		)
 }
