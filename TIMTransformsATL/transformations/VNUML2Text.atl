@@ -18,7 +18,11 @@
 
 query VNUML2Text = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
 		+ '<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/vnuml.dtd">'+'\r\n'
-		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml.xml');
-		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\vnuml.xml');
+		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml-'+thisModule.simname+'.xml');
+		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml-'+thisModule.simname+'.xml');
 
 uses XMLDumpHelpers;
+
+helper def: simname: String =
+	XML!Element.allInstances()->select(e | e.name = 'simulation_name')->first().children->first().value
+	;
