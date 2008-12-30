@@ -9,8 +9,8 @@
     <eClassifiers xsi:type="ecore:EDataType" name="Real"/>
   </ecore:EPackage>
   <ecore:EPackage name="TestbedParameters" nsURI="http:///TP.ecore" nsPrefix="TP">
-    <eClassifiers xsi:type="ecore:EClass" name="GenericTestbedParameters"/>
-    <eClassifiers xsi:type="ecore:EClass" name="VNUMLTestbedParameters" eSuperTypes="#/1/GenericTestbedParameters">
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_SettingData"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VNUMLTestbedParameters" eSuperTypes="#/1/CIM_SettingData">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="specVersion" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultExecMode" lowerBound="1"
@@ -24,7 +24,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultConsole" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/GenericTestbedParameters">
+    <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/CIM_SettingData">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBin" lowerBound="1"
