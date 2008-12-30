@@ -63,7 +63,7 @@ rule Root {
 			-- We assume that each input model containts exactly one testbed scenario, so we don't need
 			-- to navigate through the CIM_HostedCollection association: we just include all the 
 			-- TIM_LinkConnectivityCollection instances
-			children <-	TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'link'))
+			children <-	TIMSmall!TIM_LinkConnectivityCollection.allInstances()->select(e | e.MaxConnections = 2)->collect (e | thisModule.resolveTemp(e,'link'))
 		)		
 }
 
@@ -165,6 +165,8 @@ rule Node {
 rule Link {
 	from
 		i: TIMSmall!TIM_LinkConnectivityCollection (
+			-- Actually, this checking is redundant, due to the ->select in the links target on Root rule,
+			-- but we include it to be formally right
 			i.MaxConnections = 2
 		)
 	to
