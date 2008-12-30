@@ -1,158 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
+<xmi:XMI xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="TIM"
-    nsURI="http:///TIM.ecore" nsPrefix="TIM">
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_ComputerSystem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_IPProtocolEndpoint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_ForwardingService">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProtocolType" lowerBound="1"
-        eType="#//PrimitiveTypes/Uint16"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_TestbedScenario">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkConnectivityCollection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxConnections" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/Uint16"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" lowerBound="1"
-        eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_TransmissionCharacteristics">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CorruptionProbabilityCorrelation"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CorruptionProbabilityValue"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayDeviation" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayDistributionFunction"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Uint16"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayMean" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/Uint64"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DisorderingProbabilityCorrelation"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DisorderingProbabilityValue"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DuplicationProbabilityCorrelation"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DuplicationProbabilityValue"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossProbabilityCorrelation"
-        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossProbabilityValue" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/Real32"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MTU" ordered="false" lowerBound="1"
-        eType="#//PrimitiveTypes/Uint64"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Throughput" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/Uint64"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" lowerBound="1"
-        eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_NextHopAddressedIPRoute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestinationAddress" eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestinationMask" lowerBound="1"
-        eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PrefixLength" lowerBound="1"
-        eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressType" lowerBound="1"
-        eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NextHopAddress" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_IPAssignmentSettingData">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressOrigin" lowerBound="1"
-        eType="#//PrimitiveTypes/Uint16"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_StaticIPAssignmentSettingData" eSuperTypes="#//CIM_IPAssignmentSettingData">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IPv4Address" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubnetMask" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GatewayIPv4Address" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_StaticIPv6AssignmentSettingData"
-      eSuperTypes="#//CIM_IPAssignmentSettingData">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IPv6Address" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PrefixLength" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String" defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GatewayIPv6Address" ordered="false"
-        lowerBound="1" eType="#//PrimitiveTypes/String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkTransmissionElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" ordered="false"
-        lowerBound="1" eType="#//TIM_LinkConnectivityCollection"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        upperBound="-1" eType="#//TIM_TransmissionCharacteristics"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_MemberOfLink">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Collection" ordered="false"
-        upperBound="-1" eType="#//TIM_LinkConnectivityCollection"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Member" upperBound="-1"
-        eType="#//CIM_IPProtocolEndpoint"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkOrigin">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//CIM_IPProtocolEndpoint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//TIM_TransmissionCharacteristics"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkDestination">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//CIM_IPProtocolEndpoint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//TIM_TransmissionCharacteristics"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_SystemComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GroupComponent" upperBound="-1"
-        eType="#//TIM_TestbedScenario"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PartComponent" upperBound="-1"
-        eType="#//CIM_ComputerSystem"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedCollection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//TIM_TestbedScenario"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//TIM_LinkConnectivityCollection"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedRoute">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//CIM_ComputerSystem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//TIM_NextHopAddressedIPRoute"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedAccessPoint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//CIM_ComputerSystem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//TIM_TransmissionCharacteristics"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedService">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//CIM_ComputerSystem"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//CIM_ForwardingService"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_ElementSettingData">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ManagedElement" upperBound="-1"
-        eType="#//CIM_IPProtocolEndpoint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SettingData" upperBound="-1"
-        eType="#//CIM_IPAssignmentSettingData"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CIM_ForwardsAmong">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
-        eType="#//CIM_IPProtocolEndpoint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-        eType="#//CIM_ForwardingService"/>
-  </eClassifiers>
-  <eSubpackages name="PrimitiveTypes">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
     <eClassifiers xsi:type="ecore:EDataType" name="String"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Uint8"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Uint16"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Uint64"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Real32"/>
-  </eSubpackages>
-</ecore:EPackage>
+    <eClassifiers xsi:type="ecore:EDataType" name="Real"/>
+  </ecore:EPackage>
+  <ecore:EPackage name="TIM" nsURI="http:///TIM.ecore" nsPrefix="TIM">
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_ComputerSystem">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_IPProtocolEndpoint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_ForwardingService">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProtocolType" lowerBound="1"
+          eType="#/0/Integer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_TestbedScenario">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkConnectivityCollection">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxConnections" eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" lowerBound="1"
+          eType="#/0/String" defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_TransmissionCharacteristics">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CorruptionProbabilityCorrelation"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CorruptionProbabilityValue"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayDeviation" ordered="false"
+          lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayDistributionFunction"
+          ordered="false" lowerBound="1" eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayMean" ordered="false"
+          lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DisorderingProbabilityCorrelation"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DisorderingProbabilityValue"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DuplicationProbabilityCorrelation"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DuplicationProbabilityValue"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossProbabilityCorrelation"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossProbabilityValue"
+          ordered="false" lowerBound="1" eType="#/0/Real"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MTU" ordered="false"
+          lowerBound="1" eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Throughput" ordered="false"
+          lowerBound="1" eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_NextHopAddressedIPRoute">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestinationAddress" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestinationMask" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PrefixLength" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressType" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="NextHopAddress" ordered="false"
+          lowerBound="1" eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_IPAssignmentSettingData">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressOrigin" lowerBound="1"
+          eType="#/0/Integer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_StaticIPAssignmentSettingData"
+        eSuperTypes="#/1/CIM_IPAssignmentSettingData">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IPv4Address" ordered="false"
+          lowerBound="1" eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubnetMask" ordered="false"
+          lowerBound="1" eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="GatewayIPv4Address" ordered="false"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_StaticIPv6AssignmentSettingData"
+        eSuperTypes="#/1/CIM_IPAssignmentSettingData">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IPv6Address" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PrefixLength" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="GatewayIPv6Adddress"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkTransmissionElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" ordered="false"
+          lowerBound="1" eType="#/1/TIM_LinkConnectivityCollection"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          upperBound="-1" eType="#/1/TIM_TransmissionCharacteristics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_MemberOfLink">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Collection" ordered="false"
+          upperBound="-1" eType="#/1/TIM_LinkConnectivityCollection"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Member" upperBound="-1"
+          eType="#/1/CIM_IPProtocolEndpoint"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkOrigin">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_IPProtocolEndpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/TIM_TransmissionCharacteristics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkDestination">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_IPProtocolEndpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/TIM_TransmissionCharacteristics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_SystemComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="GroupComponent" upperBound="-1"
+          eType="#/1/TIM_TestbedScenario"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PartComponent" upperBound="-1"
+          eType="#/1/CIM_ComputerSystem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedCollection">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/TIM_TestbedScenario"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/TIM_LinkConnectivityCollection"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedRoute">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_ComputerSystem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/TIM_NextHopAddressedIPRoute"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedAccessPoint">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_ComputerSystem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/TIM_TransmissionCharacteristics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedService">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_ComputerSystem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/CIM_ForwardingService"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_ElementSettingData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ManagedElement" upperBound="-1"
+          eType="#/1/CIM_IPProtocolEndpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SettingData" upperBound="-1"
+          eType="#/1/CIM_IPAssignmentSettingData"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_ForwardsAmong">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_IPProtocolEndpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/CIM_ForwardingService"/>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>
