@@ -92,7 +92,14 @@ rule Node {
 			children <- lo_ip_Text
 		),
 		lo_ip_Text: XML!TextNode (
-			value <- (i.vmInterfaces()->select(e | e.isLoopback())->first()).intfIpv4()->first().IPv4Address
+			-- The checking prevent the ATL crash in case of scenarios without loopback interfaces
+			-- (e.g. basic), although adnetconf.gui will complaint about it anyway
+			value <- if i.vmInterfaces()->select(e | e.isLoopback())->size() > 0
+					  then
+						(i.vmInterfaces()->select(e | e.isLoopback())->first()).intfIpv4()->first().IPv4Address
+					  else
+						''
+					  endif
 		),
 		zebra_bin: XML!Element (
 			name <- 'zebra_bin',
