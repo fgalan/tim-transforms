@@ -142,6 +142,14 @@ Installation
   # cd /usr/local/src/TIMTransforms-v2008_10_15-p1/scripts
   # ./reset_cimom.sh
 
+* Check the CIMOM repository (Optional). The reset_cimom.sh script should start the
+  CIMOM properly. However, you can check it using a CIM browser, as the one that comes
+  with wbemservices. You can also check that the new classes included in tim.mof has
+  been properly compiled there (e.g., TIM_TestbedScenario).
+  
+  # cd /usr/local/src/wbemservices/bin
+  #./cimworkshop.sh
+
 * Compile the source code. You will need the wbem.jar library to 
   do it. In addition, you may need to tune some of the parameters
   within TransTester.java main function, to set properly the
