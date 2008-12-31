@@ -37,7 +37,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayDistributionFunction"
           ordered="false" lowerBound="1" eType="#/0/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="DelayMean" ordered="false"
-          lowerBound="1" eType="#/0/Real"/>
+          lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="DisorderingProbabilityCorrelation"
           ordered="false" lowerBound="1" eType="#/0/Real"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="DisorderingProbabilityValue"
@@ -45,11 +45,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="DuplicationProbabilityCorrelation"
           ordered="false" lowerBound="1" eType="#/0/Real"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="DuplicationProbabilityValue"
-          ordered="false" lowerBound="1" eType="#/0/Real"/>
+          ordered="false" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossProbabilityCorrelation"
           ordered="false" lowerBound="1" eType="#/0/Real"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossProbabilityValue"
-          ordered="false" lowerBound="1" eType="#/0/Real"/>
+          ordered="false" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="MTU" ordered="false"
           lowerBound="1" eType="#/0/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Throughput" ordered="false"
