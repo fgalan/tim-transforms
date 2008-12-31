@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<XML:Root xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:XML="http:///XML.ecore" name="vnuml">
+  <children xsi:type="XML:Element" name="global">
+    <children xsi:type="XML:Element" name="version">
+      <children xsi:type="XML:TextNode" value="1.8"/>
+    </children>
+    <children xsi:type="XML:Element" name="simulation_name">
+      <children xsi:type="XML:TextNode" value="nsfnet"/>
+    </children>
+    <children xsi:type="XML:Element" name="automac"/>
+    <children xsi:type="XML:Element" name="vm_mgmt">
+      <children xsi:type="XML:Attribute" name="type" value="none"/>
+    </children>
+    <children xsi:type="XML:Element" name="vm_defaults">
+      <children xsi:type="XML:Attribute" name="exec_mode" value="mconsole"/>
+      <children xsi:type="XML:Element" name="filesystem">
+        <children xsi:type="XML:Attribute" name="type" value="cow"/>
+        <children xsi:type="XML:TextNode" value="/usr/share/vnuml/filesystems/root_fs_tutorial"/>
+      </children>
+      <children xsi:type="XML:Element" name="kernel">
+        <children xsi:type="XML:TextNode" value="/usr/share/vnuml/kernels/linux"/>
+      </children>
+      <children xsi:type="XML:Element" name="console">
+        <children xsi:type="XML:Attribute" name="id" value="0"/>
+        <children xsi:type="XML:TextNode" value="pts"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ca1-wa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ca2-wa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="il-wa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ca1-ca2"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ca1-ut"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ca2-tx"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="mi-ut"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="co-ut"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="co-ne"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="co-tx"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="il-ne"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="il-pa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="mi-nj"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="mi-ny"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ga-pa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ny-pa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="nj-pa"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="dc-ny"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="dc-nj"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="dc-tx"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="ga-tx"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="WA"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.1"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca1-wa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.21"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca2-wa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.23"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="il-wa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.28"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="CA1"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.2"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca1-wa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.12"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca1-ca2"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.13"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca1-ut"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.14"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="CA2"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.3"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca2-wa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.32"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca1-ca2"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.31"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca2-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.37"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="UT"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.4"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca1-ut"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.41"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="mi-ut"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.49"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="co-ut"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.45"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="CO"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.5"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="co-ut"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.54"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="co-ne"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.56"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="co-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.57"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="NE"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.6"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="co-ne"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.65"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="il-ne"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.68"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="IL"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.7"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="il-wa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.82"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="il-ne"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.86"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="il-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.102"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="MI"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.8"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="mi-ut"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.94"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="mi-nj"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.49"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="mi-ny"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.141"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="PA"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.9"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="il-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.101"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="ga-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.114"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="ny-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.144"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="4"/>
+      <children xsi:type="XML:Attribute" name="net" value="nj-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.132"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="NY"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.10"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="mi-ny"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.142"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="ny-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.143"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="dc-ny"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.145"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="NJ"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.11"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="mi-nj"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.136"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="nj-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.131"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="dc-nj"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.133"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="DC"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.12"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="dc-ny"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.146"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="dc-nj"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.134"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="dc-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.121"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="GA"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.13"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="ga-pa"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.113"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="ga-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.111"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="TX"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="lo"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.50.14"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="ca2-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.73"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="co-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.75"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="3"/>
+      <children xsi:type="XML:Attribute" name="net" value="dc-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.122"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="4"/>
+      <children xsi:type="XML:Attribute" name="net" value="ga-tx"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.5.112"/>
+      </children>
+    </children>
+  </children>
+</XML:Root>
