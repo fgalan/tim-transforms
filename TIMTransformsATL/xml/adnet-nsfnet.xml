@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/adnetconf.dtd">
+<adrenaline_netconf>
+  <conf/>
+  <nodes>
+    <node id="WA">
+      <m_ip>10.1.1.120</m_ip>
+      <lo_ip>10.0.50.1</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="CA1">
+      <m_ip>10.1.1.121</m_ip>
+      <lo_ip>10.0.50.2</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="CA2">
+      <m_ip>10.1.1.122</m_ip>
+      <lo_ip>10.0.50.3</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="UT">
+      <m_ip>10.1.1.123</m_ip>
+      <lo_ip>10.0.50.4</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="CO">
+      <m_ip>10.1.1.124</m_ip>
+      <lo_ip>10.0.50.5</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="NE">
+      <m_ip>10.1.1.125</m_ip>
+      <lo_ip>10.0.50.6</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="IL">
+      <m_ip>10.1.1.126</m_ip>
+      <lo_ip>10.0.50.7</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="MI">
+      <m_ip>10.1.1.127</m_ip>
+      <lo_ip>10.0.50.8</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="PA">
+      <m_ip>10.1.1.128</m_ip>
+      <lo_ip>10.0.50.9</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="NY">
+      <m_ip>10.1.1.129</m_ip>
+      <lo_ip>10.0.50.10</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="NJ">
+      <m_ip>10.1.1.130</m_ip>
+      <lo_ip>10.0.50.11</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="DC">
+      <m_ip>10.1.1.131</m_ip>
+      <lo_ip>10.0.50.12</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="GA">
+      <m_ip>10.1.1.132</m_ip>
+      <lo_ip>10.0.50.13</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+    <node id="TX">
+      <m_ip>10.1.1.133</m_ip>
+      <lo_ip>10.0.50.14</lo_ip>
+      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <lrm_bin>/users/home/grups/zebra/lrm/lrm/lrm</lrm_bin>
+      <rsvpd_bin>/users/home/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
+      <rtap_bin>/users/home/grups/rsvpte-svn/apitools/rtap</rtap_bin>
+      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
+      <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
+    </node>
+  </nodes>
+  <links>
+    <link>
+      <peer node="CA1" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.120">
+          <vlan>600</vlan>
+          <gre>
+            <name>gre0</name>
+            <ip>10.0.5.12</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="WA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre1</name>
+            <ip>10.0.5.21</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CA2" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.124">
+          <vlan>601</vlan>
+          <gre>
+            <name>gre2</name>
+            <ip>10.0.5.32</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="WA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre3</name>
+            <ip>10.0.5.23</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>6</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="IL" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.128">
+          <vlan>602</vlan>
+          <gre>
+            <name>gre4</name>
+            <ip>10.0.5.82</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="WA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre5</name>
+            <ip>10.0.5.28</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>15</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CA1" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.132">
+          <vlan>603</vlan>
+          <gre>
+            <name>gre6</name>
+            <ip>10.0.5.13</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="CA2" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre7</name>
+            <ip>10.0.5.31</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CA1" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.136">
+          <vlan>604</vlan>
+          <gre>
+            <name>gre8</name>
+            <ip>10.0.5.14</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="UT" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre9</name>
+            <ip>10.0.5.41</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>6</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CA2" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.140">
+          <vlan>605</vlan>
+          <gre>
+            <name>gre10</name>
+            <ip>10.0.5.37</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="TX" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre11</name>
+            <ip>10.0.5.73</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>7.5</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="MI" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.144">
+          <vlan>606</vlan>
+          <gre>
+            <name>gre12</name>
+            <ip>10.0.5.94</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="UT" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre13</name>
+            <ip>10.0.5.49</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>15</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CO" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.148">
+          <vlan>607</vlan>
+          <gre>
+            <name>gre14</name>
+            <ip>10.0.5.54</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="UT" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre15</name>
+            <ip>10.0.5.45</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CO" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.152">
+          <vlan>608</vlan>
+          <gre>
+            <name>gre16</name>
+            <ip>10.0.5.56</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="NE" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre17</name>
+            <ip>10.0.5.65</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="CO" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.156">
+          <vlan>609</vlan>
+          <gre>
+            <name>gre18</name>
+            <ip>10.0.5.57</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="TX" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre19</name>
+            <ip>10.0.5.75</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3.75</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="IL" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.160">
+          <vlan>610</vlan>
+          <gre>
+            <name>gre20</name>
+            <ip>10.0.5.86</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="NE" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre21</name>
+            <ip>10.0.5.68</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="IL" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.164">
+          <vlan>611</vlan>
+          <gre>
+            <name>gre22</name>
+            <ip>10.0.5.102</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="PA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre23</name>
+            <ip>10.0.5.101</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="MI" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.168">
+          <vlan>612</vlan>
+          <gre>
+            <name>gre24</name>
+            <ip>10.0.5.49</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="NJ" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre25</name>
+            <ip>10.0.5.136</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>6</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="MI" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.172">
+          <vlan>613</vlan>
+          <gre>
+            <name>gre26</name>
+            <ip>10.0.5.141</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="NY" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre27</name>
+            <ip>10.0.5.142</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="GA" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.176">
+          <vlan>614</vlan>
+          <gre>
+            <name>gre28</name>
+            <ip>10.0.5.113</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="PA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre29</name>
+            <ip>10.0.5.114</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>5.25</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="NY" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.180">
+          <vlan>615</vlan>
+          <gre>
+            <name>gre30</name>
+            <ip>10.0.5.143</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="PA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre31</name>
+            <ip>10.0.5.144</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3.75</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="NJ" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.184">
+          <vlan>616</vlan>
+          <gre>
+            <name>gre32</name>
+            <ip>10.0.5.131</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="PA" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre33</name>
+            <ip>10.0.5.132</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>6</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="DC" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.188">
+          <vlan>617</vlan>
+          <gre>
+            <name>gre34</name>
+            <ip>10.0.5.146</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="NY" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre35</name>
+            <ip>10.0.5.145</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>6</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="DC" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.192">
+          <vlan>618</vlan>
+          <gre>
+            <name>gre36</name>
+            <ip>10.0.5.134</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="NJ" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre37</name>
+            <ip>10.0.5.133</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>3</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="DC" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.196">
+          <vlan>619</vlan>
+          <gre>
+            <name>gre38</name>
+            <ip>10.0.5.121</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="TX" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre39</name>
+            <ip>10.0.5.122</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>15</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+    <link>
+      <peer node="GA" vlan_dev="eth0">
+        <vlan_connection net="10.1.1.200">
+          <vlan>620</vlan>
+          <gre>
+            <name>gre40</name>
+            <ip>10.0.5.111</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <peer node="TX" vlan_dev="eth0">
+        <vlan_connection>
+          <gre>
+            <name>gre41</name>
+            <ip>10.0.5.112</ip>
+          </gre>
+        </vlan_connection>
+      </peer>
+      <qos>
+        <delay>7.5</delay>
+        <drop>0.001</drop>
+        <dup>0.0001</dup>
+      </qos>
+    </link>
+  </links>
+</adrenaline_netconf>

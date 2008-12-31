@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/vnuml.dtd">
+<vnuml>
+  <global>
+    <version>1.9</version>
+    <simulation_name>basic</simulation_name>
+    <automac/>
+    <vm_mgmt type="none"/>
+    <vm_defaults exec_mode="mconsole">
+      <filesystem type="cow">/usr/share/vnuml/filesystems/root_fs_tutorial</filesystem>
+      <kernel>/usr/share/vnuml/kernels/linux</kernel>
+      <console id="0">xterm</console>
+    </vm_defaults>
+  </global>
+  <net name="net0" mode="uml_switch"/>
+  <net name="net1" mode="uml_switch"/>
+  <net name="net2" mode="uml_switch"/>
+  <vm name="uml1">
+    <if id="1" net="net0">
+      <ipv4 mask="255.255.255.0">10.0.0.1</ipv4>
+      <ipv6 mask="/64">2001:db8:0::1</ipv6>
+    </if>
+    <route gw="10.0.0.3" type="ipv4">0.0.0.0/0</route>
+    <route gw="2001:db8:0::3" type="ipv6">2000::/3</route>
+  </vm>
+  <vm name="uml2">
+    <if id="1" net="net0">
+      <ipv4 mask="255.255.255.0">10.0.0.2</ipv4>
+      <ipv6 mask="/64">2001:db8:0::2</ipv6>
+    </if>
+    <route gw="10.0.0.3" type="ipv4">0.0.0.0/0</route>
+    <route gw="2001:db8:0::3" type="ipv6">2000::/3</route>
+  </vm>
+  <vm name="uml3">
+    <if id="1" net="net0">
+      <ipv4 mask="255.255.255.0">10.0.0.3</ipv4>
+      <ipv6 mask="/64">2001:db8:0::3</ipv6>
+    </if>
+    <if id="2" net="net1">
+      <ipv4 mask="255.255.255.0">10.0.1.1</ipv4>
+      <ipv6 mask="/64">2001:db8:1::1</ipv6>
+    </if>
+    <route gw="10.0.1.2" type="ipv4">10.0.2.0/24</route>
+    <route gw="2001:db8:1::2" type="ipv6">2001:db8:2::/64</route>
+    <forwarding type="ip"/>
+  </vm>
+  <vm name="uml4">
+    <if id="1" net="net1">
+      <ipv4 mask="255.255.255.0">10.0.1.2</ipv4>
+      <ipv6 mask="/64">2001:db8:1::2</ipv6>
+    </if>
+    <if id="2" net="net2">
+      <ipv4 mask="255.255.255.0">10.0.2.1</ipv4>
+      <ipv6 mask="/64">2001:db8:2::1</ipv6>
+    </if>
+    <route gw="10.0.1.1" type="ipv4">0.0.0.0/0</route>
+    <route gw="2001:db8:1::1" type="ipv6">2000::/3</route>
+    <forwarding type="ip"/>
+  </vm>
+  <vm name="uml5">
+    <if id="1" net="net2">
+      <ipv4 mask="255.255.255.0">10.0.2.2</ipv4>
+      <ipv6 mask="/64">2001:db8:2::2</ipv6>
+    </if>
+    <route gw="10.0.2.1" type="ipv4">0.0.0.0/0</route>
+    <route gw="2001:db8:2::1" type="ipv6">2000::/3</route>
+  </vm>
+</vnuml>

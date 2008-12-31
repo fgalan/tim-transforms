@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/vnuml.dtd">
+<vnuml>
+  <global>
+    <version>1.9</version>
+    <simulation_name>nsfnet</simulation_name>
+    <automac/>
+    <vm_mgmt type="none"/>
+    <vm_defaults exec_mode="mconsole">
+      <filesystem type="cow">/usr/share/vnuml/filesystems/root_fs_tutorial</filesystem>
+      <kernel>/usr/share/vnuml/kernels/linux</kernel>
+      <console id="0">pts</console>
+    </vm_defaults>
+  </global>
+  <net name="ca1-wa" mode="uml_switch"/>
+  <net name="ca2-wa" mode="uml_switch"/>
+  <net name="il-wa" mode="uml_switch"/>
+  <net name="ca1-ca2" mode="uml_switch"/>
+  <net name="ca1-ut" mode="uml_switch"/>
+  <net name="ca2-tx" mode="uml_switch"/>
+  <net name="mi-ut" mode="uml_switch"/>
+  <net name="co-ut" mode="uml_switch"/>
+  <net name="co-ne" mode="uml_switch"/>
+  <net name="co-tx" mode="uml_switch"/>
+  <net name="il-ne" mode="uml_switch"/>
+  <net name="il-pa" mode="uml_switch"/>
+  <net name="mi-nj" mode="uml_switch"/>
+  <net name="mi-ny" mode="uml_switch"/>
+  <net name="ga-pa" mode="uml_switch"/>
+  <net name="ny-pa" mode="uml_switch"/>
+  <net name="nj-pa" mode="uml_switch"/>
+  <net name="dc-ny" mode="uml_switch"/>
+  <net name="dc-nj" mode="uml_switch"/>
+  <net name="dc-tx" mode="uml_switch"/>
+  <net name="ga-tx" mode="uml_switch"/>
+  <vm name="WA">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.1</ipv4>
+    </if>
+    <if id="1" net="ca1-wa">
+      <ipv4 mask="255.255.255.0">10.0.5.21</ipv4>
+    </if>
+    <if id="2" net="ca2-wa">
+      <ipv4 mask="255.255.255.0">10.0.5.23</ipv4>
+    </if>
+    <if id="3" net="il-wa">
+      <ipv4 mask="255.255.255.0">10.0.5.28</ipv4>
+    </if>
+  </vm>
+  <vm name="CA1">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.2</ipv4>
+    </if>
+    <if id="1" net="ca1-wa">
+      <ipv4 mask="255.255.255.0">10.0.5.12</ipv4>
+    </if>
+    <if id="2" net="ca1-ca2">
+      <ipv4 mask="255.255.255.0">10.0.5.13</ipv4>
+    </if>
+    <if id="3" net="ca1-ut">
+      <ipv4 mask="255.255.255.0">10.0.5.14</ipv4>
+    </if>
+  </vm>
+  <vm name="CA2">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.3</ipv4>
+    </if>
+    <if id="1" net="ca2-wa">
+      <ipv4 mask="255.255.255.0">10.0.5.32</ipv4>
+    </if>
+    <if id="2" net="ca1-ca2">
+      <ipv4 mask="255.255.255.0">10.0.5.31</ipv4>
+    </if>
+    <if id="3" net="ca2-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.37</ipv4>
+    </if>
+  </vm>
+  <vm name="UT">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.4</ipv4>
+    </if>
+    <if id="1" net="ca1-ut">
+      <ipv4 mask="255.255.255.0">10.0.5.41</ipv4>
+    </if>
+    <if id="2" net="mi-ut">
+      <ipv4 mask="255.255.255.0">10.0.5.49</ipv4>
+    </if>
+    <if id="3" net="co-ut">
+      <ipv4 mask="255.255.255.0">10.0.5.45</ipv4>
+    </if>
+  </vm>
+  <vm name="CO">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.5</ipv4>
+    </if>
+    <if id="1" net="co-ut">
+      <ipv4 mask="255.255.255.0">10.0.5.54</ipv4>
+    </if>
+    <if id="2" net="co-ne">
+      <ipv4 mask="255.255.255.0">10.0.5.56</ipv4>
+    </if>
+    <if id="3" net="co-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.57</ipv4>
+    </if>
+  </vm>
+  <vm name="NE">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.6</ipv4>
+    </if>
+    <if id="1" net="co-ne">
+      <ipv4 mask="255.255.255.0">10.0.5.65</ipv4>
+    </if>
+    <if id="2" net="il-ne">
+      <ipv4 mask="255.255.255.0">10.0.5.68</ipv4>
+    </if>
+  </vm>
+  <vm name="IL">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.7</ipv4>
+    </if>
+    <if id="1" net="il-wa">
+      <ipv4 mask="255.255.255.0">10.0.5.82</ipv4>
+    </if>
+    <if id="2" net="il-ne">
+      <ipv4 mask="255.255.255.0">10.0.5.86</ipv4>
+    </if>
+    <if id="3" net="il-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.102</ipv4>
+    </if>
+  </vm>
+  <vm name="MI">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.8</ipv4>
+    </if>
+    <if id="1" net="mi-ut">
+      <ipv4 mask="255.255.255.0">10.0.5.94</ipv4>
+    </if>
+    <if id="2" net="mi-nj">
+      <ipv4 mask="255.255.255.0">10.0.5.49</ipv4>
+    </if>
+    <if id="3" net="mi-ny">
+      <ipv4 mask="255.255.255.0">10.0.5.141</ipv4>
+    </if>
+  </vm>
+  <vm name="PA">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.9</ipv4>
+    </if>
+    <if id="1" net="il-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.101</ipv4>
+    </if>
+    <if id="2" net="ga-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.114</ipv4>
+    </if>
+    <if id="3" net="ny-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.144</ipv4>
+    </if>
+    <if id="4" net="nj-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.132</ipv4>
+    </if>
+  </vm>
+  <vm name="NY">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.10</ipv4>
+    </if>
+    <if id="1" net="mi-ny">
+      <ipv4 mask="255.255.255.0">10.0.5.142</ipv4>
+    </if>
+    <if id="2" net="ny-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.143</ipv4>
+    </if>
+    <if id="3" net="dc-ny">
+      <ipv4 mask="255.255.255.0">10.0.5.145</ipv4>
+    </if>
+  </vm>
+  <vm name="NJ">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.11</ipv4>
+    </if>
+    <if id="1" net="mi-nj">
+      <ipv4 mask="255.255.255.0">10.0.5.136</ipv4>
+    </if>
+    <if id="2" net="nj-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.131</ipv4>
+    </if>
+    <if id="3" net="dc-nj">
+      <ipv4 mask="255.255.255.0">10.0.5.133</ipv4>
+    </if>
+  </vm>
+  <vm name="DC">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.12</ipv4>
+    </if>
+    <if id="1" net="dc-ny">
+      <ipv4 mask="255.255.255.0">10.0.5.146</ipv4>
+    </if>
+    <if id="2" net="dc-nj">
+      <ipv4 mask="255.255.255.0">10.0.5.134</ipv4>
+    </if>
+    <if id="3" net="dc-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.121</ipv4>
+    </if>
+  </vm>
+  <vm name="GA">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.13</ipv4>
+    </if>
+    <if id="1" net="ga-pa">
+      <ipv4 mask="255.255.255.0">10.0.5.113</ipv4>
+    </if>
+    <if id="2" net="ga-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.111</ipv4>
+    </if>
+  </vm>
+  <vm name="TX">
+    <if id="1" net="lo">
+      <ipv4 mask="255.255.255.0">10.0.50.14</ipv4>
+    </if>
+    <if id="1" net="ca2-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.73</ipv4>
+    </if>
+    <if id="2" net="co-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.75</ipv4>
+    </if>
+    <if id="3" net="dc-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.122</ipv4>
+    </if>
+    <if id="4" net="ga-tx">
+      <ipv4 mask="255.255.255.0">10.0.5.112</ipv4>
+    </if>
+  </vm>
+</vnuml>
