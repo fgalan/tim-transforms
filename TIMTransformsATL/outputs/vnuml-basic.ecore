@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<XML:Root xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:XML="http:///XML.ecore" name="vnuml">
+  <children xsi:type="XML:Element" name="global">
+    <children xsi:type="XML:Element" name="version">
+      <children xsi:type="XML:TextNode" value="1.8"/>
+    </children>
+    <children xsi:type="XML:Element" name="simulation_name">
+      <children xsi:type="XML:TextNode" value="basic"/>
+    </children>
+    <children xsi:type="XML:Element" name="automac"/>
+    <children xsi:type="XML:Element" name="vm_mgmt">
+      <children xsi:type="XML:Attribute" name="type" value="none"/>
+    </children>
+    <children xsi:type="XML:Element" name="vm_defaults">
+      <children xsi:type="XML:Attribute" name="exec_mode" value="mconsole"/>
+      <children xsi:type="XML:Element" name="filesystem">
+        <children xsi:type="XML:Attribute" name="type" value="cow"/>
+        <children xsi:type="XML:TextNode" value="/usr/share/vnuml/filesystems/root_fs_tutorial"/>
+      </children>
+      <children xsi:type="XML:Element" name="kernel">
+        <children xsi:type="XML:TextNode" value="/usr/share/vnuml/kernels/linux"/>
+      </children>
+      <children xsi:type="XML:Element" name="console">
+        <children xsi:type="XML:Attribute" name="id" value="0"/>
+        <children xsi:type="XML:TextNode" value="xterm"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="net0"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="net1"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="net">
+    <children xsi:type="XML:Attribute" name="name" value="net2"/>
+    <children xsi:type="XML:Attribute" name="mode" value="uml_switch"/>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="uml1"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="net0"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.0.1"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:0::1"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="10.0.0.3"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv4"/>
+      <children xsi:type="XML:TextNode" value="0.0.0.0/0"/>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="2001:db8:0::3"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv6"/>
+      <children xsi:type="XML:TextNode" value="2000::/3"/>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="uml2"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="net0"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.0.2"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:0::2"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="10.0.0.3"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv4"/>
+      <children xsi:type="XML:TextNode" value="0.0.0.0/0"/>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="2001:db8:0::3"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv6"/>
+      <children xsi:type="XML:TextNode" value="2000::/3"/>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="uml3"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="net0"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.0.3"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:0::3"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="net1"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.1.1"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:1::1"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="10.0.1.2"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv4"/>
+      <children xsi:type="XML:TextNode" value="10.0.2.0/24"/>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="2001:db8:1::2"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv6"/>
+      <children xsi:type="XML:TextNode" value="2001:db8:2::/64"/>
+    </children>
+    <children xsi:type="XML:Element" name="forwarding">
+      <children xsi:type="XML:Attribute" name="type" value="ip"/>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="uml4"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="net1"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.1.2"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:1::2"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="2"/>
+      <children xsi:type="XML:Attribute" name="net" value="net2"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.2.1"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:2::1"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="10.0.1.1"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv4"/>
+      <children xsi:type="XML:TextNode" value="0.0.0.0/0"/>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="2001:db8:1::1"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv6"/>
+      <children xsi:type="XML:TextNode" value="2000::/3"/>
+    </children>
+    <children xsi:type="XML:Element" name="forwarding">
+      <children xsi:type="XML:Attribute" name="type" value="ip"/>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="vm">
+    <children xsi:type="XML:Attribute" name="name" value="uml5"/>
+    <children xsi:type="XML:Element" name="if">
+      <children xsi:type="XML:Attribute" name="id" value="1"/>
+      <children xsi:type="XML:Attribute" name="net" value="net2"/>
+      <children xsi:type="XML:Element" name="ipv4">
+        <children xsi:type="XML:Attribute" name="mask" value="255.255.255.0"/>
+        <children xsi:type="XML:TextNode" value="10.0.2.2"/>
+      </children>
+      <children xsi:type="XML:Element" name="ipv6">
+        <children xsi:type="XML:Attribute" name="mask" value="/64"/>
+        <children xsi:type="XML:TextNode" value="2001:db8:2::2"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="10.0.2.1"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv4"/>
+      <children xsi:type="XML:TextNode" value="0.0.0.0/0"/>
+    </children>
+    <children xsi:type="XML:Element" name="route">
+      <children xsi:type="XML:Attribute" name="gw" value="2001:db8:2::1"/>
+      <children xsi:type="XML:Attribute" name="type" value="ipv6"/>
+      <children xsi:type="XML:TextNode" value="2000::/3"/>
+    </children>
+  </children>
+</XML:Root>

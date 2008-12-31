@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<XML:Root xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:XML="http:///XML.ecore" name="adrenaline_netconf">
+  <children xsi:type="XML:Element" name="conf"/>
+  <children xsi:type="XML:Element" name="nodes">
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="uml1"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.120"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value=""/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="uml2"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.121"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value=""/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="uml3"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.122"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value=""/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="uml4"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.123"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value=""/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="uml5"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.124"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value=""/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="links"/>
+</XML:Root>

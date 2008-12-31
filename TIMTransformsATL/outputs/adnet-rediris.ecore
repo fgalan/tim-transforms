@@ -1,0 +1,2032 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<XML:Root xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:XML="http:///XML.ecore" name="adrenaline_netconf">
+  <children xsi:type="XML:Element" name="conf"/>
+  <children xsi:type="XML:Element" name="nodes">
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="AST"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.120"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.1"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="CAN"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.121"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.2"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="PVC"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.122"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.3"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="NAV"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.123"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.4"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="GAL"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.124"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.5"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="CYL"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.125"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.6"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="RIO"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.126"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.7"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="ARA"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.127"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.8"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="MAD"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.128"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.9"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="IX"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.129"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.10"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="CAT"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.130"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.11"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="CLM"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.131"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.12"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="VAL"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.132"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.13"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="EXT"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.133"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.14"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="BAL"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.134"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.15"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="AND"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.135"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.16"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="MUR"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.136"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.17"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="TEF"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.137"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.18"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="node">
+      <children xsi:type="XML:Attribute" name="id" value="PAL"/>
+      <children xsi:type="XML:Element" name="m_ip">
+        <children xsi:type="XML:TextNode" value="10.1.1.138"/>
+      </children>
+      <children xsi:type="XML:Element" name="lo_ip">
+        <children xsi:type="XML:TextNode" value="10.0.50.19"/>
+      </children>
+      <children xsi:type="XML:Element" name="zebra_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra"/>
+      </children>
+      <children xsi:type="XML:Element" name="ospfd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"/>
+      </children>
+      <children xsi:type="XML:Element" name="lrm_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/zebra/lrm/lrm/lrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="rsvpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"/>
+      </children>
+      <children xsi:type="XML:Element" name="rtap_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/rsvpte-svn/apitools/rtap"/>
+      </children>
+      <children xsi:type="XML:Element" name="snmpd_bin">
+        <children xsi:type="XML:TextNode" value="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"/>
+      </children>
+      <children xsi:type="XML:Element" name="olrm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cci/before_protection_modifications/src/olrm"/>
+      </children>
+      <children xsi:type="XML:Element" name="cpbwm_bin">
+        <children xsi:type="XML:TextNode" value="/mnt/server/grups/cpbwmon/src/release/cpbwm"/>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="XML:Element" name="links">
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AST"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.120"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="600"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre0"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.1"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="GAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre1"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.2"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AST"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.124"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="601"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre2"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.5"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CAN"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre3"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.6"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CAN"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.128"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="602"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre4"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.9"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="PVC"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre5"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.10"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="GAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.132"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="603"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre6"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.14"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="PVC"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre7"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.13"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="4"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="NAV"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.136"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="604"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre8"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.22"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="PVC"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre9"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.21"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.140"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="605"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre10"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.18"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="PVC"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre11"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.17"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="ARA"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.144"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="606"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre12"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.26"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="NAV"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre13"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.25"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CYL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.148"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="607"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre14"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.30"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="GAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre15"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.29"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="GAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.152"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="608"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre16"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.33"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre17"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.34"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="5"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CYL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.156"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="609"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre18"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.41"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre19"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.42"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CYL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.160"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="610"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre20"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.37"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="RIO"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre21"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.38"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="ARA"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.164"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="611"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre22"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.46"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="RIO"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre23"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.45"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="ARA"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.168"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="612"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre24"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.53"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre25"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.54"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="ARA"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.172"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="613"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre26"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.49"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CAT"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre27"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.50"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.176"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="614"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre28"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.58"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="MAD"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre29"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.57"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="1"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CAT"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.180"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="615"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre30"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.62"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre31"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.61"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="4"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.184"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="616"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre32"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.65"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="VAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre33"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.66"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CLM"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.188"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="617"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre34"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.70"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre35"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.69"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AND"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.192"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="618"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre36"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.74"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre37"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.73"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="EXT"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.196"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="619"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre38"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.78"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre39"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.77"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="IX"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.200"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="620"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre40"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.81"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="TEF"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre41"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.82"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="10"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CAT"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.204"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="621"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre42"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.85"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="VAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre43"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.86"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="BAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.208"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="622"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre44"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.90"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CAT"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre45"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.89"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="MUR"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.212"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="623"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre46"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.102"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="VAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre47"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.101"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AND"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.216"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="624"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre48"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.106"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="VAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre49"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.105"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="4"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AND"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.220"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="625"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre50"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.110"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="EXT"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre51"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.109"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="BAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.224"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="626"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre52"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.98"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="VAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre53"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.97"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="3"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AND"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.228"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="627"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre54"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.94"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="CLM"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre55"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.93"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AND"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.232"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="628"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre56"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.117"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="MUR"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre57"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.118"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="AND"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.236"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="629"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre58"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.113"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="PAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre59"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.114"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="10"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+    <children xsi:type="XML:Element" name="link">
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="TEF"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Attribute" name="net" value="10.1.1.240"/>
+          <children xsi:type="XML:Element" name="vlan">
+            <children xsi:type="XML:TextNode" value="630"/>
+          </children>
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre60"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.121"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="peer">
+        <children xsi:type="XML:Attribute" name="node" value="PAL"/>
+        <children xsi:type="XML:Attribute" name="vlan_dev" value="eth0"/>
+        <children xsi:type="XML:Element" name="vlan_connection">
+          <children xsi:type="XML:Element" name="gre">
+            <children xsi:type="XML:Element" name="name">
+              <children xsi:type="XML:TextNode" value="gre61"/>
+            </children>
+            <children xsi:type="XML:Element" name="ip">
+              <children xsi:type="XML:TextNode" value="10.0.0.122"/>
+            </children>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="XML:Element" name="qos">
+        <children xsi:type="XML:Element" name="delay">
+          <children xsi:type="XML:TextNode" value="2"/>
+        </children>
+        <children xsi:type="XML:Element" name="drop">
+          <children xsi:type="XML:TextNode" value="0.001"/>
+        </children>
+        <children xsi:type="XML:Element" name="dup">
+          <children xsi:type="XML:TextNode" value="0.0001"/>
+        </children>
+      </children>
+    </children>
+  </children>
+</XML:Root>
