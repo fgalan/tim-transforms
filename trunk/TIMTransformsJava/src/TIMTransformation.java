@@ -14,13 +14,15 @@
  *
  * An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
  *
- * Copyright (C) 2008 Fermin Galan Marquez
+ * Copyright (C) 2008, 2009 Fermin Galan Marquez
  *
  */
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  * This is the abstract class for TIM to TSM transformation.
@@ -36,28 +38,39 @@ public abstract class TIMTransformation {
 	 * model.
 	 * 
 	 * @param testbedName the name of the testbed to be transformed
-	 * @return the derived TSM model
+	 * @return the derived TSM model elements (each one a vector element). The semantic
+	 * of each element is testbed-specific
 	 * @throws TIMTransformationException
 	 */
-	public abstract String toTsm(String testbedName) throws TIMTransformationException;
+	public abstract Vector<String> toTsm(String testbedName) throws TIMTransformationException;
 	
 	/**
 	 * Performs the TIM-to-TSM transformation, writing the TSM to a file.
 	 * 
 	 * @param testbedName the name of the testbed to be transformed
-	 * @param fileName the filename in which the TSM model would be writted
+	 * @param vector of filename in which each element of the TSM model would be written
 	 * @throws TIMTransformationException
 	 */
-	public void toTsm(String testbedName, String fileName) throws TIMTransformationException {
+	public void toTsm(String testbedName, Vector<String> fileNames) throws TIMTransformationException {
 		
-		PrintStream ps = null;
-		try {
-			ps = new PrintStream(new FileOutputStream(fileName));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			throw new TIMTransformationException(e);
+		Vector<String> tsm = toTsm(testbedName);
+		if (tsm.size() != fileNames.size()) {
+			throw new TIMTransformationException("TSM elements size ("+tsm.size()+
+					") don't match fileNames vector size ("+fileNames.size()+")");
 		}
-		ps.print(toTsm(testbedName));
+		
+		Enumeration<String> tsmElements = tsm.elements(); 
+		for (Enumeration<String> e = fileNames.elements(); e.hasMoreElements() ; ) {
+			String fileName = (String)e.nextElement();
+			PrintStream ps = null;
+			try {
+				ps = new PrintStream(new FileOutputStream(fileName));
+			} catch (FileNotFoundException ex) {
+				ex.printStackTrace();
+				throw new TIMTransformationException(ex);
+			}
+			ps.print((String)tsmElements.nextElement());
+		}
 	}
 	
 }

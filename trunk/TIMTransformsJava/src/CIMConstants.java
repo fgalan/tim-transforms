@@ -14,7 +14,7 @@
  *
  * An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
  *
- * Copyright (C) 2008 Fermin Galan Marquez
+ * Copyright (C) 2008, 2009 Fermin Galan Marquez
  *
  */
 
@@ -33,5 +33,9 @@ public class CIMConstants {
 	static final int IPV4_FW_FAMILY = 2;
 	static final int IPV6_FW_FAMILY = 3;
 	static final int IPV4AND6_FW_FAMILY = 3; 
+	
+	/* From CIM_RangeOfIPAddresses specification */
+	static final int IPV4_RANGE = 1;
+	static final int IPV6_RANGE = 2;
 
 }
