@@ -544,6 +544,9 @@ public class VNUMLTransformation extends TIMTransformation {
 				String startIp = (String)rangeIp.getProperty("StartAddress").getValue().getValue();
 				String endIp = (String)rangeIp.getProperty("EndAddress").getValue().getValue();
 				
+				//String instanceID = (String)rangeIp.getProperty("InstanceID").getValue().getValue();
+				//System.out.println("instanceID="+instanceID);
+				
 				if (addressType != CIMConstants.IPV4_RANGE) {
 					throw new TIMTransformationException("OSPF IPv6 ranges are not supported by the moment");
 				}
