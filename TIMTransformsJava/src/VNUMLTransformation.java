@@ -85,7 +85,7 @@ public class VNUMLTransformation extends TIMTransformation {
 			}
 		}
 		else {		
-			specVersion = "1.8";
+			specVersion = "1.9";
 			defaultExecMode = "mconsole";
 			defaultFilesystemType = "cow";
 			defaultFilesystem = "/usr/share/vnuml/filesystems/root_fs_tutorial";
@@ -106,10 +106,10 @@ public class VNUMLTransformation extends TIMTransformation {
 		
 		Vector<String> v = new Vector<String>(2);
 		
-		v.add(toTsmScenario(scenarioName));
-		
-		/* This check is performed because of OSPF is not mandatory */
 		String ospfTsmElement = toTsmOspf(scenarioName);
+		v.add(toTsmScenario(scenarioName, ospfTsmElement != ""));		
+		
+		/* This check is performed because of OSPF is not mandatory */		
 		if (ospfTsmElement != "") {
 			v.add(ospfTsmElement);
 		}
@@ -118,7 +118,7 @@ public class VNUMLTransformation extends TIMTransformation {
 
 	}
 
-	public String toTsmScenario(String scenarioName) throws TIMTransformationException {
+	public String toTsmScenario(String scenarioName, boolean withOspfExtension) throws TIMTransformationException {
 		StringWriter s = new StringWriter();
 		
 		/* Get the TIM_TestbedScenario instance that match scenarioName */
@@ -144,7 +144,7 @@ public class VNUMLTransformation extends TIMTransformation {
 		//System.out.println(scenario.toString());
 		
 		try {
-			s.write(vnumlSpecHeader(scenarioName));
+			s.write(vnumlSpecHeader(scenarioName, withOspfExtension));
 			s.write(vnumlSpecNets(scenario));
 			s.write(vnumlSpecVms(scenario));
 			s.write(vnumlSpecFooter());
@@ -157,7 +157,7 @@ public class VNUMLTransformation extends TIMTransformation {
 
 	}
 	
-	private String vnumlSpecHeader(String scenarioName) {
+	private String vnumlSpecHeader(String scenarioName, boolean withOspfExtension) {
 		
 		StringWriter s = new StringWriter();
 		
@@ -178,6 +178,11 @@ public class VNUMLTransformation extends TIMTransformation {
 		s.write("       <kernel>"+defaultKernel+"</kernel>\n");
 		s.write("       <console id='0'>"+defaultConsole+"</console>\n");
 		s.write("    </vm_defaults>\n");
+		/* FIXME: The conf.xml should be replaced by the actual file name, but the
+		 * problem is that this is not known within VNUMLTransformation class */		
+		if (withOspfExtension) {
+			s.write("    <extension plugin='ospfd' conf='conf.xml'/>\n");			
+		}
 		s.write("  </global>\n");
 				
 		return s.toString();
