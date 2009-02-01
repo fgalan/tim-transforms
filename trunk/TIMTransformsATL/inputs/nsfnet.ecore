@@ -81,23 +81,67 @@
   <TIM:CIM_IPProtocolEndpoint xmi:id="tx-ga-if"/>
   
   <!-- the IPv4 addresses for the loopback interfaces (14) -->
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.1" SubnetMask="255.255.255.0" xmi:id="wa-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.2" SubnetMask="255.255.255.0" xmi:id="ca1-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.3" SubnetMask="255.255.255.0" xmi:id="ca2-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.4" SubnetMask="255.255.255.0" xmi:id="ut-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.5" SubnetMask="255.255.255.0" xmi:id="co-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.6" SubnetMask="255.255.255.0" xmi:id="ne-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.7" SubnetMask="255.255.255.0" xmi:id="il-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.8" SubnetMask="255.255.255.0" xmi:id="mi-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.9" SubnetMask="255.255.255.0" xmi:id="pa-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.10" SubnetMask="255.255.255.0" xmi:id="ny-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.11" SubnetMask="255.255.255.0" xmi:id="nj-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.12" SubnetMask="255.255.255.0" xmi:id="dc-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.13" SubnetMask="255.255.255.0" xmi:id="ga-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.14" SubnetMask="255.255.255.0" xmi:id="tx-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.1" SubnetMask="255.255.255.255" xmi:id="wa-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.2" SubnetMask="255.255.255.255" xmi:id="ca1-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.3" SubnetMask="255.255.255.255" xmi:id="ca2-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.4" SubnetMask="255.255.255.255" xmi:id="ut-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.5" SubnetMask="255.255.255.255" xmi:id="co-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.6" SubnetMask="255.255.255.255" xmi:id="ne-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.7" SubnetMask="255.255.255.255" xmi:id="il-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.8" SubnetMask="255.255.255.255" xmi:id="mi-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.9" SubnetMask="255.255.255.255" xmi:id="pa-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.10" SubnetMask="255.255.255.255" xmi:id="ny-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.11" SubnetMask="255.255.255.255" xmi:id="nj-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.12" SubnetMask="255.255.255.255" xmi:id="dc-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.13" SubnetMask="255.255.255.255" xmi:id="ga-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.14" SubnetMask="255.255.255.255" xmi:id="tx-lo-ip"/>
 
   <!-- the IPv4 addresses for the PPP interfaces (42) (/30 = 255.255.255.252) -->
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.21" SubnetMask="255.255.255.0" xmi:id="wa-ca1-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.1" SubnetMask="255.255.255.252" xmi:id="wa-ca1-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.5" SubnetMask="255.255.255.252" xmi:id="wa-ca2-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.9" SubnetMask="255.255.255.252" xmi:id="wa-il-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.13" SubnetMask="255.255.255.252" xmi:id="ca1-ca2-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.17" SubnetMask="255.255.255.252" xmi:id="ca1-ut-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.2" SubnetMask="255.255.255.252" xmi:id="ca1-wa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.14" SubnetMask="255.255.255.252" xmi:id="ca2-ca1-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.6" SubnetMask="255.255.255.252" xmi:id="ca2-wa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.21" SubnetMask="255.255.255.252" xmi:id="ca2-tx-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.18" SubnetMask="255.255.255.252" xmi:id="ut-ca1-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.25" SubnetMask="255.255.255.252" xmi:id="ut-mi-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.29" SubnetMask="255.255.255.252" xmi:id="ut-co-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.30" SubnetMask="255.255.255.252" xmi:id="co-ut-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.33" SubnetMask="255.255.255.252" xmi:id="co-ne-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.37" SubnetMask="255.255.255.252" xmi:id="co-tx-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.34" SubnetMask="255.255.255.252" xmi:id="ne-co-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.41" SubnetMask="255.255.255.252" xmi:id="ne-il-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.42" SubnetMask="255.255.255.252" xmi:id="il-ne-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.10" SubnetMask="255.255.255.252" xmi:id="il-wa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.45" SubnetMask="255.255.255.252" xmi:id="il-pa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.26" SubnetMask="255.255.255.252" xmi:id="mi-ut-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.49" SubnetMask="255.255.255.252" xmi:id="mi-nj-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.153" SubnetMask="255.255.255.252" xmi:id="mi-ny-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.46" SubnetMask="255.255.255.252" xmi:id="pa-il-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.57" SubnetMask="255.255.255.252" xmi:id="pa-ga-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.61" SubnetMask="255.255.255.252" xmi:id="pa-ny-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.65" SubnetMask="255.255.255.252" xmi:id="pa-nj-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.54" SubnetMask="255.255.255.252" xmi:id="ny-mi-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.62" SubnetMask="255.255.255.252" xmi:id="ny-pa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.69" SubnetMask="255.255.255.252" xmi:id="ny-dc-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.50" SubnetMask="255.255.255.252" xmi:id="nj-mi-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.66" SubnetMask="255.255.255.252" xmi:id="nj-pa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.73" SubnetMask="255.255.255.252" xmi:id="nj-dc-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.77" SubnetMask="255.255.255.252" xmi:id="dc-tx-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.70" SubnetMask="255.255.255.252" xmi:id="dc-ny-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.74" SubnetMask="255.255.255.252" xmi:id="dc-nj-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.58" SubnetMask="255.255.255.252" xmi:id="ga-pa-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.81" SubnetMask="255.255.255.252" xmi:id="ga-tx-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.22" SubnetMask="255.255.255.252" xmi:id="tx-ca2-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.38" SubnetMask="255.255.255.252" xmi:id="tx-co-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.78" SubnetMask="255.255.255.252" xmi:id="tx-dc-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.82" SubnetMask="255.255.255.252" xmi:id="tx-ga-ip"/>
+    
+  <!-- the IPv4 addressed, based on /24 (ADRENALINE legacy) -->
+  <!--TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.21" SubnetMask="255.255.255.0" xmi:id="wa-ca1-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.23" SubnetMask="255.255.255.0" xmi:id="wa-ca2-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.28" SubnetMask="255.255.255.0" xmi:id="wa-il-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.13" SubnetMask="255.255.255.0" xmi:id="ca1-ca2-ip"/>
@@ -118,7 +162,7 @@
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.82" SubnetMask="255.255.255.0" xmi:id="il-wa-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.102" SubnetMask="255.255.255.0" xmi:id="il-pa-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.94" SubnetMask="255.255.255.0" xmi:id="mi-ut-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.49" SubnetMask="255.255.255.0" xmi:id="mi-nj-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.135" SubnetMask="255.255.255.0" xmi:id="mi-nj-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.141" SubnetMask="255.255.255.0" xmi:id="mi-ny-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.101" SubnetMask="255.255.255.0" xmi:id="pa-il-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.114" SubnetMask="255.255.255.0" xmi:id="pa-ga-ip"/>
@@ -138,7 +182,7 @@
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.73" SubnetMask="255.255.255.0" xmi:id="tx-ca2-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.75" SubnetMask="255.255.255.0" xmi:id="tx-co-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.122" SubnetMask="255.255.255.0" xmi:id="tx-dc-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.112" SubnetMask="255.255.255.0" xmi:id="tx-ga-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.112" SubnetMask="255.255.255.0" xmi:id="tx-ga-ip"/-->
     
   <!-- the interconnection networks (21) (MaxConnections = 2 => PPP) -->
   <TIM:TIM_LinkConnectivityCollection InstanceID="ca1-wa" MaxConnections="2" xmi:id="ca1-wa"/>
@@ -388,6 +432,83 @@
   <TIM:TIM_TransmissionCharacteristics InstanceID="dc-nj-qos" xmi:id="dc-nj-qos" DelayMean="3" LossProbabilityValue="0.001" DuplicationProbabilityValue="0.0001"/>  
   <TIM:TIM_TransmissionCharacteristics InstanceID="dc-tx-qos" xmi:id="dc-tx-qos" DelayMean="15" LossProbabilityValue="0.001" DuplicationProbabilityValue="0.0001"/>            
   <TIM:TIM_TransmissionCharacteristics InstanceID="ga-tx-qos" xmi:id="ga-tx-qos" DelayMean="7.5" LossProbabilityValue="0.001" DuplicationProbabilityValue="0.0001"/>  
+  
+   <!-- Forwaring services (14) -->
+   <!-- ProtocolType = 2 (IPv4), 3 (IPv6), 4 (IPv4/IPv6) -->
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="wa-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ca1-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ca2-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ut-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="co-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ne-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="il-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="mi-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="pa-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ny-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="nj-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="dc-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ga-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="tx-fw"/>                          
+  
+  <!-- ForwardingServices associations to hosts (14) -->
+  <TIM:CIM_HostedService Antecedent="#WA" Dependent="#wa-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CA1" Dependent="#ca1-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CA2" Dependent="#ca2-fw"/>
+  <TIM:CIM_HostedService Antecedent="#UT" Dependent="#ut-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CO" Dependent="#co-fw"/>
+  <TIM:CIM_HostedService Antecedent="#NE" Dependent="#ne-fw"/>
+  <TIM:CIM_HostedService Antecedent="#IL" Dependent="#il-fw"/>
+  <TIM:CIM_HostedService Antecedent="#MI" Dependent="#mi-fw"/>
+  <TIM:CIM_HostedService Antecedent="#PA" Dependent="#pa-fw"/>
+  <TIM:CIM_HostedService Antecedent="#NY" Dependent="#ny-fw"/>
+  <TIM:CIM_HostedService Antecedent="#NJ" Dependent="#nj-fw"/>
+  <TIM:CIM_HostedService Antecedent="#DC" Dependent="#dc-fw"/>
+  <TIM:CIM_HostedService Antecedent="#GA" Dependent="#ga-fw"/>
+  <TIM:CIM_HostedService Antecedent="#TX" Dependent="#tx-fw"/>                          
+  
+  <!-- ForwardingServices associations to interfaces (42) -->
+  <TIM:CIM_ForwardsAmong Antecedent="#wa-ca1-if" Dependent="#wa-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#wa-ca2-if" Dependent="#wa-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#wa-il-if" Dependent="#wa-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ca1-ca2-if" Dependent="#ca1-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ca1-ut-if" Dependent="#ca1-fw"/>        
+  <TIM:CIM_ForwardsAmong Antecedent="#ca1-wa-if" Dependent="#ca1-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ca2-ca1-if" Dependent="#ca2-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ca2-wa-if" Dependent="#ca2-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ca2-tx-if" Dependent="#ca2-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ut-ca1-if" Dependent="#ut-fw"/>        
+  <TIM:CIM_ForwardsAmong Antecedent="#ut-mi-if" Dependent="#ut-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ut-co-if" Dependent="#ut-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#co-ut-if" Dependent="#co-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#co-ne-if" Dependent="#co-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#co-tx-if" Dependent="#co-fw"/>        
+  <TIM:CIM_ForwardsAmong Antecedent="#ne-co-if" Dependent="#ne-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ne-il-if" Dependent="#ne-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#il-ne-if" Dependent="#il-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#il-wa-if" Dependent="#il-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#il-pa-if" Dependent="#il-fw"/>        
+  <TIM:CIM_ForwardsAmong Antecedent="#mi-ut-if" Dependent="#mi-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#mi-nj-if" Dependent="#mi-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#mi-ny-if" Dependent="#mi-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pa-il-if" Dependent="#pa-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pa-ga-if" Dependent="#pa-fw"/>        
+  <TIM:CIM_ForwardsAmong Antecedent="#pa-ny-if" Dependent="#pa-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pa-nj-if" Dependent="#pa-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ny-mi-if" Dependent="#ny-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ny-pa-if" Dependent="#ny-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ny-dc-if" Dependent="#ny-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#nj-mi-if" Dependent="#nj-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#nj-pa-if" Dependent="#nj-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#nj-dc-if" Dependent="#nj-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#dc-tx-if" Dependent="#dc-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#dc-ny-if" Dependent="#dc-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#dc-nj-if" Dependent="#dc-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ga-pa-if" Dependent="#ga-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ga-tx-if" Dependent="#ga-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#tx-ca2-if" Dependent="#tx-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#tx-co-if" Dependent="#tx-fw"/> 
+  <TIM:CIM_ForwardsAmong Antecedent="#tx-dc-if" Dependent="#tx-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#tx-ga-if" Dependent="#tx-fw"/>
   
   <!-- QoS constrainst associations to links (21) -->
   <TIM:TIM_LinkTransmissionElement Antecedent="#ca1-wa" Dependent="#ca1-wa-qos"/>

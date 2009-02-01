@@ -112,25 +112,25 @@
   <TIM:CIM_IPProtocolEndpoint xmi:id="pal-and-if"/>
   
   <!-- the IPv4 addresses for the loopback interfaces (19) -->
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.1" SubnetMask="255.255.255.0" xmi:id="ast-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.2" SubnetMask="255.255.255.0" xmi:id="can-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.3" SubnetMask="255.255.255.0" xmi:id="pvc-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.4" SubnetMask="255.255.255.0" xmi:id="nav-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.5" SubnetMask="255.255.255.0" xmi:id="gal-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.6" SubnetMask="255.255.255.0" xmi:id="cyl-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.7" SubnetMask="255.255.255.0" xmi:id="rio-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.8" SubnetMask="255.255.255.0" xmi:id="ara-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.9" SubnetMask="255.255.255.0" xmi:id="mad-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.10" SubnetMask="255.255.255.0" xmi:id="ix-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.11" SubnetMask="255.255.255.0" xmi:id="cat-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.12" SubnetMask="255.255.255.0" xmi:id="clm-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.13" SubnetMask="255.255.255.0" xmi:id="val-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.14" SubnetMask="255.255.255.0" xmi:id="ext-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.15" SubnetMask="255.255.255.0" xmi:id="bal-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.16" SubnetMask="255.255.255.0" xmi:id="and-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.17" SubnetMask="255.255.255.0" xmi:id="mur-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.18" SubnetMask="255.255.255.0" xmi:id="tef-lo-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.19" SubnetMask="255.255.255.0" xmi:id="pal-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.1" SubnetMask="255.255.255.255" xmi:id="ast-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.2" SubnetMask="255.255.255.255" xmi:id="can-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.3" SubnetMask="255.255.255.255" xmi:id="pvc-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.4" SubnetMask="255.255.255.255" xmi:id="nav-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.5" SubnetMask="255.255.255.255" xmi:id="gal-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.6" SubnetMask="255.255.255.255" xmi:id="cyl-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.7" SubnetMask="255.255.255.255" xmi:id="rio-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.8" SubnetMask="255.255.255.255" xmi:id="ara-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.9" SubnetMask="255.255.255.255" xmi:id="mad-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.10" SubnetMask="255.255.255.255" xmi:id="ix-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.11" SubnetMask="255.255.255.255" xmi:id="cat-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.12" SubnetMask="255.255.255.255" xmi:id="clm-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.13" SubnetMask="255.255.255.255" xmi:id="val-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.14" SubnetMask="255.255.255.255" xmi:id="ext-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.15" SubnetMask="255.255.255.255" xmi:id="bal-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.16" SubnetMask="255.255.255.255" xmi:id="and-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.17" SubnetMask="255.255.255.255" xmi:id="mur-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.18" SubnetMask="255.255.255.255" xmi:id="tef-lo-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.19" SubnetMask="255.255.255.255" xmi:id="pal-lo-ip"/>
   
   <!-- the IPv4 addresses for the PPP interfaces (62) (/30 = 255.255.255.252) -->
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.0.1" SubnetMask="255.255.255.252" xmi:id="ast-gal-ip"/>  
@@ -516,6 +516,114 @@
   <TIM:CIM_HostedAccessPoint Antecedent="#TEF" Dependent="#tef-pal-if"/>
   <TIM:CIM_HostedAccessPoint Antecedent="#PAL" Dependent="#pal-tef-if"/>
   <TIM:CIM_HostedAccessPoint Antecedent="#PAL" Dependent="#pal-and-if"/>
+
+   <!-- Forwaring services (19) -->
+   <!-- ProtocolType = 2 (IPv4), 3 (IPv6), 4 (IPv4/IPv6) -->
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ast-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="can-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="pvc-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="nav-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="gal-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="cyl-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="rio-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ara-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="mad-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ix-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="cat-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="clm-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="val-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="ext-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="bal-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="and-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="mur-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="tef-fw"/>
+  <TIM:CIM_ForwardingService ProtocolType="4" xmi:id="pal-fw"/>
+  
+  <!-- ForwardingServices associations to hosts (19) -->
+  <TIM:CIM_HostedService Antecedent="#AST" Dependent="#ast-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CAN" Dependent="#can-fw"/>
+  <TIM:CIM_HostedService Antecedent="#PVC" Dependent="#pvc-fw"/>
+  <TIM:CIM_HostedService Antecedent="#NAV" Dependent="#nav-fw"/>
+  <TIM:CIM_HostedService Antecedent="#GAL" Dependent="#gal-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CYL" Dependent="#cyl-fw"/>
+  <TIM:CIM_HostedService Antecedent="#RIO" Dependent="#rio-fw"/>
+  <TIM:CIM_HostedService Antecedent="#ARA" Dependent="#ara-fw"/>
+  <TIM:CIM_HostedService Antecedent="#MAD" Dependent="#mad-fw"/>
+  <TIM:CIM_HostedService Antecedent="#IX" Dependent="#ix-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CAT" Dependent="#cat-fw"/>
+  <TIM:CIM_HostedService Antecedent="#CLM" Dependent="#clm-fw"/>
+  <TIM:CIM_HostedService Antecedent="#VAL" Dependent="#val-fw"/>
+  <TIM:CIM_HostedService Antecedent="#EXT" Dependent="#ext-fw"/>
+  <TIM:CIM_HostedService Antecedent="#BAL" Dependent="#bal-fw"/>
+  <TIM:CIM_HostedService Antecedent="#AND" Dependent="#and-fw"/>
+  <TIM:CIM_HostedService Antecedent="#MUR" Dependent="#mur-fw"/>
+  <TIM:CIM_HostedService Antecedent="#TEF" Dependent="#tef-fw"/>
+  <TIM:CIM_HostedService Antecedent="#PAL" Dependent="#pal-fw"/>
+  
+
+  <!-- ForwardingServices associations to interfaces (62) -->
+  <TIM:CIM_ForwardsAmong Antecedent="#ast-gal-if" Dependent="#ast-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ast-can-if" Dependent="#ast-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#can-ast-if" Dependent="#can-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#can-pvc-if" Dependent="#can-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pvc-can-if" Dependent="#pvc-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#pvc-gal-if" Dependent="#pvc-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pvc-nav-if" Dependent="#pvc-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pvc-ix-if" Dependent="#pvc-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#nav-pvc-if" Dependent="#nav-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#nav-ara-if" Dependent="#nav-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#gal-ast-if" Dependent="#gal-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#gal-pvc-if" Dependent="#gal-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#gal-cyl-if" Dependent="#gal-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#gal-ix-if" Dependent="#gal-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#cyl-gal-if" Dependent="#cyl-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#cyl-rio-if" Dependent="#cyl-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#cyl-ix-if" Dependent="#cyl-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#rio-cyl-if" Dependent="#rio-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#rio-ara-if" Dependent="#rio-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ara-nav-if" Dependent="#ara-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#ara-rio-if" Dependent="#ara-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ara-ix-if" Dependent="#ara-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ara-cat-if" Dependent="#ara-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#mad-ix-if" Dependent="#mad-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-mad-if" Dependent="#ix-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-gal-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-cyl-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-pvc-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-ara-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-cat-if" Dependent="#ix-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-val-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-clm-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-and-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-ext-if" Dependent="#ix-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ix-tef-if" Dependent="#ix-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#cat-ara-if" Dependent="#cat-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#cat-ix-if" Dependent="#cat-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#cat-val-if" Dependent="#cat-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#cat-bal-if" Dependent="#cat-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#clm-ix-if" Dependent="#clm-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#clm-and-if" Dependent="#clm-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#val-ix-if" Dependent="#val-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#val-cat-if" Dependent="#val-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#val-bal-if" Dependent="#val-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#val-mur-if" Dependent="#val-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#val-and-if" Dependent="#val-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ext-ix-if" Dependent="#ext-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#ext-and-if" Dependent="#ext-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#bal-cat-if" Dependent="#bal-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#bal-val-if" Dependent="#bal-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#and-ext-if" Dependent="#and-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#and-ix-if" Dependent="#and-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#and-clm-if" Dependent="#and-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#and-val-if" Dependent="#and-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#and-mur-if" Dependent="#and-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#and-pal-if" Dependent="#and-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#mur-val-if" Dependent="#mur-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#mur-and-if" Dependent="#mur-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#tef-ix-if" Dependent="#tef-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#tef-pal-if" Dependent="#tef-fw"/>    
+  <TIM:CIM_ForwardsAmong Antecedent="#pal-tef-if" Dependent="#pal-fw"/>
+  <TIM:CIM_ForwardsAmong Antecedent="#pal-and-if" Dependent="#pal-fw"/>    
   
   <!-- the QoS constrainst for each link (31). This example uses delay, loss and duplication parameters -->
   <TIM:TIM_TransmissionCharacteristics InstanceID="ast-gal-qos" xmi:id="ast-gal-qos" DelayMean="2" LossProbabilityValue="0.001" DuplicationProbabilityValue="0.0001"/>
