@@ -91,13 +91,15 @@ public class TransTester {
 		tm.getAdrenalineTransformation().toTsm(testbed2, v);
 		
 		System.out.println("Transformation: testbed "+testbed3+" -> vnuml ...");
-		v = new Vector<String>(1);
+		v = new Vector<String>(2);
 		v.add(file3vn);
+		v.add(file3vo);
 		tm.getVnumlTransformation().toTsm(testbed3, v);
 		
 		System.out.println("Transformation: testbed "+testbed3+" -> adnetconf ...");
-		v = new Vector<String>(1);
+		v = new Vector<String>(2);
 		v.add(file3an);
+		v.add(file3ao);
 		tm.getAdrenalineTransformation().toTsm(testbed3, v);
 				
 		System.out.println("End of program!");
