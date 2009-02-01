@@ -16,7 +16,7 @@
 #
 # An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
 #
-# Copyright (C) 2008 Fermin Galan Marquez
+# Copyright (C) 2008, 2009 Fermin Galan Marquez
 #
 # Reset the CIMOM repository.
 #
@@ -59,15 +59,17 @@ rm -rf /tmp/mof
 cp -r mof /tmp
 
 # Expanding MOF
-$PROJECT/scripts/expand_alias.pl /tmp/mof/basic.mof /tmp/mof/basic_e.mof http://$HOST/$NS > /dev/null
-$PROJECT/scripts/expand_alias.pl /tmp/mof/nsfnet.mof /tmp/mof/nsfnet_e.mof http://$HOST/$NS > /dev/null
-$PROJECT/scripts/expand_alias.pl /tmp/mof/rediris.mof /tmp/mof/rediris_e.mof http://$HOST/$NS > /dev/null
+$PROJECT/scripts/expand_alias.pl http://$HOST/$NS /tmp/mof/basic.mof > /dev/null
+$PROJECT/scripts/expand_alias.pl http://$HOST/$NS /tmp/mof/nsfnet.mof /tmp/mof/nsfnet-ospf.mof > /dev/null
+$PROJECT/scripts/expand_alias.pl http://$HOST/$NS /tmp/mof/rediris.mof /tmp/mof/rediris-ospf.mof > /dev/null
 
 # Compiling
 cd /usr/local/src/wbemservices/bin
 sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/tim.mof
 sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/testbed_parameters.mof
 sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/testbed_parameters-defaults.mof
-sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/basic_e.mof
-sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/nsfnet_e.mof
-sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/rediris_e.mof
+sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/basic-e.mof
+sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/nsfnet-e.mof
+sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/nsfnet-ospf-e.mof
+sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/rediris-e.mof
+sh mofcomp -u fermin -p x -n $NS -c $HOST /tmp/mof/rediris-ospf-e.mof

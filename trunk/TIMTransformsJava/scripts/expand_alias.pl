@@ -16,7 +16,7 @@
 #
 # An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
 #
-# Copyright (C) 2008 Fermin Galan Marquez
+# Copyright (C) 2008, 2009 Fermin Galan Marquez
 #
 # The MOF speficiation document (DSP0004, )allows alias utilization (sections ), but
 # it seems that some compilers (in particular, the mofcomp that comes with WBEM Services)
@@ -25,15 +25,23 @@
 # In order to help those compilers, this script peform automatic alias expansion. Thus,
 # it takes an input MOF files as alias and generate an output MOF file in which the alias
 # has been resolved. It needs as additional argument the URL namespace to use in the
-# expansion (eg., "http://phoenix:5988/cimv2181").
+# expansion (eg., "http://phoenix:5988/cimv2181"). A list of input files is taken as
+# input (and cross-references between files are allowed), generating corresponding output
+# files with the '-e' sufix in the basename (i.e input.mof -> input-e.mof)
 
-# Usage: ./expand_alias.pl input_file output_file namespace_url
+# Usage: ./expand_alias.pl namespace_url input_file1 input_file2 ...
 
 use strict;
+use File::Basename;
 
-my $ifile = shift;
-my $ofile = shift;
 my $url = shift;
+my @ifiles = @ARGV;
+
+# Check filenames
+foreach my $ifile (@ifiles) {
+	my $bn = basename($ifile);
+	die "$ifile is not the name of a .mof file" unless ($bn =~ /\.mof$/); 
+}
 
 # First, build a hash for the aliases. The key properties are identified after
 # the "key properties" line, after finding a empty line(this is ugly because of
@@ -41,37 +49,39 @@ my $url = shift;
 # the CIM classes would be overwhelming for a simple script like this one)
 
 my %aliases;
-open INPUT, "$ifile";
+foreach my $ifile (@ifiles) {
+	open INPUT, "$ifile";
 
-my $in_keys  = 0;
+	my $in_keys  = 0;
 
-my $current_alias;
+	my $current_alias;
 
-while (<INPUT>) {
-	if (/(\w+) as \$(\w+)/) {
-		$current_alias = $2;		
-		$aliases{$current_alias} = "$1.";
-		print("alias $current_alias (class $1): ");
-	}
-	if (/key properties/) {
-		$in_keys = 1;
-	}
-	if ((/(\w+)\W?=\W?"(.+)";/) && $in_keys) {
-		my $l = $1;
-		my $r = $2;
-		if ($aliases{$current_alias} =~ /\.$/) {
-			$aliases{$current_alias} .= "$l=$r";
+	while (<INPUT>) {
+		if (/(\w+) as \$(\w+)/) {
+			$current_alias = $2;		
+			$aliases{$current_alias} = "$1.";
+			print("alias $current_alias (class $1): ");
 		}
-		else {
-			$aliases{$current_alias} .= ",$l=$r";
-		}		
+		if (/key properties/) {
+			$in_keys = 1;
+		}
+		if ((/(\w+)\W?=\W?"(.+)";/) && $in_keys) {
+			my $l = $1;
+			my $r = $2;
+			if ($aliases{$current_alias} =~ /\.$/) {
+				$aliases{$current_alias} .= "$l=$r";
+			}
+			else {
+				$aliases{$current_alias} .= ",$l=$r";
+			}
+		}
+		if ((/^$/) && $in_keys) {
+			$in_keys = 0;
+			print "$aliases{$current_alias}\n";
+		}
 	}
-	if ((/^$/) && $in_keys) {
-		$in_keys = 0;
-		print "$aliases{$current_alias}\n";
-	}
+	close INPUT;
 }
-close INPUT;
 
 # Second, expand each alias with the string calculated in the previous step
 # In addition, remove the "as $ALIAS" string
@@ -79,28 +89,34 @@ close INPUT;
 my $n_e = 0;
 my $n_v = 0;
 
-open INPUT, "$ifile";
-open OUT, ">$ofile";
-while (<INPUT>) {
-	if (/(.*) as \$\w+(.*)/) {
-		print OUT "$1$2\n";
-	}
-	elsif (/(\w+)\W?=\W?"?\$(.+)"?;/) {
-		foreach my $key (keys %aliases) {
-			if ($2 eq $key) {
-				print "expanding $key\n";
-				$n_e++;
-				print OUT "\t$1 = \"".$url.":".$aliases{$key}."\";\n";
-				last;
+foreach my $ifile (@ifiles) {
+	
+	$ifile =~ /(.*)\.mof$/;
+	my $ofile = "$1-e.mof";
+	
+	open INPUT, "$ifile";
+	open OUT, ">$ofile";
+	while (<INPUT>) {
+		if (/(.*) as \$\w+(.*)/) {
+			print OUT "$1$2\n";
+		}
+		elsif (/(\w+)\W?=\W?"?\$(.+)"?;/) {
+			foreach my $key (keys %aliases) {
+				if ($2 eq $key) {
+					print "expanding $key\n";
+					$n_e++;
+					print OUT "\t$1 = \"".$url.":".$aliases{$key}."\";\n";
+					last;
+				}
 			}
 		}
-	}
-	else {
-		print OUT "$_";
-		$n_v++;
-	}
+		else {
+			print OUT "$_";
+			$n_v++;
+		}
 }
 close INPUT;
 close OUT;
+}
 
 print "STATS: $n_e expansions, $n_v verbatim lines\n";
