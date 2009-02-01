@@ -1,0 +1,2417 @@
+// Basic testbed scenario OSPF configuration, v0.2009_01_31
+// 
+// This file can be mofified/distributed under the terms of 
+// Creative Commons Attribution-Share Alike 2.5 Spain License.
+// See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+//
+// Copyright (C) 2009 Fermin Galan Marquez
+
+// This testbed is the OSPF configuration that complements rediris.mof
+
+// NOTE that accordingly with CIM_RangeOfIPAddresses definition StartAddress and EndAddress
+// are encoded using strings (not 32bits integers). In addition, it is not clear if
+// StartAddress and EndAddress refers to *actual* host addresses or to the subnet range
+//
+// 		10.0.5.0/30 => StartAddress=10.0.5.0, EndAddress=10.0.5.3
+//                  => StartAddress=10.0.5.1, EndAddress=10.0.5.2
+// 
+// We are interpreting the former, for the sake of easeness
+
+// configuration for AST
+
+instance of CIM_OSPFService as $AST_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "ast-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AST";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $AST_OSPF_AC {
+
+	// key properties
+	InstanceID = "ast-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $AST_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "ast-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $AST_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "ast-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.1/32
+	StartAddress = "10.0.50.1";
+	EndAddress = "10.0.50.1";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AST_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "ast-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.0/30
+	StartAddress = "10.0.0.0";
+	EndAddress = "10.0.0.3";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AST_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "ast-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.4/30
+	StartAddress = "10.0.0.4";
+	EndAddress = "10.0.0.7";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $AST;
+	Dependent = $AST_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $AST_OSPF;
+	Dependent = $AST_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $AST_OSPF_AR;
+	Dependent = $AST_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AST_OSPF_NET1;
+	Dependent = $AST_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AST_OSPF_NET2;
+	Dependent = $AST_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AST_OSPF_NET3;
+	Dependent = $AST_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// configuration for CAN
+
+instance of CIM_OSPFService as $CAN_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "can-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAN";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $CAN_OSPF_AC {
+
+	// key properties
+	InstanceID = "can-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $CAN_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "can-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $CAN_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "can-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.2/32
+	StartAddress = "10.0.50.2";
+	EndAddress = "10.0.50.2";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CAN_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "can-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.4/30
+	StartAddress = "10.0.0.4";
+	EndAddress = "10.0.0.7";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CAN_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "can-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.8/30
+	StartAddress = "10.0.0.8";
+	EndAddress = "10.0.0.11";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CAN;
+	Dependent = $CAN_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $CAN_OSPF;
+	Dependent = $CAN_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $CAN_OSPF_AR;
+	Dependent = $CAN_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAN_OSPF_NET1;
+	Dependent = $CAN_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAN_OSPF_NET2;
+	Dependent = $CAN_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAN_OSPF_NET3;
+	Dependent = $CAN_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for PVC
+
+instance of CIM_OSPFService as $PVC_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "pvc-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $PVC_OSPF_AC {
+
+	// key properties
+	InstanceID = "pvc-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $PVC_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "pvc-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $PVC_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "pvc-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.3/32
+	StartAddress = "";
+	EndAddress = "";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $PVC_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "pvc-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.8/30
+	StartAddress = "10.0.0.8";
+	EndAddress = "10.0.0.11";
+
+};
+            
+instance of CIM_RangeOfIPAddresses as $PVC_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "pvc-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.12/30
+	StartAddress = "10.0.0.12";
+	EndAddress = "10.0.0.15";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $PVC_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "pvc-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.20/30
+	StartAddress = "10.0.0.20";
+	EndAddress = "10.0.0.23";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $PVC_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "pvc-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.16/30
+	StartAddress = "10.0.0.16";
+	EndAddress = "10.0.0.19";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $PVC;
+	Dependent = $PVC_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $PVC_OSPF;
+	Dependent = $PVC_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $PVC_OSPF_AR;
+	Dependent = $PVC_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $PVC_OSPF_NET1;
+	Dependent = $PVC_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $PVC_OSPF_NET2;
+	Dependent = $PVC_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $PVC_OSPF_NET3;
+	Dependent = $PVC_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $PVC_OSPF_NET4;
+	Dependent = $PVC_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $PVC_OSPF_NET5;
+	Dependent = $PVC_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for NAV
+
+instance of CIM_OSPFService as $NAV_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "nav-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NAV";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $NAV_OSPF_AC {
+
+	// key properties
+	InstanceID = "nav-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $NAV_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "nav-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $NAV_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "nav-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.4/32
+	StartAddress = "10.0.50.4";
+	EndAddress = "10.0.50.4";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $NAV_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "nav-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.20/30
+	StartAddress = "10.0.0.20";
+	EndAddress = "10.0.0.23";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $NAV_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "nav-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.24/30
+	StartAddress = "10.0.0.24";
+	EndAddress = "10.0.0.27";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $NAV;
+	Dependent = $NAV_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $NAV_OSPF;
+	Dependent = $NAV_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $NAV_OSPF_AR;
+	Dependent = $NAV_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $NAV_OSPF_NET1;
+	Dependent = $NAV_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $NAV_OSPF_NET2;
+	Dependent = $NAV_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $NAV_OSPF_NET3;
+	Dependent = $NAV_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for GAL
+
+instance of CIM_OSPFService as $GAL_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "gal-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $GAL_OSPF_AC {
+
+	// key properties
+	InstanceID = "gal-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $GAL_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "gal-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $GAL_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "gal-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.5/32
+	StartAddress = "10.0.50.5";
+	EndAddress = "10.0.50.5";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $GAL_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "gal-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.0/30
+	StartAddress = "10.0.0.0";
+	EndAddress = "10.0.0.3";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $GAL_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "gal-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.12/30
+	StartAddress = "10.0.0.12";
+	EndAddress = "10.0.0.15";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $GAL_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "gal-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.28/30
+	StartAddress = "10.0.0.28";
+	EndAddress = "10.0.0.31";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $GAL_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "gal-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.32/30
+	StartAddress = "10.0.0.32";
+	EndAddress = "10.0.0.35";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $GAL;
+	Dependent = $GAL_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $GAL_OSPF;
+	Dependent = $GAL_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $GAL_OSPF_AR;
+	Dependent = $GAL_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $GAL_OSPF_NET1;
+	Dependent = $GAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $GAL_OSPF_NET2;
+	Dependent = $GAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $GAL_OSPF_NET3;
+	Dependent = $GAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $GAL_OSPF_NET4;
+	Dependent = $GAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $GAL_OSPF_NET5;
+	Dependent = $GAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for CYL
+
+instance of CIM_OSPFService as $CYL_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "cyl-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CYL";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $CYL_OSPF_AC {
+
+	// key properties
+	InstanceID = "cyl-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $CYL_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "cyl-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $CYL_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "cyl-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.6/32
+	StartAddress = "10.0.50.6";
+	EndAddress = "10.0.50.6";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CYL_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "cyl-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.28/30
+	StartAddress = "10.0.0.28";
+	EndAddress = "10.0.0.31";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CYL_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "cyl-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.36/30
+	StartAddress = "10.0.0.36";
+	EndAddress = "10.0.0.39";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CYL_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "cyl-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.40/30
+	StartAddress = "10.0.0.40";
+	EndAddress = "10.0.0.43";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CYL;
+	Dependent = $CYL_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $CYL_OSPF;
+	Dependent = $CYL_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $CYL_OSPF_AR;
+	Dependent = $CYL_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CYL_OSPF_NET1;
+	Dependent = $CYL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CYL_OSPF_NET2;
+	Dependent = $CYL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CYL_OSPF_NET3;
+	Dependent = $CYL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CYL_OSPF_NET4;
+	Dependent = $CYL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for RIO
+
+instance of CIM_OSPFService as $RIO_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "rio-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "RIO";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $RIO_OSPF_AC {
+
+	// key properties
+	InstanceID = "rio-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $RIO_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "rio-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $RIO_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "rio-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.7/32
+	StartAddress = "10.0.50.7";
+	EndAddress = "10.0.50.7";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $RIO_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "rio-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.36/30
+	StartAddress = "10.0.0.36";
+	EndAddress = "10.0.0.39";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $RIO_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "rio-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.44/30
+	StartAddress = "10.0.0.44";
+	EndAddress = "10.0.0.47";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $RIO;
+	Dependent = $RIO_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $RIO_OSPF;
+	Dependent = $RIO_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $RIO_OSPF_AR;
+	Dependent = $RIO_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $RIO_OSPF_NET1;
+	Dependent = $RIO_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $RIO_OSPF_NET2;
+	Dependent = $RIO_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $RIO_OSPF_NET3;
+	Dependent = $RIO_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for ARA
+
+instance of CIM_OSPFService as $ARA_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "ara-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $ARA_OSPF_AC {
+
+	// key properties
+	InstanceID = "ara-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $ARA_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "ara-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $ARA_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "ara-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.8/32
+	StartAddress = "10.0.50.8";
+	EndAddress = "10.0.50.8";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $ARA_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "ara-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.24/30
+	StartAddress = "10.0.0.24";
+	EndAddress = "10.0.0.27";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $ARA_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "ara-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.44/30
+	StartAddress = "10.0.0.44";
+	EndAddress = "10.0.0.47";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $ARA_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "ara-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.52/30
+	StartAddress = "10.0.0.52";
+	EndAddress = "10.0.0.55";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $ARA_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "ara-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.48/30
+	StartAddress = "10.0.0.48";
+	EndAddress = "10.0.0.51";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $ARA;
+	Dependent = $ARA_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $ARA_OSPF;
+	Dependent = $ARA_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $ARA_OSPF_AR;
+	Dependent = $ARA_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $ARA_OSPF_NET1;
+	Dependent = $ARA_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $ARA_OSPF_NET2;
+	Dependent = $ARA_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $ARA_OSPF_NET3;
+	Dependent = $ARA_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $ARA_OSPF_NET4;
+	Dependent = $ARA_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $ARA_OSPF_NET5;
+	Dependent = $ARA_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for MAD
+
+instance of CIM_OSPFService as $MAD_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "mad-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MAD";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $MAD_OSPF_AC {
+
+	// key properties
+	InstanceID = "mad-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $MAD_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "mad-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $MAD_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "mad-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.9/32
+	StartAddress = "10.0.50.9";
+	EndAddress = "10.0.50.9";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $MAD_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "mad-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.56/30
+	StartAddress = "10.0.0.56";
+	EndAddress = "10.0.0.59";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $MAD;
+	Dependent = $MAD_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $MAD_OSPF;
+	Dependent = $MAD_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $MAD_OSPF_AR;
+	Dependent = $MAD_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $MAD_OSPF_NET;
+	Dependent = $MAD_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $MAD_OSPF_NET2;
+	Dependent = $MAD_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for IX
+
+instance of CIM_OSPFService as $IX_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "ix-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $IX_OSPF_AC {
+
+	// key properties
+	InstanceID = "ix-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $IX_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "ix-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "ix-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.10/32
+	StartAddress = "10.0.50.10";
+	EndAddress = "10.0.50.10";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "ix-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.56/30
+	StartAddress = "10.0.0.56";
+	EndAddress = "10.0.0.59";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "ix-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.32/30
+	StartAddress = "10.0.0.32";
+	EndAddress = "10.0.0.35";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "ix-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.40/30
+	StartAddress = "10.0.0.40";
+	EndAddress = "10.0.0.43";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "ix-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.16/30
+	StartAddress = "10.0.0.16";
+	EndAddress = "10.0.0.19";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET6 {
+
+	// key properties
+	InstanceID = "ix-ospf-net6";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.52/30
+	StartAddress = "10.0.0.52";
+	EndAddress = "10.0.0.55";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET7 {
+
+	// key properties
+	InstanceID = "ix-ospf-net7";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.60/30
+	StartAddress = "10.0.0.60";
+	EndAddress = "10.0.0.63";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET8 {
+
+	// key properties
+	InstanceID = "ix-ospf-net8";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.64/30
+	StartAddress = "10.0.0.64";
+	EndAddress = "10.0.0.67";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET9 {
+
+	// key properties
+	InstanceID = "ix-ospf-net9";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.68/30
+	StartAddress = "10.0.0.68";
+	EndAddress = "10.0.0.71";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET10 {
+
+	// key properties
+	InstanceID = "ix-ospf-net10";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.72/30
+	StartAddress = "10.0.0.72";
+	EndAddress = "10.0.0.75";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET11 {
+
+	// key properties
+	InstanceID = "ix-ospf-net11";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.76/30
+	StartAddress = "10.0.0.76";
+	EndAddress = "10.0.0.79";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $IX_OSPF_NET12 {
+
+	// key properties
+	InstanceID = "ix-ospf-net12";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.80/30
+	StartAddress = "10.0.0.80";
+	EndAddress = "10.0.0.83";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $IX;
+	Dependent = $IX_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $IX_OSPF;
+	Dependent = $IX_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $IX_OSPF_AR;
+	Dependent = $IX_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET1;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET2;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET3;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET4;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET5;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET6;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET7;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET8;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET9;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET10;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET11;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $IX_OSPF_NET12;
+	Dependent = $IX_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+// confguration for CAT
+
+instance of CIM_OSPFService as $CAT_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "cat-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $CAT_OSPF_AC {
+
+	// key properties
+	InstanceID = "cat-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $CAT_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "cat-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $CAT_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "cat-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.11/32
+	StartAddress = "10.0.50.11";
+	EndAddress = "10.0.50.11";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CAT_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "cat-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.48/30
+	StartAddress = "10.0.0.48";
+	EndAddress = "10.0.0.51";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CAT_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "cat-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.60/30
+	StartAddress = "10.0.0.60";
+	EndAddress = "10.0.0.63";
+
+};
+
+instance of CIM_RangeOfIPAddresses as $CAT_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "cat-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.84/30
+	StartAddress = "10.0.0.84";
+	EndAddress = "10.0.0.87";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CAT_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "cat-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.88/30
+	StartAddress = "10.0.0.88";
+	EndAddress = "10.0.0.91";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CAT;
+	Dependent = $CAT_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $CAT_OSPF;
+	Dependent = $CAT_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $CAT_OSPF_AR;
+	Dependent = $CAT_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAT_OSPF_NET1;
+	Dependent = $CAT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAT_OSPF_NET2;
+	Dependent = $CAT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAT_OSPF_NET3;
+	Dependent = $CAT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAT_OSPF_NET4;
+	Dependent = $CAT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CAT_OSPF_NET5;
+	Dependent = $CAT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for CLM
+
+instance of CIM_OSPFService as $CLM_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "clm-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CLM";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $CLM_OSPF_AC {
+
+	// key properties
+	InstanceID = "clm-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $CLM_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "clm-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $CLM_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "clm-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.12/32
+	StartAddress = "10.0.50.12";
+	EndAddress = "10.0.50.12";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CLM_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "clm-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.68/30
+	StartAddress = "10.0.0.68";
+	EndAddress = "10.0.0.71";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $CLM_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "clm-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.92/30
+	StartAddress = "10.0.0.92";
+	EndAddress = "10.0.0.95";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CLM;
+	Dependent = $CLM_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $CLM_OSPF;
+	Dependent = $CLM_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $CLM_OSPF_AR;
+	Dependent = $CLM_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CLM_OSPF_NET1;
+	Dependent = $CLM_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CLM_OSPF_NET2;
+	Dependent = $CLM_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $CLM_OSPF_NET3;
+	Dependent = $CLM_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for VAL
+
+instance of CIM_OSPFService as $VAL_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "val-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $VAL_OSPF_AC {
+
+	// key properties
+	InstanceID = "val-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $VAL_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "val-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $VAL_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "val-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.13/32
+	StartAddress = "10.0.50.13";
+	EndAddress = "10.0.50.13";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $VAL_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "val-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.64/30
+	StartAddress = "10.0.0.64";
+	EndAddress = "10.0.0.67";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $VAL_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "val-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.84/30
+	StartAddress = "10.0.0.84";
+	EndAddress = "10.0.0.87";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $VAL_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "val-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.96/30
+	StartAddress = "10.0.0.96";
+	EndAddress = "10.0.0.99";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $VAL_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "val-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.100/30
+	StartAddress = "10.0.0.100";
+	EndAddress = "10.0.0.103";
+
+};
+            
+instance of CIM_RangeOfIPAddresses as $VAL_OSPF_NET6 {
+
+	// key properties
+	InstanceID = "val-ospf-net6";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.104/30
+	StartAddress = "10.0.0.104";
+	EndAddress = "10.0.0.107";
+
+};
+
+
+instance of CIM_HostedService {
+	Antecedent = $VAL;
+	Dependent = $VAL_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $VAL_OSPF;
+	Dependent = $VAL_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $VAL_OSPF_AR;
+	Dependent = $VAL_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $VAL_OSPF_NET1;
+	Dependent = $VAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $VAL_OSPF_NET2;
+	Dependent = $VAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $VAL_OSPF_NET3;
+	Dependent = $VAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $VAL_OSPF_NET4;
+	Dependent = $VAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $VAL_OSPF_NET5;
+	Dependent = $VAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $VAL_OSPF_NET6;
+	Dependent = $VAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+
+// confguration for EXT
+
+instance of CIM_OSPFService as $EXT_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "ext-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "EXT";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $EXT_OSPF_AC {
+
+	// key properties
+	InstanceID = "ext-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $EXT_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "ext-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $EXT_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "ext-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.14/32
+	StartAddress = "10.0.50.14";
+	EndAddress = "10.0.50.14";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $EXT_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "ext-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.76/30
+	StartAddress = "10.0.0.76";
+	EndAddress = "10.0.0.79";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $EXT_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "ext-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.108/30
+	StartAddress = "10.0.0.108";
+	EndAddress = "10.0.0.111";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $EXT;
+	Dependent = $EXT_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $EXT_OSPF;
+	Dependent = $EXT_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $EXT_OSPF_AR;
+	Dependent = $EXT_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $EXT_OSPF_NET1;
+	Dependent = $EXT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $EXT_OSPF_NET2;
+	Dependent = $EXT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $EXT_OSPF_NET3;
+	Dependent = $EXT_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for BAL
+
+instance of CIM_OSPFService as $BAL_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "bal-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "BAL";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $BAL_OSPF_AC {
+
+	// key properties
+	InstanceID = "bal-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $BAL_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "bal-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $BAL_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "bal-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.15/32
+	StartAddress = "10.0.50.15";
+	EndAddress = "10.0.50.15";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $BAL_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "bal-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.88/30
+	StartAddress = "10.0.0.88";
+	EndAddress = "10.0.0.91";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $BAL_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "bal-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.96/30
+	StartAddress = "10.0.0.96";
+	EndAddress = "10.0.0.99";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $BAL;
+	Dependent = $BAL_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $BAL_OSPF;
+	Dependent = $BAL_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $BAL_OSPF_AR;
+	Dependent = $BAL_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $BAL_OSPF_NET1;
+	Dependent = $BAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $BAL_OSPF_NET2;
+	Dependent = $BAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $BAL_OSPF_NET3;
+	Dependent = $BAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for AND
+
+instance of CIM_OSPFService as $AND_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "and-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $AND_OSPF_AC {
+
+	// key properties
+	InstanceID = "and-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $AND_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "and-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "and-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.16/32
+	StartAddress = "10.0.50.16";
+	EndAddress = "10.0.50.16";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "and-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.108/30
+	StartAddress = "10.0.0.108";
+	EndAddress = "10.0.0.111";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "and-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.72/30
+	StartAddress = "10.0.0.72";
+	EndAddress = "10.0.0.75";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET4 {
+
+	// key properties
+	InstanceID = "and-ospf-net4";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.92/30
+	StartAddress = "10.0.0.92";
+	EndAddress = "10.0.0.95";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET5 {
+
+	// key properties
+	InstanceID = "and-ospf-net5";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.104/30
+	StartAddress = "10.0.0.104";
+	EndAddress = "10.0.0.107";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET6 {
+
+	// key properties
+	InstanceID = "and-ospf-net6";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.116/30
+	StartAddress = "10.0.0.116";
+	EndAddress = "10.0.0.119";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $AND_OSPF_NET7 {
+
+	// key properties
+	InstanceID = "and-ospf-net7";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.112/30
+	StartAddress = "10.0.0.112";
+	EndAddress = "10.0.0.115";
+
+};
+      
+instance of CIM_HostedService {
+	Antecedent = $AND;
+	Dependent = $AND_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $AND_OSPF;
+	Dependent = $AND_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $AND_OSPF_AR;
+	Dependent = $AND_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET1;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET2;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET3;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET4;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET5;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET6;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $AND_OSPF_NET7;
+	Dependent = $AND_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for MUR
+
+instance of CIM_OSPFService as $MUR_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "mur-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MUR";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $MUR_OSPF_AC {
+
+	// key properties
+	InstanceID = "mur-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $MUR_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "mur-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $MUR_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "mur-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.17/32
+	StartAddress = "10.0.50.17";
+	EndAddress = "10.0.50.17";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $MUR_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "mur-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.100/30
+	StartAddress = "10.0.0.100";
+	EndAddress = "10.0.0.103";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $MUR_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "mur-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.116/30
+	StartAddress = "10.0.0.116";
+	EndAddress = "10.0.0.119";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $MUR;
+	Dependent = $MUR_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $MUR_OSPF;
+	Dependent = $MUR_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $MUR_OSPF_AR;
+	Dependent = $MUR_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $MUR_OSPF_NET1;
+	Dependent = $MUR_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $MUR_OSPF_NET2;
+	Dependent = $MUR_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $MUR_OSPF_NET3;
+	Dependent = $MUR_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for TEF
+
+instance of CIM_OSPFService as $TEF_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "tef-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TEF";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $TEF_OSPF_AC {
+
+	// key properties
+	InstanceID = "tef-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $TEF_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "tef-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $TEF_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "tef-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.18/32
+	StartAddress = "10.0.50.18";
+	EndAddress = "10.0.50.18";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $TEF_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "tef-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.80/30
+	StartAddress = "10.0.0.80";
+	EndAddress = "10.0.0.83";
+
+};
+            
+instance of CIM_RangeOfIPAddresses as $TEF_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "tef-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.120/30
+	StartAddress = "10.0.0.120";
+	EndAddress = "10.0.0.123";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $TEF;
+	Dependent = $TEF_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $TEF_OSPF;
+	Dependent = $TEF_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $TEF_OSPF_AR;
+	Dependent = $TEF_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $TEF_OSPF_NET1;
+	Dependent = $TEF_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $TEF_OSPF_NET2;
+	Dependent = $TEF_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $TEF_OSPF_NET3;
+	Dependent = $TEF_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
+
+// confguration for PAL
+
+instance of CIM_OSPFService as $PAL_OSPF {
+
+	// key properties
+	CreationClassName = "CIM_OSPFService";
+	Name = "pal-ospf";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PAL";
+
+};
+
+instance of CIM_OSPFAreaConfiguration as $PAL_OSPF_AC {
+
+	// key properties
+	InstanceID = "pal-ospf-ac";
+	
+};
+
+instance of CIM_OSPFArea as $PAL_OSPF_AR {
+
+	// key properties
+	CreationClassName = "CIM_OSPFArea";
+	Name = "pal-ospf-area";
+	
+	// 0 (32bits) = 0.0.0.0
+	AreaID = 0;
+
+};
+
+instance of CIM_RangeOfIPAddresses as $PAL_OSPF_NET1 {
+
+	// key properties
+	InstanceID = "pal-ospf-net1";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.50.19/32
+	StartAddress = "10.0.50.19";
+	EndAddress = "10.0.50.19";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $PAL_OSPF_NET2 {
+
+	// key properties
+	InstanceID = "pal-ospf-net2";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.120/30
+	StartAddress = "10.0.0.120";
+	EndAddress = "10.0.0.123";
+
+};
+      
+instance of CIM_RangeOfIPAddresses as $PAL_OSPF_NET3 {
+
+	// key properties
+	InstanceID = "pal-ospf-net3";
+
+	AddressType = 1; // 1 => IPv4
+	
+	// 10.0.0.112/30
+	StartAddress = "10.0.0.112";
+	EndAddress = "10.0.0.115";
+
+};
+
+instance of CIM_HostedService {
+	Antecedent = $PAL;
+	Dependent = $PAL_OSPF;
+};
+
+instance of CIM_OSPFServiceConfiguration {
+	Antecedent = $PAL_OSPF;
+	Dependent = $PAL_OSPF_AC;
+};
+
+instance of CIM_AreaOfConfiguration {
+	Antecedent = $PAL_OSPF_AR;
+	Dependent = $PAL_OSPF_AC;
+};
+
+instance of CIM_RangesOfConfiguration {
+	Antecedent = $PAL_OSPF_NET;
+	Dependent = $PAL_OSPF_AC;
+	EnableAdvertise = TRUE;
+};
