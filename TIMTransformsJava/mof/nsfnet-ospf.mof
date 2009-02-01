@@ -237,7 +237,7 @@ instance of CIM_AreaOfConfiguration {
 
 instance of CIM_RangesOfConfiguration {
 	Antecedent = $CA1_OSPF_NET1;
-	Dependent = $_OSPF_AC;
+	Dependent = $CA1_OSPF_AC;
 	EnableAdvertise = TRUE;
 };
 
@@ -578,7 +578,7 @@ instance of CIM_RangeOfIPAddresses as $CO_OSPF_NET4 {
 	AddressType = 1; // 1 => IPv4
 	
 	// 10.0.5.36/30
-	StartAddress = ""10.0.5.36";
+	StartAddress = "10.0.5.36";
 	EndAddress = "10.0.5.39";
 
 };
@@ -1004,8 +1004,8 @@ instance of CIM_RangeOfIPAddresses as $PA_OSPF_NET1 {
 	AddressType = 1; // 1 => IPv4
 	
 	// 10.0.50.9/32
-	StartAddress = "10.0.50.9/32";
-	EndAddress = "10.0.50.9/32";
+	StartAddress = "10.0.50.9";
+	EndAddress = "10.0.50.9";
 
 };
       
