@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+
+This file can be mofified/distributed under the terms of 
+Creative Commons Attribution-Share Alike 2.5 Spain License.
+See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+
+Copyright (C) 2008 Fermin Galan Marquez
+
+-->
+
 <xmi:XMI xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:TIM="http:///TIM.ecore">
   <!-- the testbed itself (1) -->
