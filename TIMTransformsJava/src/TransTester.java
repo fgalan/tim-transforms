@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 /* This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -14,7 +16,7 @@
  *
  * An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
  *
- * Copyright (C) 2008 Fermin Galan Marquez
+ * Copyright (C) 2008, 2009 Fermin Galan Marquez
  *
  */
 
@@ -34,42 +36,69 @@ public class TransTester {
 		String testbed3 = "rediris";
 		
 		/* When local machine is Linux */
-		String file1v = "/tmp/vnuml-basic.xml";
-		String file1a = "/tmp/adnet-basic.xml";
-		String file2v = "/tmp/vnuml-nsfnet.xml";
-		String file2a = "/tmp/adnet-nsfnet.xml";
-		String file3v = "/tmp/vnuml-rediris.xml";
-		String file3a = "/tmp/adnet-rediris.xml";		
+		String file1vn = "/tmp/vnuml-basic.xml";
+		String file1an = "/tmp/adnet-basic.xml";
+		String file2vn = "/tmp/vnuml-nsfnet.xml";
+		String file2vo = "/tmp/vnuml-nsfnet-ospf.xml";		
+		String file2an = "/tmp/adnet-nsfnet.xml";
+		String file2ao = "/tmp/adnet-nsfnet-ospf.xml";
+		String file3vn = "/tmp/vnuml-rediris.xml";
+		String file3vo = "/tmp/vnuml-rediris-ospf.xml";
+		String file3an = "/tmp/adnet-rediris.xml";
+		String file3ao = "/tmp/adnet-rediris-ospf.xml";
 		
 		/* When local machine is Windows */
-		//String file1v = "C:\\test\\vnuml-basic.xml";
-		//String file1a = "C:\\test\\adnet-basic.xml";
-		//String file2v = "C:\\test\\vnuml-nsfnet.xml";
-		//String file2a = "C:\\test\\adnet-nsfnet.xml";
-		//String file3v = "C:\\test\\vnuml-rediris.xml";
-		//String file3a = "C:\\test\\adnet-rediris.xml";
+		//String file1vn = "C:\\test\\vnuml-basic.xml";
+		//String file1an = "C:\\test\\adnet-basic.xml";
+		//String file2vn = "C:\\test\\vnuml-nsfnet.xml";
+		//String file2vo = "C:\\test\\vnuml-nsfnet-ospf.xml";		
+		//String file2an = "C:\\test\\adnet-nsfnet.xml";
+		//String file2ao = "C:\\test\\adnet-nsfnet-ospf.xml";
+		//String file3vn = "C:\\test\\vnuml-rediris.xml";
+		//String file3vo = "C:\\test\\vnuml-rediris-ospf.xml";
+		//String file3an = "C:\\test\\adnet-rediris.xml";
+		//String file3ao = "C:\\test\\adnet-rediris-ospf.xml";
 		
 		/* Use TransformationManager(ns, true) if testbed parameters are stored in
 		 * the CIMOM. Use TransformationManager(ns, false) to use the defaults
 		 * hardwired in the code */
 		TransformationManager tm = new TransformationManager(ns, true);
-
-		tm.getVnumlTransformation().setDefaultConsole("xterm");
-		System.out.println("Transformation: testbed "+testbed1+" -> vnuml ...");
-		tm.getVnumlTransformation().toTsm(testbed1, file1v);
-		System.out.println("Transformation: testbed "+testbed1+" -> adnetconf ...");
-		tm.getAdrenalineTransformation().toTsm(testbed1, file1a);
 		
-		tm.getVnumlTransformation().setDefaultConsole("pts");
+		Vector<String> v;
+
+		System.out.println("Transformation: testbed "+testbed1+" -> vnuml ...");		
+		tm.getVnumlTransformation().setDefaultConsole("xterm");
+		v = new Vector<String>(1);
+		v.add(file1vn);
+		tm.getVnumlTransformation().toTsm(testbed1, v);
+		
+		System.out.println("Transformation: testbed "+testbed1+" -> adnetconf ...");
+		v = new Vector<String>(1);
+		v.add(file1an);
+		tm.getAdrenalineTransformation().toTsm(testbed1, v);
+
 		System.out.println("Transformation: testbed "+testbed2+" -> vnuml ...");
-		tm.getVnumlTransformation().toTsm(testbed2, file2v);
+		v = new Vector<String>(2);
+		v.add(file2vn);
+		v.add(file2vo);
+		tm.getVnumlTransformation().setDefaultConsole("pts");
+		tm.getVnumlTransformation().toTsm(testbed2, v);
+		
 		System.out.println("Transformation: testbed "+testbed2+" -> adnetconf ...");
-		tm.getAdrenalineTransformation().toTsm(testbed2, file2a);
+		v = new Vector<String>(2);
+		v.add(file2an);
+		v.add(file2ao);
+		tm.getAdrenalineTransformation().toTsm(testbed2, v);
 		
 		System.out.println("Transformation: testbed "+testbed3+" -> vnuml ...");
-		tm.getVnumlTransformation().toTsm(testbed3, file3v);
+		v = new Vector<String>(1);
+		v.add(file3vn);
+		tm.getVnumlTransformation().toTsm(testbed3, v);
+		
 		System.out.println("Transformation: testbed "+testbed3+" -> adnetconf ...");
-		tm.getAdrenalineTransformation().toTsm(testbed3, file3a);
+		v = new Vector<String>(1);
+		v.add(file3an);
+		tm.getAdrenalineTransformation().toTsm(testbed3, v);
 				
 		System.out.println("End of program!");
 	}

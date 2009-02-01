@@ -14,18 +14,20 @@
  *
  * An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
  *
- * Copyright (C) 2008 Fermin Galan Marquez
+ * Copyright (C) 2008, 2009 Fermin Galan Marquez
  *
  */
 
 import java.io.StringWriter;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Vector;
 
 import javax.wbem.cim.CIMException;
 import javax.wbem.cim.CIMInstance;
 import javax.wbem.cim.CIMObjectPath;
 import javax.wbem.cim.UnsignedInt16;
+import javax.wbem.cim.UnsignedInt32;
 import javax.wbem.cim.UnsignedInt8;
 import javax.wbem.client.CIMClient;
 
@@ -97,13 +99,28 @@ public class VNUMLTransformation extends TIMTransformation {
 	 * VNUML-compliant XML 
 	 * 
 	 * @param scenarioName the name of the scenario to be transformed
-	 * @return the derived TSM model (VNUML-compliant XML)
+	 * @return the derived TSM model (VNUML-compliant scenario specification and ospf plugin XMLs)
 	 * @throws TIMTransformationException
 	 */	
-	public String toTsm(String scenarioName) throws TIMTransformationException {
+	public Vector<String> toTsm(String scenarioName) throws TIMTransformationException {
 		
+		Vector<String> v = new Vector<String>(2);
+		
+		v.add(toTsmScenario(scenarioName));
+		
+		/* This check is performed because of OSPF is not mandatory */
+		String ospfTsmElement = toTsmOspf(scenarioName);
+		if (ospfTsmElement != "") {
+			v.add(ospfTsmElement);
+		}
+		
+		return v;
+
+	}
+
+	public String toTsmScenario(String scenarioName) throws TIMTransformationException {
 		StringWriter s = new StringWriter();
-			
+		
 		/* Get the TIM_TestbedScenario instance that match scenarioName */
 		CIMInstance scenario = null;
 		Enumeration e;
@@ -137,8 +154,9 @@ public class VNUMLTransformation extends TIMTransformation {
 		}
 		
 		return s.toString();
-	}
 
+	}
+	
 	private String vnumlSpecHeader(String scenarioName) {
 		
 		StringWriter s = new StringWriter();
@@ -366,7 +384,11 @@ public class VNUMLTransformation extends TIMTransformation {
 				"CIM_ForwardingService", 
 				"Antecedent", 
 				"Dependent", false, false, null);
-		while(e.hasMoreElements()) {
+		/* We are using if instead of while because of only one CIM_ForwardingService
+		 * make sense (note that a multiplicity of CIM_ForwardingServices would lead to
+		 * multiple <forwarding> tags, which contradicts the VNUML DTD
+		 */
+		if(e.hasMoreElements()) {
 			CIMInstance fw = (CIMInstance)e.nextElement();
 			//System.out.println(fw.getObjectPath().toString());
 			int family = ((UnsignedInt16)fw.getProperty("ProtocolType").getValue().getValue()).intValue();
@@ -390,10 +412,151 @@ public class VNUMLTransformation extends TIMTransformation {
 		return s.toString();
 	}
 
+	public String toTsmOspf(String scenarioName) throws TIMTransformationException {
+		StringWriter s = new StringWriter();
+		
+		/* Get the TIM_TestbedScenario instance that match scenarioName */
+		CIMInstance scenario = null;
+		Enumeration e;
+		try {
+			e = cc.enumerateInstances(new CIMObjectPath("TIM_TestbedScenario"));
+		} catch (CIMException ex) {
+			ex.printStackTrace();
+			throw new TIMTransformationException(ex);
+		}
+		while (e.hasMoreElements()) {
+			CIMInstance inst = (CIMInstance)e.nextElement();
+			String name = (String)inst.getProperty("Name").getValue().getValue();
+			if (name.equals(scenarioName)) {
+				scenario = inst;
+				break;
+			}
+		}
+		if (scenario == null) {
+			throw new TIMTransformationException("No scenario with name "+scenarioName+" was found");
+		}
+		//System.out.println(scenario.toString());
+		
+		try {
+			/* TIM_TestbedScenario->CIM_ComputerSystem */
+			e = cc.associators(scenario.getObjectPath(), 
+					"CIM_SystemComponent",
+					"CIM_ComputerSystem", 
+					"GroupComponent",
+					"PartComponent", false, false, null);
+			
+
+			while(e.hasMoreElements()) {
+				
+				CIMInstance vm = (CIMInstance)e.nextElement();
+				Enumeration ee = cc.associators(vm.getObjectPath(), 
+						"CIM_HostedService", 
+						"CIM_OSPFService", 
+						"Antecedent", 
+						"Dependent", false, false, null);				
+				
+				/* We are using if instead of while because of only one CIM_ForwardingService
+				 * make sense (note that a multiplicity of CIM_OSPFService would lead to
+				 * multiple <vm> tags with the same 'name', which contradicts the OSPF plugin
+				 * way of workingg
+				 */				
+				if (ee.hasMoreElements()) {
+					CIMInstance ospfService = (CIMInstance)ee.nextElement();
+					// FIXME: unhardwire password
+					String name = (String)vm.getProperty("Name").getValue().getValue();
+					s.write("  <vm name='"+name+"' type='quagga' subtype='lib-install'>\n");
+					s.write("    <zebra hostname='"+name+"' password='xxxx'/>\n");
+					s.write(ospfNetworks(ospfService));
+					s.write("  </vm>\n");
+				}
+				
+			}
+		} catch (CIMException ex) {
+			ex.printStackTrace();
+			throw new TIMTransformationException(ex);
+		}
+		
+		/* Note that we put the <ospf_conf> at the end, because we need to check the empty-ness
+		 * of the cumulative string after processing the CIM_ComputerSystems (note that returning 
+		 * "" causes to not generate the second TSM element in those scenarios that don't 
+		 * use OSPF at all) */
+		if (!s.toString().equals("")) {
+			return "<?xml version='1.0' encoding='UTF-8'?>\n" + 
+			"\n" +
+			"<ospf_conf>\n" + 
+			s.toString() + 
+			"</ospf_conf>\n";
+		}
+		else {
+			return "";
+		}		
+
+	}
+	
+	private String ospfNetworks(CIMInstance ospfService) throws CIMException, TIMTransformationException {
+		
+		StringWriter s = new StringWriter();
+		
+		/* CIM_OSPFService-> CIM_OSPFAreaConfiguration */
+		Enumeration e = cc.associators(ospfService.getObjectPath(), 
+				"CIM_OSPFServiceConfiguration", 
+				"CIM_OSPFAreaConfiguration", 
+				"Antecedent", 
+				"Dependent", false, false, null);
+		while (e.hasMoreElements()) {
+			CIMInstance ospfAreaConf = (CIMInstance) e.nextElement();
+			
+			int areaId;
+			/* CIM_OSPFAreaConfiguration -> CIM_Area */
+			Enumeration ee = cc.associators(ospfAreaConf.getObjectPath(), 
+					"CIM_AreaOfConfiguration", 
+					"CIM_OSPFArea", 
+					"Dependent", 
+					"Antecedent", false, false, null);
+			
+			/* We are using if instead of where because of, according to the intretation of the
+			 * CIM Schema, only one CIM_OSPFArea instance is associated to 
+			 * each CIM_OSPFAreaConfiguration */
+			if (ee.hasMoreElements()) {
+				CIMInstance ospfArea = (CIMInstance) ee.nextElement();
+				areaId = ((UnsignedInt32)ospfArea.getProperty("AreaID").getValue().getValue()).intValue();
+			}
+			else {
+				throw new TIMTransformationException("missing CIM_OSPFArea");
+			}
+			
+			/* CIM_OSPFAreaConfiguration -> CIM_RangeOfIPAddresses */
+			ee = cc.associators(ospfAreaConf.getObjectPath(), 
+					"CIM_RangesOfConfiguration", 
+					"CIM_RangeOfIPAddresses", 
+					"Dependent", 
+					"Antecedent", false, false, null);
+			
+			// FIXME: check EnableAdvertise
+			while (ee.hasMoreElements()) {
+				CIMInstance rangeIp = (CIMInstance) ee.nextElement();
+				int addressType = ((UnsignedInt16)rangeIp.getProperty("AddressType").getValue().getValue()).intValue();				
+				String startIp = (String)rangeIp.getProperty("StartAddress").getValue().getValue();
+				String endIp = (String)rangeIp.getProperty("EndAddress").getValue().getValue();
+				
+				if (addressType != CIMConstants.IPV4_RANGE) {
+					throw new TIMTransformationException("OSPF IPv6 ranges are not supported by the moment");
+				}
+		      
+		      	s.write("    <network>\n");
+				s.write("      <ip mask='"+IPManipulator.commonMask(IPManipulator.ip2int(startIp),IPManipulator.ip2int(endIp))+"'>"+startIp+"</ip>\n");
+				s.write("      <area>"+IPManipulator.int2ip(areaId)+"</area>\n");
+		      	s.write("    </network>\n");
+			}
+			
+		}
+		
+		return s.toString();
+	}
+	
 	/**
 	 * This method it is due to limitations of VNUML parser (version 1.8.3)
 	 * to use route destinations in the form X.X.X.X/M.M.M.M
-	 * 
 	 */
 	private String translateMask (String m) {
 		// FIXME: only works by the moment for "8-bit dotted"
@@ -409,7 +572,7 @@ public class VNUMLTransformation extends TIMTransformation {
 		return null;
 
 	}
-
+	
 	public String getDefaultConsole() {
 		return defaultConsole;
 	}
