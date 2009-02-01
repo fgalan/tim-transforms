@@ -4,7 +4,7 @@
 // Creative Commons Attribution-Share Alike 2.5 Spain License.
 // See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
 //
-// Copyright (C) 2008 Fermin Galan Marquez
+// Copyright (C) 2008, 2009 Fermin Galan Marquez
 
 // This testbed is inspired in the NSFNET network
 // (VNUML model at http://www.dit.upm.es/vnumlwiki/index.php/Example-NSF-14, 
@@ -706,7 +706,7 @@ instance of CIM_StaticIPAssignmentSettingData as $WA_LO_IP {
 	InstanceID = "wa-lo-ip";
 
 	IPv4Address = "10.0.50.1";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -716,7 +716,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CA1_LO_IP {
 	InstanceID = "ca1-lo-ip";
 
 	IPv4Address = "10.0.50.2";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -726,7 +726,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CA2_LO_IP {
 	InstanceID = "ca2-lo-ip";
 
 	IPv4Address = "10.0.50.3";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -736,7 +736,7 @@ instance of CIM_StaticIPAssignmentSettingData as $UT_LO_IP {
 	InstanceID = "ut-lo-ip";
 
 	IPv4Address = "10.0.50.4";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -746,7 +746,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CO_LO_IP {
 	InstanceID = "co-lo-ip";
 
 	IPv4Address = "10.0.50.5";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -756,7 +756,7 @@ instance of CIM_StaticIPAssignmentSettingData as $NE_LO_IP {
 	InstanceID = "ne-lo-ip";
 
 	IPv4Address = "10.0.50.6";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -766,7 +766,7 @@ instance of CIM_StaticIPAssignmentSettingData as $IL_LO_IP {
 	InstanceID = "il-lo-ip";
 
 	IPv4Address = "10.0.50.7";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -776,7 +776,7 @@ instance of CIM_StaticIPAssignmentSettingData as $MI_LO_IP {
 	InstanceID = "mi-lo-ip";
 
 	IPv4Address = "10.0.50.8";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -786,7 +786,7 @@ instance of CIM_StaticIPAssignmentSettingData as $PA_LO_IP {
 	InstanceID = "pa-lo-ip";
 
 	IPv4Address = "10.0.50.9";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -796,7 +796,7 @@ instance of CIM_StaticIPAssignmentSettingData as $NY_LO_IP {
 	InstanceID = "ny-lo-ip";
 
 	IPv4Address = "10.0.50.10";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -806,7 +806,7 @@ instance of CIM_StaticIPAssignmentSettingData as $NJ_LO_IP {
 	InstanceID = "nj-lo-ip";
 
 	IPv4Address = "10.0.50.11";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -816,7 +816,7 @@ instance of CIM_StaticIPAssignmentSettingData as $DC_LO_IP {
 	InstanceID = "dc-lo-ip";
 
 	IPv4Address = "10.0.50.12";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -826,7 +826,7 @@ instance of CIM_StaticIPAssignmentSettingData as $GA_LO_IP {
 	InstanceID = "ga-lo-ip";
 
 	IPv4Address = "10.0.50.13";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -836,7 +836,7 @@ instance of CIM_StaticIPAssignmentSettingData as $TX_LO_IP {
 	InstanceID = "tx-lo-ip";
 
 	IPv4Address = "10.0.50.14";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -849,12 +849,12 @@ instance of CIM_StaticIPAssignmentSettingData as $WA_CA1_IP {
 	InstanceID = "wa-ca1-ip";
 
 	// Based on VLAN
-	//IPv4Address = "10.10.0.1";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.1";
+	SubnetMask = "255.255.255.252";
 	
 	// Based on GRE
-	IPv4Address = "10.0.5.21";
-	SubnetMask = "255.255.255.0";
+	//IPv4Address = "10.0.5.21";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -863,13 +863,12 @@ instance of CIM_StaticIPAssignmentSettingData as $WA_CA2_IP {
 	// key properties
 	InstanceID = "wa-ca2-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.5";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.5";
+	SubnetMask = "255.255.255.252";
 	
-	// Based on GRE
-	IPv4Address = "10.0.5.23";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.23";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -878,15 +877,13 @@ instance of CIM_StaticIPAssignmentSettingData as $WA_IL_IP {
 	// key properties
 	InstanceID = "wa-il-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.9";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.9";
+	SubnetMask = "255.255.255.252";
 	
-	// Based on GRE
-	IPv4Address = "10.0.5.28";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.28";
+	//SubnetMask = "255.255.255.0";
 	
-
 };
 
 instance of CIM_StaticIPAssignmentSettingData as $CA1_CA2_IP {
@@ -894,13 +891,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CA1_CA2_IP {
 	// key properties
 	InstanceID = "ca1-ca2-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.13";
-	//SubnetMask = "255.255.255.252";
-
-	// Based on GRE
 	IPv4Address = "10.0.5.13";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.252";
+
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.13";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -909,13 +905,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CA1_UT_IP {
 	// key properties
 	InstanceID = "ca1-ut-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.17";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.17";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.14";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.14";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -924,13 +919,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CA1_WA_IP {
 	// key properties
 	InstanceID = "ca1-wa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.2";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.2";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.12";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.12";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -939,13 +933,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CA2_CA1_IP {
 	// key properties
 	InstanceID = "ca2-ca1-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.14";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.14";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.31";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.31";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -954,13 +947,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CA2_WA_IP {
 	// key properties
 	InstanceID = "ca2-wa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.6";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.6";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.32";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.32";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -969,13 +961,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CA2_TX_IP {
 	// key properties
 	InstanceID = "ca2-tx-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.21";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.21";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.37";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.37";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -984,13 +975,12 @@ instance of CIM_StaticIPAssignmentSettingData as $UT_CA1_IP {
 	// key properties
 	InstanceID = "ut-ca1-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.18";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.18";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.41";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.41";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -999,13 +989,12 @@ instance of CIM_StaticIPAssignmentSettingData as $UT_MI_IP {
 	// key properties
 	InstanceID = "ut-mi-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.25";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.25";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.49";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.49";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1014,13 +1003,12 @@ instance of CIM_StaticIPAssignmentSettingData as $UT_CO_IP {
 	// key properties
 	InstanceID = "ut-co-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.29";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.29";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.45";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.45";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1029,13 +1017,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CO_UT_IP {
 	// key properties
 	InstanceID = "co-ut-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.30";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.30";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.54";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.54";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1044,13 +1031,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CO_NE_IP {
 	// key properties
 	InstanceID = "co-ne-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.33";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.33";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.56";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.56";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1059,13 +1045,12 @@ instance of CIM_StaticIPAssignmentSettingData as $CO_TX_IP {
 	// key properties
 	InstanceID = "co-tx-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.37";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.37";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.57";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.57";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1074,13 +1059,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NE_CO_IP {
 	// key properties
 	InstanceID = "ne-co-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.34";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.34";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.65";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.65";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1090,14 +1074,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NE_IL_IP {
 	// key properties
 	InstanceID = "ne-il-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.41";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.41";
+	SubnetMask = "255.255.255.252";
 	
-	// Based on GRE
-	IPv4Address = "10.0.5.68";
-	SubnetMask = "255.255.255.0";
-	
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.68";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1106,14 +1088,12 @@ instance of CIM_StaticIPAssignmentSettingData as $IL_NE_IP {
 	// key properties
 	InstanceID = "il-ne-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.42";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.42";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.86";
-	SubnetMask = "255.255.255.0";
-
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.86";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1122,14 +1102,12 @@ instance of CIM_StaticIPAssignmentSettingData as $IL_WA_IP {
 	// key properties
 	InstanceID = "il-wa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.10";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.10";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.82";
-	SubnetMask = "255.255.255.0";
-
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.82";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1138,13 +1116,12 @@ instance of CIM_StaticIPAssignmentSettingData as $IL_PA_IP {
 	// key properties
 	InstanceID = "il-pa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.45";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.45";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.102";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.102";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1154,13 +1131,12 @@ instance of CIM_StaticIPAssignmentSettingData as $MI_UT_IP {
 	// key properties
 	InstanceID = "mi-ut-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.26";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.26";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.94";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.94";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1170,13 +1146,12 @@ instance of CIM_StaticIPAssignmentSettingData as $MI_NJ_IP {
 	// key properties
 	InstanceID = "mi-nj-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.49";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.49";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.135";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.135";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1186,13 +1161,12 @@ instance of CIM_StaticIPAssignmentSettingData as $MI_NY_IP {
 	// key properties
 	InstanceID = "mi-ny-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.53";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.53";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.141";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.141";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1202,13 +1176,12 @@ instance of CIM_StaticIPAssignmentSettingData as $PA_IL_IP {
 	// key properties
 	InstanceID = "pa-il-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.46";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.46";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.101";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.101";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1218,13 +1191,12 @@ instance of CIM_StaticIPAssignmentSettingData as $PA_GA_IP {
 	// key properties
 	InstanceID = "pa-ga-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.57";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.57";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.114";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.114";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1234,13 +1206,12 @@ instance of CIM_StaticIPAssignmentSettingData as $PA_NY_IP {
 	// key properties
 	InstanceID = "pa-ny-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.61";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.61";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.144";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.144";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1249,13 +1220,12 @@ instance of CIM_StaticIPAssignmentSettingData as $PA_NJ_IP {
 	// key properties
 	InstanceID = "pa-nj-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.65";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.65";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.132";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.132";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1265,13 +1235,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NY_MI_IP {
 	// key properties
 	InstanceID = "ny-mi-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.54";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.54";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.142";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.142";
+	//SubnetMask = "255.255.255.0";
 
 
 };
@@ -1281,13 +1250,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NY_PA_IP {
 	// key properties
 	InstanceID = "ny-pa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.62";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.62";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.143";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.143";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1296,13 +1264,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NY_DC_IP {
 	// key properties
 	InstanceID = "ny-dc-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.69";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.69";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.145";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.145";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1311,13 +1278,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NJ_MI_IP {
 	// key properties
 	InstanceID = "nj-mi-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.50";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.50";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.136";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.136";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1326,13 +1292,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NJ_PA_IP {
 	// key properties
 	InstanceID = "nj-pa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.66";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.66";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.131";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.131";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1341,13 +1306,12 @@ instance of CIM_StaticIPAssignmentSettingData as $NJ_DC_IP {
 	// key properties
 	InstanceID = "nj-dc-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.73";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.73";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.133";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.133";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1356,13 +1320,12 @@ instance of CIM_StaticIPAssignmentSettingData as $DC_TX_IP {
 	// key properties
 	InstanceID = "dc-tx-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.77";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.77";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.121";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.121";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1371,13 +1334,12 @@ instance of CIM_StaticIPAssignmentSettingData as $DC_NY_IP {
 	// key properties
 	InstanceID = "dc-ny-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.70";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.70";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.146";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.146";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1386,13 +1348,12 @@ instance of CIM_StaticIPAssignmentSettingData as $DC_NJ_IP {
 	// key properties
 	InstanceID = "dc-nj-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.74";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.74";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.134";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.134";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1401,13 +1362,12 @@ instance of CIM_StaticIPAssignmentSettingData as $GA_PA_IP {
 	// key properties
 	InstanceID = "ga-pa-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.58";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.58";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.113";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.113";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1416,13 +1376,12 @@ instance of CIM_StaticIPAssignmentSettingData as $GA_TX_IP {
 	// key properties
 	InstanceID = "ga-tx-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.81";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.81";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.111";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.111";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1431,13 +1390,12 @@ instance of CIM_StaticIPAssignmentSettingData as $TX_CA2_IP {
 	// key properties
 	InstanceID = "tx-ca2-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.22";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.22";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.73";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.73";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1446,13 +1404,12 @@ instance of CIM_StaticIPAssignmentSettingData as $TX_CO_IP {
 	// key properties
 	InstanceID = "tx-co-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.38";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.38";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.75";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.75";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1461,13 +1418,12 @@ instance of CIM_StaticIPAssignmentSettingData as $TX_DC_IP {
 	// key properties
 	InstanceID = "tx-dc-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.78";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.78";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.122";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.122";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -1476,13 +1432,12 @@ instance of CIM_StaticIPAssignmentSettingData as $TX_GA_IP {
 	// key properties
 	InstanceID = "tx-ga-ip";
 
-	// Based on VLAN
-	//IPv4Address = "10.10.0.82";
-	//SubnetMask = "255.255.255.252";
+	IPv4Address = "10.0.5.82";
+	SubnetMask = "255.255.255.252";
 
-	// Based on GRE
-	IPv4Address = "10.0.5.112";
-	SubnetMask = "255.255.255.0";
+	// Based on /24 (ADRENALINE legacy)
+	//IPv4Address = "10.0.5.112";
+	//SubnetMask = "255.255.255.0";
 
 };
 
@@ -2527,6 +2482,460 @@ instance of CIM_HostedAccessPoint {
 instance of CIM_HostedAccessPoint {
 	Antecedent = $TX;
 	Dependent = $TX_GA_IF;
+};
+
+// Forwaring services (14)
+// ProtoclType = 2 (IPv4), 3 (IPv6), 4 (IPv4/IPv6)
+
+instance of CIM_ForwardingService as $WA_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "wa-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "WA";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CA1_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ca1-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA1";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CA2_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ca2-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CA2";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $UT_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ut-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "UT";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CO_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "co-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CO";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $NE_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ne-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NE";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $IL_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "il-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IL";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $MI_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "mi-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MI";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $PA_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "pa-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PA";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $NY_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ny-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NY";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $NJ_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "nj-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NJ";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $DC_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "dc-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "DC";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $GA_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ga-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GA";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $TX_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "tx-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TX";
+
+	ProtocolType = 4;
+
+};
+
+// ForwardingServices associations to hosts (14)
+
+instance of CIM_HostedService {
+	Antecedent = $WA;
+	Dependent = $WA_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CA1;
+	Dependent = $CA1_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CA2;
+	Dependent = $CA2_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $UT;
+	Dependent = $UT_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CO;
+	Dependent = $CO_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $NE;
+	Dependent = $NE_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $IL;
+	Dependent = $IL_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $MI;
+	Dependent = $MI_FW;
+};
+instance of CIM_HostedService {
+	Antecedent = $PA;
+	Dependent = $PA_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $NY;
+	Dependent = $NY_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $NJ;
+	Dependent = $NJ_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $DC;
+	Dependent = $DC_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $GA;
+	Dependent = $GA_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $TX;
+	Dependent = $TX_FW;
+};
+
+// ForwardingServices associations to interfaces (42)
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $WA_CA1_IF;
+	Dependent = $WA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $WA_CA2_IF;
+	Dependent = $WA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $WA_IL_IF;
+	Dependent = $WA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CA1_CA2_IF;
+	Dependent = $CA1_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CA1_UT_IF;
+	Dependent = $CA1_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CA1_WA_IF;
+	Dependent = $CA1_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CA2_CA1_IF;
+	Dependent = $CA2_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CA2_WA_IF;
+	Dependent = $CA2_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CA2_TX_IF;
+	Dependent = $CA2_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UT_CA1_IF;
+	Dependent = $UT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UT_MI_IF;
+	Dependent = $UT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $UT_CO_IF;
+	Dependent = $UT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CO_UT_IF;
+	Dependent = $CO_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CO_NE_IF;
+	Dependent = $CO_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CO_TX_IF;
+	Dependent = $CO_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NE_CO_IF;
+	Dependent = $NE_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NE_IL_IF;
+	Dependent = $NE_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IL_NE_IF;
+	Dependent = $IL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IL_WA_IF;
+	Dependent = $IL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IL_PA_IF;
+	Dependent = $IL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $MI_UT_IF;
+	Dependent = $MI_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $MI_NJ_IF;
+	Dependent = $MI_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $MI_NY_IF;
+	Dependent = $MI_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PA_IL_IF;
+	Dependent = $PA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PA_GA_IF;
+	Dependent = $PA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PA_NY_IF;
+	Dependent = $PA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PA_NJ_IF;
+	Dependent = $PA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NY_MI_IF;
+	Dependent = $NY_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NY_PA_IF;
+	Dependent = $NY_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NY_DC_IF;
+	Dependent = $NY_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NJ_MI_IF;
+	Dependent = $NJ_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NJ_PA_IF;
+	Dependent = $NJ_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NJ_DC_IF;
+	Dependent = $NJ_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $DC_TX_IF;
+	Dependent = $DC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $DC_NY_IF;
+	Dependent = $DC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $DC_NJ_IF;
+	Dependent = $DC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $GA_PA_IF;
+	Dependent = $GA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $GA_TX_IF;
+	Dependent = $GA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $TX_CA2_IF;
+	Dependent = $TX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $TX_CO_IF;
+	Dependent = $TX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $TX_DC_IF;
+	Dependent = $TX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $TX_GA_IF;
+	Dependent = $TX_FW;
 };
 
 // the QoS constrainst for each link (21). This example
