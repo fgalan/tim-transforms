@@ -4,7 +4,7 @@
 // Creative Commons Attribution-Share Alike 2.5 Spain License.
 // See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
 //
-// Copyright (C) 2008 Fermin Galan Marquez
+// Copyright (C) 2008, 2009 Fermin Galan Marquez
 
 // This testbed is inspired in the RedIris network, which is the
 // Spanish NREN (National Reserach and Educational Network)
@@ -996,7 +996,7 @@ instance of CIM_StaticIPAssignmentSettingData as $AST_LO_IP {
 	InstanceID = "ast-lo-ip";
 
 	IPv4Address = "10.0.50.1";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1006,7 +1006,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CAN_LO_IP {
 	InstanceID = "can-lo-ip";
 
 	IPv4Address = "10.0.50.2";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1016,7 +1016,7 @@ instance of CIM_StaticIPAssignmentSettingData as $PVC_LO_IP {
 	InstanceID = "pvc-lo-ip";
 
 	IPv4Address = "10.0.50.3";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1026,7 +1026,7 @@ instance of CIM_StaticIPAssignmentSettingData as $NAV_LO_IP {
 	InstanceID = "nav-lo-ip";
 
 	IPv4Address = "10.0.50.4";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1036,7 +1036,7 @@ instance of CIM_StaticIPAssignmentSettingData as $GAL_LO_IP {
 	InstanceID = "gal-lo-ip";
 
 	IPv4Address = "10.0.50.5";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1046,7 +1046,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CYL_LO_IP {
 	InstanceID = "cyl-lo-ip";
 
 	IPv4Address = "10.0.50.6";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1056,7 +1056,7 @@ instance of CIM_StaticIPAssignmentSettingData as $RIO_LO_IP {
 	InstanceID = "rio-lo-ip";
 
 	IPv4Address = "10.0.50.7";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1066,7 +1066,7 @@ instance of CIM_StaticIPAssignmentSettingData as $ARA_LO_IP {
 	InstanceID = "ara-lo-ip";
 
 	IPv4Address = "10.0.50.8";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1076,7 +1076,7 @@ instance of CIM_StaticIPAssignmentSettingData as $MAD_LO_IP {
 	InstanceID = "mad-lo-ip";
 
 	IPv4Address = "10.0.50.9";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1086,7 +1086,7 @@ instance of CIM_StaticIPAssignmentSettingData as $IX_LO_IP {
 	InstanceID = "ix-lo-ip";
 
 	IPv4Address = "10.0.50.10";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1096,7 +1096,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CAT_LO_IP {
 	InstanceID = "cat-lo-ip";
 
 	IPv4Address = "10.0.50.11";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1106,7 +1106,7 @@ instance of CIM_StaticIPAssignmentSettingData as $CLM_LO_IP {
 	InstanceID = "clm-lo-ip";
 
 	IPv4Address = "10.0.50.12";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1116,7 +1116,7 @@ instance of CIM_StaticIPAssignmentSettingData as $VAL_LO_IP {
 	InstanceID = "val-lo-ip";
 
 	IPv4Address = "10.0.50.13";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1126,7 +1126,7 @@ instance of CIM_StaticIPAssignmentSettingData as $EXT_LO_IP {
 	InstanceID = "ext-lo-ip";
 
 	IPv4Address = "10.0.50.14";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1136,7 +1136,7 @@ instance of CIM_StaticIPAssignmentSettingData as $BAL_LO_IP {
 	InstanceID = "bal-lo-ip";
 
 	IPv4Address = "10.0.50.15";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1146,7 +1146,7 @@ instance of CIM_StaticIPAssignmentSettingData as $AND_LO_IP {
 	InstanceID = "and-lo-ip";
 
 	IPv4Address = "10.0.50.16";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1156,7 +1156,7 @@ instance of CIM_StaticIPAssignmentSettingData as $MUR_LO_IP {
 	InstanceID = "mur-lo-ip";
 
 	IPv4Address = "10.0.50.17";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1166,7 +1166,7 @@ instance of CIM_StaticIPAssignmentSettingData as $TEF_LO_IP {
 	InstanceID = "tef-lo-ip";
 
 	IPv4Address = "10.0.50.18";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -1176,7 +1176,7 @@ instance of CIM_StaticIPAssignmentSettingData as $PAL_LO_IP {
 	InstanceID = "pal-lo-ip";
 
 	IPv4Address = "10.0.50.19";
-	SubnetMask = "255.255.255.0";
+	SubnetMask = "255.255.255.255";
 
 };
 
@@ -3308,6 +3308,645 @@ instance of CIM_HostedAccessPoint {
 instance of CIM_HostedAccessPoint {
 	Antecedent = $PAL;
 	Dependent = $PAL_AND_IF;
+};
+
+// Forwaring services (19)
+// ProtoclType = 2 (IPv4), 3 (IPv6), 4 (IPv4/IPv6)
+
+instance of CIM_ForwardingService as $AST_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ast-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AST";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CAN_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "can-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAN";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $PVC_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "pvc-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PVC";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $NAV_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "nav-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "NAV";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $GAL_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "gal-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "GAL";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CYL_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "cyl-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CYL";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $RIO_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "rio-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "RIO";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $ARA_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ara-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "ARA";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $MAD_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "mad-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MAD";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $IX_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ix-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "IX";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CAT_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "cat-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CAT";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $CLM_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "clm-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "CLM";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $VAL_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "val-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "VAL";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $EXT_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "ext-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "EXT";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $BAL_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "bal-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "BAL";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $AND_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "and-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "AND";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $MUR_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "mur-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "MUR";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $TEF_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "tef-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "TEF";
+
+	ProtocolType = 4;
+
+};
+
+instance of CIM_ForwardingService as $PAL_FW {
+
+	// key properties
+	CreationClassName = "CIM_ForwardingService";
+	Name = "pal-fw";
+	SystemCreationClassName = "CIM_ComputerSystem";
+	SystemName = "PAL";
+
+	ProtocolType = 4;
+
+};
+
+// ForwardingServices associations to hosts (19)
+
+instance of CIM_HostedService {
+	Antecedent = $AST;
+	Dependent = $AST_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CAN;
+	Dependent = $CAN_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $PVC;
+	Dependent = $PVC_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $NAV;
+	Dependent = $NAV_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $GAL;
+	Dependent = $GAL_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CYL;
+	Dependent = $CYL_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $RIO;
+	Dependent = $RIO_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $ARA;
+	Dependent = $ARA_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $MAD;
+	Dependent = $MAD_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $IX;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CAT;
+	Dependent = $CAT_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $CLM;
+	Dependent = $CLM_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $VAL;
+	Dependent = $VAL_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $EXT;
+	Dependent = $EXT_FW;
+};
+instance of CIM_HostedService {
+	Antecedent = $BAL;
+	Dependent = $BAL_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $AND;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $MUR;
+	Dependent = $MUR_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $TEF;
+	Dependent = $TEF_FW;
+};
+
+instance of CIM_HostedService {
+	Antecedent = $PAL;
+	Dependent = $PAL_FW;
+};
+
+// ForwardingServices associations to interfaces (62)
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AST_GAL_IF;
+	Dependent = $AST_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AST_CAN_IF;
+	Dependent = $AST_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CAN_AST_IF;
+	Dependent = $CAN_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CAN_PVC_IF;
+	Dependent = $CAN_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PVC_CAN_IF;
+	Dependent = $PVC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PVC_GAL_IF;
+	Dependent = $PVC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PVC_NAV_IF;
+	Dependent = $PVC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PVC_IX_IF;
+	Dependent = $PVC_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NAV_PVC_IF;
+	Dependent = $NAV_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $NAV_ARA_IF;
+	Dependent = $NAV_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $GAL_AST_IF;
+	Dependent = $GAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $GAL_PVC_IF;
+	Dependent = $GAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $GAL_CYL_IF;
+	Dependent = $GAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $GAL_IX_IF;
+	Dependent = $GAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CYL_GAL_IF;
+	Dependent = $CYL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CYL_RIO_IF;
+	Dependent = $CYL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CYL_IX_IF;
+	Dependent = $CYL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $RIO_CYL_IF;
+	Dependent = $RIO_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $RIO_ARA_IF;
+	Dependent = $RIO_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $ARA_NAV_IF;
+	Dependent = $ARA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $ARA_RIO_IF;
+	Dependent = $ARA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $ARA_IX_IF;
+	Dependent = $ARA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $ARA_CAT_IF;
+	Dependent = $ARA_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $MAD_IX_IF;
+	Dependent = $MAD_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_MAD_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_GAL_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_CYL_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_PVC_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_ARA_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_CAT_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_VAL_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_CLM_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_AND_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_EXT_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $IX_TEF_IF;
+	Dependent = $IX_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CAT_ARA_IF;
+	Dependent = $CAT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CAT_IX_IF;
+	Dependent = $CAT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CAT_VAL_IF;
+	Dependent = $CAT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CAT_BAL_IF;
+	Dependent = $CAT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CLM_IX_IF;
+	Dependent = $CLM_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $CLM_AND_IF;
+	Dependent = $CLM_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $VAL_IX_IF;
+	Dependent = $VAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $VAL_CAT_IF;
+	Dependent = $VAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $VAL_BAL_IF;
+	Dependent = $VAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $VAL_MUR_IF;
+	Dependent = $VAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $VAL_AND_IF;
+	Dependent = $VAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $EXT_IX_IF;
+	Dependent = $EXT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $EXT_AND_IF;
+	Dependent = $EXT_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $BAL_CAT_IF;
+	Dependent = $BAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $BAL_VAL_IF;
+	Dependent = $BAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AND_EXT_IF;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AND_IX_IF;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AND_CLM_IF;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AND_VAL_IF;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AND_MUR_IF;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $AND_PAL_IF;
+	Dependent = $AND_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $MUR_VAL_IF;
+	Dependent = $MUR_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $MUR_AND_IF;
+	Dependent = $MUR_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $TEF_IX_IF;
+	Dependent = $TEF_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $TEF_PAL_IF;
+	Dependent = $TEF_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PAL_TEF_IF;
+	Dependent = $PAL_FW;
+};
+
+instance of CIM_ForwardsAmong {
+	Antecedent = $PAL_AND_IF;
+	Dependent = $PAL_FW;
 };
 
 // the QoS constrainst for each link (31). This example
