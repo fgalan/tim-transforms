@@ -13,7 +13,7 @@ Copyright (C) 2008 Fermin Galan Marquez
 <xmi:XMI xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:TP="http:///TP.ecore">
   <TP:VNUMLTestbedParameters
-  	specVersion="1.8"
+  	specVersion="1.9"
   	defaultExecMode="mconsole"
   	defaultFilesystemType="cow"
   	defaultFilesystem="/usr/share/vnuml/filesystems/root_fs_tutorial"
