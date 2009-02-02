@@ -1,0 +1,97 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+library TIMOspfHelpers;
+
+-------------------------------
+-- Helpers to manipulate IPs --
+-------------------------------
+
+-- Returns the common mask between StartAddress and EndAddress in the scoping CIM_RangeOfIPAddresses
+-- (0 if there is no common mask)
+-- FIXME: this method is hardwired to return 32 if both addresses are equal, covering the
+-- current use cases (nsfnet, rediris). However, it should be improved to a more functional implementation
+-- trying to use the following Java code in ATL.
+--
+--	public static int commonMask(int startIp, int endIp) {
+--		/* Perform a sequential bit shift until there is some diference */
+--		for (int i = 1; i <= 32 ; i++) {
+--			if ( startIp >> 32-i != endIp >> 32-i) 
+--				return i-1;
+--		}
+--		return 32;
+--	}
+	
+helper context TIMOspfSmall!CIM_RangeOfIPAddresses def: commomMask() : Integer =
+	if (self.StartAddress = self.EndAddress)
+	then
+		32
+	else
+		30
+	endif
+	;
+
+-- NOTE: this is the same than in TIMHelpsers.atl
+helper context Integer def: translateIp() : String =
+	self.div(256*256*256).toString() + '.' 
+	+ self.mod(256*256*256).div(256*256).toString() + '.'
+	+ self.mod(256*256*256).mod(256*256).div(256).toString() + '.' 
+	+ self.mod(256*256*256).mod(256*256).mod(256).toString()
+	;
+
+------------------------------------------------------
+-- Helpers to navigate through object relationships --
+------------------------------------------------------
+
+-- Returns the CIM_ComputerSystem associated to a given CIM_OSPFService, navigating
+-- through the CIM_HostedService association
+helper context TIMOspfSmall!CIM_OSPFService def: associatedComputerSystem() : TIMOspfSmall!CIM_ComputerSystem =
+	TIMOspfSmall!CIM_HostedService.allInstances()->select(e | e.Dependent = self)->first().Antecedent
+	;
+
+-- Returns the CIM_RangeOfIPAddresses associated to a given CIM_OSPFAreaConfiguration, navigating
+-- through the CIM_RangesOfConfiguration association
+helper context TIMOspfSmall!CIM_OSPFAreaConfiguration def: allAreaConfIPRanges() : Sequence(TIMOspfSmall!CIM_RangeOfIPAddresses) =
+	TIMOspfSmall!CIM_RangesOfConfiguration.allInstances()->iterate(e; res : Sequence(TIMOspfSmall!CIM_RangeOfIPAddresses) = Sequence {} | 
+		if e.Dependent = self
+		then
+			res->including(e.Antecedent)
+		else
+			res
+		endif
+	);
+
+-- Returns the CIM_RangeOfIPAddresses associated to a given CIM_OSPFService, navigating
+-- through the CIM_OSPFServiceConfiguration association
+-- FIXME: current version only consider mono-area (an smarter processing of CIM_OSPFServiceConfiguration is
+-- required for the multi-area case)
+helper context TIMOspfSmall!CIM_OSPFService def: allServiceIPRanges() : Sequence(TIMOspfSmall!CIM_RangeOfIPAddresses) =
+	TIMOspfSmall!CIM_OSPFServiceConfiguration.allInstances()->select(e | e.Antecedent = self)->first().Dependent->allAreaConfIPRanges()
+	;
+
+-- Returns the CIM_OSPFArea associated to a given CIM_OSPFAreaConfiguration, navigating
+-- through the CIM_AreaOfConfiguration association (note that for each CIM_OSPFAreaConfiguration
+-- there is only one CIM_OSPFArea)
+helper context TIMOspfSmall!CIM_OSPFAreaConfiguration def: ospfArea() : TIMSmall!CIM_OSPFArea =
+	TIMOspfSmall!CIM_AreaOfConfiguration.allInstances()->select(e | e.Dependent = self)->first().Antecedent
+	;
+
+-- Returns the area ID associated to a given CIM_RangeOfIPAddresses (navigating through the CIM classes)
+helper context TIMOspfSmall!CIM_RangeOfIPAddresses def: areaID() : Integer =
+	TIMOspfSmall!CIM_RangesOfConfiguration.allInstances()->select(e | e.Antecedent = self)->first().Dependent->ospfArea().AreaID
+	;

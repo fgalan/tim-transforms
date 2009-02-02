@@ -1,0 +1,92 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module TIM2ADNETCONFOspf; 
+create OUT : XML from IN : TIMOspfSmall;
+
+uses TIMOspfHelpers;
+
+-----------
+-- Rules --
+-----------
+
+rule Root {
+	from 
+		i: TIMOspfSmall!TIM_TestbedScenario
+	to
+		root: XML!Root (
+			name <- 'ospf_conf',
+			children <- Sequence {TIMOspfSmall!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'ospf'))}
+		)
+}
+
+rule Ospf {
+	from 
+		i: TIMOspfSmall!CIM_OSPFService
+	to
+		ospf: XML!Element (
+			name <- 'ospf',
+			children <- Sequence {ospf_attNode, password, ospf_log, zebra_log,
+						i.allServiceIPRanges()->collect (e | thisModule.resolveTemp(e,'network'))}
+		),
+		ospf_attNode: XML!Attribute (
+			name <- 'node',
+			value <- i.associatedComputerSystem().Name
+		),
+		password: XML!Element (
+			name <- 'password',
+			children <- password_Text
+		),
+		password_Text: XML!TextNode (
+			value <- 'xxxx'
+		),
+		ospf_log: XML!Element (
+			name <- 'ospf_log',
+			children <- ospf_log_Text
+		),
+		ospf_log_Text: XML!TextNode (
+			value <- '/var/log/ospfd.log'
+		),
+		zebra_log: XML!Element (
+			name <- 'zebra_log',
+			children <- zebra_log_Text
+		),
+		zebra_log_Text: XML!TextNode (
+			value <- '/var/log/zebra.log'
+		)
+		
+}
+
+-- FIXME: CIM_RangeOfConfiguration.EnableAdvertise should be checked
+-- FIXME: CIM_RangeOfIPAddresses.AddressType should be checked
+rule Network {
+	from
+		i: TIMOspfSmall!CIM_RangeOfIPAddresses
+	to
+		network: XML!Element (
+			name <- 'network',
+			children <- Sequence {network_attArea, network_Text}	
+		),
+		network_attArea: XML!Attribute (
+			name <- 'area',
+			value <- i.areaID().translateIp()
+		),
+		network_Text: XML!TextNode (
+			value <- i.StartAddress + '/' + i.commomMask().toString()
+		)
+}

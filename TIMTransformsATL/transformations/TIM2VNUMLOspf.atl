@@ -1,0 +1,102 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module TIM2VNUMLOspf; 
+create OUT : XML from IN : TIMOspfSmall;
+
+uses TIMOspfHelpers;
+
+-----------
+-- Rules --
+-----------
+
+rule Root {
+	from 
+		i: TIMOspfSmall!TIM_TestbedScenario
+	to
+		root: XML!Root (
+			name <- 'ospf_conf',
+			children <- Sequence {TIMOspfSmall!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'vm'))}
+		)
+}
+
+rule Vm {
+	from 
+		i: TIMOspfSmall!CIM_OSPFService
+	to
+		vm: XML!Element (
+			name <- 'vm',
+			children <- Sequence {vm_attName, vm_attType, vm_attSubtype, zebra,
+						i.allServiceIPRanges()->collect (e | thisModule.resolveTemp(e,'network'))}
+		),
+		vm_attName: XML!Attribute (
+			name <- 'name',
+			value <- i.associatedComputerSystem().Name
+		),
+		vm_attType: XML!Attribute (
+			name <- 'type',
+			value <- 'quagga'
+		),
+		vm_attSubtype: XML!Attribute (
+			name <- 'subtype',
+			value <- 'lib-install'
+		),		
+		zebra: XML!Element (
+			name <- 'zebra',
+			children <- Sequence {zebra_attHostname, zebra_attPassword}
+		),
+		zebra_attHostname: XML!Attribute (
+			name <- 'hostname',
+			value <- i.associatedComputerSystem().Name
+		),
+		zebra_attPassword: XML!Attribute (
+			name <- 'password',
+			value <- 'xxxx'
+		)
+		
+}
+
+-- FIXME: CIM_RangeOfConfiguration.EnableAdvertise should be checked
+-- FIXME: CIM_RangeOfIPAddresses.AddressType should be checked
+rule Network {
+	from
+		i: TIMOspfSmall!CIM_RangeOfIPAddresses
+	to
+		network: XML!Element (
+			name <- 'network',
+			children <- Sequence {ip, area}
+		),
+		ip: XML!Element (
+			name <- 'ip',
+			children <- Sequence {ip_attMask, ip_Text}
+		),
+		ip_attMask: XML!Attribute (
+			name <- 'mask',
+			value <- i.commomMask().toString()
+		),
+		ip_Text: XML!TextNode (
+			value <- i.StartAddress
+		),
+		area: XML!Element (
+			name <- 'area',
+			children <- area_Text
+		),
+		area_Text: XML!TextNode (
+			value <- i.areaID().translateIp()
+		)
+}
