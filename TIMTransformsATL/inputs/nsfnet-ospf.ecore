@@ -12,6 +12,10 @@ Copyright (C) 2009 Fermin Galan Marquez
 
 <xmi:XMI xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:TIM="http:///TIMOspf.ecore">
+
+  <!-- the testbed itself (1) -->
+  <TIM:TIM_TestbedScenario Name="nsfnet" xmi:id="nsfnet"/>
+  <!-- FIXME: this should be removed, using the definition in nsfnet.ecore -->
   
   <!-- the nodes (14) -->
   <!-- FIXME: this should be removed, using the definition in nsfnet.ecore -->
@@ -49,7 +53,7 @@ Copyright (C) 2009 Fermin Galan Marquez
   <!-- configuration for CA1 -->
   <TIM:CIM_OSPFService xmi:id="ca1-ospf"/>
   <TIM:CIM_OSPFAreaConfiguration xmi:id="ca1-ospf-ac"/>
-  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ca1-ospf-area"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ca1-ospf-area"/>  
   <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.2" EndAddress="10.0.50.2" xmi:id="ca1-ospf-net1"/>
   <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.12" EndAddress="10.0.5.15" xmi:id="ca1-ospf-net2"/>
   <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.16" EndAddress="10.0.5.19" xmi:id="ca1-ospf-net3"/>
