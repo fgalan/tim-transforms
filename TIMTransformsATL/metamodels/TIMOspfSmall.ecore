@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Real"/>
+  </ecore:EPackage>
+  <ecore:EPackage name="TIMOspf" nsURI="http:///TIMOspf.ecore" nsPrefix="TIMOspf">
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_ComputerSystem">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_OSPFService"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_OSPFAreaConfiguration"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_OSPFArea">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AreaID" lowerBound="1"
+          eType="#/0/Integer" defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_RangeOfIPAddresses">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressType" lowerBound="1"
+          eType="#/0/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartAddress" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndAddress" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedService">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_ComputerSystem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/CIM_OSPFService"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_OSPFServiceConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_OSPFService"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/CIM_OSPFAreaConfiguration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_AreaOfConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_OSPFArea"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/CIM_OSPFAreaConfiguration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_RangesOfConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
+          eType="#/1/CIM_RangeOfIPAddresses"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
+          eType="#/1/CIM_OSPFAreaConfiguration"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EnableAdvertise" lowerBound="1"
+          eType="#/0/Boolean"/>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>
