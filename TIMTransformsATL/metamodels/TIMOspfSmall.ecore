@@ -9,6 +9,10 @@
     <eClassifiers xsi:type="ecore:EDataType" name="Real"/>
   </ecore:EPackage>
   <ecore:EPackage name="TIMOspf" nsURI="http:///TIMOspf.ecore" nsPrefix="TIMOspf">
+    <eClassifiers xsi:type="ecore:EClass" name="TIM_TestbedScenario">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CIM_ComputerSystem">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
           eType="#/0/String"/>
