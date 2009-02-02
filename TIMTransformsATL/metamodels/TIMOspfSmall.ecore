@@ -17,7 +17,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="CIM_OSPFAreaConfiguration"/>
     <eClassifiers xsi:type="ecore:EClass" name="CIM_OSPFArea">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="AreaID" lowerBound="1"
-          eType="#/0/Integer" defaultValueLiteral=""/>
+          eType="#/0/Integer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CIM_RangeOfIPAddresses">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressType" lowerBound="1"
