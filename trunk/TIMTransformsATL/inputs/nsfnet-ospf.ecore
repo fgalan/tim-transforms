@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+
+This file can be mofified/distributed under the terms of 
+Creative Commons Attribution-Share Alike 2.5 Spain License.
+See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
+
+Copyright (C) 2009 Fermin Galan Marquez
+
+-->
+
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:TIM="http:///TIMOspf.ecore">
+  
+  <!-- the nodes (14) -->
+  <!-- FIXME: this should be removed, using the definition in nsfnet.ecore -->
+  <TIM:CIM_ComputerSystem Name="WA" xmi:id="WA"/>
+  <TIM:CIM_ComputerSystem Name="CA1" xmi:id="CA1"/>
+  <TIM:CIM_ComputerSystem Name="CA2" xmi:id="CA2"/>
+  <TIM:CIM_ComputerSystem Name="UT" xmi:id="UT"/>
+  <TIM:CIM_ComputerSystem Name="CO" xmi:id="CO"/>
+  <TIM:CIM_ComputerSystem Name="NE" xmi:id="NE"/>
+  <TIM:CIM_ComputerSystem Name="IL" xmi:id="IL"/>
+  <TIM:CIM_ComputerSystem Name="MI" xmi:id="MI"/>
+  <TIM:CIM_ComputerSystem Name="PA" xmi:id="PA"/>
+  <TIM:CIM_ComputerSystem Name="NY" xmi:id="NY"/>
+  <TIM:CIM_ComputerSystem Name="NJ" xmi:id="NJ"/>
+  <TIM:CIM_ComputerSystem Name="DC" xmi:id="DC"/>
+  <TIM:CIM_ComputerSystem Name="GA" xmi:id="GA"/>
+  <TIM:CIM_ComputerSystem Name="TX" xmi:id="TX"/>                   
+   
+  <!-- configuration for WA -->
+  <TIM:CIM_OSPFService xmi:id="wa-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="wa-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="wa-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.1" EndAddress="10.0.50.1" xmi:id="wa-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.0" EndAddress="10.0.5.3" xmi:id="wa-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.4" EndAddress="10.0.5.7" xmi:id="wa-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.8" EndAddress="10.0.5.11" xmi:id="wa-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#WA" Dependent="#wa-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#wa-ospf" Dependent="#wa-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#wa-ospf-area" Dependent="#wa-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#wa-ospf-net1" Dependent="#wa-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#wa-ospf-net2" Dependent="#wa-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#wa-ospf-net3" Dependent="#wa-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#wa-ospf-net4" Dependent="#wa-ospf-ac" EnableAdvertise="TRUE"/>
+  
+  <!-- configuration for CA1 -->
+  <TIM:CIM_OSPFService xmi:id="ca1-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="ca1-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ca1-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.2" EndAddress="10.0.50.2" xmi:id="ca1-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.12" EndAddress="10.0.5.15" xmi:id="ca1-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.16" EndAddress="10.0.5.19" xmi:id="ca1-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.0" EndAddress="10.0.5.3" xmi:id="ca1-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#CA1" Dependent="#ca1-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#ca1-ospf" Dependent="#ca1-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#ca1-ospf-area" Dependent="#ca1-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca1-ospf-net1" Dependent="#ca1-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca1-ospf-net2" Dependent="#ca1-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca1-ospf-net3" Dependent="#ca1-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca1-ospf-net4" Dependent="#ca1-ospf-ac" EnableAdvertise="TRUE"/>    
+    
+  <!-- configuration for CA2 -->
+  <TIM:CIM_OSPFService xmi:id="ca2-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="ca2-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ca2-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.3" EndAddress="10.0.50.3" xmi:id="ca2-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.12" EndAddress="10.0.5.15" xmi:id="ca2-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.4" EndAddress="10.0.5.7" xmi:id="ca2-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.20" EndAddress="10.0.5.23" xmi:id="ca2-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#CA2" Dependent="#ca2-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#ca2-ospf" Dependent="#ca2-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#ca2-ospf-area" Dependent="#ca2-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca2-ospf-net1" Dependent="#ca2-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca2-ospf-net2" Dependent="#ca2-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca2-ospf-net3" Dependent="#ca2-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ca2-ospf-net4" Dependent="#ca2-ospf-ac" EnableAdvertise="TRUE"/>    
+    
+  <!-- configuration for UT -->
+  <TIM:CIM_OSPFService xmi:id="ut-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="ut-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ut-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.4" EndAddress="10.0.50.4" xmi:id="ut-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.16" EndAddress="10.0.5.19" xmi:id="ut-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.24" EndAddress="10.0.5.27" xmi:id="ut-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.28" EndAddress="10.0.5.31" xmi:id="ut-ospf-net4"/>      
+  <TIM:CIM_HostedService Antecedent="#UT" Dependent="#ut-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#ut-ospf" Dependent="#ut-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#ut-ospf-area" Dependent="#ut-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ut-ospf-net1" Dependent="#ut-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ut-ospf-net2" Dependent="#ut-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ut-ospf-net3" Dependent="#ut-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ut-ospf-net4" Dependent="#ut-ospf-ac" EnableAdvertise="TRUE"/>    
+    
+  <!-- configuration for CO -->
+  <TIM:CIM_OSPFService xmi:id="co-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="co-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="co-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.5" EndAddress="10.0.50.5" xmi:id="co-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.28" EndAddress="10.0.5.31" xmi:id="co-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.32" EndAddress="10.0.5.35" xmi:id="co-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.36" EndAddress="10.0.5.39" xmi:id="co-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#CO" Dependent="#co-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#co-ospf" Dependent="#co-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#co-ospf-area" Dependent="#co-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#co-ospf-net1" Dependent="#co-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#co-ospf-net2" Dependent="#co-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#co-ospf-net3" Dependent="#co-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#co-ospf-net4" Dependent="#co-ospf-ac" EnableAdvertise="TRUE"/>          
+  
+  <!-- configuration for NE -->
+  <TIM:CIM_OSPFService xmi:id="ne-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="ne-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ne-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.6" EndAddress="10.0.50.6" xmi:id="ne-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.32" EndAddress="10.0.5.35" xmi:id="ne-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.40" EndAddress="10.0.5.43" xmi:id="ne-ospf-net3"/>    
+  <TIM:CIM_HostedService Antecedent="#NE" Dependent="#ne-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#ne-ospf" Dependent="#ne-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#ne-ospf-area" Dependent="#ne-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ne-ospf-net1" Dependent="#ne-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ne-ospf-net2" Dependent="#ne-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ne-ospf-net3" Dependent="#ne-ospf-ac" EnableAdvertise="TRUE"/>    
+  
+  <!-- configuration for IL -->
+  <TIM:CIM_OSPFService xmi:id="il-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="il-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="il-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.7" EndAddress="10.0.50.7" xmi:id="il-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.40" EndAddress="10.0.5.43" xmi:id="il-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.8" EndAddress="10.0.5.11" xmi:id="il-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.44" EndAddress="10.0.5.47" xmi:id="il-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#IL" Dependent="#il-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#il-ospf" Dependent="#il-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#il-ospf-area" Dependent="#il-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#il-ospf-net1" Dependent="#il-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#il-ospf-net2" Dependent="#il-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#il-ospf-net3" Dependent="#il-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#il-ospf-net4" Dependent="#il-ospf-ac" EnableAdvertise="TRUE"/>    
+  
+  <!-- configuration for MI -->
+  <TIM:CIM_OSPFService xmi:id="mi-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="mi-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="mi-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.8" EndAddress="10.0.50.8" xmi:id="mi-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.24" EndAddress="10.0.5.27" xmi:id="mi-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.48" EndAddress="10.0.5.51" xmi:id="mi-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.52" EndAddress="10.0.5.55" xmi:id="mi-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#MI" Dependent="#mi-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#mi-ospf" Dependent="#mi-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#mi-ospf-area" Dependent="#mi-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#mi-ospf-net1" Dependent="#mi-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#mi-ospf-net2" Dependent="#mi-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#mi-ospf-net3" Dependent="#mi-ospf-ac" EnableAdvertise="TRUE"/>
+  <TIM:CIM_RangesOfConfiguration Antecedent="#mi-ospf-net4" Dependent="#mi-ospf-ac" EnableAdvertise="TRUE"/>
+
+  <!-- configuration for PA -->
+  <TIM:CIM_OSPFService xmi:id="pa-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="pa-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="pa-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.9" EndAddress="10.0.50.9" xmi:id="pa-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.44" EndAddress="10.0.5.47" xmi:id="pa-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.56" EndAddress="10.0.5.59" xmi:id="pa-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.60" EndAddress="10.0.5.63" xmi:id="pa-ospf-net4"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.64" EndAddress="10.0.5.67" xmi:id="pa-ospf-net5"/>
+  <TIM:CIM_HostedService Antecedent="#PA" Dependent="#pa-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#pa-ospf" Dependent="#pa-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#pa-ospf-area" Dependent="#pa-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#pa-ospf-net1" Dependent="#pa-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#pa-ospf-net2" Dependent="#pa-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#pa-ospf-net3" Dependent="#pa-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#pa-ospf-net4" Dependent="#pa-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#pa-ospf-net5" Dependent="#pa-ospf-ac" EnableAdvertise="TRUE"/>    
+
+  <!-- configuration for NY -->
+  <TIM:CIM_OSPFService xmi:id="ny-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="ny-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ny-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.10" EndAddress="10.0.50.10" xmi:id="ny-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.52" EndAddress="10.0.5.55" xmi:id="ny-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.60" EndAddress="10.0.5.63" xmi:id="ny-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.68" EndAddress="10.0.5.71" xmi:id="ny-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#NY" Dependent="#ny-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#ny-ospf" Dependent="#ny-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#ny-ospf-area" Dependent="#ny-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ny-ospf-net1" Dependent="#ny-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ny-ospf-net2" Dependent="#ny-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ny-ospf-net3" Dependent="#ny-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ny-ospf-net4" Dependent="#ny-ospf-ac" EnableAdvertise="TRUE"/>    
+
+  <!-- configuration for NJ -->
+  <TIM:CIM_OSPFService xmi:id="nj-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="nj-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="nj-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.11" EndAddress="10.0.50.11" xmi:id="nj-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.48" EndAddress="10.0.5.51" xmi:id="nj-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.64" EndAddress="10.0.5.67" xmi:id="nj-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.72" EndAddress="10.0.5.75" xmi:id="nj-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#NJ" Dependent="#nj-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#nj-ospf" Dependent="#nj-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#nj-ospf-area" Dependent="#nj-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#nj-ospf-net1" Dependent="#nj-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#nj-ospf-net2" Dependent="#nj-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#nj-ospf-net3" Dependent="#nj-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#nj-ospf-net4" Dependent="#nj-ospf-ac" EnableAdvertise="TRUE"/>    
+
+  <!-- configuration for DC -->
+  <TIM:CIM_OSPFService xmi:id="dc-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="dc-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="dc-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.12" EndAddress="10.0.50.12" xmi:id="dc-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.76" EndAddress="10.0.5.79" xmi:id="dc-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.68" EndAddress="10.0.5.71" xmi:id="dc-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.72" EndAddress="10.0.5.75" xmi:id="dc-ospf-net4"/>
+  <TIM:CIM_HostedService Antecedent="#DC" Dependent="#dc-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#dc-ospf" Dependent="#dc-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#dc-ospf-area" Dependent="#dc-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#dc-ospf-net1" Dependent="#dc-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#dc-ospf-net2" Dependent="#dc-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#dc-ospf-net3" Dependent="#dc-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#dc-ospf-net4" Dependent="#dc-ospf-ac" EnableAdvertise="TRUE"/>    
+
+  <!-- configuration for GA -->
+  <TIM:CIM_OSPFService xmi:id="ga-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="ga-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="ga-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.13" EndAddress="10.0.50.13" xmi:id="ga-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.56" EndAddress="10.0.5.59" xmi:id="ga-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.80" EndAddress="10.0.5.83" xmi:id="ga-ospf-net3"/>
+  <TIM:CIM_HostedService Antecedent="#GA" Dependent="#ga-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#ga-ospf" Dependent="#ga-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#ga-ospf-area" Dependent="#ga-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ga-ospf-net1" Dependent="#ga-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ga-ospf-net2" Dependent="#ga-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#ga-ospf-net3" Dependent="#ga-ospf-ac" EnableAdvertise="TRUE"/>    
+
+  <!-- configuration for TX -->
+  <TIM:CIM_OSPFService xmi:id="tx-ospf"/>
+  <TIM:CIM_OSPFAreaConfiguration xmi:id="tx-ospf-ac"/>
+  <TIM:CIM_OSPFArea AreaID="0" xmi:id="tx-ospf-area"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.50.14" EndAddress="10.0.50.14" xmi:id="tx-ospf-net1"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.20" EndAddress="10.0.5.23" xmi:id="tx-ospf-net2"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.36" EndAddress="10.0.5.39" xmi:id="tx-ospf-net3"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.76" EndAddress="10.0.5.79" xmi:id="tx-ospf-net4"/>
+  <TIM:CIM_RangeOfIPAddresses AddressType="1" StartAddress="10.0.5.80" EndAddress="10.0.5.83" xmi:id="tx-ospf-net5"/>
+  <TIM:CIM_HostedService Antecedent="#TX" Dependent="#tx-ospf"/>
+  <TIM:CIM_OSPFServiceConfiguration Antecedent="#tx-ospf" Dependent="#tx-ospf-ac"/>
+  <TIM:CIM_AreaOfConfiguration Antecedent="#tx-ospf-area" Dependent="#tx-ospf-ac"/>  
+  <TIM:CIM_RangesOfConfiguration Antecedent="#tx-ospf-net1" Dependent="#tx-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#tx-ospf-net2" Dependent="#tx-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#tx-ospf-net3" Dependent="#tx-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#tx-ospf-net4" Dependent="#tx-ospf-ac" EnableAdvertise="TRUE"/>    
+  <TIM:CIM_RangesOfConfiguration Antecedent="#tx-ospf-net5" Dependent="#tx-ospf-ac" EnableAdvertise="TRUE"/>    
+
+</xmi:XMI>
