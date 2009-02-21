@@ -179,7 +179,7 @@
           <vlan>600</vlan>
           <gre>
             <name>gre0</name>
-            <ip>10.0.5.12</ip>
+            <ip>10.0.5.2</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -187,7 +187,7 @@
         <vlan_connection>
           <gre>
             <name>gre1</name>
-            <ip>10.0.5.21</ip>
+            <ip>10.0.5.1</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -203,7 +203,7 @@
           <vlan>601</vlan>
           <gre>
             <name>gre2</name>
-            <ip>10.0.5.32</ip>
+            <ip>10.0.5.6</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -211,7 +211,7 @@
         <vlan_connection>
           <gre>
             <name>gre3</name>
-            <ip>10.0.5.23</ip>
+            <ip>10.0.5.5</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -227,7 +227,7 @@
           <vlan>602</vlan>
           <gre>
             <name>gre4</name>
-            <ip>10.0.5.82</ip>
+            <ip>10.0.5.10</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -235,7 +235,7 @@
         <vlan_connection>
           <gre>
             <name>gre5</name>
-            <ip>10.0.5.28</ip>
+            <ip>10.0.5.9</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -259,7 +259,7 @@
         <vlan_connection>
           <gre>
             <name>gre7</name>
-            <ip>10.0.5.31</ip>
+            <ip>10.0.5.14</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -275,7 +275,7 @@
           <vlan>604</vlan>
           <gre>
             <name>gre8</name>
-            <ip>10.0.5.14</ip>
+            <ip>10.0.5.17</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -283,7 +283,7 @@
         <vlan_connection>
           <gre>
             <name>gre9</name>
-            <ip>10.0.5.41</ip>
+            <ip>10.0.5.18</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -299,7 +299,7 @@
           <vlan>605</vlan>
           <gre>
             <name>gre10</name>
-            <ip>10.0.5.37</ip>
+            <ip>10.0.5.21</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -307,7 +307,7 @@
         <vlan_connection>
           <gre>
             <name>gre11</name>
-            <ip>10.0.5.73</ip>
+            <ip>10.0.5.22</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -323,7 +323,7 @@
           <vlan>606</vlan>
           <gre>
             <name>gre12</name>
-            <ip>10.0.5.94</ip>
+            <ip>10.0.5.26</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -331,7 +331,7 @@
         <vlan_connection>
           <gre>
             <name>gre13</name>
-            <ip>10.0.5.49</ip>
+            <ip>10.0.5.25</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -347,7 +347,7 @@
           <vlan>607</vlan>
           <gre>
             <name>gre14</name>
-            <ip>10.0.5.54</ip>
+            <ip>10.0.5.30</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -355,7 +355,7 @@
         <vlan_connection>
           <gre>
             <name>gre15</name>
-            <ip>10.0.5.45</ip>
+            <ip>10.0.5.29</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -371,7 +371,7 @@
           <vlan>608</vlan>
           <gre>
             <name>gre16</name>
-            <ip>10.0.5.56</ip>
+            <ip>10.0.5.33</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -379,7 +379,7 @@
         <vlan_connection>
           <gre>
             <name>gre17</name>
-            <ip>10.0.5.65</ip>
+            <ip>10.0.5.34</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -395,7 +395,7 @@
           <vlan>609</vlan>
           <gre>
             <name>gre18</name>
-            <ip>10.0.5.57</ip>
+            <ip>10.0.5.37</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -403,7 +403,7 @@
         <vlan_connection>
           <gre>
             <name>gre19</name>
-            <ip>10.0.5.75</ip>
+            <ip>10.0.5.38</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -419,7 +419,7 @@
           <vlan>610</vlan>
           <gre>
             <name>gre20</name>
-            <ip>10.0.5.86</ip>
+            <ip>10.0.5.42</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -427,7 +427,7 @@
         <vlan_connection>
           <gre>
             <name>gre21</name>
-            <ip>10.0.5.68</ip>
+            <ip>10.0.5.41</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -443,7 +443,7 @@
           <vlan>611</vlan>
           <gre>
             <name>gre22</name>
-            <ip>10.0.5.102</ip>
+            <ip>10.0.5.45</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -451,7 +451,7 @@
         <vlan_connection>
           <gre>
             <name>gre23</name>
-            <ip>10.0.5.101</ip>
+            <ip>10.0.5.46</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -475,7 +475,7 @@
         <vlan_connection>
           <gre>
             <name>gre25</name>
-            <ip>10.0.5.136</ip>
+            <ip>10.0.5.50</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -491,7 +491,7 @@
           <vlan>613</vlan>
           <gre>
             <name>gre26</name>
-            <ip>10.0.5.141</ip>
+            <ip>10.0.5.153</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -499,7 +499,7 @@
         <vlan_connection>
           <gre>
             <name>gre27</name>
-            <ip>10.0.5.142</ip>
+            <ip>10.0.5.54</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -515,7 +515,7 @@
           <vlan>614</vlan>
           <gre>
             <name>gre28</name>
-            <ip>10.0.5.113</ip>
+            <ip>10.0.5.58</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -523,7 +523,7 @@
         <vlan_connection>
           <gre>
             <name>gre29</name>
-            <ip>10.0.5.114</ip>
+            <ip>10.0.5.57</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -539,7 +539,7 @@
           <vlan>615</vlan>
           <gre>
             <name>gre30</name>
-            <ip>10.0.5.143</ip>
+            <ip>10.0.5.62</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -547,7 +547,7 @@
         <vlan_connection>
           <gre>
             <name>gre31</name>
-            <ip>10.0.5.144</ip>
+            <ip>10.0.5.61</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -563,7 +563,7 @@
           <vlan>616</vlan>
           <gre>
             <name>gre32</name>
-            <ip>10.0.5.131</ip>
+            <ip>10.0.5.66</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -571,7 +571,7 @@
         <vlan_connection>
           <gre>
             <name>gre33</name>
-            <ip>10.0.5.132</ip>
+            <ip>10.0.5.65</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -587,7 +587,7 @@
           <vlan>617</vlan>
           <gre>
             <name>gre34</name>
-            <ip>10.0.5.146</ip>
+            <ip>10.0.5.70</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -595,7 +595,7 @@
         <vlan_connection>
           <gre>
             <name>gre35</name>
-            <ip>10.0.5.145</ip>
+            <ip>10.0.5.69</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -611,7 +611,7 @@
           <vlan>618</vlan>
           <gre>
             <name>gre36</name>
-            <ip>10.0.5.134</ip>
+            <ip>10.0.5.74</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -619,7 +619,7 @@
         <vlan_connection>
           <gre>
             <name>gre37</name>
-            <ip>10.0.5.133</ip>
+            <ip>10.0.5.73</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -635,7 +635,7 @@
           <vlan>619</vlan>
           <gre>
             <name>gre38</name>
-            <ip>10.0.5.121</ip>
+            <ip>10.0.5.77</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -643,7 +643,7 @@
         <vlan_connection>
           <gre>
             <name>gre39</name>
-            <ip>10.0.5.122</ip>
+            <ip>10.0.5.78</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -659,7 +659,7 @@
           <vlan>620</vlan>
           <gre>
             <name>gre40</name>
-            <ip>10.0.5.111</ip>
+            <ip>10.0.5.81</ip>
           </gre>
         </vlan_connection>
       </peer>
@@ -667,7 +667,7 @@
         <vlan_connection>
           <gre>
             <name>gre41</name>
-            <ip>10.0.5.112</ip>
+            <ip>10.0.5.82</ip>
           </gre>
         </vlan_connection>
       </peer>

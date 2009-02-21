@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ospf_conf>
+  <vm name="WA" type="quagga" subtype="lib-install">
+    <zebra hostname="WA" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.1</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.0</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.4</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.8</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="CA1" type="quagga" subtype="lib-install">
+    <zebra hostname="CA1" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.2</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.12</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.16</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.0</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="CA2" type="quagga" subtype="lib-install">
+    <zebra hostname="CA2" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.3</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.12</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.4</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.20</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="UT" type="quagga" subtype="lib-install">
+    <zebra hostname="UT" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.4</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.16</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.24</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.28</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="CO" type="quagga" subtype="lib-install">
+    <zebra hostname="CO" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.5</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.28</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.32</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.36</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="NE" type="quagga" subtype="lib-install">
+    <zebra hostname="NE" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.6</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.32</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.40</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="IL" type="quagga" subtype="lib-install">
+    <zebra hostname="IL" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.7</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.40</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.8</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.44</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="MI" type="quagga" subtype="lib-install">
+    <zebra hostname="MI" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.8</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.24</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.48</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.52</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="PA" type="quagga" subtype="lib-install">
+    <zebra hostname="PA" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.9</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.44</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.56</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.60</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.64</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="NY" type="quagga" subtype="lib-install">
+    <zebra hostname="NY" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.10</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.52</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.60</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.68</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="NJ" type="quagga" subtype="lib-install">
+    <zebra hostname="NJ" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.11</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.48</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.64</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.72</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="DC" type="quagga" subtype="lib-install">
+    <zebra hostname="DC" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.12</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.76</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.68</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.72</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="GA" type="quagga" subtype="lib-install">
+    <zebra hostname="GA" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.13</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.56</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.80</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+  <vm name="TX" type="quagga" subtype="lib-install">
+    <zebra hostname="TX" password="xxxx"/>
+    <network>
+      <ip mask="32">10.0.50.14</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.20</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.36</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.76</ip>
+      <area>0.0.0.0</area>
+    </network>
+    <network>
+      <ip mask="30">10.0.5.80</ip>
+      <area>0.0.0.0</area>
+    </network>
+  </vm>
+</ospf_conf>
