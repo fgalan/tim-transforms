@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/ospf.dtd">
+<ospf_conf>
+  <ospf node="WA">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.1/32</network>
+    <network area="0.0.0.0">10.0.5.0/30</network>
+    <network area="0.0.0.0">10.0.5.4/30</network>
+    <network area="0.0.0.0">10.0.5.8/30</network>
+  </ospf>
+  <ospf node="CA1">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.2/32</network>
+    <network area="0.0.0.0">10.0.5.12/30</network>
+    <network area="0.0.0.0">10.0.5.16/30</network>
+    <network area="0.0.0.0">10.0.5.0/30</network>
+  </ospf>
+  <ospf node="CA2">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.3/32</network>
+    <network area="0.0.0.0">10.0.5.12/30</network>
+    <network area="0.0.0.0">10.0.5.4/30</network>
+    <network area="0.0.0.0">10.0.5.20/30</network>
+  </ospf>
+  <ospf node="UT">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.4/32</network>
+    <network area="0.0.0.0">10.0.5.16/30</network>
+    <network area="0.0.0.0">10.0.5.24/30</network>
+    <network area="0.0.0.0">10.0.5.28/30</network>
+  </ospf>
+  <ospf node="CO">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.5/32</network>
+    <network area="0.0.0.0">10.0.5.28/30</network>
+    <network area="0.0.0.0">10.0.5.32/30</network>
+    <network area="0.0.0.0">10.0.5.36/30</network>
+  </ospf>
+  <ospf node="NE">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.6/32</network>
+    <network area="0.0.0.0">10.0.5.32/30</network>
+    <network area="0.0.0.0">10.0.5.40/30</network>
+  </ospf>
+  <ospf node="IL">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.7/32</network>
+    <network area="0.0.0.0">10.0.5.40/30</network>
+    <network area="0.0.0.0">10.0.5.8/30</network>
+    <network area="0.0.0.0">10.0.5.44/30</network>
+  </ospf>
+  <ospf node="MI">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.8/32</network>
+    <network area="0.0.0.0">10.0.5.24/30</network>
+    <network area="0.0.0.0">10.0.5.48/30</network>
+    <network area="0.0.0.0">10.0.5.52/30</network>
+  </ospf>
+  <ospf node="PA">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.9/32</network>
+    <network area="0.0.0.0">10.0.5.44/30</network>
+    <network area="0.0.0.0">10.0.5.56/30</network>
+    <network area="0.0.0.0">10.0.5.60/30</network>
+    <network area="0.0.0.0">10.0.5.64/30</network>
+  </ospf>
+  <ospf node="NY">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.10/32</network>
+    <network area="0.0.0.0">10.0.5.52/30</network>
+    <network area="0.0.0.0">10.0.5.60/30</network>
+    <network area="0.0.0.0">10.0.5.68/30</network>
+  </ospf>
+  <ospf node="NJ">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.11/32</network>
+    <network area="0.0.0.0">10.0.5.48/30</network>
+    <network area="0.0.0.0">10.0.5.64/30</network>
+    <network area="0.0.0.0">10.0.5.72/30</network>
+  </ospf>
+  <ospf node="DC">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.12/32</network>
+    <network area="0.0.0.0">10.0.5.76/30</network>
+    <network area="0.0.0.0">10.0.5.68/30</network>
+    <network area="0.0.0.0">10.0.5.72/30</network>
+  </ospf>
+  <ospf node="GA">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.13/32</network>
+    <network area="0.0.0.0">10.0.5.56/30</network>
+    <network area="0.0.0.0">10.0.5.80/30</network>
+  </ospf>
+  <ospf node="TX">
+    <password>xxxx</password>
+    <ospf_log>/var/log/ospfd.log</ospf_log>
+    <zebra_log>/var/log/zebra.log</zebra_log>
+    <network area="0.0.0.0">10.0.50.14/32</network>
+    <network area="0.0.0.0">10.0.5.20/30</network>
+    <network area="0.0.0.0">10.0.5.36/30</network>
+    <network area="0.0.0.0">10.0.5.76/30</network>
+    <network area="0.0.0.0">10.0.5.80/30</network>
+  </ospf>
+</ospf_conf>
