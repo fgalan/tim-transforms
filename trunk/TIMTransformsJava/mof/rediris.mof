@@ -4023,7 +4023,7 @@ instance of TIM_TransmissionCharacteristics as $ARA_NAV_QOS {
 	// key properties
 	InstanceID = "ara-nav-qos";
 
-	DelayMean = 2;
+	DelayMean = 3;
 	LossProbabilityValue = 0.001;
 	DuplicationProbabilityValue = 0.0001;
 
