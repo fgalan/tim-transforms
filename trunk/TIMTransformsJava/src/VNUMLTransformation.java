@@ -168,15 +168,15 @@ public class VNUMLTransformation extends TIMTransformation {
 			
 		/* Generate the <global> section */
 		/* FIXME: it can be improved */
-		s.write("<global>\n");
+		s.write("  <global>\n");
 		s.write("    <version>"+specVersion+"</version>\n");
 		s.write("    <simulation_name>"+ scenarioName +"</simulation_name>\n");
 		s.write("    <automac/>\n");
 		s.write("    <vm_mgmt type='none' />\n");
 		s.write("    <vm_defaults exec_mode='"+defaultExecMode+"'>\n");
-		s.write("       <filesystem type='"+defaultFilesystemType+"'>"+defaultFilesystem+"</filesystem>\n");
-		s.write("       <kernel>"+defaultKernel+"</kernel>\n");
-		s.write("       <console id='0'>"+defaultConsole+"</console>\n");
+		s.write("      <filesystem type='"+defaultFilesystemType+"'>"+defaultFilesystem+"</filesystem>\n");
+		s.write("      <kernel>"+defaultKernel+"</kernel>\n");
+		s.write("      <console id='0'>"+defaultConsole+"</console>\n");
 		s.write("    </vm_defaults>\n");
 		/* FIXME: The conf.xml should be replaced by the actual file name, but the
 		 * problem is that this is not known within VNUMLTransformation class */		
