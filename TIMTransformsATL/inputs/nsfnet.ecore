@@ -130,7 +130,7 @@ Copyright (C) 2008, 2009 Fermin Galan Marquez
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.45" SubnetMask="255.255.255.252" xmi:id="il-pa-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.26" SubnetMask="255.255.255.252" xmi:id="mi-ut-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.49" SubnetMask="255.255.255.252" xmi:id="mi-nj-ip"/>
-  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.153" SubnetMask="255.255.255.252" xmi:id="mi-ny-ip"/>
+  <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.53" SubnetMask="255.255.255.252" xmi:id="mi-ny-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.46" SubnetMask="255.255.255.252" xmi:id="pa-il-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.57" SubnetMask="255.255.255.252" xmi:id="pa-ga-ip"/>
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.5.61" SubnetMask="255.255.255.252" xmi:id="pa-ny-ip"/>
