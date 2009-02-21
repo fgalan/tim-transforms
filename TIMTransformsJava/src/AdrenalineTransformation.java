@@ -546,13 +546,13 @@ public class AdrenalineTransformation extends TIMTransformation {
 				Float dup = (Float)tc.getProperty("DuplicationProbabilityValue").getValue().getValue();
 				s.write("      <qos>\n");
 				if (delay != null) {
-					s.write("          <delay>"+delay.intValue()+"</delay>\n");
+					s.write("        <delay>"+delay.intValue()+"</delay>\n");
 				}
 				if (loss != null) {
-					s.write("          <drop>"+loss+"</drop>\n");
+					s.write("        <drop>"+loss+"</drop>\n");
 				}
 				if (dup != null) {
-					s.write("          <dup>"+dup+"</dup>\n");
+					s.write("        <dup>"+dup+"</dup>\n");
 				}
 				s.write("      </qos>\n");
 			}
