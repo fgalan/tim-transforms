@@ -1,4 +1,4 @@
-VER=2008_10_15-p1
+VER=2009_02_21
 PKG_NAME=TIMTransforms-v$(VER)
 DEST_DIR=/tmp/$(PKG_NAME)
 

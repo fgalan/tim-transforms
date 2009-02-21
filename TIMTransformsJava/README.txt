@@ -2,7 +2,7 @@ Scenario-based Model-driven Configuration Management Proof-of-Concept
 =====================================================================
 
 Fermín Galán Márquez (galan at dit.upm.es)
-October 2008
+February 2009
 
 Here it is a software package that can be used to check the 
 feasibility of scenario-based model-driven configuration management 
@@ -126,20 +126,20 @@ Installation
   reading this README.txt, I guess you have already done it :)
   
   # cd /usr/local/src
-  # wget http://jungla.dit.upm.es/~galan/TIMTransforms/TIMTransforms-v2008_10_15-p1.tar.gz
-  # tar xfvz TIMTransforms-v2008_10_15-p1.tar.gz
+  # wget http://jungla.dit.upm.es/~galan/TIMTransforms/TIMTransforms-v2009_02_21.tar.gz
+  # tar xfvz TIMTransforms-v2009_02_21.tar.gz
 
 * Prepare the CIMOM repository. The best way to do this is maybe
   using the reset_cimom.sh script, after editing some of the 
   parameters at the beginning of the script.
    
-  # vi /usr/local/src/TIMTransforms-v2008_10_15-p1/scripts/reset_cimom.sh
+  # vi /usr/local/src/TIMTransforms-v2009_02_21/scripts/reset_cimom.sh
   (edit the parameters at the beginning of the script, for example:
-     PROJECT=/usr/local/src/TIMTransforms-v2008_10_15-p1
+     PROJECT=/usr/local/src/TIMTransforms-v2009_02_21
      HOST=localhost
      NS=root/cimv2181
   )
-  # cd /usr/local/src/TIMTransforms-v2008_10_15-p1/scripts
+  # cd /usr/local/src/TIMTransforms-v2009_02_21/scripts
   # ./reset_cimom.sh
 
 * Check the CIMOM repository (Optional). The reset_cimom.sh script should start the
@@ -155,7 +155,7 @@ Installation
   within TransTester.java main function, to set properly the
   host and namespace used by your CIMOM.
   
-  # cd /usr/local/src/TIMTransforms-v2008_10_15-p1/src
+  # cd /usr/local/src/TIMTransforms-v2009_02_21/src
   # javac *.java -classpath ../lib/wbem.jar
 
 Running the test
@@ -163,7 +163,7 @@ Running the test
 
 Just execute the main program:
 
-# cd /usr/local/src/TIMTransforms-v2008_10_15-p1/src
+# cd /usr/local/src/TIMTransforms-v2009_02_21/src
 # java -classpath .:../lib/wbem.jar TransTester
 
 If the scenarios have been properly compiled in the CIMOM and 
