@@ -30,7 +30,7 @@ instance of CTM_AdrenalineTestbedParameters {
     InstanceID = "adrenaline-defaults";
 
 	zebraBin = "/mnt/server/grups/zebra/test_bin/zebra";
-	ospfdBin = "/mnt/server/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd";
+	ospfdBin = "/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd";
 	lrmBin   = "/mnt/server/grups/zebra/lrm/lrm/lrm";
 	rsvpdBin = "/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd";
 	rtapBin  = "/mnt/server/grups/rsvpte-svn/apitools/rtap";
