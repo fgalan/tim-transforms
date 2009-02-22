@@ -146,12 +146,12 @@ public class AdrenalineTransformation extends TIMTransformation {
 		}
 		else {
 			
-			zebraBin = "/users/home/grups/zebra/test_bin/zebra";
-			ospfdBin = "/users/home/grups/zebra/zebra-0.94/ospfd/ospfd";
+			zebraBin = "/mnt/server/grups/zebra/test_bin/zebra";
+			ospfdBin = "/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd";
 			lrmBin   = "/mnt/server/grups/zebra/lrm/lrm/lrm";
 			rsvpdBin = "/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd";
 			rtapBin  = "/mnt/server/grups/rsvpte-svn/apitools/rtap";
-			snmpdBin = "/users/home/grups/nms/Agent/snmpd_project/snmpd_project";
+			snmpdBin = "/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project";
 			olrmBin  = "/mnt/server/grups/cci/before_protection_modifications/src/olrm";
 			cpbwmBin = "/mnt/server/grups/cpbwmon/src/release/cpbwm";
 		
@@ -607,8 +607,8 @@ public class AdrenalineTransformation extends TIMTransformation {
 
 			while(e.hasMoreElements()) {
 				
-				CIMInstance vm = (CIMInstance)e.nextElement();
-				Enumeration ee = cc.associators(vm.getObjectPath(), 
+				CIMInstance occ = (CIMInstance)e.nextElement();
+				Enumeration ee = cc.associators(occ.getObjectPath(), 
 						"CIM_HostedService", 
 						"CIM_OSPFService", 
 						"Antecedent", 
@@ -622,12 +622,12 @@ public class AdrenalineTransformation extends TIMTransformation {
 				if (ee.hasMoreElements()) {
 					CIMInstance ospfService = (CIMInstance)ee.nextElement();
 					// FIXME: unhardwire password
-					String name = (String)vm.getProperty("Name").getValue().getValue();
+					String name = (String)occ.getProperty("Name").getValue().getValue();
 					s.write("  <ospf node='"+name+"'>\n");
 					s.write("    <password>xxxx</password>\n");
 					s.write("    <ospf_log>/var/log/ospfd.log</ospf_log>\n");
 					s.write("    <zebra_log>/var/log/zebra.log</zebra_log>\n");
-					s.write(ospfNetworks(ospfService));
+					s.write(ospfNetworks(ospfService, occ));
 					s.write("  </ospf>\n");
 				      
 				}
@@ -655,7 +655,7 @@ public class AdrenalineTransformation extends TIMTransformation {
 		}
 	}
 
-	private String ospfNetworks(CIMInstance ospfService) throws CIMException, TIMTransformationException {
+	private String ospfNetworks(CIMInstance ospfService, CIMInstance occ) throws CIMException, TIMTransformationException {
 		
 		StringWriter s = new StringWriter();
 		
@@ -705,12 +705,76 @@ public class AdrenalineTransformation extends TIMTransformation {
 					throw new TIMTransformationException("OSPF IPv6 ranges are not supported by the moment");
 				}
 		      
-		      	s.write("    <network area='"+IPManipulator.int2ip(areaId)+"'>"+startIp+"/"+IPManipulator.commonMask(IPManipulator.ip2int(startIp),IPManipulator.ip2int(endIp))+"</network>\n");
+				int commonMask = IPManipulator.commonMask(IPManipulator.ip2int(startIp),IPManipulator.ip2int(endIp));
+				
+				if (commonMask == 30) {
+					/* ADRENALINE network configuration for PPP links is a bit strange (I guess due to the nature
+					 * of PPP links. In the case of a PPP (i.e. /30) we use a /32 with the address of the other
+					 * peer
+					 * FIXME: clarify this with Ricardo
+					 */
+					
+					String peer0 = IPManipulator.int2ip(IPManipulator.ip2int(startIp)+1);
+					String peer1 = IPManipulator.int2ip(IPManipulator.ip2int(startIp)+2);
+					
+					//System.out.println("DEBUG: startIp="+startIp);
+					//System.out.println("DEBUG:   endIp="+endIp);
+					//System.out.println("DEBUG:   peer0="+peer0);
+					//System.out.println("DEBUG:   peer1="+peer1);
+					
+					if (ipBelongToComputerSystem(occ, peer0))
+						s.write("    <network area='"+IPManipulator.int2ip(areaId)+"'>"+peer1+"/32</network>\n");
+					else
+						s.write("    <network area='"+IPManipulator.int2ip(areaId)+"'>"+peer0+"/32</network>\n");
+					
+				}
+				else {
+					s.write("    <network area='"+IPManipulator.int2ip(areaId)+"'>"+startIp+"/"+commonMask+"</network>\n");
+				}
+		      	
 			}
 			
 		}
 		
 		return s.toString();
+	}
+	
+	/**
+	 * Check that a given IP belong to a given ComputerSystem
+	 * 
+	 * @param occ the ComputerSystem
+	 * @param ip the IP to be checked
+	 * @return
+	 */
+	private boolean ipBelongToComputerSystem(CIMInstance cs, String ip) throws CIMException {
+		Enumeration e = cc.associators(cs.getObjectPath(), 
+				"CIM_HostedAccessPoint", 
+				"CIM_IPProtocolEndpoint", 
+				"Antecedent", 
+				"Dependent", false, false, null);
+		while (e.hasMoreElements()) {
+			CIMInstance ipe = (CIMInstance) e.nextElement();
+			
+			// Search for <ipv4> addresses
+			Enumeration ee = cc.associators(ipe.getObjectPath(), 
+					"CIM_ElementSettingData", 
+					"CIM_StaticIPAssignmentSettingData", 
+					"ManagedElement", 
+					"SettingData", false, false, null);
+			while(ee.hasMoreElements()) {
+				CIMInstance ip4 = (CIMInstance)ee.nextElement();
+				//System.out.println(ip4.getObjectPath().toString());
+				
+				String ipAddr = (String)ip4.getProperty("IPv4Address").getValue().getValue();
+				
+				//System.out.println("DEBUG: "+ipAddr+"=?"+ip);
+				
+				if (ipAddr.equals(ip))
+					return true;
+			}			
+		}
+		
+		return false;
 	}
 	
 	/**
