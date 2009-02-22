@@ -36,16 +36,16 @@ public class TransTester {
 		String testbed3 = "rediris";
 		
 		/* When local machine is Linux */
-		String file1vn = "/tmp/vnuml-basic.xml";
-		String file1an = "/tmp/adnet-basic.xml";
-		String file2vn = "/tmp/vnuml-nsfnet.xml";
-		String file2vo = "/tmp/vnuml-nsfnet-ospf.xml";		
-		String file2an = "/tmp/adnet-nsfnet.xml";
-		String file2ao = "/tmp/adnet-nsfnet-ospf.xml";
-		String file3vn = "/tmp/vnuml-rediris.xml";
-		String file3vo = "/tmp/vnuml-rediris-ospf.xml";
-		String file3an = "/tmp/adnet-rediris.xml";
-		String file3ao = "/tmp/adnet-rediris-ospf.xml";
+		String file1vn = "/tmp/wbem/vnuml-basic.xml";
+		String file1an = "/tmp/wbem/adnet-basic.xml";
+		String file2vn = "/tmp/wbem/vnuml-nsfnet.xml";
+		String file2vo = "/tmp/wbem/vnuml-nsfnet-ospf.xml";		
+		String file2an = "/tmp/wbem/adnet-nsfnet.xml";
+		String file2ao = "/tmp/wbem/adnet-nsfnet-ospf.xml";
+		String file3vn = "/tmp/wbem/vnuml-rediris.xml";
+		String file3vo = "/tmp/wbem/vnuml-rediris-ospf.xml";
+		String file3an = "/tmp/wbem/adnet-rediris.xml";
+		String file3ao = "/tmp/wbem/adnet-rediris-ospf.xml";
 		
 		/* When local machine is Windows */
 		//String file1vn = "C:\\test\\vnuml-basic.xml";
