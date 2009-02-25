@@ -50,6 +50,9 @@ public class AdrenalineTransformation extends TIMTransformation {
 
 	private CIMClient cc;
 
+	/* Base DTD pathname */
+	private String dtdBase;
+	
 	/* Pathnames of some files to boot in OCCs */
 	private String zebraBin;
 	private String ospfdBin;
@@ -84,7 +87,22 @@ public class AdrenalineTransformation extends TIMTransformation {
 	 * @throws TIMTransformationException 
 	 */
 	public AdrenalineTransformation(CIMClient cc, boolean initializeFromCIMOM) throws TIMTransformationException {
+		this(cc, initializeFromCIMOM, "/usr/share/adnetconf");
+	}
+	
+	/**
+	 * Class constructor
+	 * 
+	 * @param cc the (already opened) connection to the CIMOM	 
+	 * @param initializeFromCIMOM if true, the testbed parameters are got from CIMON when
+	 * initializing the transformers, instead of using default values in the code
+	 * @param dtdBase  
+	 * @throws TIMTransformationException 
+	 */
+	public AdrenalineTransformation(CIMClient cc, boolean initializeFromCIMOM, String dtdBase) throws TIMTransformationException {
 		this.cc = cc;
+		
+		this.dtdBase = dtdBase;
 		
 		/* Values not related with the scenario, but with the testbed 
 		 * deployment environment */
@@ -239,7 +257,7 @@ public class AdrenalineTransformation extends TIMTransformation {
 		
 		/* Generate the usual file header */
 		s.write("<?xml version='1.0' encoding='UTF-8'?>\n");
-		s.write("<!DOCTYPE adrenaline_netconf SYSTEM '/usr/share/adnetconf/adnetconf.dtd'>\n");
+		s.write("<!DOCTYPE adrenaline_netconf SYSTEM '"+dtdBase+"/adnetconf.dtd'>\n");
 		s.write("<adrenaline_netconf>\n");
 		
 		s.write("  <conf>\n");
@@ -644,7 +662,7 @@ public class AdrenalineTransformation extends TIMTransformation {
 		 * use OSPF at all) */
 		if (!s.toString().equals("")) {
 			return "<?xml version='1.0' encoding='UTF-8'?>\n" + 
-				"<!DOCTYPE ospf_conf SYSTEM '/usr/share/adnetconf/ospf.dtd'>" +
+				"<!DOCTYPE ospf_conf SYSTEM '"+dtdBase+"/ospf.dtd'>" +
 				"\n" +
 				"<ospf_conf>\n" + 
 				s.toString() + 
@@ -897,6 +915,14 @@ public class AdrenalineTransformation extends TIMTransformation {
 
 	public void setZebraBin(String zebraBin) {
 		this.zebraBin = zebraBin;
+	}
+
+	public String getDtdBase() {
+		return dtdBase;
+	}
+
+	public void setDtdBase(String dtdBase) {
+		this.dtdBase = dtdBase;
 	}
 	
 }
