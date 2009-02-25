@@ -48,21 +48,22 @@ public class TransTester {
 		String file3ao = "/tmp/wbem/adnet-rediris-ospf.xml";
 		
 		/* When local machine is Windows */
-		//String file1vn = "C:\\test\\vnuml-basic.xml";
-		//String file1an = "C:\\test\\adnet-basic.xml";
-		//String file2vn = "C:\\test\\vnuml-nsfnet.xml";
-		//String file2vo = "C:\\test\\vnuml-nsfnet-ospf.xml";		
-		//String file2an = "C:\\test\\adnet-nsfnet.xml";
-		//String file2ao = "C:\\test\\adnet-nsfnet-ospf.xml";
-		//String file3vn = "C:\\test\\vnuml-rediris.xml";
-		//String file3vo = "C:\\test\\vnuml-rediris-ospf.xml";
-		//String file3an = "C:\\test\\adnet-rediris.xml";
-		//String file3ao = "C:\\test\\adnet-rediris-ospf.xml";
+		//String file1vn = "C:\\test\\wbem\\vnuml-basic.xml";
+		//String file1an = "C:\\test\\wbem\\adnet-basic.xml";
+		//String file2vn = "C:\\test\\wbem\\vnuml-nsfnet.xml";
+		//String file2vo = "C:\\test\\wbem\\vnuml-nsfnet-ospf.xml";		
+		//String file2an = "C:\\test\\wbem\\adnet-nsfnet.xml";
+		//String file2ao = "C:\\test\\wbem\\adnet-nsfnet-ospf.xml";
+		//String file3vn = "C:\\test\\wbem\\vnuml-rediris.xml";
+		//String file3vo = "C:\\test\\wbem\\vnuml-rediris-ospf.xml";
+		//String file3an = "C:\\test\\wbem\\adnet-rediris.xml";
+		//String file3ao = "C:\\test\\wbem\\adnet-rediris-ospf.xml";
 		
 		/* Use TransformationManager(ns, true) if testbed parameters are stored in
 		 * the CIMOM. Use TransformationManager(ns, false) to use the defaults
 		 * hardwired in the code */
 		TransformationManager tm = new TransformationManager(ns, true);
+		//tm.getAdrenalineTransformation().setDtdBase("/mnt/server/grups/eclipse-workspace/adnetconf/dtd");
 		
 		Vector<String> v;
 
