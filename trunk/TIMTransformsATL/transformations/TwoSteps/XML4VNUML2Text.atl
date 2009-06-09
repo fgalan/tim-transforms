@@ -16,10 +16,10 @@
 --
 -- Copyright (C) 2008 Fermin Galan Marquez
 
-query VNUML2Text = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
+query XML4VNUML2Text = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
 		+ '<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/vnuml.dtd">'+'\r\n'
-		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml-'+thisModule.simname+'.xml');
 		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml-'+thisModule.simname+'.xml');
+		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\vnuml-'+thisModule.simname+'.xml');
 
 uses XMLDumpHelpers;
 

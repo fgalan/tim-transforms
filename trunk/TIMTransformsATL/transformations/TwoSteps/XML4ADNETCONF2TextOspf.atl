@@ -16,8 +16,9 @@
 --
 -- Copyright (C) 2009 Fermin Galan Marquez
 
-query VNUML2TextOspf = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
-		--+ '<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/vnuml.dtd">'+'\r\n'
-		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml-ospf.xml');
+query XML4VNUML2TextOspf = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
+		+ '<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/ospf.dtd">'+'\r\n'
+		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/adnet-ospf.xml');
+		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\adnet-ospf.xml');
 
 uses XMLDumpHelpers;

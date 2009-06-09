@@ -16,7 +16,7 @@
 --
 -- Copyright (C) 2009 Fermin Galan Marquez
 
-module TIM2VNUMLOspf; 
+module TIM2XML4ADNETCONFOspf; 
 create OUT : XML from IN : TIMOspfSmall;
 
 uses TIMOspfHelpers;
@@ -31,42 +31,43 @@ rule Root {
 	to
 		root: XML!Root (
 			name <- 'ospf_conf',
-			children <- Sequence {TIMOspfSmall!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'vm'))}
+			children <- Sequence {TIMOspfSmall!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'ospf'))}
 		)
 }
 
-rule Vm {
+rule Ospf {
 	from 
 		i: TIMOspfSmall!CIM_OSPFService
 	to
-		vm: XML!Element (
-			name <- 'vm',
-			children <- Sequence {vm_attName, vm_attType, vm_attSubtype, zebra,
+		ospf: XML!Element (
+			name <- 'ospf',
+			children <- Sequence {ospf_attNode, password, ospf_log, zebra_log,
 						i.allServiceIPRanges()->collect (e | thisModule.resolveTemp(e,'network'))}
 		),
-		vm_attName: XML!Attribute (
-			name <- 'name',
+		ospf_attNode: XML!Attribute (
+			name <- 'node',
 			value <- i.associatedComputerSystem().Name
 		),
-		vm_attType: XML!Attribute (
-			name <- 'type',
-			value <- 'quagga'
-		),
-		vm_attSubtype: XML!Attribute (
-			name <- 'subtype',
-			value <- 'lib-install'
-		),		
-		zebra: XML!Element (
-			name <- 'zebra',
-			children <- Sequence {zebra_attHostname, zebra_attPassword}
-		),
-		zebra_attHostname: XML!Attribute (
-			name <- 'hostname',
-			value <- i.associatedComputerSystem().Name
-		),
-		zebra_attPassword: XML!Attribute (
+		password: XML!Element (
 			name <- 'password',
+			children <- password_Text
+		),
+		password_Text: XML!TextNode (
 			value <- 'xxxx'
+		),
+		ospf_log: XML!Element (
+			name <- 'ospf_log',
+			children <- ospf_log_Text
+		),
+		ospf_log_Text: XML!TextNode (
+			value <- '/var/log/ospfd.log'
+		),
+		zebra_log: XML!Element (
+			name <- 'zebra_log',
+			children <- zebra_log_Text
+		),
+		zebra_log_Text: XML!TextNode (
+			value <- '/var/log/zebra.log'
 		)
 		
 }
@@ -79,24 +80,13 @@ rule Network {
 	to
 		network: XML!Element (
 			name <- 'network',
-			children <- Sequence {ip, area}
+			children <- Sequence {network_attArea, network_Text}	
 		),
-		ip: XML!Element (
-			name <- 'ip',
-			children <- Sequence {ip_attMask, ip_Text}
-		),
-		ip_attMask: XML!Attribute (
-			name <- 'mask',
-			value <- i.commomMask().toString()
-		),
-		ip_Text: XML!TextNode (
-			value <- i.StartAddress
-		),
-		area: XML!Element (
+		network_attArea: XML!Attribute (
 			name <- 'area',
-			children <- area_Text
-		),
-		area_Text: XML!TextNode (
 			value <- i.areaID().translateIp()
+		),
+		network_Text: XML!TextNode (
+			value <- i.StartAddress + '/' + i.commomMask().toString()
 		)
 }
