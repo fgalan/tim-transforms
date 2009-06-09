@@ -14,10 +14,11 @@
 --
 -- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
 --
--- Copyright (C) 2009 Fermin Galan Marquez
+-- Copyright (C) 2008 Fermin Galan Marquez
 
-query VNUML2TextOspf = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
-		+ '<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/ospf.dtd">'+'\r\n'
-		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/adnet-ospf.xml');
+query XML4ADNETCONF2Text = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
+		+ '<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/adnetconf.dtd">'+'\r\n' 
+		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/adnetconf.xml');
+		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\adnetconf.xml');
 
 uses XMLDumpHelpers;

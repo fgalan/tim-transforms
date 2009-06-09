@@ -16,7 +16,7 @@
 --
 -- Copyright (C) 2008 Fermin Galan Marquez
 
-module TIM2VNUML; 
+module TIM2XML4VNUML; 
 create OUT : XML from IN : TIMSmall, SETTINGS : TestbedParameters;
 
 uses TIMHelpers;
