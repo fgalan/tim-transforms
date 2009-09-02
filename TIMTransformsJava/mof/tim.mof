@@ -36,13 +36,25 @@ class TIM_LinkConnectivityCollection : CIM_ConnectivityCollection {
     "set of QoS constraints (delay, loss probability, etc.) for a pair of"
     "interfaces belonging to the link (specified through the"
     "TIM_LinkOrigin and TIM_LinkDestination)."
-    "The TIM_TransmissionCharacteristics as described in D1.6 was modeled"
-    "as a subclass of CIM_LogicalElement. However, it has been found that"
-    "several properties in CIM_LogialElement has no sense for "
-    "TIM_TransmissionCharacteristics (such as InstallDate, HealthState, etc.),"
-    "so it has been finally subclassed from CIM_SettingData, which seems to"
-    "be the most proper choice." )]
-class TIM_TransmissionCharacteristics : CIM_SettingData {
+    "It could be considered to model the TIM_TransmissionCharacteristics"
+    "as CIM_SettingData child. However, doing so would avoid to define new"
+    "key properties (because of, once keys has been defined in one level of the"
+    "inheritance hierarchy, no new ones can be added). Therefore, we are using"
+    "CIM_LogicalElements as parent." )]
+class TIM_TransmissionCharacteristics : CIM_LogicalElement {
+
+    [Key, Description ( 
+          "A string identifiying the TIM_TransmissionCharacteristics object" )]
+    string InstanceID;
+
+    [Key, Description ( 
+          "The InstanceID propagated from the TIM_LinkConnectivityCollection"
+          "to which this TIM_TransmissionCharacteristics object is associated,"
+          "considering that TIM_TransmissionCharacteristics is weak to"
+          "TIM_LinkConnectivityCollection through the IM_LinkTransmissionElement"
+          "association." ),
+       Propagated ( "TIM_LinkConnectivityCollection.InstanceID" )]
+    string LinkInstanceID;
 
     [Description("The mean transmission delay."),
      Units ( "MilliSeconds" )]
@@ -118,9 +130,6 @@ class TIM_StaticIPv6AssignmentSettingData : CIM_IPAssignmentSettingData {
 
     [Description ("The prefix lenght for the IPv6 address of this ProtocolEndpoint.")]
     uint8 PrefixLength;
-
-    [Description ("The IP v4 address of the default gateway.")]
-    string GatewayIPv6Address;
 
 };
 

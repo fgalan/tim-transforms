@@ -2945,6 +2945,7 @@ instance of TIM_TransmissionCharacteristics as $CA1_WA_QOS {
 
 	// key properties
 	InstanceID = "ca1-wa-qos";
+	LinkInstanceID = "ca1-wa";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -2956,6 +2957,7 @@ instance of TIM_TransmissionCharacteristics as $CA2_WA_QOS {
 
 	// key properties
 	InstanceID = "ca2-wa-qos";
+	LinkInstanceID = "ca2-wa";
 
 	DelayMean = 6;
 	LossProbabilityValue = 0.001;
@@ -2967,6 +2969,7 @@ instance of TIM_TransmissionCharacteristics as $IL_WA_QOS {
 
 	// key properties
 	InstanceID = "il-wa-qos";
+	LinkInstanceID = "il-wa";
 
 	DelayMean = 15;
 	LossProbabilityValue = 0.001;
@@ -2978,6 +2981,7 @@ instance of TIM_TransmissionCharacteristics as $CA1_CA2_QOS {
 
 	// key properties
 	InstanceID = "ca1-ca2-qos";
+	LinkInstanceID = "ca1-ca2";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -2989,6 +2993,7 @@ instance of TIM_TransmissionCharacteristics as $CA1_UT_QOS {
 
 	// key properties
 	InstanceID = "ca1-ut-qos";
+	LinkInstanceID = "ca1-ut";	
 
 	DelayMean = 6;
 	LossProbabilityValue = 0.001;
@@ -3000,6 +3005,7 @@ instance of TIM_TransmissionCharacteristics as $CA2_TX_QOS {
 
 	// key properties
 	InstanceID = "ca2-tx-qos";
+	LinkInstanceID = "ca2-tx";	
 
 	DelayMean = 7.5;
 	LossProbabilityValue = 0.001;
@@ -3011,6 +3017,7 @@ instance of TIM_TransmissionCharacteristics as $MI_UT_QOS {
 
 	// key properties
 	InstanceID = "mi-ut-qos";
+	LinkInstanceID = "mi-ut";
 
 	DelayMean = 15;
 	LossProbabilityValue = 0.001;
@@ -3022,6 +3029,7 @@ instance of TIM_TransmissionCharacteristics as $CO_UT_QOS {
 
 	// key properties
 	InstanceID = "co-ut-qos";
+	LinkInstanceID = "co-ut";	
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -3033,6 +3041,7 @@ instance of TIM_TransmissionCharacteristics as $CO_NE_QOS {
 
 	// key properties
 	InstanceID = "co-ne-qos";
+	LinkInstanceID = "co-ne";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -3044,6 +3053,7 @@ instance of TIM_TransmissionCharacteristics as $CO_TX_QOS {
 
 	// key properties
 	InstanceID = "co-tx-qos";
+	LinkInstanceID = "co-tx";
 
 	DelayMean = 3.75;
 	LossProbabilityValue = 0.001;
@@ -3055,6 +3065,7 @@ instance of TIM_TransmissionCharacteristics as $IL_NE_QOS {
 
 	// key properties
 	InstanceID = "il-ne-qos";
+	LinkInstanceID = "il-ne";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -3066,6 +3077,7 @@ instance of TIM_TransmissionCharacteristics as $IL_PA_QOS {
 
 	// key properties
 	InstanceID = "il-pa-qos";
+	LinkInstanceID = "il-pa";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -3077,6 +3089,7 @@ instance of TIM_TransmissionCharacteristics as $MI_NJ_QOS {
 
 	// key properties
 	InstanceID = "mi-nj-qos";
+	LinkInstanceID = "mi-nj";
 
 	DelayMean = 6;
 	LossProbabilityValue = 0.001;
@@ -3088,6 +3101,7 @@ instance of TIM_TransmissionCharacteristics as $MI_NY_QOS {
 
 	// key properties
 	InstanceID = "mi-ny-qos";
+	LinkInstanceID = "mi-ny";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -3099,6 +3113,7 @@ instance of TIM_TransmissionCharacteristics as $GA_PA_QOS {
 
 	// key properties
 	InstanceID = "ga-pa-qos";
+	LinkInstanceID = "ga-pa";
 
 	DelayMean = 5.25;
 	LossProbabilityValue = 0.001;
@@ -3110,6 +3125,7 @@ instance of TIM_TransmissionCharacteristics as $NY_PA_QOS {
 
 	// key properties
 	InstanceID = "ny-pa-qos";
+	LinkInstanceID = "ny-pa";
 
 	DelayMean = 3.75;
 	LossProbabilityValue = 0.001;
@@ -3121,6 +3137,7 @@ instance of TIM_TransmissionCharacteristics as $NJ_PA_QOS {
 
 	// key properties
 	InstanceID = "nj-pa-qos";
+	LinkInstanceID = "nj-pa";
 
 	DelayMean = 6;
 	LossProbabilityValue = 0.001;
@@ -3132,6 +3149,7 @@ instance of TIM_TransmissionCharacteristics as $DC_NY_QOS {
 
 	// key properties
 	InstanceID = "dc-ny-qos";
+	LinkInstanceID = "dc-ny";
 
 	DelayMean = 6;
 	LossProbabilityValue = 0.001;
@@ -3143,6 +3161,7 @@ instance of TIM_TransmissionCharacteristics as $DC_NJ_QOS {
 
 	// key properties
 	InstanceID = "dc-nj-qos";
+	LinkInstanceID = "dc-nj";
 
 	DelayMean = 3;
 	LossProbabilityValue = 0.001;
@@ -3154,6 +3173,7 @@ instance of TIM_TransmissionCharacteristics as $DC_TX_QOS {
 
 	// key properties
 	InstanceID = "dc-tx-qos";
+	LinkInstanceID = "dc-tx";
 
 	DelayMean = 15;
 	LossProbabilityValue = 0.001;
@@ -3165,6 +3185,7 @@ instance of TIM_TransmissionCharacteristics as $GA_TX_QOS {
 
 	// key properties
 	InstanceID = "ga-tx-qos";
+	LinkInstanceID = "ga-tx";
 
 	DelayMean = 7.5;
 	LossProbabilityValue = 0.001;
