@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE vnuml SYSTEM '/usr/share/xml/vnuml/vnuml.dtd'>
 <vnuml>
-<global>
-    <version>1.8</version>
+  <global>
+    <version>1.9</version>
     <simulation_name>basic</simulation_name>
     <automac/>
     <vm_mgmt type='none' />
     <vm_defaults exec_mode='mconsole'>
-       <filesystem type='cow'>/usr/share/vnuml/filesystems/root_fs_tutorial</filesystem>
-       <kernel>/usr/share/vnuml/kernels/linux</kernel>
-       <console id='0'>xterm</console>
+      <filesystem type='cow'>/usr/share/vnuml/filesystems/root_fs_tutorial</filesystem>
+      <kernel>/usr/share/vnuml/kernels/linux</kernel>
+      <console id='0'>xterm</console>
     </vm_defaults>
   </global>
   <net name='net2' mode='uml_switch'/>

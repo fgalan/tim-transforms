@@ -1,16 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE vnuml SYSTEM '/usr/share/xml/vnuml/vnuml.dtd'>
 <vnuml>
-<global>
-    <version>1.8</version>
+  <global>
+    <version>1.9</version>
     <simulation_name>rediris</simulation_name>
     <automac/>
     <vm_mgmt type='none' />
     <vm_defaults exec_mode='mconsole'>
-       <filesystem type='cow'>/usr/share/vnuml/filesystems/root_fs_tutorial</filesystem>
-       <kernel>/usr/share/vnuml/kernels/linux</kernel>
-       <console id='0'>pts</console>
+      <filesystem type='cow'>/usr/share/vnuml/filesystems/root_fs_tutorial</filesystem>
+      <kernel>/usr/share/vnuml/kernels/linux</kernel>
+      <console id='0'>pts</console>
     </vm_defaults>
+    <extension plugin='ospfd' conf='conf.xml'/>
   </global>
   <net name='clm-ix' mode='uml_switch'/>
   <net name='cyl-gal' mode='uml_switch'/>
@@ -45,7 +46,7 @@
   <net name='ix-tef' mode='uml_switch'/>
   <vm name='AST'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.1</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.1</ipv4>
     </if>
     <if id='1' net='ast-gal'>
       <ipv4 mask='255.255.255.252'>10.0.0.1</ipv4>
@@ -53,10 +54,11 @@
     <if id='2' net='ast-can'>
       <ipv4 mask='255.255.255.252'>10.0.0.5</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='CAN'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.2</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.2</ipv4>
     </if>
     <if id='1' net='ast-can'>
       <ipv4 mask='255.255.255.252'>10.0.0.6</ipv4>
@@ -64,10 +66,11 @@
     <if id='2' net='can-pvc'>
       <ipv4 mask='255.255.255.252'>10.0.0.9</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='PVC'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.3</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.3</ipv4>
     </if>
     <if id='1' net='can-pvc'>
       <ipv4 mask='255.255.255.252'>10.0.0.10</ipv4>
@@ -81,10 +84,11 @@
     <if id='4' net='ix-pvc'>
       <ipv4 mask='255.255.255.252'>10.0.0.17</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='NAV'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.4</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.4</ipv4>
     </if>
     <if id='1' net='nav-pvc'>
       <ipv4 mask='255.255.255.252'>10.0.0.22</ipv4>
@@ -92,10 +96,11 @@
     <if id='2' net='ara-nav'>
       <ipv4 mask='255.255.255.252'>10.0.0.25</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='GAL'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.5</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.5</ipv4>
     </if>
     <if id='1' net='ast-gal'>
       <ipv4 mask='255.255.255.252'>10.0.0.2</ipv4>
@@ -109,10 +114,11 @@
     <if id='4' net='gal-ix'>
       <ipv4 mask='255.255.255.252'>10.0.0.33</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='CYL'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.6</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.6</ipv4>
     </if>
     <if id='1' net='cyl-gal'>
       <ipv4 mask='255.255.255.252'>10.0.0.30</ipv4>
@@ -123,10 +129,11 @@
     <if id='3' net='cyl-ix'>
       <ipv4 mask='255.255.255.252'>10.0.0.41</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='RIO'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.7</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.7</ipv4>
     </if>
     <if id='1' net='cyl-rio'>
       <ipv4 mask='255.255.255.252'>10.0.0.38</ipv4>
@@ -134,10 +141,11 @@
     <if id='2' net='ara-rio'>
       <ipv4 mask='255.255.255.252'>10.0.0.45</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='ARA'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.8</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.8</ipv4>
     </if>
     <if id='1' net='ara-nav'>
       <ipv4 mask='255.255.255.252'>10.0.0.26</ipv4>
@@ -151,18 +159,20 @@
     <if id='4' net='ara-cat'>
       <ipv4 mask='255.255.255.252'>10.0.0.49</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='MAD'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.9</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.9</ipv4>
     </if>
     <if id='1' net='ix-mad'>
       <ipv4 mask='255.255.255.252'>10.0.0.57</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='IX'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.10</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.10</ipv4>
     </if>
     <if id='1' net='ix-mad'>
       <ipv4 mask='255.255.255.252'>10.0.0.58</ipv4>
@@ -197,10 +207,11 @@
     <if id='11' net='ix-tef'>
       <ipv4 mask='255.255.255.252'>10.0.0.81</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='CAT'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.11</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.11</ipv4>
     </if>
     <if id='1' net='ara-cat'>
       <ipv4 mask='255.255.255.252'>10.0.0.50</ipv4>
@@ -214,10 +225,11 @@
     <if id='4' net='bal-cat'>
       <ipv4 mask='255.255.255.252'>10.0.0.89</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='CLM'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.12</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.12</ipv4>
     </if>
     <if id='1' net='clm-ix'>
       <ipv4 mask='255.255.255.252'>10.0.0.70</ipv4>
@@ -225,10 +237,11 @@
     <if id='2' net='and-clm'>
       <ipv4 mask='255.255.255.252'>10.0.0.93</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='VAL'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.13</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.13</ipv4>
     </if>
     <if id='1' net='ix-val'>
       <ipv4 mask='255.255.255.252'>10.0.0.66</ipv4>
@@ -245,10 +258,11 @@
     <if id='5' net='and-val'>
       <ipv4 mask='255.255.255.252'>10.0.0.105</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='EXT'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.14</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.14</ipv4>
     </if>
     <if id='1' net='ext-ix'>
       <ipv4 mask='255.255.255.252'>10.0.0.78</ipv4>
@@ -256,10 +270,11 @@
     <if id='2' net='and-ext'>
       <ipv4 mask='255.255.255.252'>10.0.0.109</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='BAL'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.15</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.15</ipv4>
     </if>
     <if id='1' net='bal-cat'>
       <ipv4 mask='255.255.255.252'>10.0.0.90</ipv4>
@@ -267,10 +282,11 @@
     <if id='2' net='bal-val'>
       <ipv4 mask='255.255.255.252'>10.0.0.98</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='AND'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.16</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.16</ipv4>
     </if>
     <if id='1' net='and-ext'>
       <ipv4 mask='255.255.255.252'>10.0.0.110</ipv4>
@@ -290,10 +306,11 @@
     <if id='6' net='and-pal'>
       <ipv4 mask='255.255.255.252'>10.0.0.113</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='MUR'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.17</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.17</ipv4>
     </if>
     <if id='1' net='mur-val'>
       <ipv4 mask='255.255.255.252'>10.0.0.102</ipv4>
@@ -301,10 +318,11 @@
     <if id='2' net='and-mur'>
       <ipv4 mask='255.255.255.252'>10.0.0.118</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='TEF'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.18</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.18</ipv4>
     </if>
     <if id='1' net='ix-tef'>
       <ipv4 mask='255.255.255.252'>10.0.0.82</ipv4>
@@ -312,10 +330,11 @@
     <if id='2' net='tef-pal'>
       <ipv4 mask='255.255.255.252'>10.0.0.121</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
   <vm name='PAL'>
     <if id='1' net='lo'>
-      <ipv4 mask='255.255.255.0'>10.0.50.19</ipv4>
+      <ipv4 mask='255.255.255.255'>10.0.50.19</ipv4>
     </if>
     <if id='1' net='tef-pal'>
       <ipv4 mask='255.255.255.252'>10.0.0.122</ipv4>
@@ -323,5 +342,6 @@
     <if id='2' net='and-pal'>
       <ipv4 mask='255.255.255.252'>10.0.0.114</ipv4>
     </if>
+    <forwarding type='ip'/>
   </vm>
 </vnuml>
