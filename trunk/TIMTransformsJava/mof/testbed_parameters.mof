@@ -4,13 +4,13 @@
 // Creative Commons Attribution-Share Alike 2.5 Spain License.
 // See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
 // 
-// Copyright (C) 2008 Fermin Galan Marquez
+// Copyright (C) 2008, 2009 Fermin Galan Marquez
 
 // This file describes two extensions of CIM_SettingData (one for VNUML-based
 // testbeds and other for ADRENALINE) to define the testbed parameters that
 // the transformators would need. They are used when initializeFromCIMOM=true
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description(
     "CTM_VNUMLTestbedParameters define testbed context for VNUML-based testbeds." )]
 class CTM_VNUMLTestbedParameters : CIM_SettingData {
@@ -22,7 +22,7 @@ class CTM_VNUMLTestbedParameters : CIM_SettingData {
 	string defaultConsole;
 };
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description(
     "CTM_AdrenalineTestbedParameters define testbed parameters for the ADRENALINE testbed." )]
 class CTM_AdrenalineTestbedParameters : CIM_SettingData {

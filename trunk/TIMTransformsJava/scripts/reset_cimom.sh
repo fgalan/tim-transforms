@@ -26,9 +26,9 @@
 
 # FIXME: unhardwire to generic variables in the preamble
 
-PROJECT=/data/fermin/Ph.D/validation/eclipse-workspace/TIMTransforms
+PROJECT=/usr/local/src/TIMTransforms-v2009_09_02
 HOST=localhost
-NS=root/cimv2181
+NS=root/cimv2220
 
 # Reseting
 cd /usr/local/src/
@@ -45,13 +45,13 @@ sh start_cimom.sh
 
 # Compiling the MOF Schema
 cd /usr/local/src/wbemservices/mof/dmtf/
-mkdir 2.18.1
-cd 2.18.1
-wget http://www.dmtf.org/standards/cim/cim_schema_v2181/cim_schema_2.18.1-Final-MOFs.zip
-unzip cim_schema_2.18.1-Final-MOFs.zip
+mkdir 2.22.0
+cd 2.22.0
+wget http://www.dmtf.org/standards/cim/cim_schema_v2220/cim_schema_2.22.0Final-MOFs.zip
+unzip cim_schema_2.22.0Final-MOFs.zip
 cd /usr/local/src/wbemservices/bin
-sh mofcomp -u fermin -p x -n $NS -c $HOST /usr/local/src/wbemservices/mof/dmtf/2.18.1/cimv218.mof
-rm -rf /usr/local/src/wbemservices/mof/dmtf/2.18.1
+sh mofcomp -u fermin -p x -n $NS -c $HOST /usr/local/src/wbemservices/mof/dmtf/2.22.0/cim_schema_2.22.0.mof
+rm -rf /usr/local/src/wbemservices/mof/dmtf/2.22.0
 
 # Copying MOF to tmp
 cd $PROJECT
