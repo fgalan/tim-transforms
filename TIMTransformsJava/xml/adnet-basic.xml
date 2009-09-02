@@ -6,57 +6,57 @@
   </conf>
   <nodes>
     <node id='uml1'>
-      <m_ip>10.1.1.111</m_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <m_ip>10.1.1.120</m_ip>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='uml2'>
-      <m_ip>10.1.1.112</m_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <m_ip>10.1.1.121</m_ip>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='uml3'>
-      <m_ip>10.1.1.113</m_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <m_ip>10.1.1.122</m_ip>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='uml4'>
-      <m_ip>10.1.1.114</m_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <m_ip>10.1.1.123</m_ip>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='uml5'>
-      <m_ip>10.1.1.115</m_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <m_ip>10.1.1.124</m_ip>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>

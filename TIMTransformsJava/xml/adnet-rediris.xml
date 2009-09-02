@@ -6,230 +6,230 @@
   </conf>
   <nodes>
     <node id='AST'>
-      <m_ip>10.1.1.111</m_ip>
+      <m_ip>10.1.1.120</m_ip>
       <lo_ip>10.0.50.1</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='CAN'>
-      <m_ip>10.1.1.112</m_ip>
+      <m_ip>10.1.1.121</m_ip>
       <lo_ip>10.0.50.2</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='PVC'>
-      <m_ip>10.1.1.113</m_ip>
+      <m_ip>10.1.1.122</m_ip>
       <lo_ip>10.0.50.3</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='NAV'>
-      <m_ip>10.1.1.114</m_ip>
+      <m_ip>10.1.1.123</m_ip>
       <lo_ip>10.0.50.4</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='GAL'>
-      <m_ip>10.1.1.115</m_ip>
+      <m_ip>10.1.1.124</m_ip>
       <lo_ip>10.0.50.5</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='CYL'>
-      <m_ip>10.1.1.116</m_ip>
+      <m_ip>10.1.1.125</m_ip>
       <lo_ip>10.0.50.6</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='RIO'>
-      <m_ip>10.1.1.117</m_ip>
+      <m_ip>10.1.1.126</m_ip>
       <lo_ip>10.0.50.7</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='ARA'>
-      <m_ip>10.1.1.118</m_ip>
+      <m_ip>10.1.1.127</m_ip>
       <lo_ip>10.0.50.8</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='MAD'>
-      <m_ip>10.1.1.119</m_ip>
+      <m_ip>10.1.1.128</m_ip>
       <lo_ip>10.0.50.9</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='IX'>
-      <m_ip>10.1.1.120</m_ip>
+      <m_ip>10.1.1.129</m_ip>
       <lo_ip>10.0.50.10</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='CAT'>
-      <m_ip>10.1.1.121</m_ip>
+      <m_ip>10.1.1.130</m_ip>
       <lo_ip>10.0.50.11</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='CLM'>
-      <m_ip>10.1.1.122</m_ip>
+      <m_ip>10.1.1.131</m_ip>
       <lo_ip>10.0.50.12</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='VAL'>
-      <m_ip>10.1.1.123</m_ip>
+      <m_ip>10.1.1.132</m_ip>
       <lo_ip>10.0.50.13</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='EXT'>
-      <m_ip>10.1.1.124</m_ip>
+      <m_ip>10.1.1.133</m_ip>
       <lo_ip>10.0.50.14</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='BAL'>
-      <m_ip>10.1.1.125</m_ip>
+      <m_ip>10.1.1.134</m_ip>
       <lo_ip>10.0.50.15</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='AND'>
-      <m_ip>10.1.1.126</m_ip>
+      <m_ip>10.1.1.135</m_ip>
       <lo_ip>10.0.50.16</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='MUR'>
-      <m_ip>10.1.1.127</m_ip>
+      <m_ip>10.1.1.136</m_ip>
       <lo_ip>10.0.50.17</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='TEF'>
-      <m_ip>10.1.1.128</m_ip>
+      <m_ip>10.1.1.137</m_ip>
       <lo_ip>10.0.50.18</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
     <node id='PAL'>
-      <m_ip>10.1.1.129</m_ip>
+      <m_ip>10.1.1.138</m_ip>
       <lo_ip>10.0.50.19</lo_ip>
-      <zebra_bin>/users/home/grups/zebra/test_bin/zebra</zebra_bin>
-      <ospfd_bin>/users/home/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
+      <zebra_bin>/mnt/server/grups/zebra/test_bin/zebra</zebra_bin>
+      <ospfd_bin>/mnt/server/grups/zebra/zebra-0.94/ospfd/ospfd</ospfd_bin>
       <lrm_bin>/mnt/server/grups/zebra/lrm/lrm/lrm</lrm_bin>
       <rsvpd_bin>/mnt/server/grups/rsvpte-svn/rsvpd/rsvpd</rsvpd_bin>
       <rtap_bin>/mnt/server/grups/rsvpte-svn/apitools/rtap</rtap_bin>
-      <snmpd_bin>/users/home/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
+      <snmpd_bin>/mnt/server/grups/nms/Agent/snmpd_project/snmpd_project</snmpd_bin>
       <olrm_bin>/mnt/server/grups/cci/before_protection_modifications/src/olrm</olrm_bin>
       <cpbwm_bin>/mnt/server/grups/cpbwmon/src/release/cpbwm</cpbwm_bin>
     </node>
@@ -254,9 +254,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -278,9 +278,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -302,9 +302,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -326,9 +326,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -350,9 +350,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -374,9 +374,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>4</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>4</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -398,9 +398,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>10</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>10</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -422,9 +422,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -446,9 +446,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -470,9 +470,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>4</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>4</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -494,9 +494,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -518,9 +518,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -542,9 +542,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -566,9 +566,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -590,9 +590,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>5</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>5</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -614,9 +614,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>4</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>4</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -638,9 +638,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -662,9 +662,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -686,9 +686,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -710,9 +710,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -734,9 +734,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -758,9 +758,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>1</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>1</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -782,9 +782,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -806,9 +806,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -830,9 +830,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -854,9 +854,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -878,9 +878,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -902,9 +902,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -926,9 +926,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>3</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>3</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -950,9 +950,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>2</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>2</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
     <link>
@@ -974,9 +974,9 @@
         </vlan_connection>
       </peer>
       <qos>
-          <delay>10</delay>
-          <drop>0.0010</drop>
-          <dup>1.0E-4</dup>
+        <delay>10</delay>
+        <drop>0.0010</drop>
+        <dup>1.0E-4</dup>
       </qos>
     </link>
   </links>
