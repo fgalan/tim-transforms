@@ -1,23 +1,23 @@
-// Testbed Independent Model (TIM) MOF specification, v0.2008_10_15
+// Testbed Independent Model (TIM) MOF specification, v0.2009_09_02
 //
 // This file can be mofified/distributed under the terms of 
 // Creative Commons Attribution-Share Alike 2.5 Spain License.
 // See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
 // 
-// Copyright (C) 2008 Fermin Galan Marquez
+// Copyright (C) 2008, 2009 Fermin Galan Marquez
 
 // This is the Testbed Indepenent Model (TIM) specification
 
 // conventional classes
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description(
     "TIM_TestbedScenario models the scenario itself, as a specialization of CIM_Network." )]
 class TIM_TestbedScenario : CIM_Network {
     // No new information is yet required 
 };
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description(
     "TIM_LinkConnectivityCollection models the scenario links (i.e. node"
     "interconnections)." )]
@@ -30,7 +30,7 @@ class TIM_LinkConnectivityCollection : CIM_ConnectivityCollection {
 
 };
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description(
     "TIM_TransmissionCharacteristics objects encapsulate a"
     "set of QoS constraints (delay, loss probability, etc.) for a pair of"
@@ -90,7 +90,7 @@ class TIM_TransmissionCharacteristics : CIM_SettingData {
 
 };
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description(
     "TIM_NextHopAddressIPRoute models static routes in scenario"
     "nodes (CIM_ComputerSystem objects actually). It is needed because"
@@ -106,7 +106,7 @@ class TIM_NextHopAddressedIPRoute : CIM_NextHopIPRoute {
 
 };
 
-[Version("2.18.1"),
+[Version("2.22.0"),
  Description( 
     "TIM_StaticIPv6AssignemntSettingData objects model network interface"
     "IPv6 addresses. It is needed due to the existing CIM_StaticIPAssignmentSettingData"
@@ -130,7 +130,7 @@ class TIM_StaticIPv6AssignmentSettingData : CIM_IPAssignmentSettingData {
 // with WBEM Services) doesn't work if 'Association' qualifier is put the very first
 // (before 'Version').
 
-[Association, Version("2.18.1"),
+[Association, Version("2.22.0"),
  Description(
     "TIM_LinkTransmissionElement associate TIM_TransmissionCharacteristics"
     "objects to TIM_LinkConnectivityCollection." )]
@@ -149,7 +149,7 @@ class TIM_LinkTransmissionElement : CIM_HostedDependency {
 
 };
 
-[Association, Version("2.18.1"),
+[Association, Version("2.22.0"),
  Description(
     "TIM_MemberOfLink associate a TIM_LinkConnectivityConnection to"
     "the CIM_IPProtocolEndPoints belonging to it." )]
@@ -164,7 +164,7 @@ class TIM_MemberOfLink : CIM_MemberOfCollection {
     CIM_IPProtocolEndPoint REF Member;
 };
 
-[Association, Version("2.18.1"),
+[Association, Version("2.22.0"),
  Description(
     "TIM_LinkOrigin associates the origin CIM_IPProtocolEndPoint to"
     "the TIM_TransmissionCharacteristic object.")]
@@ -184,7 +184,7 @@ class TIM_LinkOrigin : CIM_Dependency {
 
 };
 
-[Association, Version("2.18.1"),
+[Association, Version("2.22.0"),
  Description(
     "TIM_LinkDestination associates the destination CIM_IPProtocolEndPoint to"
     "the TIM_TransmissionCharacteristic object.")]

@@ -28,9 +28,9 @@ public class TransTester {
 	 */
 	public static void main(String[] args) throws TIMTransformationException  {
 
-		//String ns = "http://phoenix:5988//root/cimv2181";
-		//String ns = "http://192.168.1.103:5988//root/cimv2181";
-		String ns = "http://localhost:5988//root/cimv2181";
+		//String ns = "http://phoenix:5988//root/cimv2220";
+		//String ns = "http://192.168.1.103:5988//root/cimv2220";
+		String ns = "http://localhost:5988//root/cimv2220";
 		String testbed1 = "basic";
 		String testbed2 = "nsfnet";
 		String testbed3 = "rediris";
