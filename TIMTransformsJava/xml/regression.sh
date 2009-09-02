@@ -22,7 +22,7 @@ NEW=/tmp/wbem
 REF=/mnt/hgfs/data2/fermin/Ph.D/validation/eclipse-workspace/TIMTransforms/xml
 #REF=/mnt/hgfs/data2/fermin/Ph.D/validation/eclipse-workspace/TIMTransformsMDA/xml
 
-for f in "adnet-basic.xml" "adnet-nsfnet.xml" "adnet-rediris.xml" "vnuml-basic.xml" "vnuml-nsfnet.xml" "vnuml-rediris.xml"; do
+for f in "adnet-basic.xml" "adnet-nsfnet.xml" "adnet-rediris.xml" "vnuml-basic.xml" "vnuml-nsfnet.xml" "vnuml-rediris.xml" "adnet-nsfnet-ospf.xml" "vnuml-nsfnet-ospf.xml" "adnet-rediris-ospf.xml" "vnuml-rediris-ospf.xml" ; do
 	echo "Comparing $f ..."
 	diff -u $NEW/$f $REF/$f
 done
