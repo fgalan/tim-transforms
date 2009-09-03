@@ -491,7 +491,7 @@
           <vlan>613</vlan>
           <gre>
             <name>gre26</name>
-            <ip>10.0.5.153</ip>
+            <ip>10.0.5.53</ip>
           </gre>
         </vlan_connection>
       </peer>
