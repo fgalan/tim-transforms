@@ -32,64 +32,64 @@ Copyright (C) 2008, 2009 Fermin Galan Marquez
   <TIM:CIM_ComputerSystem Name="TX" xmi:id="TX"/>                          
     
   <!-- node loopback interfaces (14) -->
-  <TIM:CIM_IPProtocolEndpoint xmi:id="wa-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca1-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca2-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ut-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="co-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ne-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="il-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mi-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pa-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ny-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nj-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="dc-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ga-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tx-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="wa-lo" xmi:id="wa-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca1-lo" xmi:id="ca1-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca2-lo" xmi:id="ca2-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ut-lo" xmi:id="ut-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="co-lo" xmi:id="co-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ne-lo" xmi:id="ne-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="il-lo" xmi:id="il-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mi-lo" xmi:id="mi-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pa-lo" xmi:id="pa-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ny-lo" xmi:id="ny-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nj-lo" xmi:id="nj-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="dc-lo" xmi:id="dc-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ga-lo" xmi:id="ga-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tx-lo" xmi:id="tx-lo"/>
 
   <!-- node PPP interfaces (42) -->
-  <TIM:CIM_IPProtocolEndpoint xmi:id="wa-ca1-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="wa-ca2-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="wa-il-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca1-ca2-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca1-ut-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca1-wa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca2-ca1-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca2-wa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ca2-tx-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ut-ca1-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ut-mi-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ut-co-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="co-ut-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="co-ne-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="co-tx-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ne-co-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ne-il-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="il-ne-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="il-wa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="il-pa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mi-ut-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mi-nj-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mi-ny-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pa-il-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pa-ga-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pa-ny-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pa-nj-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ny-mi-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ny-pa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ny-dc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nj-mi-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nj-pa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nj-dc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="dc-tx-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="dc-ny-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="dc-nj-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ga-pa-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ga-tx-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tx-ca2-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tx-co-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tx-dc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tx-ga-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="wa-ca1-if" xmi:id="wa-ca1-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="wa-ca2-if" xmi:id="wa-ca2-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="wa-il-if" xmi:id="wa-il-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca1-ca2-if" xmi:id="ca1-ca2-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca1-ut-if" xmi:id="ca1-ut-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca1-wa-if" xmi:id="ca1-wa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca2-ca1-if" xmi:id="ca2-ca1-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca2-wa-if" xmi:id="ca2-wa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ca2-tx-if" xmi:id="ca2-tx-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ut-ca1-if" xmi:id="ut-ca1-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ut-mi-if" xmi:id="ut-mi-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ut-co-if" xmi:id="ut-co-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="co-ut-if" xmi:id="co-ut-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="co-ne-if" xmi:id="co-ne-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="co-tx-if" xmi:id="co-tx-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ne-co-if" xmi:id="ne-co-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ne-il-if" xmi:id="ne-il-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="il-ne-if" xmi:id="il-ne-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="il-wa-if" xmi:id="il-wa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="il-pa-if" xmi:id="il-pa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mi-ut-if" xmi:id="mi-ut-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mi-nj-if" xmi:id="mi-nj-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mi-ny-if" xmi:id="mi-ny-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pa-il-if" xmi:id="pa-il-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pa-ga-if" xmi:id="pa-ga-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pa-ny-if" xmi:id="pa-ny-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pa-nj-if" xmi:id="pa-nj-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ny-mi-if" xmi:id="ny-mi-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ny-pa-if" xmi:id="ny-pa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ny-dc-if" xmi:id="ny-dc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nj-mi-if" xmi:id="nj-mi-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nj-pa-if" xmi:id="nj-pa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nj-dc-if" xmi:id="nj-dc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="dc-tx-if" xmi:id="dc-tx-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="dc-ny-if" xmi:id="dc-ny-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="dc-nj-if" xmi:id="dc-nj-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ga-pa-if" xmi:id="ga-pa-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ga-tx-if" xmi:id="ga-tx-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tx-ca2-if" xmi:id="tx-ca2-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tx-co-if" xmi:id="tx-co-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tx-dc-if" xmi:id="tx-dc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tx-ga-if" xmi:id="tx-ga-if"/>
   
   <!-- the IPv4 addresses for the loopback interfaces (14) -->
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.1" SubnetMask="255.255.255.255" xmi:id="wa-lo-ip"/>

@@ -13,7 +13,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CIM_IPProtocolEndpoint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_IPProtocolEndpoint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CIM_ForwardingService">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProtocolType" lowerBound="1"
           eType="#/0/Integer"/>
@@ -68,19 +71,16 @@
           eType="#/0/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="NextHopAddress" ordered="false"
           lowerBound="1" eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" lowerBound="1"
+          eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CIM_IPAssignmentSettingData">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AddressOrigin" lowerBound="1"
-          eType="#/0/Integer"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CIM_IPAssignmentSettingData"/>
     <eClassifiers xsi:type="ecore:EClass" name="CIM_StaticIPAssignmentSettingData"
         eSuperTypes="#/1/CIM_IPAssignmentSettingData">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IPv4Address" ordered="false"
           lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubnetMask" ordered="false"
           lowerBound="1" eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="GatewayIPv4Address" ordered="false"
-          eType="#/0/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TIM_StaticIPv6AssignmentSettingData"
         eSuperTypes="#/1/CIM_IPAssignmentSettingData">
@@ -88,8 +88,6 @@
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="PrefixLength" lowerBound="1"
           eType="#/0/Integer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="GatewayIPv6Adddress"
-          eType="#/0/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TIM_LinkTransmissionElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" ordered="false"
@@ -137,7 +135,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
           eType="#/1/CIM_ComputerSystem"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Dependent" ordered="false"
-          eType="#/1/TIM_TransmissionCharacteristics"/>
+          eType="#/1/CIM_IPProtocolEndpoint"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CIM_HostedService">
       <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedent" lowerBound="1"
