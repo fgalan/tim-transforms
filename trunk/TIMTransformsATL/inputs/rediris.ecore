@@ -38,89 +38,89 @@ Copyright (C) 2008, 2009 Fermin Galan Marquez
   <TIM:CIM_ComputerSystem Name="PAL" xmi:id="PAL"/>
 
   <!-- the node loopback interfaces (19) -->
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ast-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="can-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pvc-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nav-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="gal-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cyl-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="rio-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ara-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mad-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cat-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="clm-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="val-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ext-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="bal-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mur-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tef-lo"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pal-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ast-lo" xmi:id="ast-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="can-lo" xmi:id="can-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pvc-lo" xmi:id="pvc-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nav-lo" xmi:id="nav-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="gal-lo" xmi:id="gal-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cyl-lo" xmi:id="cyl-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="rio-lo" xmi:id="rio-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ara-lo" xmi:id="ara-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mad-lo" xmi:id="mad-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-lo" xmi:id="ix-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cat-lo" xmi:id="cat-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="clm-lo" xmi:id="clm-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="val-lo" xmi:id="val-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ext-lo" xmi:id="ext-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="bal-lo" xmi:id="bal-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-lo" xmi:id="and-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mur-lo" xmi:id="mur-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tef-lo" xmi:id="tef-lo"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pal-lo" xmi:id="pal-lo"/>
   
   <!-- the node PPP interfaces (62) -->
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ast-gal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ast-can-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="can-ast-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="can-pvc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pvc-can-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pvc-gal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pvc-nav-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pvc-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nav-pvc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="nav-ara-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="gal-ast-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="gal-pvc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="gal-cyl-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="gal-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cyl-gal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cyl-rio-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cyl-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="rio-cyl-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="rio-ara-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ara-nav-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ara-rio-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ara-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ara-cat-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mad-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-mad-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-gal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-cyl-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-pvc-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-ara-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-cat-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-val-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-clm-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-and-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-ext-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ix-tef-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cat-ara-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cat-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cat-val-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="cat-bal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="clm-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="clm-and-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="val-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="val-cat-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="val-bal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="val-mur-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="val-and-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ext-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="ext-and-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="bal-cat-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="bal-val-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-ext-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-clm-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-val-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-mur-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="and-pal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mur-val-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="mur-and-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tef-ix-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="tef-pal-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pal-tef-if"/>
-  <TIM:CIM_IPProtocolEndpoint xmi:id="pal-and-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ast-gal-if" xmi:id="ast-gal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ast-can-if" xmi:id="ast-can-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="can-ast-if" xmi:id="can-ast-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="can-pvc-if" xmi:id="can-pvc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pvc-can-if" xmi:id="pvc-can-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pvc-gal-if" xmi:id="pvc-gal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pvc-nav-if" xmi:id="pvc-nav-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pvc-ix-if" xmi:id="pvc-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nav-pvc-if" xmi:id="nav-pvc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="nav-ara-if" xmi:id="nav-ara-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="gal-ast-if" xmi:id="gal-ast-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="gal-pvc-if" xmi:id="gal-pvc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="gal-cyl-if" xmi:id="gal-cyl-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="gal-ix-if" xmi:id="gal-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cyl-gal-if" xmi:id="cyl-gal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cyl-rio-if" xmi:id="cyl-rio-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cyl-ix-if" xmi:id="cyl-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="rio-cyl-if" xmi:id="rio-cyl-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="rio-ara-if" xmi:id="rio-ara-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ara-nav-if" xmi:id="ara-nav-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ara-rio-if" xmi:id="ara-rio-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ara-ix-if" xmi:id="ara-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ara-cat-if" xmi:id="ara-cat-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mad-ix-if" xmi:id="mad-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-mad-if" xmi:id="ix-mad-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-gal-if" xmi:id="ix-gal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-cyl-if" xmi:id="ix-cyl-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-pvc-if" xmi:id="ix-pvc-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-ara-if" xmi:id="ix-ara-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-cat-if" xmi:id="ix-cat-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-val-if" xmi:id="ix-val-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-clm-if" xmi:id="ix-clm-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-and-if" xmi:id="ix-and-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-ext-if" xmi:id="ix-ext-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ix-tef-if" xmi:id="ix-tef-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cat-ara-if" xmi:id="cat-ara-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cat-ix-if" xmi:id="cat-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cat-val-if" xmi:id="cat-val-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="cat-bal-if" xmi:id="cat-bal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="clm-ix-if" xmi:id="clm-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="clm-and-if" xmi:id="clm-and-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="val-ix-if" xmi:id="val-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="val-cat-if" xmi:id="val-cat-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="val-bal-if" xmi:id="val-bal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="val-mur-if" xmi:id="val-mur-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="val-and-if" xmi:id="val-and-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ext-ix-if" xmi:id="ext-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="ext-and-if" xmi:id="ext-and-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="bal-cat-if" xmi:id="bal-cat-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="bal-val-if" xmi:id="bal-val-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-ext-if" xmi:id="and-ext-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-ix-if" xmi:id="and-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-clm-if" xmi:id="and-clm-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-val-if" xmi:id="and-val-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-mur-if" xmi:id="and-mur-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="and-pal-if" xmi:id="and-pal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mur-val-if" xmi:id="mur-val-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="mur-and-if" xmi:id="mur-and-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tef-ix-if" xmi:id="tef-ix-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="tef-pal-if" xmi:id="tef-pal-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pal-tef-if" xmi:id="pal-tef-if"/>
+  <TIM:CIM_IPProtocolEndpoint Name="pal-and-if" xmi:id="pal-and-if"/>
   
   <!-- the IPv4 addresses for the loopback interfaces (19) -->
   <TIM:CIM_StaticIPAssignmentSettingData IPv4Address="10.0.50.1" SubnetMask="255.255.255.255" xmi:id="ast-lo-ip"/>
