@@ -19,5 +19,8 @@ Copyright (C) 2008 Fermin Galan Marquez
   	defaultFilesystem="/usr/share/vnuml/filesystems/root_fs_tutorial"
   	defaultKernel="/usr/share/vnuml/kernels/linux"
   	defaultConsole="xterm"
+  	automac="true"
+  	mgmtType="none"
+  	netMode="uml_switch"
   />
 </xmi:XMI>
