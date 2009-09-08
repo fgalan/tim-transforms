@@ -6,50 +6,53 @@
     <eClassifiers xsi:type="ecore:EDataType" name="String"/>
   </ecore:EPackage>
   <ecore:EPackage name="VNUMLOspf" nsURI="http:///VNUMLOspf.ecore" nsPrefix="VNUMLOspf">
-    <eClassifiers xsi:type="ecore:EClass" name="ospf_conf">
+    <eClassifiers xsi:type="ecore:EClass" name="OspfConf">
       <eStructuralFeatures xsi:type="ecore:EReference" name="vm" lowerBound="1" upperBound="-1"
-          eType="#/1/vm"/>
+          eType="#/1/Vm" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="vm">
+    <eClassifiers xsi:type="ecore:EClass" name="Vm">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="subtype" lowerBound="1"
           eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="zebra_bin" eType="#/1/zebra_bin"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ospf_bin" eType="#/1/ospf_bin"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="zebraBin" eType="#/1/ZebraBin"
+          defaultValueLiteral="" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfBin" eType="#/1/OspfBin"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="network" lowerBound="1"
-          upperBound="-1" eType="#/1/network"/>
+          upperBound="-1" eType="#/1/Network" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="zebra" lowerBound="1"
-          eType="#/1/zebra"/>
+          eType="#/1/Zebra" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="zebra_bin">
+    <eClassifiers xsi:type="ecore:EClass" name="ZebraBin">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ospf_bin">
+    <eClassifiers xsi:type="ecore:EClass" name="OspfBin">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="network">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ip" lowerBound="1" eType="#/1/ip"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Network">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ip" lowerBound="1" eType="#/1/Ip"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="area" lowerBound="1"
-          eType="#/1/area"/>
+          eType="#/1/Area" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="zebra">
+    <eClassifiers xsi:type="ecore:EClass" name="Zebra">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostname" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ip">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+    <eClassifiers xsi:type="ecore:EClass" name="Ip">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mask" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="area">
+    <eClassifiers xsi:type="ecore:EClass" name="Area">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
