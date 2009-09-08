@@ -1,0 +1,223 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module TIM2VNUML; 
+create OUT : VNUML from IN : TIMSmall, SETTINGS : TestbedParameters;
+
+uses TIMHelpers;
+
+-------------
+-- Helpers --
+-------------
+
+-- Return the VNUML setting object
+helper def: settings : TestbedParameters!VNUMLTestbedParameters = 
+	TestbedParameters!VNUMLTestbedParameters.allInstances()->first()
+	;
+
+-- Calculates the id associated to a given interface
+helper def: idForIntf(intf: TIMSmall!CIM_IPProtocolEndpoint) : Integer =
+	if not intf.isLoopback()
+	then
+		(intf.associatedVm()).vmInterfaces()->select(e | not e.isLoopback())->indexOf(intf)
+	else
+		(intf.associatedVm()).vmInterfaces()->select(e | e.isLoopback())->indexOf(intf)
+	endif
+;
+
+-- Calculates the net name associated to a given interface (or loopback, if the interface is not)
+-- associated to any net
+helper def: netNameForIntf(intf : TIMSmall!CIM_IPProtocolEndpoint) : String =
+	if not intf.isLoopback()
+	then
+		TIMSmall!TIM_MemberOfLink.allInstances()->select(e | e.Member->first() = intf)->first().Collection->first().InstanceID
+	else
+		'lo'
+	endif
+	;
+
+-----------
+-- Rules --
+-----------
+
+rule MasterRule {
+	from 
+		i: TIMSmall!TIM_TestbedScenario
+	to
+	    -- Rule #1a: one Vnuml instance for each given TIM_TestbedScenario
+		vnumlRule: VNUML!Vnuml (
+			global <- globalRule,
+			net <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'netRule')),
+			vm <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'vmRule'))
+		),
+	    -- Rule #1b: one Global instance for each given TIM_TestbedScenario		
+		globalRule: VNUML!Global (
+			simulationName <- simulationNameRule,
+			version <- versionRule,
+			automac <- automacRule,
+			vmMgmt <- vmMgmtRule,
+			vmDefaults <- vmDefaultsRule
+		),
+		simulationNameRule: VNUML!SimulationName (
+			-- Rule #2: The SimulationName _text property is mapped from Name in TIM_TestbedScenario
+			_text <- i.Name
+		),
+		versionRule: VNUML!Version (
+			-- Use of parameter: version
+			_text <- thisModule.settings.specVersion			
+		),
+		-- FIXME: this has to depend on boolean value of automac parameter
+		automacRule: VNUML!Automac,
+		vmMgmtRule: VNUML!VmMgmt (
+			-- Use of parameter: mgmtType
+			type <- thisModule.settings.mgmtType
+		),
+		vmDefaultsRule: VNUML!VmDefaults (
+			-- Use of parameter: defaultExecMode
+			execMode <- thisModule.settings.defaultExecMode,
+			filesystem <- filesystemRule,
+			kernel <- kernelRule,
+			console <- consoleRule
+		),
+		filesystemRule: VNUML!Filesystem (
+			-- Use of parameters: defaultFilesystemType and defaultFilesystem
+			type <- thisModule.settings.defaultFilesystemType,
+			_text <- thisModule.settings.defaultFilesystem
+		),
+		kernelRule: VNUML!Kernel (
+			-- Use of parameter: defaultKernel
+			_text <- thisModule.settings.defaultKernel
+		),
+		consoleRule: VNUML!Console (
+			-- Use of parameter: defaultConsole
+			id <- '0',
+			_text <- thisModule.settings.defaultConsole
+		)
+}
+
+-- Rule #3: each Vm instance corresponds to one ComputerSystem instance
+rule AllVmsRule {
+	from
+		i: TIMSmall!CIM_ComputerSystem
+	to
+		vmRule: VNUML!Vm (
+			-- Rule #6: the name property in Vm is set using the Name property in ComputerSystem
+			name <- i.Name,
+			forwarding <- i.vmForwarding()->collect(e | thisModule.resolveTemp(e,'forwardingRule'))->first(),
+			route <- i.vmRoutes()->collect (e | thisModule.resolveTemp(e,'routeRule')),
+			intf <- i.vmInterfaces()->collect (e | thisModule.resolveTemp(e,'intfRule'))
+		)
+}
+
+-- Rule #4: each Net instance corresponds to one TIM_LinkConnectivityConnection instance
+rule AllNetsRule {
+	from
+		i: TIMSmall!TIM_LinkConnectivityCollection
+	to
+		netRule: VNUML!Net (
+			-- Rule #5: name property in Net is set using InstanceID property in TIM LinkConnectivityConnection
+			name <- i.InstanceID,
+			-- User of parameter: netMode
+			mode <- thisModule.settings.netMode
+		)
+}
+
+-- Rule #7: each Forwarding instance corresponds to one instance of ForwardingService in TIM
+rule AllForwardingRule {
+	from
+		i: TIMSmall!CIM_ForwardingService
+	to
+		forwardingRule: VNUML!Forwarding (
+			-- Rule #8: mapping ProtocolType to type
+			type <- (if i.ProtocolType = 2 then
+						'ipv4'
+					  else
+					  	if i.ProtocolType = 3 then
+							'ipv6'
+						else
+							-- i.ProtocolType = 4
+							'ip'
+						endif
+				      endif )
+		)
+}
+
+-- Rule #9: Each Route instance corresponds to one instance of TIM_NextHopAddressedIPRoute
+rule AllRoutesRule {
+	from
+		i: TIMSmall!TIM_NextHopAddressedIPRoute
+	to
+		routeRule: VNUML!Route (
+			-- Rule #10: the type property is mapped from AddressType
+			type <- (if i.AddressType = 1 then 'ipv4' else 'ipv6' endif),
+			-- Rule #11: the gw property is mapped from NextHopAddress
+			gw <- i.NextHopAddress,
+			-- Rule #12: the _text property is composed by a combined mapping of DestinationAddress and DestinationMask or PrefixLength (for IPv4 or IPv6 respectively)
+			_text <- (if i.AddressType = 1 then 
+					    -- IPv4
+						i.DestinationAddress + '/' + i.DestinationMask.TranslateMask()
+					  else
+					    -- IPv6
+					  	i.DestinationAddress + '/' + i.PrefixLength.toString()
+					  endif)
+		)
+}
+
+-- Rule #13: each Intf instance corresponds to one instance of IPProtocolEndpoing
+rule AllIntfRule {
+	from
+		i: TIMSmall!CIM_IPProtocolEndpoint
+	to
+		intfRule: VNUML!Intf (
+			id <- thisModule.idForIntf(i).toString(),			
+			-- Rule #14: The net property is mapped with the InstanceID name of the
+			-- TIM_LinkConnectivityCollection associated to the interface (through the TIM_MemberOfLink
+			-- association) except when that association does not exists (i.e. loopback interface)
+			-- in which case the "lo" string is assigned (see netNameForIntf() in the helpers header in
+            -- this file for details
+			net <- thisModule.netNameForIntf(i),
+			ipv4 <- i.intfIpv4()->collect (e | thisModule.resolveTemp(e,'ipv4Rule')),
+			ipv6 <- i.intfIpv6()->collect (e | thisModule.resolveTemp(e,'ipv6Rule'))
+		)
+}
+
+--Rule #15: each Ipv4 instance corresponds to one instance of StaticIPAssignmentSettingData
+rule AllIpv4Rule {
+	from
+		i: TIMSmall!CIM_StaticIPAssignmentSettingData
+	to
+		ipv4Rule: VNUML!Ipv4 (
+			--Rule #16 mapping IPv4Address to text (Rule #16) and
+			_text <- i.IPv4Address,
+			--Rule #17 mapping SubnetMask to mask
+			mask <- i.SubnetMask
+		)
+}
+
+-- Rule #18: Each Ipv6 instance corresponds to one instance of TIM StaticIPv6AssignmentSettingData
+rule AllIpv6Rule {
+	from
+		i: TIMSmall!TIM_StaticIPv6AssignmentSettingData
+	to
+		ipv6Rule: VNUML!Ipv6 (
+			-- Rule #19: mapping IPv6Address to text
+			_text <- i.IPv6Address,
+			-- Rule #20: mapping PrefixLength to mask
+			mask <- '/' + i.PrefixLength.toString()
+		)
+}
