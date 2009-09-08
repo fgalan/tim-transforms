@@ -23,6 +23,12 @@
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultConsole" lowerBound="1"
           eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="automac" lowerBound="1"
+          eType="#/0/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mgmtType" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="netMode" lowerBound="1"
+          eType="#/0/String" defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/CIM_SettingData">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" lowerBound="1"
