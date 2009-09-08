@@ -6,100 +6,111 @@
     <eClassifiers xsi:type="ecore:EDataType" name="String"/>
   </ecore:EPackage>
   <ecore:EPackage name="VNUML" nsURI="http:///VNUML.ecore" nsPrefix="VNUML">
-    <eClassifiers xsi:type="ecore:EClass" name="vnuml">
+    <eClassifiers xsi:type="ecore:EClass" name="Vnuml">
       <eStructuralFeatures xsi:type="ecore:EReference" name="global" lowerBound="1"
-          eType="#/1/global"/>
+          eType="#/1/Global" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="net" upperBound="-1"
-          eType="#/1/net"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="vm" upperBound="-1" eType="#/1/vm"/>
+          eType="#/1/Net" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vm" upperBound="-1" eType="#/1/Vm"
+          containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="global">
+    <eClassifiers xsi:type="ecore:EClass" name="Global">
       <eStructuralFeatures xsi:type="ecore:EReference" name="version" lowerBound="1"
-          eType="#/1/version"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="automac" eType="#/1/automac"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="simulation_name" lowerBound="1"
-          eType="#/1/simulation_name"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="vm_mgmt" eType="#/1/vm_mgmt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="vm_defaults" eType="#/1/vm_defaults"/>
+          eType="#/1/Version" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="automac" eType="#/1/Automac"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="simulationName" lowerBound="1"
+          eType="#/1/SimulationName" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vmMgmt" eType="#/1/VmMgmt"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vmDefaults" eType="#/1/VmDefaults"
+          containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="version">
+    <eClassifiers xsi:type="ecore:EClass" name="Version">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="automac"/>
-    <eClassifiers xsi:type="ecore:EClass" name="simulation_name">
+    <eClassifiers xsi:type="ecore:EClass" name="Automac"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimulationName">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="vm_mgmt">
+    <eClassifiers xsi:type="ecore:EClass" name="VmMgmt">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="vm_defaults">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exec_mode" lowerBound="1"
+    <eClassifiers xsi:type="ecore:EClass" name="VmDefaults">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="execMode" lowerBound="1"
           eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="filesystem"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="kernel"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="console" upperBound="-1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="filesystem" eType="#/1/Filesystem"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="kernel" eType="#/1/Kernel"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="console" upperBound="-1"
+          eType="#/1/Console" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="net">
+    <eClassifiers xsi:type="ecore:EClass" name="Net">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="vm">
+    <eClassifiers xsi:type="ecore:EClass" name="Vm">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="filesystem" eType="#/1/filesystem"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="kernel" eType="#/1/kernel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="filesystem" eType="#/1/Filesystem"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="kernel" eType="#/1/Kernel"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="console" upperBound="-1"
-          eType="#/1/console"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="forwarding" eType="#/1/forwarding"/>
+          eType="#/1/Console" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="forwarding" eType="#/1/Forwarding"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="route" upperBound="-1"
-          eType="#/1/route"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="if" upperBound="-1" eType="#/1/if"/>
+          eType="#/1/Route" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="intf" upperBound="-1"
+          eType="#/1/Intf" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="filesystem">
+    <eClassifiers xsi:type="ecore:EClass" name="Filesystem">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="kernel">
+    <eClassifiers xsi:type="ecore:EClass" name="Kernel">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="console">
+    <eClassifiers xsi:type="ecore:EClass" name="Console">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="forwarding">
+    <eClassifiers xsi:type="ecore:EClass" name="Forwarding">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="if">
+    <eClassifiers xsi:type="ecore:EClass" name="Intf">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="net" lowerBound="1" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ipv4" upperBound="-1"
-          eType="#/1/ipv4"/>
+          eType="#/1/Ipv4" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ipv6" upperBound="-1"
-          eType="#/1/ipv6"/>
+          eType="#/1/Ipv6" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ipv4">
+    <eClassifiers xsi:type="ecore:EClass" name="Ipv4">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mask" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ipv6">
+    <eClassifiers xsi:type="ecore:EClass" name="Ipv6">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mask" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="route">
+    <eClassifiers xsi:type="ecore:EClass" name="Route">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="gw" lowerBound="1" eType="#/0/String"/>
