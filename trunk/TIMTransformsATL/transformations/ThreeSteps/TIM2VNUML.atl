@@ -60,50 +60,50 @@ rule MasterRule {
 		i: TIMSmall!TIM_TestbedScenario
 	to
 	    -- Rule #1a: one Vnuml instance for each given TIM_TestbedScenario
-		vnumlRule: VNUML!Vnuml (
-			global <- globalRule,
-			net <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'netRule')),
-			vm <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'vmRule'))
+		Vnuml: VNUML!Vnuml (
+			global <- Global,
+			net <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'Net')),
+			vm <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm'))
 		),
 	    -- Rule #1b: one Global instance for each given TIM_TestbedScenario		
-		globalRule: VNUML!Global (
-			simulationName <- simulationNameRule,
-			version <- versionRule,
-			automac <- automacRule,
-			vmMgmt <- vmMgmtRule,
-			vmDefaults <- vmDefaultsRule
+		Global: VNUML!Global (
+			simulationName <- SimulationName,
+			version <- Version,
+			automac <- Automac,
+			vmMgmt <- VmMgmt,
+			vmDefaults <- VmDefaults
 		),
-		simulationNameRule: VNUML!SimulationName (
+		SimulationName: VNUML!SimulationName (
 			-- Rule #2: The SimulationName _text property is mapped from Name in TIM_TestbedScenario
 			_text <- i.Name
 		),
-		versionRule: VNUML!Version (
+		Version: VNUML!Version (
 			-- Use of parameter: version
 			_text <- thisModule.settings.specVersion			
 		),
 		-- FIXME: this has to depend on boolean value of automac parameter
-		automacRule: VNUML!Automac,
-		vmMgmtRule: VNUML!VmMgmt (
+		Automac: VNUML!Automac,
+		VmMgmt: VNUML!VmMgmt (
 			-- Use of parameter: mgmtType
 			type <- thisModule.settings.mgmtType
 		),
-		vmDefaultsRule: VNUML!VmDefaults (
+		VmDefaults: VNUML!VmDefaults (
 			-- Use of parameter: defaultExecMode
 			execMode <- thisModule.settings.defaultExecMode,
-			filesystem <- filesystemRule,
-			kernel <- kernelRule,
-			console <- consoleRule
+			filesystem <- Filesystem,
+			kernel <- Kernel,
+			console <- Console
 		),
-		filesystemRule: VNUML!Filesystem (
+		Filesystem: VNUML!Filesystem (
 			-- Use of parameters: defaultFilesystemType and defaultFilesystem
 			type <- thisModule.settings.defaultFilesystemType,
 			_text <- thisModule.settings.defaultFilesystem
 		),
-		kernelRule: VNUML!Kernel (
+		Kernel: VNUML!Kernel (
 			-- Use of parameter: defaultKernel
 			_text <- thisModule.settings.defaultKernel
 		),
-		consoleRule: VNUML!Console (
+		Console: VNUML!Console (
 			-- Use of parameter: defaultConsole
 			id <- '0',
 			_text <- thisModule.settings.defaultConsole
@@ -111,25 +111,25 @@ rule MasterRule {
 }
 
 -- Rule #3: each Vm instance corresponds to one ComputerSystem instance
-rule AllVmsRule {
+rule VmMap {
 	from
 		i: TIMSmall!CIM_ComputerSystem
 	to
-		vmRule: VNUML!Vm (
+		Vm: VNUML!Vm (
 			-- Rule #6: the name property in Vm is set using the Name property in ComputerSystem
 			name <- i.Name,
-			forwarding <- i.vmForwarding()->collect(e | thisModule.resolveTemp(e,'forwardingRule'))->first(),
-			route <- i.vmRoutes()->collect (e | thisModule.resolveTemp(e,'routeRule')),
-			intf <- i.vmInterfaces()->collect (e | thisModule.resolveTemp(e,'intfRule'))
+			forwarding <- i.vmForwarding()->collect(e | thisModule.resolveTemp(e,'Forwarding'))->first(),
+			route <- i.vmRoutes()->collect (e | thisModule.resolveTemp(e,'Route')),
+			intf <- i.vmInterfaces()->collect (e | thisModule.resolveTemp(e,'Intf'))
 		)
 }
 
 -- Rule #4: each Net instance corresponds to one TIM_LinkConnectivityConnection instance
-rule AllNetsRule {
+rule NetMap {
 	from
 		i: TIMSmall!TIM_LinkConnectivityCollection
 	to
-		netRule: VNUML!Net (
+		Net: VNUML!Net (
 			-- Rule #5: name property in Net is set using InstanceID property in TIM LinkConnectivityConnection
 			name <- i.InstanceID,
 			-- User of parameter: netMode
@@ -138,11 +138,11 @@ rule AllNetsRule {
 }
 
 -- Rule #7: each Forwarding instance corresponds to one instance of ForwardingService in TIM
-rule AllForwardingRule {
+rule ForwardingMap {
 	from
 		i: TIMSmall!CIM_ForwardingService
 	to
-		forwardingRule: VNUML!Forwarding (
+		Forwarding: VNUML!Forwarding (
 			-- Rule #8: mapping ProtocolType to type
 			type <- (if i.ProtocolType = 2 then
 						'ipv4'
@@ -158,11 +158,11 @@ rule AllForwardingRule {
 }
 
 -- Rule #9: Each Route instance corresponds to one instance of TIM_NextHopAddressedIPRoute
-rule AllRoutesRule {
+rule RouteMap {
 	from
 		i: TIMSmall!TIM_NextHopAddressedIPRoute
 	to
-		routeRule: VNUML!Route (
+		Route: VNUML!Route (
 			-- Rule #10: the type property is mapped from AddressType
 			type <- (if i.AddressType = 1 then 'ipv4' else 'ipv6' endif),
 			-- Rule #11: the gw property is mapped from NextHopAddress
@@ -179,11 +179,11 @@ rule AllRoutesRule {
 }
 
 -- Rule #13: each Intf instance corresponds to one instance of IPProtocolEndpoing
-rule AllIntfRule {
+rule IntfMap {
 	from
 		i: TIMSmall!CIM_IPProtocolEndpoint
 	to
-		intfRule: VNUML!Intf (
+		Intf: VNUML!Intf (
 			id <- thisModule.idForIntf(i).toString(),			
 			-- Rule #14: The net property is mapped with the InstanceID name of the
 			-- TIM_LinkConnectivityCollection associated to the interface (through the TIM_MemberOfLink
@@ -191,17 +191,17 @@ rule AllIntfRule {
 			-- in which case the "lo" string is assigned (see netNameForIntf() in the helpers header in
             -- this file for details
 			net <- thisModule.netNameForIntf(i),
-			ipv4 <- i.intfIpv4()->collect (e | thisModule.resolveTemp(e,'ipv4Rule')),
-			ipv6 <- i.intfIpv6()->collect (e | thisModule.resolveTemp(e,'ipv6Rule'))
+			ipv4 <- i.intfIpv4()->collect (e | thisModule.resolveTemp(e,'Ipv4')),
+			ipv6 <- i.intfIpv6()->collect (e | thisModule.resolveTemp(e,'Ipv6'))
 		)
 }
 
 --Rule #15: each Ipv4 instance corresponds to one instance of StaticIPAssignmentSettingData
-rule AllIpv4Rule {
+rule Ipv4Map {
 	from
 		i: TIMSmall!CIM_StaticIPAssignmentSettingData
 	to
-		ipv4Rule: VNUML!Ipv4 (
+		Ipv4: VNUML!Ipv4 (
 			--Rule #16 mapping IPv4Address to text (Rule #16) and
 			_text <- i.IPv4Address,
 			--Rule #17 mapping SubnetMask to mask
@@ -210,11 +210,11 @@ rule AllIpv4Rule {
 }
 
 -- Rule #18: Each Ipv6 instance corresponds to one instance of TIM StaticIPv6AssignmentSettingData
-rule AllIpv6Rule {
+rule Ipv6Map {
 	from
 		i: TIMSmall!TIM_StaticIPv6AssignmentSettingData
 	to
-		ipv6Rule: VNUML!Ipv6 (
+		Ipv6: VNUML!Ipv6 (
 			-- Rule #19: mapping IPv6Address to text
 			_text <- i.IPv6Address,
 			-- Rule #20: mapping PrefixLength to mask
