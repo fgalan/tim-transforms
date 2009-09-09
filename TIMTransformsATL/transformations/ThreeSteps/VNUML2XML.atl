@@ -1,0 +1,284 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module VNUML2XML; 
+create OUT : XML from IN : VNUML;
+
+
+rule RootRule {
+	from 
+		i: VNUML!Vnuml
+	to
+		root: XML!Root (
+			name <- 'vnuml',
+			children <- Sequence { thisModule.resolveTemp(VNUML!Global.allInstances()->first(), 'Global'),
+						VNUML!Net.allInstances()->collect (e | thisModule.resolveTemp(e,'Net')),
+						VNUML!Vm.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm')) }	
+		)
+}
+
+rule GlobalRule {
+	from
+		i: VNUML!Global
+	to
+		Global: XML!Element (
+			name <- 'global',
+			children <- Sequence { VNUML!Version.allInstances()->collect (e | thisModule.resolveTemp(e,'Version')),
+						VNUML!SimulationName.allInstances()->collect (e | thisModule.resolveTemp(e,'SimulationName')),
+						VNUML!Automac.allInstances()->collect (e | thisModule.resolveTemp(e,'Automac')),
+						VNUML!VmMgmt.allInstances()->collect (e | thisModule.resolveTemp(e,'VmMgmt')),
+						VNUML!VmDefaults.allInstances()->collect (e | thisModule.resolveTemp(e,'VmDefaults')) }
+		)
+}
+
+rule VersionRule {
+	from
+		i: VNUML!Version
+	to
+		Version: XML!Element (
+			name <- 'version',
+			children <- VersionText
+		),
+		VersionText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule SimulationNameRule {
+	from
+		i: VNUML!SimulationName
+	to
+		SimulationName: XML!Element (
+			name <- 'simulation_name',
+			children <- SimulationNameText
+		),
+		SimulationNameText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule AutomacRule {
+	from
+		i: VNUML!Automac
+	to
+		Automac: XML!Element (
+			name <- 'automac'
+	)
+}
+
+rule VmMgmtRule {
+	from
+		i: VNUML!VmMgmt
+	to
+		VmMgmt: XML!Element (
+			name <- 'vm_mgmt',
+			children <- VmMgmtTypeAtt
+		),
+		VmMgmtTypeAtt: XML!Attribute (
+			name <- 'type',
+			value <- i.type
+		)
+}
+
+rule VmDefaultsRule {
+	from
+		i: VNUML!VmDefaults
+	to
+		VmDefaults: XML!Element (
+			name <- 'vm_defaults',
+			children <- Sequence { VmDefaultsExecModeAtt,
+						VNUML!Filesystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Filesystem')),
+						VNUML!Kernel.allInstances()->collect (e | thisModule.resolveTemp(e,'Kernel')),
+						VNUML!Console.allInstances()->collect (e | thisModule.resolveTemp(e,'Console')) }
+		),
+		VmDefaultsExecModeAtt: XML!Attribute (
+			name <- 'exec_mode',
+			value <- i.execMode
+		)
+}
+
+rule NetRule {
+	from
+		i: VNUML!Net
+	to
+		Net: XML!Element (
+			name <- 'net',
+			children <- Sequence { NetNameAtt, NetModeAtt}
+		),
+		NetNameAtt: XML!Attribute (
+			name <- 'name',
+			value <- i.name
+		),
+		NetModeAtt: XML!Attribute (
+			name <- 'mode',
+			value <- i.mode
+		)
+}
+
+rule FilesystemRule {
+	from
+		i: VNUML!Filesystem
+	to
+		Filesystem: XML!Element (
+			name <- 'filesystem',
+			children <- Sequence { FilesystemTypeAtt, FilesystemText }
+		),
+		FilesystemTypeAtt: XML!Attribute (
+			name <- 'type',
+			value <- i.type
+		),
+		FilesystemText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule KernelRule {
+	from
+		i: VNUML!Kernel
+	to
+		Kernel: XML!Element (
+			name <- 'kernel',
+			children <- KernelText
+		),
+		KernelText: XML!TextNode (
+			value <- i._text
+		)		
+}
+
+rule ConsoleRule {
+	from
+		i: VNUML!Console
+	to
+		Console: XML!Element (
+			name <- 'console',
+			children <- Sequence { ConsoleIdAtt, ConsoleText }
+		),
+		ConsoleIdAtt: XML!Attribute (
+			name <- 'id',
+			value <- i.id
+		),
+		ConsoleText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule VmRule {
+	from
+		i: VNUML!Vm
+	to
+		Vm: XML!Element (
+			name <- 'vm',
+			children <- Sequence {VmNameAtt,
+						VNUML!Intf.allInstances()->select (e| i.intf->includes(e) )->collect (e | thisModule.resolveTemp(e,'Intf')),
+						VNUML!Route.allInstances()->select (e| i.route->includes(e) )->collect (e | thisModule.resolveTemp(e,'Route')),
+						VNUML!Forwarding.allInstances()->select (e | i.forwarding = e )->collect (e | thisModule.resolveTemp(e,'Forwarding')) }			
+		),
+		VmNameAtt: XML!Attribute (
+			name <- 'name',
+			value <- i.name
+		)
+}
+
+rule ForwardingRule {
+	from
+		i: VNUML!Forwarding
+	to
+		Forwarding: XML!Element (
+			name <- 'forwarding',
+			children <- ForwardingTypeAtt
+		),
+		ForwardingTypeAtt: XML!Attribute (
+			name <- 'type',
+			value <- i.type
+		)
+}
+
+rule IntfRule {
+	from
+		i: VNUML!Intf
+	to
+		Intf: XML!Element (
+			name <- 'if',
+			children <- Sequence {IntfIdAtt, IntfNetAtt, 
+						VNUML!Ipv4.allInstances()->select (e| i.ipv4->includes(e) )->collect (e | thisModule.resolveTemp(e,'Ipv4')),
+						VNUML!Ipv6.allInstances()->select (e| i.ipv6->includes(e) )->collect (e | thisModule.resolveTemp(e,'Ipv6')) }
+		),
+		IntfIdAtt: XML!Attribute (
+			name <- 'id',
+			value <- i.id
+		),
+		IntfNetAtt: XML!Attribute (
+			name <- 'net',
+			value <- i.net
+		)		
+}
+
+rule RouteRule {
+	from
+		i: VNUML!Route
+	to
+		Route: XML!Element (
+			name <- 'route' ,
+			children <- Sequence { RouteGwAtt, RouteTypeAtt, RouteText }
+		),
+		RouteGwAtt: XML!Attribute (
+			name <- 'gw',
+			value <- i.gw
+		),
+		RouteTypeAtt: XML!Attribute (
+			name <- 'type',
+			value <- i.type
+		),
+		RouteText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule Ipv4Rule {
+	from
+		i: VNUML!Ipv4
+	to
+		Ipv4: XML!Element (
+			name <- 'ipv4',
+			children <- Sequence {Ipv4MaskAtt, Ipv4Text }
+		),
+		Ipv4MaskAtt: XML!Attribute (
+			name <- 'mask',
+			value <- i.mask
+		),
+		Ipv4Text: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule Ipv6Rule {
+	from
+		i: VNUML!Ipv6
+	to
+		Ipv6: XML!Element (
+			name <- 'ipv6',
+			children <- Sequence {Ipv6MaskAtt, Ipv6Text }
+		),
+		Ipv6MaskAtt: XML!Attribute (
+			name <- 'mask',
+			value <- i.mask
+		),
+		Ipv6Text: XML!TextNode (
+			value <- i._text
+		)
+}
