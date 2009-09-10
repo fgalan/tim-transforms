@@ -19,8 +19,8 @@
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="zebraBin" eType="#/1/ZebraBin"
           defaultValueLiteral="" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfBin" eType="#/1/OspfBin"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfdBin" eType="#/1/OspfdBin"
+          defaultValueLiteral="" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="network" lowerBound="1"
           upperBound="-1" eType="#/1/Network" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="zebra" lowerBound="1"
@@ -30,7 +30,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OspfBin">
+    <eClassifiers xsi:type="ecore:EClass" name="OspfdBin">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
