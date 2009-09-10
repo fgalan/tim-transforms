@@ -25,9 +25,18 @@
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="automac" lowerBound="1"
           eType="#/0/Boolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mgmtType" lowerBound="1"
-          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mgmtType" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="netMode" lowerBound="1"
+          eType="#/0/String" defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfType" lowerBound="1"
+          eType="#/0/String" defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfSubType" lowerBound="1"
+          eType="#/0/String" defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" eType="#/0/String"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBin" eType="#/0/String"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfPassword" lowerBound="1"
           eType="#/0/String" defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/CIM_SettingData">
