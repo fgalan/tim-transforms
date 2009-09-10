@@ -6,7 +6,7 @@ This file can be mofified/distributed under the terms of
 Creative Commons Attribution-Share Alike 2.5 Spain License.
 See details at: http://creativecommons.org/licenses/by-sa/2.5/es/deed.en
 
-Copyright (C) 2008 Fermin Galan Marquez
+Copyright (C) 2008, 2009 Fermin Galan Marquez
 
 -->
 
@@ -19,8 +19,15 @@ Copyright (C) 2008 Fermin Galan Marquez
   	defaultFilesystem="/usr/share/vnuml/filesystems/root_fs_tutorial"
   	defaultKernel="/usr/share/vnuml/kernels/linux"
   	defaultConsole="pts"
-  	automac="true"
+  	automac="TRUE"
   	mgmtType="none"
-  	netMode="uml_switch"  	
+  	netMode="uml_switch"
+  	ospfType="quagga"
+    ospfSubType="lib-install"
+    ospfPassword="xxxx"
   />
+  <!-- zebraBin and ospfdBin not used (VNUML will get default values)
+    zebraBin="/usr/local/bin/zebra"
+    ospfdBin="/usr/local/bin/ospfd"
+  -->
 </xmi:XMI>
