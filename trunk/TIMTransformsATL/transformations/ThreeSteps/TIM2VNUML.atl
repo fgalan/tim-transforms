@@ -69,8 +69,6 @@ rule MasterRule {
 		Global: VNUML!Global (
 			simulationName <- SimulationName,
 			version <- Version,
-			automac <- Automac,
-			vmMgmt <- VmMgmt,
 			vmDefaults <- VmDefaults
 		),
 		SimulationName: VNUML!SimulationName (
@@ -80,12 +78,6 @@ rule MasterRule {
 		Version: VNUML!Version (
 			-- Use of parameter: version
 			_text <- thisModule.settings.specVersion			
-		),
-		-- FIXME: this has to depend on boolean value of automac parameter
-		Automac: VNUML!Automac,
-		VmMgmt: VNUML!VmMgmt (
-			-- Use of parameter: mgmtType
-			type <- thisModule.settings.mgmtType
 		),
 		VmDefaults: VNUML!VmDefaults (
 			-- Use of parameter: defaultExecMode
@@ -108,6 +100,38 @@ rule MasterRule {
 			id <- '0',
 			_text <- thisModule.settings.defaultConsole
 		)
+	do {
+		-- Use of parameter: automac
+		-- We need do this after the execution of the rule, otherwise, Global object would not 
+		-- exists. The SetAutomac is an imperative rule, called from a relation rule
+		if(thisModule.settings.automac)
+			thisModule.SetAutomac(Global);
+		
+		-- Use of parameter: mgmtType
+		-- We need do this after the execution of the rule, otherwise, Global object would not 
+		-- exists. The SetMgmtType is an imperative rule, called from a relation rule		
+		if(not thisModule.settings.mgmtType.oclIsUndefined())
+			thisModule.SetMgmtType(Global);
+
+	}
+}
+
+rule SetAutomac(g : VNUML!Global) {
+	to
+		Automac: VNUML!Automac
+	do {
+		g.automac <- Automac;
+	}
+}
+
+rule SetMgmtType(g : VNUML!Global) {
+	to
+		VmMgmt: VNUML!VmMgmt (
+			type <- thisModule.settings.mgmtType
+		)
+	do {
+		g.vmMgmt <- VmMgmt;
+	}
 }
 
 -- Rule #3: each Vm instance corresponds to one ComputerSystem instance
