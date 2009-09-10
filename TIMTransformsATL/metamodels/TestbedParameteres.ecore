@@ -32,9 +32,9 @@
           eType="#/0/String" defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfSubType" lowerBound="1"
           eType="#/0/String" defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" eType="#/0/String"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBinPath" eType="#/0/String"
           defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBin" eType="#/0/String"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBinPath" eType="#/0/String"
           defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfPassword" lowerBound="1"
           eType="#/0/String" defaultValueLiteral=""/>
