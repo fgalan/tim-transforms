@@ -1,0 +1,141 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module VNUMLOspf2XML; 
+create OUT : XML from IN : VNUMLOspf;
+
+rule RootRule {
+	from 
+		i: VNUMLOspf!OspfConf
+	to
+		root: XML!Root (
+			name <- 'ospf_conf',
+			children <- Sequence { VNUMLOspf!Vm.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm')) }
+		)
+}
+
+rule VmRule {
+	from
+		i: VNUMLOspf!Vm
+	to
+		Vm: XML!Element (
+			name <- 'vm',
+			children <- Sequence { VmNameAtt, VmTypeAtt, VmSubtypeAtt, 
+				        VNUMLOspf!ZebraBin.allInstances()->select (e| i.zebraBin = e )->collect (e | thisModule.resolveTemp(e,'ZebraBin')),
+						VNUMLOspf!OspfdBin.allInstances()->select (e| i.ospfdBin = e )->collect (e | thisModule.resolveTemp(e,'OspfdBin')),
+						VNUMLOspf!Zebra.allInstances()->select (e| i.zebra = e )->collect (e | thisModule.resolveTemp(e,'Zebra')),
+						VNUMLOspf!Network.allInstances()->select (e| i.network->includes(e) )->collect (e | thisModule.resolveTemp(e,'Network')) }
+		),
+		VmNameAtt: XML!Attribute (
+			name <- 'name',
+			value <- i.name
+		),
+		VmTypeAtt: XML!Attribute (
+			name <- 'type',
+			value <- i.type
+		),
+		VmSubtypeAtt: XML!Attribute (
+			name <- 'subtype',
+			value <- i.subtype
+		)
+}
+
+rule ZebraBinRule {
+	from
+		i: VNUMLOspf!ZebraBin
+	to
+		ZebraBin: XML!Element (
+			name <- 'zebra_bin',
+			children <- ZebraBinText
+		),
+		ZebraBinText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule OspfdBinRule {
+	from
+		i: VNUMLOspf!OspfdBin
+	to
+		OspfdBin: XML!Element (
+			name <- 'ospfd_bin',
+			children <- OspfdBinText
+		),
+		OspfdBinText: XML!TextNode (
+			value <- i._text
+		)		
+}
+
+rule ZebraRule {
+	from
+		i: VNUMLOspf!Zebra
+	to
+		Zebra: XML!Element (
+			name <- 'zebra',
+			children <- Sequence { ZebraHostnameAtt, ZebraPasswordAtt }
+		),
+		ZebraHostnameAtt: XML!Attribute (
+			name <- 'hostname',
+			value <- i.hostname
+		),
+		ZebraPasswordAtt: XML!Attribute (
+			name <- 'password',
+			value <- i.password
+		)				
+}
+
+rule NetworkRule {
+	from
+		i: VNUMLOspf!Network
+	to
+		Network: XML!Element (
+			name <- 'network',
+			children <- Sequence{ VNUMLOspf!Ip.allInstances()->select (e| i.ip = e)->collect (e | thisModule.resolveTemp(e,'Ip')),
+						VNUMLOspf!Area.allInstances()->select (e| i.area = e)->collect (e | thisModule.resolveTemp(e,'Area')) }
+		)
+}
+
+rule IpRule  {
+	from
+		i: VNUMLOspf!Ip
+	to
+		Ip: XML!Element (
+			name <- 'ip',
+			children <- Sequence { IpMaskAtt, IpText } 
+		),
+		IpMaskAtt: XML!Attribute (
+			name <- 'mask',
+			value <- i.mask
+		),
+		IpText: XML!TextNode (
+			value <- i._text
+		)		
+}
+
+rule AreaRule {
+	from
+		i: VNUMLOspf!Area
+	to	
+		Area: XML!Element (
+			name <- 'area',
+			children <- AreaText
+		),
+		AreaText: XML!TextNode (
+			value <- i._text
+		)		
+}
