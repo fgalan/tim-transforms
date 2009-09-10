@@ -1,0 +1,132 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module TIM2VNUMLOspf; 
+create OUT : VNUMLOspf from IN : TIMOspfSmall, SETTINGS : TestbedParameters;
+
+uses TIMOspfHelpers;
+
+-------------
+-- Helpers --
+-------------
+
+-- Return the VNUML setting object
+helper def: settings : TestbedParameters!VNUMLTestbedParameters = 
+	TestbedParameters!VNUMLTestbedParameters.allInstances()->first()
+	;
+
+-----------
+-- Rules --
+-----------
+
+rule MasterRule {
+	from 
+		i: TIMOspfSmall!TIM_TestbedScenario
+	to
+		-- Rule #21: There is one OspfConf instance for each given TIM_TestbedScenario
+		OspfConf: VNUMLOspf!OspfConf (
+			vm <- TIMOspfSmall!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm'))
+		)
+}
+
+-- Rule #22: Each Vm instance corresponds to one instance of OSPFService in TIM
+rule VmMap {
+	from
+		i: TIMOspfSmall!CIM_OSPFService
+	to
+		Vm: VNUMLOspf!Vm (
+			-- Rule #23: name is mapped from the Name of the ComputerSystem associated to OSFP service 
+			-- (through the HostedService association, see associatedComputerSystem helper)
+			name <- i.associatedComputerSystem().Name,
+			-- Use of parameters: ospfType and ospfSubType
+			type <- thisModule.settings.ospfType,
+			subtype <- thisModule.settings.ospfSubType,
+			zebra <- Zebra,
+			network <- i.allServiceIPRanges()->collect (e | thisModule.resolveTemp(e,'Network'))
+		),
+		Zebra: VNUMLOspf!Zebra (
+			-- Rule #24 The hostname in Zebra is mapped from the Name of the ComputerSystem associated 
+			-- to the OSPFService (through the HostedService, see associatedComputerSystem helper)
+			hostname <- i.associatedComputerSystem().Name,
+			-- Use of parameter: ospfPassword
+			password <- thisModule.settings.ospfPassword
+		)
+	do {
+		-- Use of parameter: zebraBinPath
+		-- We need do this after the execution of the rule, otherwise, Vm object would not 
+		-- exists. The SetZebraBin is an imperative rule, called from a relation rule
+		if(not thisModule.settings.zebraBinPath.oclIsUndefined())
+			thisModule.SetZebraBin(Vm);
+		
+		-- Use of parameter: ospfdBinPath
+		-- We need do this after the execution of the rule, otherwise, Vm object would not 
+		-- exists. The SetOspfdBin is an imperative rule, called from a relation rule		
+		if(not thisModule.settings.ospfdBinPath.oclIsUndefined())
+			thisModule.SetOspfdBin(Vm);
+
+	}
+}
+
+rule SetZebraBin(v : VNUMLOspf!Vm) {
+	to
+		ZebraBin: VNUMLOspf!ZebraBin (
+			_text <- thisModule.settings.zebraBinPath
+		)
+	do {
+		v.zebraBin <- ZebraBin;
+	}
+}
+
+rule SetOspfdBin(v : VNUMLOspf!Vm) {
+	to
+		OspfdBin: VNUMLOspf!OspfdBin (
+			_text <- thisModule.settings.ospfdBinPath
+		)
+	do {
+		v.ospfdBin <- OspfdBin;
+	}
+}
+
+-- Rule #25: Each pair of Ip and Area (within Network, which is actually
+-- a structural class) corresponds to a combination of OSPFArea
+-- and RangeOfIPAddresses associated through an OSPFAreaConfiguration instance 
+-- (through the AreaOfConfiguration and RangesOfConfiguration associations
+-- respectively). The mapping is based on CIM_RangeOfIpAddress, which associated
+-- area is calculed using the areaID helper (it could have be done in the opposite
+-- way).
+rule Network {
+	from
+		i: TIMOspfSmall!CIM_RangeOfIPAddresses
+	to
+		Network: VNUMLOspf!Network (
+			ip <- Ip,
+			area <- Area
+		),
+		-- Rule #26: The _text and mask properties in Ip are derived from the 
+		-- AddressType, StartAddress and EndAddress in the RangeOfIPAddresses 
+		-- instance (see commonMask helper)
+		Ip: VNUMLOspf!Ip (
+			mask <- i.commomMask().toString(),
+			_text <- i.StartAddress
+		),
+		-- Rule #27: the _text property in Area is derived from the AreaID property 
+		-- in the OSPFArea instance (see areaID helper)
+		Area: VNUMLOspf!Area (
+			_text <- i.areaID().translateIp()
+		)
+}
