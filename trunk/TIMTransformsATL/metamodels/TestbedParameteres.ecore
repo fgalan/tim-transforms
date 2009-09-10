@@ -27,17 +27,15 @@
           eType="#/0/Boolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mgmtType" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="netMode" lowerBound="1"
-          eType="#/0/String" defaultValueLiteral=""/>
+          eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfType" lowerBound="1"
-          eType="#/0/String" defaultValueLiteral=""/>
+          eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfSubType" lowerBound="1"
-          eType="#/0/String" defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBinPath" eType="#/0/String"
-          defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBinPath" eType="#/0/String"
-          defaultValueLiteral=""/>
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBinPath" eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBinPath" eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfPassword" lowerBound="1"
-          eType="#/0/String" defaultValueLiteral=""/>
+          eType="#/0/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/CIM_SettingData">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" lowerBound="1"
