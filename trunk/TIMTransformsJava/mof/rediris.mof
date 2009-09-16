@@ -4479,3 +4479,323 @@ instance of TIM_LinkTransmissionElement {
 	Antecedent = $PAL_TEF_NET;
 	Dependent = $TEF_PAL_QOS;
 };
+
+// QoS constraints associated to interfaces origins (31)
+//
+// NOTE: included only for completeness purposes, given that, for symetric
+// characteristis, they are not needed (the TIM_LinkTransmissionElements is used)
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AST_GAL_IF;
+	Dependent = $AST_GAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AST_CAN_IF;
+	Dependent = $AST_CAN_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CAN_PVC_IF;
+	Dependent = $CAN_PVC_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $GAL_PVC_IF;
+	Dependent = $GAL_PVC_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $NAV_PVC_IF;
+	Dependent = $NAV_PVC_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IX_PVC_IF;
+	Dependent = $IX_PVC_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $ARA_NAV_IF;
+	Dependent = $ARA_NAV_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CYL_GAL_IF;
+	Dependent = $CYL_GAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $GAL_IX_IF;
+	Dependent = $GAL_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CYL_IX_IF;
+	Dependent = $CYL_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CYL_RIO_IF;
+	Dependent = $CYL_RIO_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $ARA_RIO_IF;
+	Dependent = $ARA_RIO_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $ARA_IX_IF;
+	Dependent = $ARA_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $ARA_CAT_IF;
+	Dependent = $ARA_CAT_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IX_MAD_IF;
+	Dependent = $IX_MAD_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CAT_IX_IF;
+	Dependent = $CAT_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IX_VAL_IF;
+	Dependent = $IX_VAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CLM_IX_IF;
+	Dependent = $CLM_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AND_IX_IF;
+	Dependent = $AND_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $EXT_IX_IF;
+	Dependent = $EXT_IX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IX_TEF_IF;
+	Dependent = $IX_TEF_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CAT_VAL_IF;
+	Dependent = $CAT_VAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $BAL_CAT_IF;
+	Dependent = $BAL_CAT_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $MUR_VAL_IF;
+	Dependent = $MUR_VAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AND_VAL_IF;
+	Dependent = $AND_VAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AND_EXT_IF;
+	Dependent = $AND_EXT_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $BAL_VAL_IF;
+	Dependent = $BAL_VAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AND_CLM_IF;
+	Dependent = $AND_CLM_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AND_MUR_IF;
+	Dependent = $AND_MUR_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $AND_PAL_IF;
+	Dependent = $AND_PAL_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $TEF_PAL_IF;
+	Dependent = $TEF_PAL_QOS;
+};
+
+// QoS constraints associated to interfaces origin destination (31)
+//
+// NOTE: included only for completeness purposes, given that, for symetric
+// characteristis, they are not needed (the TIM_LinkTransmissionElements is used)
+
+instance of TIM_LinkDestination {
+	Antecedent = $GAL_AST_IF;
+	Dependent = $AST_GAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $CAN_AST_IF;
+	Dependent = $AST_CAN_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PVC_CAN_IF;
+	Dependent = $CAN_PVC_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PVC_GAL_IF;
+	Dependent = $GAL_PVC_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PVC_NAV_IF;
+	Dependent = $NAV_PVC_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PVC_IX_IF;
+	Dependent = $IX_PVC_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NAV_ARA_IF;
+	Dependent = $ARA_NAV_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $GAL_CYL_IF;
+	Dependent = $CYL_GAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_GAL_IF;
+	Dependent = $GAL_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_CYL_IF;
+	Dependent = $CYL_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $RIO_CYL_IF;
+	Dependent = $CYL_RIO_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $RIO_ARA_IF;
+	Dependent = $ARA_RIO_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_ARA_IF;
+	Dependent = $ARA_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $CAT_ARA_IF;
+	Dependent = $ARA_CAT_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $MAD_IX_IF;
+	Dependent = $IX_MAD_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_CAT_IF;
+	Dependent = $CAT_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $VAL_IX_IF;
+	Dependent = $IX_VAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_CLM_IF;
+	Dependent = $CLM_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_AND_IF;
+	Dependent = $AND_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $IX_EXT_IF;
+	Dependent = $EXT_IX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $TEF_IX_IF;
+	Dependent = $IX_TEF_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $VAL_CAT_IF;
+	Dependent = $CAT_VAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $CAT_BAL_IF;
+	Dependent = $BAL_CAT_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $VAL_MUR_IF;
+	Dependent = $MUR_VAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $VAL_AND_IF;
+	Dependent = $AND_VAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $EXT_AND_IF;
+	Dependent = $AND_EXT_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $VAL_BAL_IF;
+	Dependent = $BAL_VAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $CLM_AND_IF;
+	Dependent = $AND_CLM_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $MUR_AND_IF;
+	Dependent = $AND_MUR_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PAL_AND_IF;
+	Dependent = $AND_PAL_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PAL_TEF_IF;
+	Dependent = $TEF_PAL_QOS;
+};

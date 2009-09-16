@@ -3298,3 +3298,223 @@ instance of TIM_LinkTransmissionElement {
 	Antecedent = $GA_TX_NET;
 	Dependent = $GA_TX_QOS;
 };
+
+// QoS constraints associated to interfaces origins (21)
+//
+// NOTE: included only for completeness purposes, given that, for symetric
+// characteristis, they are not needed (the TIM_LinkTransmissionElements is used)
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CA1_WA_IF;
+	Dependent = $CA1_WA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CA2_WA_IF;
+	Dependent = $CA2_WA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IL_WA_IF;
+	Dependent = $IL_WA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CA1_CA2_IF;
+	Dependent = $CA1_CA2_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CA1_UT_IF;
+	Dependent = $CA1_UT_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CA2_TX_IF;
+	Dependent = $CA2_TX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $MI_UT_IF;
+	Dependent = $MI_UT_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CO_UT_IF;
+	Dependent = $CO_UT_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CO_NE_IF;
+	Dependent = $CO_NE_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $CO_TX_IF;
+	Dependent = $CO_TX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IL_NE_IF;
+	Dependent = $IL_NE_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $IL_PA_IF;
+	Dependent = $IL_PA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $MI_NJ_IF;
+	Dependent = $MI_NJ_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $MI_NY_IF;
+	Dependent = $MI_NY_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $GA_PA_IF;
+	Dependent = $GA_PA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $NY_PA_IF;
+	Dependent = $NY_PA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $NJ_PA_IF;
+	Dependent = $NJ_PA_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $DC_NY_IF;
+	Dependent = $DC_NY_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $DC_NJ_IF;
+	Dependent = $DC_NJ_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $DC_TX_IF;
+	Dependent = $DC_TX_QOS;
+};
+
+instance of TIM_LinkOrigin {
+	Antecedent = $GA_TX_IF;
+	Dependent = $GA_TX_QOS;
+};
+
+// QoS constraints associated to interfaces origin destination (21)
+//
+// NOTE: included only for completeness purposes, given that, for symetric
+// characteristis, they are not needed (the TIM_LinkTransmissionElements is used)
+
+instance of TIM_LinkDestination {
+	Antecedent = $WA_CA1_IF;
+	Dependent = $CA1_WA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $WA_CA2_IF;
+	Dependent = $CA2_WA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $WA_IL_IF;
+	Dependent = $IL_WA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $CA2_CA1_IF;
+	Dependent = $CA1_CA2_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $UT_CA1_IF;
+	Dependent = $CA1_UT_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $TX_CA2_IF;
+	Dependent = $CA2_TX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $UT_MI_IF;
+	Dependent = $MI_UT_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $UT_CO_IF;
+	Dependent = $CO_UT_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NE_CO_IF;
+	Dependent = $CO_NE_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $TX_CO_IF;
+	Dependent = $CO_TX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NE_IL_IF;
+	Dependent = $IL_NE_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PA_IL_IF;
+	Dependent = $IL_PA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NJ_MI_IF;
+	Dependent = $MI_NJ_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NY_MI_IF;
+	Dependent = $MI_NY_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PA_GA_IF;
+	Dependent = $GA_PA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PA_NY_IF;
+	Dependent = $NY_PA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $PA_NJ_IF;
+	Dependent = $NJ_PA_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NY_DC_IF;
+	Dependent = $DC_NY_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $NJ_DC_IF;
+	Dependent = $DC_NJ_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $TX_DC_IF;
+	Dependent = $DC_TX_QOS;
+};
+
+instance of TIM_LinkDestination {
+	Antecedent = $TX_GA_IF;
+	Dependent = $GA_TX_QOS;
+};
