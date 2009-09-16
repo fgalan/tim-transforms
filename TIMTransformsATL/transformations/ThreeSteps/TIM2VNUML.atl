@@ -156,7 +156,7 @@ rule NetMap {
 		Net: VNUML!Net (
 			-- Rule #5: name property in Net is set using InstanceID property in TIM LinkConnectivityConnection
 			name <- i.InstanceID,
-			-- User of parameter: netMode
+			-- Use of parameter: netMode
 			mode <- thisModule.settings.netMode
 		)
 }
