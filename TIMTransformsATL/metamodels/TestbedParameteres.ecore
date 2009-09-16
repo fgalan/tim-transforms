@@ -38,9 +38,9 @@
           eType="#/0/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ADRENALINETestbedParameters" eSuperTypes="#/1/CIM_SettingData">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBin" lowerBound="1"
-          eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBin" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraBinPath" lowerBound="1"
+          eType="#/0/String" defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBinPath" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="lrmBin" lowerBound="1"
           eType="#/0/String"/>

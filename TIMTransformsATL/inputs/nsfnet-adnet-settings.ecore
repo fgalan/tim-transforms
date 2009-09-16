@@ -15,17 +15,19 @@ Copyright (C) 2008 Fermin Galan Marquez
   <!-- 10.1.1.120 => 10*(256)^3 +  1*(256)^2 + 1*(256)^1 + 120*(256)^0 = 167838072 -->
   <!-- 10.10.0.0  => 10*(256)^3 + 10*(256)^2 + 0*(256)^1 +   0*(256)^0 = 168427520 -->
   <TP:ADRENALINETestbedParameters
-  	zebraBin="/users/home/grups/zebra/test_bin/zebra"
-  	ospfdBin="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"
+  	zebraBinPath="/users/home/grups/zebra/test_bin/zebra"
+  	ospfdBinPath="/users/home/grups/zebra/test_bin/zebra/zebra-0.94/ospfd/ospfd"
+  	baseMgtAddress="167838072"
+  	baseConnectAddress="167838072"
+  	baseVlan="600"
+  	vlanDev="eth0"
+  />
+  <!-- Actually don't needed in the current version
   	lrmBin="/users/home/grups/zebra/lrm/lrm/lrm"
   	rsvpdBin="/users/home/grups/rsvpte-svn/rsvpd/rsvpd"
   	rtapBin="/users/home/grups/rsvpte-svn/apitools/rtap"
   	snmpdBin="/users/home/grups/nms/Agent/snmpd_project/snmpd_project"
   	olrmBin="/mnt/server/grups/cci/before_protection_modifications/src/olrm"
   	cpbwmBin="/mnt/server/grups/cpbwmon/src/release/cpbwm"
-  	baseMgtAddress="167838072"
-  	baseConnectAddress="167838072"
-  	baseVlan="600"
-  	vlanDev="eth0"
-  />
+  -->
 </xmi:XMI>
