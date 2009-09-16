@@ -1,0 +1,251 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module TIM2ADNETCONF; 
+create OUT : ADNETCONF from IN : TIMSmall, SETTINGS : TestbedParameters;
+
+uses TIMHelpers;
+
+-------------
+-- Helpers --
+-------------
+
+-- Return the VNUML setting object
+helper def: settings : TestbedParameters!VNUMLTestbedParameters = 
+	TestbedParameters!ADRENALINETestbedParameters.allInstances()->first()
+	;
+
+-- Use of parameter: baseMgtAddress
+helper def: managementIp : Integer = thisModule.settings.baseMgtAddress;
+
+-- Use of parameter: baseVlan
+helper def: currentVlan : Integer = thisModule.settings.baseVlan;
+
+-- Use of parameter: baseConnectAddress
+helper def: currentConnectIp: Integer = thisModule.settings.baseConnectAddress;
+
+helper def: gre: Integer = 0;
+
+-----------
+-- Rules --
+-----------
+
+rule MasterRule {
+	from 
+		i: TIMSmall!TIM_TestbedScenario
+	to
+	    -- Rule #1: There is one instance of AdrenalineNetconf, Links and Nodes for each given TIM_TestbedScenario
+		AdrenalineNetconf: ADNETCONF!AdrenalineNetconf (
+			nodes <- Nodes,
+			links <- Links
+		),
+		Nodes: ADNETCONF!Nodes (
+			node <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Node'))
+		),
+		Links: ADNETCONF!Links (
+			link <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'Link'))
+		)
+}
+
+rule NodeMap {
+	from
+		i: TIMSmall!CIM_ComputerSystem
+	to
+		-- Rule #2: Each Node instance corresponds to one instance of ComputerSystem in TIM 
+		Node: ADNETCONF!Node (
+			-- Rule #3: The id property in Node is set using the Name property in ComputerSystem
+			id <- i.Name,
+			lIp <- LIp,
+			mIp <- MIp,
+			zebraBin <- ZebraBin,
+			ospfdBin <- OspfdBin
+		),
+		LIp: ADNETCONF!LIp (
+			-- Rule #4: The text property in LIp is set with the IPv4Address property in 
+			-- StaticIPAssignmentSettingData associated to the loopback IPProtocolEndpoint9 (through
+            -- the ElementSettingData association) which, in sequence, is associated to the
+			-- ComputerSystem (through the HostedAccessPoint association); if there is no associated
+			-- loopback interface, _text gets empty. (See isLoopback())
+			_text <- if i.vmInterfaces()->select(e | e.isLoopback())->size() > 0
+					  then
+						(i.vmInterfaces()->select(e | e.isLoopback())->first()).intfIpv4()->first().IPv4Address
+					  else
+						''
+					  endif
+		),
+		MIp: ADNETCONF!MIp (
+			-- managementIp originally set with , then increased in sequence (see do block at rule end)
+			_text <- thisModule.managementIp.translateIp()
+		),
+		ZebraBin: ADNETCONF!ZebraBin (
+			-- Use of parameter: zebraBinPath
+			_text <- thisModule.settings.zebraBinPath
+		),
+		OspfdBin: ADNETCONF!OspfdBin (
+			-- Use of parameter: ospfdBinPath
+			_text <- thisModule.settings.ospfdBinPath
+		)
+	do {
+		thisModule.managementIp <- thisModule.managementIp +1;
+	}
+		
+}
+
+rule LinkMap {
+	from
+		i: TIMSmall!TIM_LinkConnectivityCollection (
+			i.MaxConnections = 2
+		)
+	to
+		-- Rule #5: Each Link instance corresponds to one instance of 
+		-- TIM_LinkConnectivityCollection in TIM with MaxConnections equal 
+		-- to 2 (others are ignored), that is PPP links
+		Link: ADNETCONF!Link (
+			peer <- Sequence { Peer1, Peer2 },
+			qos <- i.linkQoS()->collect (e | thisModule.resolveTemp(e,'Qos'))->first()
+		),
+		-- Rule #6: A first instance of Peer sets its node property with 
+		-- the Name property in the ComputerSystem associated with the 
+		-- first IPProtocolEndPoint (through the HostedAccessPoint) association (see
+		-- associatedVm() )
+		Peer1: ADNETCONF!Peer (
+			node <- (i.linkInterfaces()->at(1)).associatedVm().Name,
+			-- Use of testbed parameter: 
+			vlan_dev <- thisModule.settings.vlanDev,
+			vlanConnection <- VlanConnection1
+		),
+		VlanConnection1: ADNETCONF!VlanConnection (
+			-- currentConnectIp originally set with baseConnectAddress, then increased in sequence (see do block at rule end)			
+			net <- thisModule.currentConnectIp.translateIp(),
+			gre <- Gre0,
+			vlan <- Vlan0
+		),
+		Vlan0: ADNETCONF!Vlan (
+			-- currentVlan originally set with baseVlan, then increased in sequence (see do block at rule end)						
+			_text <- thisModule.currentVlan.toString()
+		)	,	
+		Gre0: ADNETCONF!Gre (
+			name <- Name0,
+			ip <- Ip0
+		),
+		Name0: ADNETCONF!Name (
+			_text <- 'gre'.concat(thisModule.gre.toString())
+		),
+		Ip0: ADNETCONF!Ip (
+			-- Rule #7: The _text property in Ip is set with the IPv4Address property 
+			-- in the StaticIPAssignmentSettingData associated to the first 
+			-- IPProtocolEndpoint (through the ElementSettingData association)			
+			_text <- (i.linkInterfaces()->at(1)).intfIpv4()->first().IPv4Address
+		),
+		-- Rule #8: A second instance of Peer sets its node property with the 
+		-- Name property in the ComputerSystem associated with the second 
+		-- IPProtocolEndPoint (through the HostedAccessPoint) association)
+		-- (see associatedVm() )
+		Peer2: ADNETCONF!Peer (
+			node <- (i.linkInterfaces()->at(2)).associatedVm().Name,
+			-- Use of testbed parameter: 
+			vlan_dev <- thisModule.settings.vlanDev,			
+			vlanConnection <- VlanConnection2
+		),
+		VlanConnection2: ADNETCONF!VlanConnection (
+			gre <- Gre1
+		),
+		Gre1: ADNETCONF!Gre (
+			name <- Name1,
+			ip <- Ip1
+		),
+		Name1: ADNETCONF!Name (
+			_text <- 'gre'.concat((thisModule.gre + 1).toString())
+		),
+		Ip1: ADNETCONF!Ip (
+			-- Rule #9: The _text property in Ip is set with the IPv4Address property 
+			-- in the StaticIPAssignmentSettingData associated to the second 
+			-- IPProtocolEndpoint (through the ElementSettingData association)
+			_text <- (i.linkInterfaces()->at(2)).intfIpv4()->first().IPv4Address
+		)
+	do {
+		thisModule.gre <- thisModule.gre + 2;
+		thisModule.currentVlan <- thisModule.currentVlan + 1;
+		thisModule.currentConnectIp <- thisModule.currentConnectIp + 4;
+	}		
+}
+
+rule QosMap {
+	from
+		i: TIMSmall!TIM_TransmissionCharacteristics
+	to
+		-- Rule #10: Each Qos instance corresponds to one instance of TIM_TransmissionCharacteristics
+		Qos: ADNETCONF!Qos
+	do {
+		
+		-- Rule #11: Delay if the DelayMean in the TIM_TransmissionCharacteristics instance
+		-- has been set
+		-- We need do this after the execution of the rule, otherwise, Delay object would not 
+		-- exists. The SetDelay is an imperative rule, called from a relation rule
+		if (not i.DelayMean.oclIsUndefined())
+			thisModule.SetDelay(Qos, i.DelayMean.toString());
+
+		-- Rule #13: Dup if the DuplicationProbabilityValue in the TIM_TransmissionCharacteristics 
+		-- instance has been set
+		-- We need do this after the execution of the rule, otherwise, Dup object would not 
+		-- exists. The SetDup is an imperative rule, called from a relation rule
+		if (not i.DuplicationProbabilityValue.oclIsUndefined())
+			thisModule.SetDup(Qos, i.DuplicationProbabilityValue.toString());
+		
+		-- Rule #15: Drop if the LossProbabilityValue in the TIM_TransmissionCharacteristics
+		-- instance has been set
+		-- We need do this after the execution of the rule, otherwise, Drop object would not 
+		-- exists. The SetDrop is an imperative rule, called from a relation rule
+		if (not i.LossProbabilityValue.oclIsUndefined())
+			thisModule.SetDrop(Qos, i.LossProbabilityValue.toString());		
+
+	}
+}
+
+rule SetDelay(q : ADNETCONF!Qos, t: String) {
+	to
+		Delay: ADNETCONF!Delay (
+			-- Rule #12: _text is set with DelayMean
+			_text <- t
+		)
+	do {
+		q.delay <- Delay;
+	}
+}
+
+rule SetDup(q : ADNETCONF!Qos, t: String) {
+	to
+		Dup: ADNETCONF!Dup (
+			-- Rule #14: _text is set with DuplicationProbabilityValue
+			_text <- t
+		)
+	do {
+		q.dup <- Dup;
+	}
+}
+
+rule SetDrop(q : ADNETCONF!Qos, t: String) {
+	to
+		Drop: ADNETCONF!Drop (
+			-- Rule #16: _text is set with LossProbabilityValue
+			_text <- t
+		)
+	do {
+		q.drop <- Drop;
+	}
+}
