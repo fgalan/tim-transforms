@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+  </ecore:EPackage>
+  <ecore:EPackage name="ADNETCONF" nsURI="http:///ADNETCONF.ecore" nsPrefix="ADNETCONF">
+    <eClassifiers xsi:type="ecore:EClass" name="AdrenalineNetconf">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="links" lowerBound="1"
+          eType="#/1/Links" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
+          eType="#/1/Nodes" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Nodes">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1"
+          eType="#/1/Node" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Links">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1"
+          eType="#/1/Link" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Node">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#/0/String"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lIp" lowerBound="1" eType="#/1/LIp"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mIp" lowerBound="1" eType="#/1/MIp"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="zebraBin" lowerBound="1"
+          eType="#/1/ZebraBin" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfdBin" lowerBound="1"
+          eType="#/1/OspfdBin" defaultValueLiteral="" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LIp">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MIp">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ZebraBin">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OspfdBin">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Link">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="peer" lowerBound="1"
+          upperBound="-1" eType="#/1/Peer" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qos" eType="#/1/Qos"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Peer">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vlan_dev" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vlanConnection" lowerBound="1"
+          eType="#/1/VlanConnection" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VlanConnection">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="net" eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="gre" lowerBound="1" eType="#/1/Gre"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="vlan" eType="#/1/Vlan"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Gre">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="name" lowerBound="1"
+          eType="#/1/Name" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ip" lowerBound="1" eType="#/1/Ip"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Vlan">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Name">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Ip">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Qos">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="delay" eType="#/1/Delay"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="drop" eType="#/1/Drop"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dup" eType="#/1/Dup"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Delay">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Drop">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Dup">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>

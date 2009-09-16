@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="String"/>
+  </ecore:EPackage>
+  <ecore:EPackage name="ADNETCONFOspf" nsURI="http:///ADNETCONFOspf.ecore" nsPrefix="ADNETCONFOspf">
+    <eClassifiers xsi:type="ecore:EClass" name="OspfConf">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ospf" lowerBound="1"
+          upperBound="-1" eType="#/1/Ospf" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Ospf">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="zebraLog" eType="#/1/ZebraLog"
+          defaultValueLiteral="" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfdLog" eType="#/1/OspfdLog"
+          defaultValueLiteral="" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="password" eType="#/1/Password"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="network" upperBound="-1"
+          eType="#/1/Network" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ZebraLog">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OspfdLog">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Password">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Network">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" lowerBound="1"
+          eType="#/0/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>
