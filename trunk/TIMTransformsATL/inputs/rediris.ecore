@@ -701,5 +701,79 @@ Copyright (C) 2008, 2009 Fermin Galan Marquez
   <TIM:TIM_LinkTransmissionElement Antecedent="#and-mur" Dependent="#and-mur-qos"/>
   <TIM:TIM_LinkTransmissionElement Antecedent="#and-pal" Dependent="#and-pal-qos"/>
   <TIM:TIM_LinkTransmissionElement Antecedent="#tef-pal" Dependent="#tef-pal-qos"/>  
+
+  <!-- QoS constraints associated to interfaces origin (31)
+  
+   NOTE: included only for completeness purposes, given that, for symetric
+   characteristis, they are not needed (the TIM_LinkTransmissionElements is used) -->
+
+  <TIM:TIM_LinkOrigin Antecedent="#ast-gal-if" Dependent="#ast-gal-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ast-can-if" Dependent="#ast-can-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#can-pvc-if" Dependent="#can-pvc-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#gal-pvc-if" Dependent="#gal-pvc-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#nav-pvc-if" Dependent="#nav-pvc-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ix-pvc-if" Dependent="#ix-pvc-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ara-nav-if" Dependent="#ara-nav-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#cyl-gal-if" Dependent="#cyl-gal-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#gal-ix-if" Dependent="#gal-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#cyl-ix-if" Dependent="#cyl-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#cyl-rio-if" Dependent="#cyl-rio-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ara-rio-if" Dependent="#ara-rio-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ara-ix-if" Dependent="#ara-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ara-cat-if" Dependent="#ara-cat-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ix-mad-if" Dependent="#ix-mad-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#cat-ix-if" Dependent="#cat-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ix-val-if" Dependent="#ix-val-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#clm-ix-if" Dependent="#clm-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#and-ix-if" Dependent="#and-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ext-ix-if" Dependent="#ext-ix-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ix-tef-if" Dependent="#ix-tef-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#cat-val-if" Dependent="#cat-val-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#bal-cat-if" Dependent="#bal-cat-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#mur-val-if" Dependent="#mur-val-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#and-val-if" Dependent="#and-val-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#and-ext-if" Dependent="#and-ext-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#bal-val-if" Dependent="#bal-val-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#and-clm-if" Dependent="#and-clm-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#and-mur-if" Dependent="#and-mur-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#and-pal-if" Dependent="#and-pal-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#tef-pal-if" Dependent="#tef-pal-qos"/>  
+
+  <!-- QoS constraints associated to interfaces destination (31)
+  
+   NOTE: included only for completeness purposes, given that, for symetric
+   characteristis, they are not needed (the TIM_LinkTransmissionElements is used) -->
+   
+  <TIM:TIM_LinkDestination Antecedent="#gal-ast-if" Dependent="#ast-gal-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#can-ast-if" Dependent="#ast-can-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pvc-can-if" Dependent="#can-pvc-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pvc-gal-if" Dependent="#gal-pvc-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pvc-nav-if" Dependent="#nav-pvc-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pvc-ix-if" Dependent="#ix-pvc-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#nav-ara-if" Dependent="#ara-nav-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#gal-cyl-if" Dependent="#cyl-gal-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-gal-if" Dependent="#gal-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-cyl-if" Dependent="#cyl-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#rio-cyl-if" Dependent="#cyl-rio-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#rio-ara-if" Dependent="#ara-rio-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-ara-if" Dependent="#ara-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#cat-ara-if" Dependent="#ara-cat-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#mad-ix-if" Dependent="#ix-mad-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-cat-if" Dependent="#cat-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#val-ix-if" Dependent="#ix-val-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-clm-if" Dependent="#clm-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-and-if" Dependent="#and-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ix-ext-if" Dependent="#ext-ix-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#tef-ix-if" Dependent="#ix-tef-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#val-cat-if" Dependent="#cat-val-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#cat-bal-if" Dependent="#bal-cat-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#val-mur-if" Dependent="#mur-val-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#val-and-if" Dependent="#and-val-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ext-and-if" Dependent="#and-ext-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#val-bal-if" Dependent="#bal-val-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#clm-and-if" Dependent="#and-clm-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#mur-and-if" Dependent="#and-mur-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pal-and-if" Dependent="#and-pal-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pal-tef-if" Dependent="#tef-pal-qos"/>  
   
 </xmi:XMI>
