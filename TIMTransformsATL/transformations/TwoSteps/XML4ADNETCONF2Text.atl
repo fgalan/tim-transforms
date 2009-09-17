@@ -19,6 +19,20 @@
 query XML4ADNETCONF2Text = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
 		+ '<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/adnetconf.dtd">'+'\r\n' 
 		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/adnetconf.xml');
-		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\adnetconf.xml');
+		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\'+thisModule.filename);
 
 uses XMLDumpHelpers;
+
+
+helper def: filename: String =
+	-- This query works because the only attribute with name 'name' is the one in
+	-- <adrenalin_netconf>. Otherwise, a more complex query should be made
+	if XML!Attribute.allInstances()->select(e | e.name = 'name')->first().oclIsUndefined()
+	then
+		-- The TwoSteps case, which is not (in rev123 at least) setting scenario name
+		'adnetconf.xml'
+	else
+		-- The ThreeSteps case, which configures it
+		'adnet-' + XML!Attribute.allInstances()->select(e | e.name = 'name')->first().value + '.xml'
+	endif
+	;
