@@ -72,12 +72,12 @@ rule NodeMap {
 		Node: ADNETCONF!Node (
 			-- Rule #4: The id property in Node is set using the Name property in ComputerSystem
 			id <- i.Name,
-			lIp <- LIp,
+			loIp <- LoIp,
 			mIp <- MIp,
 			zebraBin <- ZebraBin,
 			ospfdBin <- OspfdBin
 		),
-		LIp: ADNETCONF!LIp (
+		LoIp: ADNETCONF!LoIp (
 			-- Rule #5: The text property in LIp is set with the IPv4Address property in 
 			-- StaticIPAssignmentSettingData associated to the loopback IPProtocolEndpoint9 (through
             -- the ElementSettingData association) which, in sequence, is associated to the
