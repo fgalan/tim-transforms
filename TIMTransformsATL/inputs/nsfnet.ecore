@@ -544,4 +544,58 @@ Copyright (C) 2008, 2009 Fermin Galan Marquez
   <TIM:TIM_LinkTransmissionElement Antecedent="#dc-tx" Dependent="#dc-tx-qos"/>
   <TIM:TIM_LinkTransmissionElement Antecedent="#ga-tx" Dependent="#ga-tx-qos"/>
 
+  <!-- QoS constraints associated to interfaces origins (21)
+
+   NOTE: included only for completeness purposes, given that, for symetric
+   characteristis, they are not needed (the TIM_LinkTransmissionElements is used) -->
+   
+  <TIM:TIM_LinkOrigin Antecedent="#ca1-wa-if" Dependent="#ca1-wa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ca2-wa-if" Dependent="#ca2-wa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#il-wa-if" Dependent="#il-wa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ca1-ca2-if" Dependent="#ca1-ca2-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ca1-ut-if" Dependent="#ca1-ut-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ca2-tx-if" Dependent="#ca2-tx-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#mi-ut-if" Dependent="#mi-ut-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#co-ut-if" Dependent="#co-ut-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#co-ne-if" Dependent="#co-ne-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#co-tx-if" Dependent="#co-tx-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#il-ne-if" Dependent="#il-ne-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#il-pa-if" Dependent="#il-pa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#mi-nj-if" Dependent="#mi-nj-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#mi-ny-if" Dependent="#mi-ny-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ga-pa-if" Dependent="#ga-pa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ny-pa-if" Dependent="#ny-pa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#nj-pa-if" Dependent="#nj-pa-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#dc-ny-if" Dependent="#dc-ny-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#dc-nj-if" Dependent="#dc-nj-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#dc-tx-if" Dependent="#dc-tx-qos"/>
+  <TIM:TIM_LinkOrigin Antecedent="#ga-tx-if" Dependent="#ga-tx-qos"/>
+
+  <!-- QoS constraints associated to interfaces destination (21)
+  
+   NOTE: included only for completeness purposes, given that, for symetric
+   characteristis, they are not needed (the TIM_LinkTransmissionElements is used) -->
+  
+  <TIM:TIM_LinkDestination Antecedent="#wa-ca1-if" Dependent="#ca1-wa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#wa-ca2-if" Dependent="#ca2-wa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#wa-il-if" Dependent="#il-wa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ca2-ca1-if" Dependent="#ca1-ca2-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ut-ca1-if" Dependent="#ca1-ut-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#tx-ca2-if" Dependent="#ca2-tx-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ut-mi-if" Dependent="#mi-ut-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ut-co-if" Dependent="#co-ut-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ne-co-if" Dependent="#co-ne-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#tx-co-if" Dependent="#co-tx-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ne-il-if" Dependent="#il-ne-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pa-il-if" Dependent="#il-pa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#nj-mi-if" Dependent="#mi-nj-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ny-mi-if" Dependent="#mi-ny-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pa-ga-if" Dependent="#ga-pa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pa-ny-if" Dependent="#ny-pa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#pa-nj-if" Dependent="#nj-pa-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#ny-dc-if" Dependent="#dc-ny-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#nj-dc-if" Dependent="#dc-nj-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#tx-dc-if" Dependent="#dc-tx-qos"/>
+  <TIM:TIM_LinkDestination Antecedent="#tx-ga-if" Dependent="#ga-tx-qos"/>
+
 </xmi:XMI>
