@@ -1,0 +1,104 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module ADNETCONFOspf2XML; 
+create OUT : XML from IN : ADNETCONFOspf;
+
+rule RootRule {
+	from 
+		i: ADNETCONFOspf!OspfConf
+	to
+		root: XML!Root (
+			name <- 'ospf_conf',
+			children <- Sequence { ADNETCONFOspf!Ospf.allInstances()->collect (e | thisModule.resolveTemp(e,'Ospf')) }
+		)
+}
+
+rule OspfRule {
+	from
+		i: ADNETCONFOspf!Ospf
+	to
+		Ospf: XML!Element (
+			name <- 'ospf',
+			children <- Sequence { OspfNodeAtt,
+						ADNETCONFOspf!Password.allInstances()->select (e| i.password = e )->collect (e | thisModule.resolveTemp(e,'Password')),				
+						ADNETCONFOspf!OspfLog.allInstances()->select (e| i.ospfLog = e )->collect (e | thisModule.resolveTemp(e,'OspfLog')),
+				        ADNETCONFOspf!ZebraLog.allInstances()->select (e| i.zebraLog = e )->collect (e | thisModule.resolveTemp(e,'ZebraLog')),
+						ADNETCONFOspf!Network.allInstances()->select (e| i.network->includes(e) )->collect (e | thisModule.resolveTemp(e,'Network')) }
+		),
+		OspfNodeAtt: XML!Attribute (
+			name <- 'node',
+			value <- i.node
+		)
+}
+
+rule PasswordRule {
+	from
+		i: ADNETCONFOspf!Password
+	to
+		Password: XML!Element (
+			name <- 'password',
+			children <- PasswordText
+		),
+		PasswordText: XML!TextNode (
+			value <- i._text
+		)			
+}
+
+rule OspfdLogRule {
+	from
+		i: ADNETCONFOspf!OspfLog
+	to
+		OspfLog: XML!Element (
+			name <- 'ospf_log',
+			children <- OspfLogText
+		),
+		OspfLogText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule ZebraLogRule {
+	from
+		i: ADNETCONFOspf!ZebraLog
+	to
+		ZebraLog: XML!Element (
+			name <- 'zebra_log',
+			children <- ZebraLogText
+		),
+		ZebraLogText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule NetworkRule  {
+	from
+		i: ADNETCONFOspf!Network
+	to
+		Network: XML!Element (
+			name <- 'network',
+			children <- Sequence { NetworkAreaAtt, NetworkText } 
+		),
+		NetworkAreaAtt: XML!Attribute (
+			name <- 'area',
+			value <- i.area
+		),
+		NetworkText: XML!TextNode (
+			value <- i._text
+		)		
+}
