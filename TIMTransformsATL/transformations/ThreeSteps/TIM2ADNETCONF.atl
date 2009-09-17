@@ -26,7 +26,7 @@ uses TIMHelpers;
 -------------
 
 -- Return the ADNETCONF setting object
-helper def: settings : TestbedParameters!VNUMLTestbedParameters = 
+helper def: settings : TestbedParameters!ADNETCONFTestbedParameters = 
 	TestbedParameters!ADRENALINETestbedParameters.allInstances()->first()
 	;
 
