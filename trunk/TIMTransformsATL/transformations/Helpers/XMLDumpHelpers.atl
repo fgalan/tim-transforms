@@ -25,7 +25,7 @@ helper context XML!Element def: dumpXml(indent : String) : String =
 		self.children->select(e | e.oclIsKindOf(XML!Attribute)) in
 	indent + '<' + self.name + 
 	a->iterate(e; acc : String = '' |
-		acc + ' ' + e.dumpXml()
+		acc + e.dumpXml()
 	) +
 	if na->size() > 0 then
 		'>'
@@ -48,7 +48,13 @@ helper context XML!Element def: dumpXml(indent : String) : String =
 	endif;
 
 helper context XML!Attribute def: dumpXml() : String =
-	self.name + '=\"' + self.value + '\"';
+	-- Check the attribute is defined
+	if self.value.oclIsUndefined()
+	then
+		''
+	else
+		' ' + self.name + '=\"' + self.value + '\"'
+	endif;
 
 helper context XML!TextNode def: dumpXml(indent: String) : String =
 	self.value;
