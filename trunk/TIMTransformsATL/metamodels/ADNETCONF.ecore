@@ -11,6 +11,8 @@
           eType="#/1/Links" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
           eType="#/1/Nodes" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="#/0/String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Nodes">
       <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1"
