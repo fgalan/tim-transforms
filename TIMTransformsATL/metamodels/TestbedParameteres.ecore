@@ -42,18 +42,6 @@
           eType="#/0/String" defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfdBinPath" lowerBound="1"
           eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lrmBin" lowerBound="1"
-          eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rsvpdBin" lowerBound="1"
-          eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtapBin" lowerBound="1"
-          eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="snmpdBin" lowerBound="1"
-          eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="olrmBin" lowerBound="1"
-          eType="#/0/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpbwmBin" lowerBound="1"
-          eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseMgtAddress" lowerBound="1"
           eType="#/0/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseConnectAddress" lowerBound="1"
@@ -61,6 +49,12 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseVlan" lowerBound="1"
           eType="#/0/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="vlanDev" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="zebraLogPath" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ospfLogPath" lowerBound="1"
+          eType="#/0/String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
   </ecore:EPackage>
