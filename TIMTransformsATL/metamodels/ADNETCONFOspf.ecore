@@ -11,11 +11,11 @@
           upperBound="-1" eType="#/1/Ospf" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Ospf">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" lowerBound="1"
           eType="#/0/String"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="zebraLog" eType="#/1/ZebraLog"
           defaultValueLiteral="" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfdLog" eType="#/1/OspfdLog"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ospfLog" eType="#/1/OspfLog"
           defaultValueLiteral="" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="password" eType="#/1/Password"
           containment="true"/>
@@ -26,7 +26,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OspfdLog">
+    <eClassifiers xsi:type="ecore:EClass" name="OspfLog">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="_text" lowerBound="1"
           eType="#/0/String"/>
     </eClassifiers>
