@@ -1,0 +1,198 @@
+-- This program is free software; you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation; either version 2
+-- of the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this program; if not, write to the Free Software
+-- Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+--
+-- An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+--
+-- Copyright (C) 2009 Fermin Galan Marquez
+
+module ADNETCONF2XML; 
+create OUT : XML from IN : ADNETCONF;
+
+rule RootRule {
+	from 
+		i: ADNETCONF!AdrenalineNetconf
+	to
+		root: XML!Root (
+			name <- 'vnuml',
+			children <- Sequence { AdrenalineNetconfNameType,
+						thisModule.resolveTemp(ADNETCONF!Nodes.allInstances()->first(), 'Nodes'),
+						thisModule.resolveTemp(ADNETCONF!Links.allInstances()->first(), 'Links') }	
+		),
+		AdrenalineNetconfNameType: XML!Attribute (
+			name <- 'name',
+			value <- i.name
+		)
+}
+
+rule NodesRule {
+	from
+		i: ADNETCONF!Nodes
+	to
+		Nodes: XML!Element (
+			name <- 'nodes'
+		)
+}
+
+rule NodeRule {
+	from
+		i: ADNETCONF!Node
+	to
+		Node: XML!Element (
+			name <- 'node'
+		)
+}
+
+rule LoIpRule {
+	from
+		i: ADNETCONF!LoIp
+	to
+		LoIp: XML!Element (
+			name <- 'lo_ip'
+		)
+}
+
+rule MIpRule {
+	from
+		i: ADNETCONF!MIp
+	to
+		MIp: XML!Element (
+			name <- 'm_ip'
+		)
+}
+
+rule ZebraBinRule {
+	from
+		i: ADNETCONF!ZebraBin
+	to
+		ZebraBin: XML!Element (
+			name <- 'zebra_bin'
+		)
+}
+
+rule OspfdBinRule {
+	from
+		i: ADNETCONF!OspfdBin
+	to
+		OspfdBin: XML!Element (
+			name <- 'ospfd_bin'
+		)
+}
+
+rule LinksRule {
+	from
+		i: ADNETCONF!Links
+	to
+		Links: XML!Element (
+			name <- 'links'
+		)
+}
+
+rule LinkRule {
+	from
+		i: ADNETCONF!Link
+	to
+		Link: XML!Element (
+			name <- 'link'
+		)
+}
+
+rule PeerRule {
+	from
+		i: ADNETCONF!Peer
+	to
+		Peer: XML!Element (
+			name <- 'peer'
+		)
+}
+
+rule VlanConnectionRule {
+	from
+		i: ADNETCONF!VlanConnection
+	to
+		VlanConnection: XML!Element (
+			name <- 'vlan_connection'
+		)
+}
+
+rule VlanRule {
+	from
+		i: ADNETCONF!Vlan
+	to
+		Vlan: XML!Element (
+			name <- 'vlan'
+		)
+}
+
+rule GreRule {
+	from
+		i: ADNETCONF!Gre
+	to
+		Gre: XML!Element (
+			name <- 'gre'
+		)
+}
+
+rule NameRule {
+	from
+		i: ADNETCONF!Name
+	to
+		Name: XML!Element (
+			name <- 'name'
+		)
+}
+
+rule IpRule {
+	from
+		i: ADNETCONF!Ip
+	to
+		Ip: XML!Element (
+			name <- 'ip'
+		)
+}
+
+rule QosRule {
+	from
+		i: ADNETCONF!Qos
+	to
+		Qos: XML!Element (
+			qos <- 'qos'
+		)
+}
+
+rule DelayRule {
+	from
+		i: ADNETCONF!Delay
+	to
+		Delay: XML!Element (
+			name <- 'delay'
+		)
+}
+
+rule DropRule {
+	from
+		i: ADNETCONF!Drop
+	to
+		Drop: XML!Element (
+			name <- 'drop'
+		)
+}
+
+rule DupRule {
+	from
+		i: ADNETCONF!Dup
+	to
+		Dup: XML!Element (
+			dup <- 'dup'
+		)
+}
