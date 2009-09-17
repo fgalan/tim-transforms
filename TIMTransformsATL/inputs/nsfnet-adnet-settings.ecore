@@ -21,8 +21,8 @@ Copyright (C) 2008 Fermin Galan Marquez
   	baseConnectAddress="167838072"
   	baseVlan="600"
   	vlanDev="eth0"
-  	zebraLogPath="/var/log/zebra/zebra.log"
-  	ospfLogPath="/var/log/zebra/zebra.log"
+  	zebraLogPath="/var/log/zebra.log"
+  	ospfLogPath="/var/log/ospfd.log"
   	password="xxxx"
   />
   <!-- Actually don't needed in the current version
