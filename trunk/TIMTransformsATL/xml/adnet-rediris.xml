@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/adnetconf.dtd">
-<adrenaline_netconf>
-  <conf/>
+<adrenaline_netconf name="rediris">
   <nodes>
     <node id="AST">
       <m_ip>10.1.1.120</m_ip>
