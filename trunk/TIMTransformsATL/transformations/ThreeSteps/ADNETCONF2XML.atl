@@ -24,7 +24,7 @@ rule RootRule {
 		i: ADNETCONF!AdrenalineNetconf
 	to
 		root: XML!Root (
-			name <- 'vnuml',
+			name <- 'adrenaline_netconf',
 			children <- Sequence { AdrenalineNetconfNameType,
 						thisModule.resolveTemp(ADNETCONF!Nodes.allInstances()->first(), 'Nodes'),
 						thisModule.resolveTemp(ADNETCONF!Links.allInstances()->first(), 'Links') }	
@@ -40,7 +40,8 @@ rule NodesRule {
 		i: ADNETCONF!Nodes
 	to
 		Nodes: XML!Element (
-			name <- 'nodes'
+			name <- 'nodes',
+			children <- ADNETCONF!Node.allInstances()->collect (e | thisModule.resolveTemp(e,'Node'))
 		)
 }
 
@@ -49,16 +50,16 @@ rule NodeRule {
 		i: ADNETCONF!Node
 	to
 		Node: XML!Element (
-			name <- 'node'
-		)
-}
-
-rule LoIpRule {
-	from
-		i: ADNETCONF!LoIp
-	to
-		LoIp: XML!Element (
-			name <- 'lo_ip'
+			name <- 'node',
+			children <- Sequence {NodeIdAtt,
+						ADNETCONF!MIp.allInstances()->select (e | i.mIp = e )->collect (e | thisModule.resolveTemp(e,'MIp')),
+						ADNETCONF!LoIp.allInstances()->select (e | i.loIp = e )->collect (e | thisModule.resolveTemp(e,'LoIp')),						
+						ADNETCONF!ZebraBin.allInstances()->select (e | i.zebraBin = e )->collect (e | thisModule.resolveTemp(e,'ZebraBin')),
+						ADNETCONF!OspfdBin.allInstances()->select (e | i.ospfdBin = e )->collect (e | thisModule.resolveTemp(e,'OspfdBin')) }
+		),
+		NodeIdAtt: XML!Attribute (
+			name <- 'id',
+			value <- i.id
 		)
 }
 
@@ -67,7 +68,24 @@ rule MIpRule {
 		i: ADNETCONF!MIp
 	to
 		MIp: XML!Element (
-			name <- 'm_ip'
+			name <- 'm_ip',
+			children <- MIpText
+		),
+		MIpText: XML!TextNode (
+			value <- i._text
+		)
+}
+
+rule LoIpRule {
+	from
+		i: ADNETCONF!LoIp
+	to
+		LoIp: XML!Element (
+			name <- 'lo_ip',
+			children <- LoIpText
+		),
+		LoIpText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -76,7 +94,11 @@ rule ZebraBinRule {
 		i: ADNETCONF!ZebraBin
 	to
 		ZebraBin: XML!Element (
-			name <- 'zebra_bin'
+			name <- 'zebra_bin',
+			children <- ZebraBinText
+		),
+		ZebraBinText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -85,7 +107,11 @@ rule OspfdBinRule {
 		i: ADNETCONF!OspfdBin
 	to
 		OspfdBin: XML!Element (
-			name <- 'ospfd_bin'
+			name <- 'ospfd_bin',
+			children <- OspfdBinText
+		),
+		OspfdBinText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -94,7 +120,8 @@ rule LinksRule {
 		i: ADNETCONF!Links
 	to
 		Links: XML!Element (
-			name <- 'links'
+			name <- 'links',
+			children <- ADNETCONF!Link.allInstances()->collect (e | thisModule.resolveTemp(e,'Link'))
 		)
 }
 
@@ -103,7 +130,9 @@ rule LinkRule {
 		i: ADNETCONF!Link
 	to
 		Link: XML!Element (
-			name <- 'link'
+			name <- 'link',
+			children <- Sequence { ADNETCONF!Peer.allInstances()->select (e | i.peer->includes(e) )->collect (e | thisModule.resolveTemp(e,'Peer')),
+						ADNETCONF!Qos.allInstances()->select (e | i.qos = e )->collect (e | thisModule.resolveTemp(e,'Qos')) }
 		)
 }
 
@@ -112,7 +141,17 @@ rule PeerRule {
 		i: ADNETCONF!Peer
 	to
 		Peer: XML!Element (
-			name <- 'peer'
+			name <- 'peer',
+			children <- Sequence { PeerNodeAtt, PeerVlanDevAtt,
+						ADNETCONF!VlanConnection.allInstances()->select (e | i.vlanConnection = e )->collect (e | thisModule.resolveTemp(e,'VlanConnection')) }
+		),
+		PeerNodeAtt: XML!Attribute (
+			name <- 'node',
+			value <- i.node
+		),
+		PeerVlanDevAtt: XML!Attribute (
+			name <- 'vlan_dev',
+			value <- i.vlan_dev
 		)
 }
 
@@ -121,7 +160,14 @@ rule VlanConnectionRule {
 		i: ADNETCONF!VlanConnection
 	to
 		VlanConnection: XML!Element (
-			name <- 'vlan_connection'
+			name <- 'vlan_connection',
+			children <- Sequence { VlanConnectionNetAtt,
+						ADNETCONF!Vlan.allInstances()->select (e | i.vlan = e )->collect (e | thisModule.resolveTemp(e,'Vlan')),
+						ADNETCONF!Gre.allInstances()->select (e | i.gre = e )->collect (e | thisModule.resolveTemp(e,'Gre')) }
+		),
+		VlanConnectionNetAtt: XML!Attribute (
+			name <- 'net',
+			value <-  i.net
 		)
 }
 
@@ -130,7 +176,11 @@ rule VlanRule {
 		i: ADNETCONF!Vlan
 	to
 		Vlan: XML!Element (
-			name <- 'vlan'
+			name <- 'vlan',
+			children <- VlanText
+		),
+		VlanText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -139,7 +189,9 @@ rule GreRule {
 		i: ADNETCONF!Gre
 	to
 		Gre: XML!Element (
-			name <- 'gre'
+			name <- 'gre',
+			children <- Sequence { ADNETCONF!Name.allInstances()->select (e | i.name = e )->collect (e | thisModule.resolveTemp(e,'Name')),
+						ADNETCONF!Ip.allInstances()->select (e | i.ip = e )->collect (e | thisModule.resolveTemp(e,'Ip')) }
 		)
 }
 
@@ -148,7 +200,11 @@ rule NameRule {
 		i: ADNETCONF!Name
 	to
 		Name: XML!Element (
-			name <- 'name'
+			name <- 'name',
+			children <- NameText
+		),
+		NameText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -157,7 +213,11 @@ rule IpRule {
 		i: ADNETCONF!Ip
 	to
 		Ip: XML!Element (
-			name <- 'ip'
+			name <- 'ip',
+			children <- IpText
+		),
+		IpText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -166,7 +226,10 @@ rule QosRule {
 		i: ADNETCONF!Qos
 	to
 		Qos: XML!Element (
-			qos <- 'qos'
+			name <- 'qos',
+			children <- Sequence { ADNETCONF!Delay.allInstances()->select (e | i.delay = e )->collect (e | thisModule.resolveTemp(e,'Delay')),
+						ADNETCONF!Drop.allInstances()->select (e | i.drop = e )->collect (e | thisModule.resolveTemp(e,'Drop')),
+						ADNETCONF!Dup.allInstances()->select (e | i.dup = e )->collect (e | thisModule.resolveTemp(e,'Dup')) }
 		)
 }
 
@@ -175,7 +238,11 @@ rule DelayRule {
 		i: ADNETCONF!Delay
 	to
 		Delay: XML!Element (
-			name <- 'delay'
+			name <- 'delay',
+			children <- DelayText
+		),
+		DelayText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -184,7 +251,11 @@ rule DropRule {
 		i: ADNETCONF!Drop
 	to
 		Drop: XML!Element (
-			name <- 'drop'
+			name <- 'drop',
+			children <- DropText
+		),
+		DropText: XML!TextNode (
+			value <- i._text
 		)
 }
 
@@ -193,6 +264,10 @@ rule DupRule {
 		i: ADNETCONF!Dup
 	to
 		Dup: XML!Element (
-			dup <- 'dup'
+			name <- 'dup',
+			children <- DupText
+		),
+		DupText: XML!TextNode (
+			value <- i._text
 		)
 }
