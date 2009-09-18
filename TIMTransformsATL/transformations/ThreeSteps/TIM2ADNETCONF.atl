@@ -60,7 +60,8 @@ rule MasterRule {
 			node <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Node'))
 		),
 		Links: ADNETCONF!Links (
-			link <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'Link'))
+			-- The ->select is needed to not break when there is no suitable link (eg. basic scenario)
+			link <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->select(e | e.MaxConnections = 2)->collect (e | thisModule.resolveTemp(e,'Link'))
 		)
 }
 
