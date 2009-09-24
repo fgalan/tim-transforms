@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE adrenaline_netconf SYSTEM "/usr/share/adnetconf/ospf.dtd">
+<!DOCTYPE ospf_conf SYSTEM "/usr/share/adnetconf/ospf.dtd">
 <ospf_conf>
   <ospf node="AST">
     <password>xxxx</password>
