@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the GNU General Public License
+   as published by the Free Software Foundation; either version 2
+   of the License, or (at your option) any later version.
+  
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+  
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  
+   An online copy of the licence can be found at http://www.gnu.org/copyleft/gpl.html
+  
+   Copyright (C) 2009 Fermin Galan Marquez
+-->
+
+<!-- Useful reference: http://wiki.eclipse.org/AM3_Ant_Tasks -->
+
+<!-- FIXME: 
+     * the confusion with names should be solved (avoid 'the -m naming trick')
+     * factorize ant code (I'm not an ant expert :)
+ -->
+
+<project name="ATLLauncher" default="all">
+	
+	<target name="all" depends="basic-vnuml, basic-adnet, nsfnet-vnuml, nsfnet-adnet, rediris-vnuml, rediris-adnet" />
+	
+	<target name="prepare">
+		<mkdir dir="/tmp/xml" />
+		<am3.loadModel modelHandler="EMF" name="TIMSmall-m" metamodel="MOF" path="metamodels/TIMSmall.ecore" />		
+		<am3.loadModel modelHandler="EMF" name="TestbedParameters-m" metamodel="MOF" path="metamodels/TestbedParameters.ecore" />
+		<am3.loadModel modelHandler="EMF" name="XML-m" metamodel="MOF" path="metamodels/XML.ecore" />
+	</target>
+	
+	<target name="prepare-ospf">
+		<am3.loadModel modelHandler="EMF" name="TIMOspfSmall-m" metamodel="MOF" path="metamodels/TIMOspfSmall.ecore" />
+	</target>
+	
+	<target name="prepare-vnuml" depends="prepare">
+		<am3.loadModel modelHandler="EMF" name="VNUML-m" metamodel="MOF" path="metamodels/VNUML.ecore" />
+	</target>
+	
+	<target name="prepare-adnet" depends ="prepare">
+		<am3.loadModel modelHandler="EMF" name="ADNETCONF-m" metamodel="MOF" path="metamodels/ADNETCONF.ecore" />
+	</target>
+	
+	<target name="prepare-vnuml-ospf" depends="prepare-ospf, prepare-vnuml">
+		<am3.loadModel modelHandler="EMF" name="VNUMLOspf-m" metamodel="MOF" path="metamodels/VNUMLOspf.ecore" />
+	</target>
+	
+	<target name="prepare-adnet-ospf" depends="prepare-ospf, prepare-adnet">
+		<am3.loadModel modelHandler="EMF" name="ADNETCONFOspf-m" metamodel="MOF" path="metamodels/ADNETCONFOspf.ecore" />
+	</target>
+	
+	<target name="load-basic">
+		<am3.loadModel name="basic" metamodel="TIMSmall-m" path="inputs/basic.ecore" />
+	</target>
+	
+	<target name="load-nsfnet">
+		<am3.loadModel name="nsfnet" metamodel="TIMSmall-m" path="inputs/nsfnet.ecore" />
+		<am3.loadModel name="nsfnet-ospf" metamodel="TIMOspfSmall-m" path="inputs/nsfnet-ospf.ecore" />		
+	</target>
+	
+	<target name="load-rediris">
+		<am3.loadModel name="rediris" metamodel="TIMSmall-m" path="inputs/rediris.ecore" />
+		<am3.loadModel name="rediris-ospf" metamodel="TIMOspfSmall-m" path="inputs/rediris-ospf.ecore" />
+	</target>	
+	
+	<target name="load-vnuml-no_ospf-settings">
+		<am3.loadModel name="vnuml-no_ospf-settings" metamodel="TestbedParameters-m" path="inputs/vnuml-no_ospf-settings.ecore" />	
+	</target>
+	
+	<target name="load-vnuml-ospf-settings">
+		<am3.loadModel name="vnuml-ospf-settings" metamodel="TestbedParameters-m" path="inputs/vnuml-ospf-settings.ecore" />	
+	</target>	
+	
+	<target name="load-adnet-settings">
+		<am3.loadModel name="adnet-settings" metamodel="TestbedParameters-m" path="inputs/adnet-settings.ecore" />	
+	</target>	
+	
+	<target name="basic-vnuml" depends="prepare-vnuml,load-basic,load-vnuml-no_ospf-settings">		
+		<am3.atl path="transformations/ThreeSteps/TIM2VNUML.atl">
+			<inmodel name="IN" model="basic"/>
+			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="SETTINGS" model="vnuml-no_ospf-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="VNUML" model="VNUML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-basic" metamodel="VNUML-m"/>
+			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-basic" path="outputs/vnuml-basic.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/VNUML2XML.atl">
+			<inmodel name="IN" model="vnuml-basic"/>
+			<inmodel name="VNUML" model="VNUML-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-basic-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-basic-xml" path="outputs/vnuml-basic-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4VNUML2Text.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE vnuml SYSTEM &quot;/usr/share/xml/vnuml/vnuml.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="vnuml-basic-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/vnuml-basic.xml"/>
+	</target>
+	
+	<target name="basic-adnet" depends="prepare-adnet,load-basic,load-adnet-settings">
+		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONF.atl">
+			<inmodel name="IN" model="basic"/>
+			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="SETTINGS" model="adnet-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>			
+		 	<outmodel name="OUT" model="adnet-basic" metamodel="ADNETCONF-m"/>
+			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="adnet-basic" path="outputs/adnet-basic.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/ADNETCONF2XML.atl">
+			<inmodel name="IN" model="adnet-basic"/>
+			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="adnet-basic-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="adnet-basic-xml" path="outputs/adnet-basic-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4ADNETCONF2Text.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE adrenaline_netconf SYSTEM &quot;/usr/share/adnetconf/adnetconf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="adnet-basic-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/adnet-basic.xml"/>
+	</target>
+
+	<target name="nsfnet-vnuml" depends="prepare-vnuml-ospf,load-nsfnet,load-vnuml-ospf-settings">
+		
+		<!-- Network core file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2VNUML.atl">
+			<inmodel name="IN" model="nsfnet"/>
+			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="VNUML" model="VNUML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-nsfnet" metamodel="VNUML-m"/>
+			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-nsfnet" path="outputs/vnuml-nsfnet.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/VNUML2XML.atl">
+			<inmodel name="IN" model="vnuml-nsfnet"/>
+			<inmodel name="VNUML" model="VNUML-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-nsfnet-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-nsfnet-xml" path="outputs/vnuml-nsfnet-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4VNUML2Text.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE vnuml SYSTEM &quot;/usr/share/xml/vnuml/vnuml.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="vnuml-nsfnet-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/vnuml-nsfnet.xml"/>
+
+		<!-- OSPF file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2VNUMLOspf.atl">
+			<inmodel name="IN" model="nsfnet-ospf"/>
+			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>			
+		 	<outmodel name="OUT" model="vnuml-nsfnet-ospf" metamodel="VNUMLOspf-m"/>
+			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-nsfnet-ospf" path="outputs/vnuml-nsfnet-ospf.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/VNUMLOspf2XML.atl">
+			<inmodel name="IN" model="vnuml-nsfnet-ospf"/>
+			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-nsfnet-ospf-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-nsfnet-ospf-xml" path="outputs/vnuml-nsfnet-ospf-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4VNUML2TextOspf.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/xml/vnuml/ospfd.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="vnuml-nsfnet-ospf-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/vnuml-nsfnet-ospf.xml"/>
+		
+	</target>
+	
+	<target name="nsfnet-adnet" depends="prepare-adnet-ospf,load-nsfnet,load-adnet-settings">
+		
+		<!-- Network core file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONF.atl">
+			<inmodel name="IN" model="nsfnet"/>
+			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="SETTINGS" model="adnet-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>			
+		 	<outmodel name="OUT" model="adnet-nsfnet" metamodel="ADNETCONF-m"/>
+			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="adnet-nsfnet" path="outputs/adnet-nsfnet.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/ADNETCONF2XML.atl">
+			<inmodel name="IN" model="adnet-nsfnet"/>
+			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="adnet-nsfnet-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="adnet-nsfnet-xml" path="outputs/adnet-nsfnet-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4ADNETCONF2Text.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE adrenaline_netconf SYSTEM &quot;/usr/share/adnetconf/adnetconf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="adnet-nsfnet-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/adnet-nsfnet.xml"/>
+
+		<!-- OSPF file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONFOspf.atl">
+			<inmodel name="IN" model="nsfnet-ospf"/>
+			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="SETTINGS" model="adnet-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>			
+		 	<outmodel name="OUT" model="adnet-nsfnet-ospf" metamodel="ADNETCONFOspf-m"/>
+			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="adnet-nsfnet-ospf" path="outputs/adnet-nsfnet-ospf.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/ADNETCONFOspf2XML.atl">
+			<inmodel name="IN" model="adnet-nsfnet-ospf"/>
+			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="adnet-nsfnet-ospf-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="adnet-nsfnet-ospf-xml" path="outputs/adnet-nsfnet-ospf-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4ADNETCONF2TextOspf.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/adnetconf/ospf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="adnet-nsfnet-ospf-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/adnet-nsfnet-ospf.xml"/>
+
+	</target>
+
+	<target name="rediris-vnuml" depends="prepare-vnuml-ospf,load-rediris,load-vnuml-ospf-settings">
+		
+		<!-- Network core file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2VNUML.atl">
+			<inmodel name="IN" model="rediris"/>
+			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="VNUML" model="VNUML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-rediris" metamodel="VNUML-m"/>
+			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-rediris" path="outputs/vnuml-rediris.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/VNUML2XML.atl">
+			<inmodel name="IN" model="vnuml-rediris"/>
+			<inmodel name="VNUML" model="VNUML-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-rediris-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-rediris-xml" path="outputs/vnuml-rediris-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4VNUML2Text.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE vnuml SYSTEM &quot;/usr/share/xml/vnuml/vnuml.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="vnuml-rediris-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/vnuml-rediris.xml"/>
+
+		<!-- OSPF file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2VNUMLOspf.atl">
+			<inmodel name="IN" model="rediris-ospf"/>
+			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>			
+		 	<outmodel name="OUT" model="vnuml-rediris-ospf" metamodel="VNUMLOspf-m"/>
+			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-rediris-ospf" path="outputs/vnuml-rediris-ospf.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/VNUMLOspf2XML.atl">
+			<inmodel name="IN" model="vnuml-rediris-ospf"/>
+			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="vnuml-rediris-ospf-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="vnuml-rediris-ospf-xml" path="outputs/vnuml-rediris-ospf-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4VNUML2TextOspf.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/xml/vnuml/ospfd.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="vnuml-rediris-ospf-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/vnuml-rediris-ospf.xml"/>
+		
+	</target>
+	
+	<target name="rediris-adnet" depends="prepare-adnet-ospf,load-rediris,load-adnet-settings">
+		
+		<!-- Network core file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONF.atl">
+			<inmodel name="IN" model="rediris"/>
+			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="SETTINGS" model="adnet-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>			
+		 	<outmodel name="OUT" model="adnet-rediris" metamodel="ADNETCONF-m"/>
+			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="adnet-rediris" path="outputs/adnet-rediris.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/ADNETCONF2XML.atl">
+			<inmodel name="IN" model="adnet-rediris"/>
+			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="adnet-rediris-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="adnet-rediris-xml" path="outputs/adnet-rediris-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4ADNETCONF2Text.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE adrenaline_netconf SYSTEM &quot;/usr/share/adnetconf/adnetconf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="adnet-rediris-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/adnet-rediris.xml"/>
+
+		<!-- OSPF file -->
+		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONFOspf.atl">
+			<inmodel name="IN" model="rediris-ospf"/>
+			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="SETTINGS" model="adnet-settings"/>
+			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
+			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>			
+		 	<outmodel name="OUT" model="adnet-rediris-ospf" metamodel="ADNETCONFOspf-m"/>
+			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
+		</am3.atl>
+		<!--am3.saveModel model="adnet-rediris-ospf" path="outputs/adnet-rediris-ospf.ecore" /-->
+		<am3.atl path="transformations/ThreeSteps/ADNETCONFOspf2XML.atl">
+			<inmodel name="IN" model="adnet-rediris-ospf"/>
+			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>
+			<inmodel name="XML" model="XML-m"/>			
+		 	<outmodel name="OUT" model="adnet-rediris-ospf-xml" metamodel="XML-m"/>
+		</am3.atl>
+		<!--am3.saveModel model="adnet-rediris-ospf-xml" path="outputs/adnet-rediris-ospf-xml.ecore" /-->
+		<!-- the following am3.query replaces the XML4ADNETCONF2TextOspf.atl as it seems there is no
+		     way of invoking .atl queries using AM3 -->
+		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/adnetconf/ospf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
+			<inmodel name="XML" model="XML-m"/>
+			<inmodel name="IN" model="adnet-rediris-ospf-xml"/>
+			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
+		</am3.query>
+		<echo message="${file}" file="/tmp/xml/adnet-rediris-ospf.xml"/>
+
+	</target>
+
+	
+</project>
