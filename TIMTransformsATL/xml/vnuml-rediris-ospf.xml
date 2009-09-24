@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/ospfd.dtd">
+<!DOCTYPE ospf_conf SYSTEM "/usr/share/xml/vnuml/ospfd.dtd">
 <ospf_conf>
   <vm name="AST" type="quagga" subtype="lib-install">
     <zebra hostname="AST" password="xxxx"/>

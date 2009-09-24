@@ -17,7 +17,7 @@
 -- Copyright (C) 2009 Fermin Galan Marquez
 
 query XML4VNUML2TextOspf = ('<?xml version="1.0" encoding="UTF-8"?>'+'\r\n' 
-		+ '<!DOCTYPE vnuml SYSTEM "/usr/share/xml/vnuml/ospfd.dtd">'+'\r\n'
+		+ '<!DOCTYPE ospf_conf SYSTEM "/usr/share/xml/vnuml/ospfd.dtd">'+'\r\n'
 		--+ XML!Root.allInstances()->first().dumpXml('')).writeTo('/tmp/vnuml-ospf.xml');
 		+ XML!Root.allInstances()->first().dumpXml('')).writeTo('D:\\vnuml-ospf.xml');
 
