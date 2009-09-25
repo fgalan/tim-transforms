@@ -1,5 +1,3 @@
-import java.util.Vector;
-
 /* This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -19,6 +17,9 @@ import java.util.Vector;
  * Copyright (C) 2008, 2009 Fermin Galan Marquez
  *
  */
+
+import java.util.Vector;
+import java.util.Date;
 
 public class TransTester {
 
@@ -66,45 +67,72 @@ public class TransTester {
 		//tm.getAdrenalineTransformation().setDtdBase("/mnt/server/grups/eclipse-workspace/adnetconf/dtd");
 		
 		Vector<String> v;
+		
+		long timeBasicVnuml;
+		long timeBasicAdnet;
+		long timeNsfnetVnuml;
+		long timeNsfnetAdnet;
+		long timeRedirisVnuml;
+		long timeRedirisAdnet;
+		
+		long mark;
 
 		System.out.println("Transformation: testbed "+testbed1+" -> vnuml ...");		
 		tm.getVnumlTransformation().setDefaultConsole("xterm");
 		v = new Vector<String>(1);
 		v.add(file1vn);
+		mark = (new Date()).getTime();
 		tm.getVnumlTransformation().toTsm(testbed1, v);
+		timeBasicVnuml = (new Date()).getTime() - mark;
 		
 		System.out.println("Transformation: testbed "+testbed1+" -> adnetconf ...");
 		v = new Vector<String>(1);
 		v.add(file1an);
+		mark = (new Date()).getTime();
 		tm.getAdrenalineTransformation().toTsm(testbed1, v);
+		timeBasicAdnet = (new Date()).getTime() - mark;
 
 		System.out.println("Transformation: testbed "+testbed2+" -> vnuml ...");
 		v = new Vector<String>(2);
 		v.add(file2vn);
 		v.add(file2vo);
 		tm.getVnumlTransformation().setDefaultConsole("pts");
+		mark = (new Date()).getTime();
 		tm.getVnumlTransformation().toTsm(testbed2, v);
-		
+		timeNsfnetVnuml = (new Date()).getTime() - mark;
+	
 		System.out.println("Transformation: testbed "+testbed2+" -> adnetconf ...");
 		v = new Vector<String>(2);
 		v.add(file2an);
 		v.add(file2ao);
+		mark = (new Date()).getTime();
 		tm.getAdrenalineTransformation().toTsm(testbed2, v);
-		
+		timeNsfnetAdnet = (new Date()).getTime() - mark;
+
 		System.out.println("Transformation: testbed "+testbed3+" -> vnuml ...");
 		v = new Vector<String>(2);
 		v.add(file3vn);
 		v.add(file3vo);
+		mark = (new Date()).getTime();
 		tm.getVnumlTransformation().toTsm(testbed3, v);
-		
+		timeRedirisVnuml = (new Date()).getTime() - mark;
+
 		System.out.println("Transformation: testbed "+testbed3+" -> adnetconf ...");
 		v = new Vector<String>(2);
 		v.add(file3an);
 		v.add(file3ao);
+		mark = (new Date()).getTime();
 		tm.getAdrenalineTransformation().toTsm(testbed3, v);
+		timeRedirisAdnet = (new Date()).getTime() - mark;
 				
-		System.out.println("End of program!");
+		System.out.println("------------------------------");
+		System.out.println("Time summary (milliseconds):");
+		System.out.println("basic-vnuml:   " + timeBasicVnuml);
+		System.out.println("basic-adnet:   " + timeBasicAdnet);
+		System.out.println("nsfnet-vnuml:  " + timeNsfnetVnuml);
+		System.out.println("nsfnet-adnet:  " + timeNsfnetAdnet);
+		System.out.println("rediris-vnuml: " + timeRedirisVnuml);
+		System.out.println("rediris-adnet: " + timeRedirisAdnet);
 	}
 	
-
 }
