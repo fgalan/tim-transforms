@@ -27,12 +27,16 @@
      * factorize ant code (I'm not an ant expert :)
  -->
 
-<project name="ATLLauncher" default="all">
+<project name="ATLLauncher" default="rediris-adnet">
 	
 	<target name="all" depends="basic-vnuml, basic-adnet, nsfnet-vnuml, nsfnet-adnet, rediris-vnuml, rediris-adnet" />
 	
 	<target name="prepare">
 		<mkdir dir="/tmp/xml" />
+		<tstamp>
+		   <format property="start.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<!--echo message="Build started: ${start.timestamp}" /-->
 		<am3.loadModel modelHandler="EMF" name="TIMSmall-m" metamodel="MOF" path="metamodels/TIMSmall.ecore" />		
 		<am3.loadModel modelHandler="EMF" name="TestbedParameters-m" metamodel="MOF" path="metamodels/TestbedParameters.ecore" />
 		<am3.loadModel modelHandler="EMF" name="XML-m" metamodel="MOF" path="metamodels/XML.ecore" />
@@ -110,6 +114,13 @@
 			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
 		</am3.query>
 		<echo message="${file}" file="/tmp/xml/vnuml-basic.xml"/>
+		
+		<tstamp>
+		   <format property="stop.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<echo message="Build started:  ${start.timestamp}" />
+		<echo message="Build finished: ${stop.timestamp}" />
+		
 	</target>
 	
 	<target name="basic-adnet" depends="prepare-adnet,load-basic,load-adnet-settings">
@@ -138,6 +149,13 @@
 			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
 		</am3.query>
 		<echo message="${file}" file="/tmp/xml/adnet-basic.xml"/>
+		
+		<tstamp>
+		   <format property="stop.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<echo message="Build started:  ${start.timestamp}" />
+		<echo message="Build finished: ${stop.timestamp}" />
+		
 	</target>
 
 	<target name="nsfnet-vnuml" depends="prepare-vnuml-ospf,load-nsfnet,load-vnuml-ospf-settings">
@@ -196,6 +214,12 @@
 		</am3.query>
 		<echo message="${file}" file="/tmp/xml/vnuml-nsfnet-ospf.xml"/>
 		
+		<tstamp>
+		   <format property="stop.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<echo message="Build started:  ${start.timestamp}" />
+		<echo message="Build finished: ${stop.timestamp}" />
+		
 	</target>
 	
 	<target name="nsfnet-adnet" depends="prepare-adnet-ospf,load-nsfnet,load-adnet-settings">
@@ -253,6 +277,12 @@
 			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
 		</am3.query>
 		<echo message="${file}" file="/tmp/xml/adnet-nsfnet-ospf.xml"/>
+		
+		<tstamp>
+		   <format property="stop.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<echo message="Build started:  ${start.timestamp}" />
+		<echo message="Build finished: ${stop.timestamp}" />
 
 	</target>
 
@@ -312,6 +342,12 @@
 		</am3.query>
 		<echo message="${file}" file="/tmp/xml/vnuml-rediris-ospf.xml"/>
 		
+		<tstamp>
+		   <format property="stop.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<echo message="Build started:  ${start.timestamp}" />
+		<echo message="Build finished: ${stop.timestamp}" />
+		
 	</target>
 	
 	<target name="rediris-adnet" depends="prepare-adnet-ospf,load-rediris,load-adnet-settings">
@@ -341,7 +377,7 @@
 			<inmodel name="IN" model="adnet-rediris-xml"/>
 			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
 		</am3.query>
-		<echo message="${file}" file="/tmp/xml/adnet-rediris.xml"/>
+		<echo message="${file}" file="/tmp/xml/adnet-rediris.xml"/>		
 
 		<!-- OSPF file -->
 		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONFOspf.atl">
@@ -369,6 +405,12 @@
 			<library name="XMLDumpHelpers" path="transformations/Helpers/XMLDumpHelpers.asm" />
 		</am3.query>
 		<echo message="${file}" file="/tmp/xml/adnet-rediris-ospf.xml"/>
+		
+		<tstamp>
+		   <format property="stop.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
+		</tstamp>
+		<echo message="Build started:  ${start.timestamp}" />
+		<echo message="Build finished: ${stop.timestamp}" />
 
 	</target>
 
