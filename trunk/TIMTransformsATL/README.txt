@@ -92,14 +92,14 @@ Installation
   # tar xfvz TIMTransforms-v2009_10_15.tar.gz
 
 * Create a New Project (ATL Project) in your Eclipse workspace, import the code under 
-  /usr/local/src/TIMTransformsMDA into your Eclipse workspace into that project. 
+  /usr/local/src/TIMTransformsMDA-v2009_10_15 into your Eclipse workspace into that project. 
    
 * Double click in the build.xml, choose "Run As -> Ant Build...". Then in the "JRE"
   tag, check the following option:  
 
   "Run in the same JRE as the workspace"
   
-  Then "Apply" and "Close"
+  Then click "Apply" and "Close".
   
 Running the test
 ----------------
@@ -108,7 +108,7 @@ Double click in the build.xml, choose "Run As -> Ant Build".
 After a while, the process ends.
 
 (By default all the transformations are execute, but you can 
-edit the target in build.xml to procude just one).
+edit the target in build.xml to produce just one).
 
 If the scenarios have been transformed and all is ok 
 you will get at the end ten files in /tmp:
@@ -132,3 +132,30 @@ tool and adnet-*.xml by ADNETCONF. For example you can test:
 (The installation of VNUML however it is out of the scope of
 this document; see http://www.dit.upm.es/vnuml if you are
 interested)
+
+Why don't just use ant (without Eclipse)?
+-----------------------------------------
+
+Check what it happens when you try to do it:
+
+  # cd /usr/local/src/TIMTransformsMDA-v2009_10_15
+  # ant
+  Buildfile: build.xml
+
+  prepare:
+
+  BUILD FAILED
+  /root/workspace/TIMTransformsMDA/build.xml:40: Problem: failed to create task or type am3.loadModel
+  Cause: The name is undefined.
+  [...]
+  
+The problem is that Ant is requiring the AM3 tasks, which come
+with Eclipse within the AM3 plugin. I don't know and how to 
+decouple AM3 (and ATL) from Eclipse so run the tests could 
+be done independtly. Maybe is not possible at all, given that
+ATL and AM3 are heavily linked with EMF in the core of the
+Eclipse platform.
+
+However, note that the way in which ATL is invoked 
+(either using Eclipse or not) is not actually a concern 
+from an experimental validation point of view.
