@@ -17,7 +17,7 @@
 -- Copyright (C) 2009 Fermin Galan Marquez
 
 module TIM2ADNETCONF; 
-create OUT : ADNETCONF from IN : TIMSmall, SETTINGS : TestbedParameters;
+create OUT : ADNETCONF from IN : TIM, SETTINGS : TestbedParameters;
 
 uses TIMHelpers;
 
@@ -47,7 +47,7 @@ helper def: gre: Integer = 0;
 
 rule MasterRule {
 	from 
-		i: TIMSmall!TIM_TestbedScenario
+		i: TIM!TIM_TestbedScenario
 	to
 	    -- Rule #1: There is one instance of AdrenalineNetconf, Links and Nodes for each given TIM_TestbedScenario
 		AdrenalineNetconf: ADNETCONF!AdrenalineNetconf (
@@ -57,17 +57,17 @@ rule MasterRule {
 			links <- Links
 		),
 		Nodes: ADNETCONF!Nodes (
-			node <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Node'))
+			node <- TIM!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Node'))
 		),
 		Links: ADNETCONF!Links (
 			-- The ->select is needed to not break when there is no suitable link (eg. basic scenario)
-			link <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->select(e | e.MaxConnections = 2)->collect (e | thisModule.resolveTemp(e,'Link'))
+			link <- TIM!TIM_LinkConnectivityCollection.allInstances()->select(e | e.MaxConnections = 2)->collect (e | thisModule.resolveTemp(e,'Link'))
 		)
 }
 
 rule NodeMap {
 	from
-		i: TIMSmall!CIM_ComputerSystem
+		i: TIM!CIM_ComputerSystem
 	to
 		-- Rule #3: Each Node instance corresponds to one instance of ComputerSystem in TIM 
 		Node: ADNETCONF!Node (
@@ -111,7 +111,7 @@ rule NodeMap {
 
 rule LinkMap {
 	from
-		i: TIMSmall!TIM_LinkConnectivityCollection (
+		i: TIM!TIM_LinkConnectivityCollection (
 			i.MaxConnections = 2
 		)
 	to
@@ -190,7 +190,7 @@ rule LinkMap {
 
 rule QosMap {
 	from
-		i: TIMSmall!TIM_TransmissionCharacteristics
+		i: TIM!TIM_TransmissionCharacteristics
 	to
 		-- Rule #11: Each Qos instance corresponds to one instance of TIM_TransmissionCharacteristics
 		Qos: ADNETCONF!Qos

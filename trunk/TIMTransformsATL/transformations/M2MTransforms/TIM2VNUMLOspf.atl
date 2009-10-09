@@ -17,7 +17,7 @@
 -- Copyright (C) 2009 Fermin Galan Marquez
 
 module TIM2VNUMLOspf; 
-create OUT : VNUMLOspf from IN : TIMOspfSmall, SETTINGS : TestbedParameters;
+create OUT : VNUMLOspf from IN : TIMOspf, SETTINGS : TestbedParameters;
 
 uses TIMOspfHelpers;
 
@@ -36,18 +36,18 @@ helper def: settings : TestbedParameters!VNUMLTestbedParameters =
 
 rule MasterRule {
 	from 
-		i: TIMOspfSmall!TIM_TestbedScenario
+		i: TIMOspf!TIM_TestbedScenario
 	to
 		-- Rule #21: There is one OspfConf instance for each given TIM_TestbedScenario
 		OspfConf: VNUMLOspf!OspfConf (
-			vm <- TIMOspfSmall!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm'))
+			vm <- TIMOspf!CIM_OSPFService.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm'))
 		)
 }
 
 -- Rule #22: Each Vm instance corresponds to one instance of OSPFService in TIM
 rule VmMap {
 	from
-		i: TIMOspfSmall!CIM_OSPFService
+		i: TIMOspf!CIM_OSPFService
 	to
 		Vm: VNUMLOspf!Vm (
 			-- Rule #23: name is mapped from the Name of the ComputerSystem associated to OSFP service 
@@ -111,7 +111,7 @@ rule SetOspfdBin(v : VNUMLOspf!Vm) {
 -- way).
 rule Network {
 	from
-		i: TIMOspfSmall!CIM_RangeOfIPAddresses
+		i: TIMOspf!CIM_RangeOfIPAddresses
 	to
 		Network: VNUMLOspf!Network (
 			ip <- Ip,
