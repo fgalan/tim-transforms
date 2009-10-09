@@ -27,7 +27,7 @@
      * factorize ant code (I'm not an ant expert :)
  -->
 
-<project name="ATLLauncher" default="rediris-adnet">
+<project name="ATLLauncher" default="all">
 	
 	<target name="all" depends="basic-vnuml, basic-adnet, nsfnet-vnuml, nsfnet-adnet, rediris-vnuml, rediris-adnet" />
 	
@@ -37,13 +37,13 @@
 		   <format property="start.timestamp" pattern="dd-MMM-yy HH:mm:ss.SSS" />
 		</tstamp>
 		<!--echo message="Build started: ${start.timestamp}" /-->
-		<am3.loadModel modelHandler="EMF" name="TIMSmall-m" metamodel="MOF" path="metamodels/TIMSmall.ecore" />		
+		<am3.loadModel modelHandler="EMF" name="TIM-m" metamodel="MOF" path="metamodels/TIM.ecore" />		
 		<am3.loadModel modelHandler="EMF" name="TestbedParameters-m" metamodel="MOF" path="metamodels/TestbedParameters.ecore" />
 		<am3.loadModel modelHandler="EMF" name="XML-m" metamodel="MOF" path="metamodels/XML.ecore" />
 	</target>
 	
 	<target name="prepare-ospf">
-		<am3.loadModel modelHandler="EMF" name="TIMOspfSmall-m" metamodel="MOF" path="metamodels/TIMOspfSmall.ecore" />
+		<am3.loadModel modelHandler="EMF" name="TIMOspf-m" metamodel="MOF" path="metamodels/TIMOspf.ecore" />
 	</target>
 	
 	<target name="prepare-vnuml" depends="prepare">
@@ -63,17 +63,17 @@
 	</target>
 	
 	<target name="load-basic">
-		<am3.loadModel name="basic" metamodel="TIMSmall-m" path="inputs/basic.ecore" />
+		<am3.loadModel name="basic" metamodel="TIM-m" path="inputs/basic.ecore" />
 	</target>
 	
 	<target name="load-nsfnet">
-		<am3.loadModel name="nsfnet" metamodel="TIMSmall-m" path="inputs/nsfnet.ecore" />
-		<am3.loadModel name="nsfnet-ospf" metamodel="TIMOspfSmall-m" path="inputs/nsfnet-ospf.ecore" />		
+		<am3.loadModel name="nsfnet" metamodel="TIM-m" path="inputs/nsfnet.ecore" />
+		<am3.loadModel name="nsfnet-ospf" metamodel="TIMOspf-m" path="inputs/nsfnet-ospf.ecore" />		
 	</target>
 	
 	<target name="load-rediris">
-		<am3.loadModel name="rediris" metamodel="TIMSmall-m" path="inputs/rediris.ecore" />
-		<am3.loadModel name="rediris-ospf" metamodel="TIMOspfSmall-m" path="inputs/rediris-ospf.ecore" />
+		<am3.loadModel name="rediris" metamodel="TIM-m" path="inputs/rediris.ecore" />
+		<am3.loadModel name="rediris-ospf" metamodel="TIMOspf-m" path="inputs/rediris-ospf.ecore" />
 	</target>	
 	
 	<target name="load-vnuml-no_ospf-settings">
@@ -89,9 +89,9 @@
 	</target>	
 	
 	<target name="basic-vnuml" depends="prepare-vnuml,load-basic,load-vnuml-no_ospf-settings">		
-		<am3.atl path="transformations/ThreeSteps/TIM2VNUML.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2VNUML.atl">
 			<inmodel name="IN" model="basic"/>
-			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="TIM" model="TIM-m"/>			
 			<inmodel name="SETTINGS" model="vnuml-no_ospf-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="VNUML" model="VNUML-m"/>			
@@ -99,7 +99,7 @@
 			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-basic" path="outputs/vnuml-basic.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/VNUML2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/VNUML2XML.atl">
 			<inmodel name="IN" model="vnuml-basic"/>
 			<inmodel name="VNUML" model="VNUML-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -124,9 +124,9 @@
 	</target>
 	
 	<target name="basic-adnet" depends="prepare-adnet,load-basic,load-adnet-settings">
-		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONF.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2ADNETCONF.atl">
 			<inmodel name="IN" model="basic"/>
-			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="TIM" model="TIM-m"/>			
 			<inmodel name="SETTINGS" model="adnet-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>			
@@ -134,7 +134,7 @@
 			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="adnet-basic" path="outputs/adnet-basic.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/ADNETCONF2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/ADNETCONF2XML.atl">
 			<inmodel name="IN" model="adnet-basic"/>
 			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -161,9 +161,9 @@
 	<target name="nsfnet-vnuml" depends="prepare-vnuml-ospf,load-nsfnet,load-vnuml-ospf-settings">
 		
 		<!-- Network core file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2VNUML.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2VNUML.atl">
 			<inmodel name="IN" model="nsfnet"/>
-			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="TIM" model="TIM-m"/>			
 			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="VNUML" model="VNUML-m"/>			
@@ -171,7 +171,7 @@
 			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-nsfnet" path="outputs/vnuml-nsfnet.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/VNUML2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/VNUML2XML.atl">
 			<inmodel name="IN" model="vnuml-nsfnet"/>
 			<inmodel name="VNUML" model="VNUML-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -188,9 +188,9 @@
 		<echo message="${file}" file="/tmp/xml/vnuml-nsfnet.xml"/>
 
 		<!-- OSPF file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2VNUMLOspf.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2VNUMLOspf.atl">
 			<inmodel name="IN" model="nsfnet-ospf"/>
-			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="TIMOspf" model="TIMOspf-m"/>
 			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>			
@@ -198,7 +198,7 @@
 			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-nsfnet-ospf" path="outputs/vnuml-nsfnet-ospf.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/VNUMLOspf2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/VNUMLOspf2XML.atl">
 			<inmodel name="IN" model="vnuml-nsfnet-ospf"/>
 			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -225,9 +225,9 @@
 	<target name="nsfnet-adnet" depends="prepare-adnet-ospf,load-nsfnet,load-adnet-settings">
 		
 		<!-- Network core file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONF.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2ADNETCONF.atl">
 			<inmodel name="IN" model="nsfnet"/>
-			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="TIM" model="TIM-m"/>			
 			<inmodel name="SETTINGS" model="adnet-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>			
@@ -235,7 +235,7 @@
 			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="adnet-nsfnet" path="outputs/adnet-nsfnet.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/ADNETCONF2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/ADNETCONF2XML.atl">
 			<inmodel name="IN" model="adnet-nsfnet"/>
 			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -252,9 +252,9 @@
 		<echo message="${file}" file="/tmp/xml/adnet-nsfnet.xml"/>
 
 		<!-- OSPF file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONFOspf.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2ADNETCONFOspf.atl">
 			<inmodel name="IN" model="nsfnet-ospf"/>
-			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="TIMOspf" model="TIMOspf-m"/>
 			<inmodel name="SETTINGS" model="adnet-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>			
@@ -262,7 +262,7 @@
 			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="adnet-nsfnet-ospf" path="outputs/adnet-nsfnet-ospf.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/ADNETCONFOspf2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/ADNETCONFOspf2XML.atl">
 			<inmodel name="IN" model="adnet-nsfnet-ospf"/>
 			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -289,9 +289,9 @@
 	<target name="rediris-vnuml" depends="prepare-vnuml-ospf,load-rediris,load-vnuml-ospf-settings">
 		
 		<!-- Network core file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2VNUML.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2VNUML.atl">
 			<inmodel name="IN" model="rediris"/>
-			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="TIM" model="TIM-m"/>			
 			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="VNUML" model="VNUML-m"/>			
@@ -299,7 +299,7 @@
 			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-rediris" path="outputs/vnuml-rediris.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/VNUML2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/VNUML2XML.atl">
 			<inmodel name="IN" model="vnuml-rediris"/>
 			<inmodel name="VNUML" model="VNUML-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -316,9 +316,9 @@
 		<echo message="${file}" file="/tmp/xml/vnuml-rediris.xml"/>
 
 		<!-- OSPF file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2VNUMLOspf.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2VNUMLOspf.atl">
 			<inmodel name="IN" model="rediris-ospf"/>
-			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="TIMOspf" model="TIMOspf-m"/>
 			<inmodel name="SETTINGS" model="vnuml-ospf-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>			
@@ -326,7 +326,7 @@
 			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-rediris-ospf" path="outputs/vnuml-rediris-ospf.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/VNUMLOspf2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/VNUMLOspf2XML.atl">
 			<inmodel name="IN" model="vnuml-rediris-ospf"/>
 			<inmodel name="VNUMLOspf" model="VNUMLOspf-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -353,9 +353,9 @@
 	<target name="rediris-adnet" depends="prepare-adnet-ospf,load-rediris,load-adnet-settings">
 		
 		<!-- Network core file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONF.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2ADNETCONF.atl">
 			<inmodel name="IN" model="rediris"/>
-			<inmodel name="TIMSmall" model="TIMSmall-m"/>			
+			<inmodel name="TIM" model="TIM-m"/>			
 			<inmodel name="SETTINGS" model="adnet-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>			
@@ -363,7 +363,7 @@
 			<library name="TIMHelpers" path="transformations/Helpers/TIMHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="adnet-rediris" path="outputs/adnet-rediris.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/ADNETCONF2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/ADNETCONF2XML.atl">
 			<inmodel name="IN" model="adnet-rediris"/>
 			<inmodel name="ADNETCONF" model="ADNETCONF-m"/>
 			<inmodel name="XML" model="XML-m"/>			
@@ -380,9 +380,9 @@
 		<echo message="${file}" file="/tmp/xml/adnet-rediris.xml"/>		
 
 		<!-- OSPF file -->
-		<am3.atl path="transformations/ThreeSteps/TIM2ADNETCONFOspf.atl">
+		<am3.atl path="transformations/M2MTransforms/TIM2ADNETCONFOspf.atl">
 			<inmodel name="IN" model="rediris-ospf"/>
-			<inmodel name="TIMOspfSmall" model="TIMOspfSmall-m"/>
+			<inmodel name="TIMOspf" model="TIMOspf-m"/>
 			<inmodel name="SETTINGS" model="adnet-settings"/>
 			<inmodel name="TestbedParameters" model="TestbedParameters-m"/>
 			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>			
@@ -390,7 +390,7 @@
 			<library name="TIMOspfHelpers" path="transformations/Helpers/TIMOspfHelpers.atl" />
 		</am3.atl>
 		<!--am3.saveModel model="adnet-rediris-ospf" path="outputs/adnet-rediris-ospf.ecore" /-->
-		<am3.atl path="transformations/ThreeSteps/ADNETCONFOspf2XML.atl">
+		<am3.atl path="transformations/M2MTransforms/ADNETCONFOspf2XML.atl">
 			<inmodel name="IN" model="adnet-rediris-ospf"/>
 			<inmodel name="ADNETCONFOspf" model="ADNETCONFOspf-m"/>
 			<inmodel name="XML" model="XML-m"/>			

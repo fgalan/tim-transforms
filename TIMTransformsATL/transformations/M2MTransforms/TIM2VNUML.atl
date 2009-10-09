@@ -17,7 +17,7 @@
 -- Copyright (C) 2009 Fermin Galan Marquez
 
 module TIM2VNUML; 
-create OUT : VNUML from IN : TIMSmall, SETTINGS : TestbedParameters;
+create OUT : VNUML from IN : TIM, SETTINGS : TestbedParameters;
 
 uses TIMHelpers;
 
@@ -31,7 +31,7 @@ helper def: settings : TestbedParameters!VNUMLTestbedParameters =
 	;
 
 -- Calculates the id associated to a given interface
-helper def: idForIntf(intf: TIMSmall!CIM_IPProtocolEndpoint) : Integer =
+helper def: idForIntf(intf: TIM!CIM_IPProtocolEndpoint) : Integer =
 	if not intf.isLoopback()
 	then
 		(intf.associatedVm()).vmInterfaces()->select(e | not e.isLoopback())->indexOf(intf)
@@ -42,10 +42,10 @@ helper def: idForIntf(intf: TIMSmall!CIM_IPProtocolEndpoint) : Integer =
 
 -- Calculates the net name associated to a given interface (or loopback, if the interface is not)
 -- associated to any net
-helper def: netNameForIntf(intf : TIMSmall!CIM_IPProtocolEndpoint) : String =
+helper def: netNameForIntf(intf : TIM!CIM_IPProtocolEndpoint) : String =
 	if not intf.isLoopback()
 	then
-		TIMSmall!TIM_MemberOfLink.allInstances()->select(e | e.Member->first() = intf)->first().Collection->first().InstanceID
+		TIM!TIM_MemberOfLink.allInstances()->select(e | e.Member->first() = intf)->first().Collection->first().InstanceID
 	else
 		'lo'
 	endif
@@ -57,13 +57,13 @@ helper def: netNameForIntf(intf : TIMSmall!CIM_IPProtocolEndpoint) : String =
 
 rule MasterRule {
 	from 
-		i: TIMSmall!TIM_TestbedScenario
+		i: TIM!TIM_TestbedScenario
 	to
 	    -- Rule #1a: one Vnuml instance for each given TIM_TestbedScenario
 		Vnuml: VNUML!Vnuml (
 			global <- Global,
-			net <- TIMSmall!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'Net')),
-			vm <- TIMSmall!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm'))
+			net <- TIM!TIM_LinkConnectivityCollection.allInstances()->collect (e | thisModule.resolveTemp(e,'Net')),
+			vm <- TIM!CIM_ComputerSystem.allInstances()->collect (e | thisModule.resolveTemp(e,'Vm'))
 		),
 	    -- Rule #1b: one Global instance for each given TIM_TestbedScenario		
 		Global: VNUML!Global (
@@ -137,7 +137,7 @@ rule SetMgmtType(g : VNUML!Global) {
 -- Rule #3: each Vm instance corresponds to one ComputerSystem instance
 rule VmMap {
 	from
-		i: TIMSmall!CIM_ComputerSystem
+		i: TIM!CIM_ComputerSystem
 	to
 		Vm: VNUML!Vm (
 			-- Rule #6: the name property in Vm is set using the Name property in ComputerSystem
@@ -151,7 +151,7 @@ rule VmMap {
 -- Rule #4: each Net instance corresponds to one TIM_LinkConnectivityConnection instance
 rule NetMap {
 	from
-		i: TIMSmall!TIM_LinkConnectivityCollection
+		i: TIM!TIM_LinkConnectivityCollection
 	to
 		Net: VNUML!Net (
 			-- Rule #5: name property in Net is set using InstanceID property in TIM LinkConnectivityConnection
@@ -164,7 +164,7 @@ rule NetMap {
 -- Rule #7: each Forwarding instance corresponds to one instance of ForwardingService in TIM
 rule ForwardingMap {
 	from
-		i: TIMSmall!CIM_ForwardingService
+		i: TIM!CIM_ForwardingService
 	to
 		Forwarding: VNUML!Forwarding (
 			-- Rule #8: mapping ProtocolType to type
@@ -184,7 +184,7 @@ rule ForwardingMap {
 -- Rule #9: Each Route instance corresponds to one instance of TIM_NextHopAddressedIPRoute
 rule RouteMap {
 	from
-		i: TIMSmall!TIM_NextHopAddressedIPRoute
+		i: TIM!TIM_NextHopAddressedIPRoute
 	to
 		Route: VNUML!Route (
 			-- Rule #10: the type property is mapped from AddressType
@@ -205,7 +205,7 @@ rule RouteMap {
 -- Rule #13: each Intf instance corresponds to one instance of IPProtocolEndpoing
 rule IntfMap {
 	from
-		i: TIMSmall!CIM_IPProtocolEndpoint
+		i: TIM!CIM_IPProtocolEndpoint
 	to
 		Intf: VNUML!Intf (
 			id <- thisModule.idForIntf(i).toString(),			
@@ -223,7 +223,7 @@ rule IntfMap {
 --Rule #15: each Ipv4 instance corresponds to one instance of StaticIPAssignmentSettingData
 rule Ipv4Map {
 	from
-		i: TIMSmall!CIM_StaticIPAssignmentSettingData
+		i: TIM!CIM_StaticIPAssignmentSettingData
 	to
 		Ipv4: VNUML!Ipv4 (
 			--Rule #16 mapping IPv4Address to text (Rule #16) and
@@ -236,7 +236,7 @@ rule Ipv4Map {
 -- Rule #18: Each Ipv6 instance corresponds to one instance of TIM StaticIPv6AssignmentSettingData
 rule Ipv6Map {
 	from
-		i: TIMSmall!TIM_StaticIPv6AssignmentSettingData
+		i: TIM!TIM_StaticIPv6AssignmentSettingData
 	to
 		Ipv6: VNUML!Ipv6 (
 			-- Rule #19: mapping IPv6Address to text

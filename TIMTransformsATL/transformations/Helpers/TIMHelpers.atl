@@ -49,8 +49,8 @@ helper context Integer def: translateIp() : String =
 ----------------------------------------
 -- Helpers to check object properties --
 ----------------------------------------
-helper context TIMSmall!CIM_IPProtocolEndpoint def: isLoopback () : Boolean =
-	not TIMSmall!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = self)
+helper context TIM!CIM_IPProtocolEndpoint def: isLoopback () : Boolean =
+	not TIM!TIM_MemberOfLink.allInstances()->exists(e | e.Member->first() = self)
 	;
 
 ------------------------------------------------------
@@ -59,13 +59,13 @@ helper context TIMSmall!CIM_IPProtocolEndpoint def: isLoopback () : Boolean =
 
 -- Returns all the CIM_StaticIPAssignmentSettingData associated to a given CIM_IPProtocolEndpoint, navigating
 -- through the CIM_ElementSettingData association
-helper context TIMSmall!CIM_IPProtocolEndpoint def: intfIpv4() : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) =
+helper context TIM!CIM_IPProtocolEndpoint def: intfIpv4() : Sequence(TIM!CIM_StaticIPAssignmentSettingData) =
 	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
 	-- TIM metamodel
-	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
+	TIM!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIM!CIM_StaticIPAssignmentSettingData) = Sequence {} | 
 		if e.ManagedElement->first() = self
 		then
-			if e.SettingData->first().oclIsTypeOf(TIMSmall!CIM_StaticIPAssignmentSettingData)
+			if e.SettingData->first().oclIsTypeOf(TIM!CIM_StaticIPAssignmentSettingData)
 			then
 				res->including(e.SettingData->first())
 			else
@@ -78,13 +78,13 @@ helper context TIMSmall!CIM_IPProtocolEndpoint def: intfIpv4() : Sequence(TIMSma
 
 -- Returns all the TIM_StaticIPv6AssignmentSettingData associated to a given CIM_IPProtocolEndpoint, navigating
 -- through the CIM_ElementSettingData association
-helper context TIMSmall!CIM_IPProtocolEndpoint def: intfIpv6() : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) =
+helper context TIM!CIM_IPProtocolEndpoint def: intfIpv6() : Sequence(TIM!TIM_StaticIPv6AssignmentSettingData) =
 	-- We have to use ->first() in the ManagemedElement because it is defined as "to-many" reference in the
 	-- TIM metamodel
-	TIMSmall!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_StaticIPv6AssignmentSettingData) = Sequence {} | 
+	TIM!CIM_ElementSettingData.allInstances()->iterate(e; res : Sequence(TIM!TIM_StaticIPv6AssignmentSettingData) = Sequence {} | 
 		if e.ManagedElement->first() = self
 		then
-			if e.SettingData->first().oclIsTypeOf(TIMSmall!TIM_StaticIPv6AssignmentSettingData)
+			if e.SettingData->first().oclIsTypeOf(TIM!TIM_StaticIPv6AssignmentSettingData)
 			then
 				res->including(e.SettingData->first())
 			else
@@ -97,8 +97,8 @@ helper context TIMSmall!CIM_IPProtocolEndpoint def: intfIpv6() : Sequence(TIMSma
 
 -- Returns all the CIM_IPProtocolEndpoint associated to a given CIM_ComputerSystem, navigating
 -- through the CIM_HostedAccessPoint association
-helper context TIMSmall!CIM_ComputerSystem def: vmInterfaces() : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
-	TIMSmall!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+helper context TIM!CIM_ComputerSystem def: vmInterfaces() : Sequence(TIM!CIM_IPProtocolEndpoint) =
+	TIM!CIM_HostedAccessPoint.allInstances()->iterate(e; res : Sequence(TIM!CIM_IPProtocolEndpoint) = Sequence {} | 
 		if e.Antecedent = self
 		then
 			res->including(e.Dependent)
@@ -109,8 +109,8 @@ helper context TIMSmall!CIM_ComputerSystem def: vmInterfaces() : Sequence(TIMSma
 
 -- Returns all the TIM_NextHopAddressedIPRoute associated to a given CIM_ComputerSystem, navigating
 -- through the CIM_HostedRoute association
-helper context TIMSmall!CIM_ComputerSystem def: vmRoutes() : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) =
-	TIMSmall!CIM_HostedRoute.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_NextHopAddressedIPRoute) = Sequence {} | 
+helper context TIM!CIM_ComputerSystem def: vmRoutes() : Sequence(TIM!TIM_NextHopAddressedIPRoute) =
+	TIM!CIM_HostedRoute.allInstances()->iterate(e; res : Sequence(TIM!TIM_NextHopAddressedIPRoute) = Sequence {} | 
 		if e.Antecedent = self	
 		then
 			res->including(e.Dependent)
@@ -121,8 +121,8 @@ helper context TIMSmall!CIM_ComputerSystem def: vmRoutes() : Sequence(TIMSmall!T
 
 -- Returns all the CIM_ForwardingService associated to a given CIM_ComputerSystem, navigating
 -- through the CIM_HostedService association
-helper context TIMSmall!CIM_ComputerSystem def: vmForwarding() : Sequence(TIMSmall!CIM_ForwardingService) =
-	TIMSmall!CIM_HostedService.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_ForwardingService) = Sequence {} | 
+helper context TIM!CIM_ComputerSystem def: vmForwarding() : Sequence(TIM!CIM_ForwardingService) =
+	TIM!CIM_HostedService.allInstances()->iterate(e; res : Sequence(TIM!CIM_ForwardingService) = Sequence {} | 
 		if e.Antecedent = self
 		then
 			res->including(e.Dependent)
@@ -133,8 +133,8 @@ helper context TIMSmall!CIM_ComputerSystem def: vmForwarding() : Sequence(TIMSma
 
 -- Returns all the CIM_IPProtocolEndpoint associated to a given TIM_LinkConnectivityCollection, navigating
 -- through the TIM_MemberOfLink association
-helper context TIMSmall!TIM_LinkConnectivityCollection def: linkInterfaces() : Sequence(TIMSmall!CIM_IPProtocolEndpoint) =
-	TIMSmall!TIM_MemberOfLink.allInstances()->iterate(e; res : Sequence(TIMSmall!CIM_IPProtocolEndpoint) = Sequence {} | 
+helper context TIM!TIM_LinkConnectivityCollection def: linkInterfaces() : Sequence(TIM!CIM_IPProtocolEndpoint) =
+	TIM!TIM_MemberOfLink.allInstances()->iterate(e; res : Sequence(TIM!CIM_IPProtocolEndpoint) = Sequence {} | 
 		if e.Collection->first() = self
 		then
 			res->including(e.Member->first())
@@ -145,8 +145,8 @@ helper context TIMSmall!TIM_LinkConnectivityCollection def: linkInterfaces() : S
 
 -- Returns all the TIM_TransmissionCharacteristics associated to a given TIM_LinkConnectivityCollection, navigating
 -- through the TIM_LinkTransmissionElement association
-helper context TIMSmall!TIM_LinkConnectivityCollection def: linkQoS() : Sequence(TIMSmall!TIM_TransmissionCharacteristics) =
-	TIMSmall!TIM_LinkTransmissionElement.allInstances()->iterate(e; res : Sequence(TIMSmall!TIM_TransmissionCharacteristics) = Sequence {} | 
+helper context TIM!TIM_LinkConnectivityCollection def: linkQoS() : Sequence(TIM!TIM_TransmissionCharacteristics) =
+	TIM!TIM_LinkTransmissionElement.allInstances()->iterate(e; res : Sequence(TIM!TIM_TransmissionCharacteristics) = Sequence {} | 
 		if e.Antecedent = self
 		then
 			res->including(e.Dependent->first())
@@ -157,6 +157,6 @@ helper context TIMSmall!TIM_LinkConnectivityCollection def: linkQoS() : Sequence
 
 -- Returns the CIM_ComputerSystem associated to a given CIM_IPProtocolEndpoint, navigating
 -- through the CIM_HostedAccessPoint association
-helper context TIMSmall!CIM_IPProtocolEndpoint def: associatedVm() : TIMSmall!CIM_ComputerSystem =
-	TIMSmall!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = self)->first().Antecedent
+helper context TIM!CIM_IPProtocolEndpoint def: associatedVm() : TIM!CIM_ComputerSystem =
+	TIM!CIM_HostedAccessPoint.allInstances()->select(e | e.Dependent = self)->first().Antecedent
 	;

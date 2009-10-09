@@ -27,12 +27,11 @@ uses XMLDumpHelpers;
 helper def: filename: String =
 	-- This query works because the only attribute with name 'name' is the one in
 	-- <adrenalin_netconf>. Otherwise, a more complex query should be made
+	-- Safety check
 	if XML!Attribute.allInstances()->select(e | e.name = 'name')->first().oclIsUndefined()
 	then
-		-- The TwoSteps case, which is not (in rev123 at least) setting scenario name
 		'adnetconf.xml'
 	else
-		-- The ThreeSteps case, which configures it
 		'adnet-' + XML!Attribute.allInstances()->select(e | e.name = 'name')->first().value + '.xml'
 	endif
 	;
