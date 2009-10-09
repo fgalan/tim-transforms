@@ -106,7 +106,7 @@
 		 	<outmodel name="OUT" model="vnuml-basic-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-basic-xml" path="outputs/vnuml-basic-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4VNUML2Text.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4VNUML2Text.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE vnuml SYSTEM &quot;/usr/share/xml/vnuml/vnuml.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -141,7 +141,7 @@
 		 	<outmodel name="OUT" model="adnet-basic-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="adnet-basic-xml" path="outputs/adnet-basic-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4ADNETCONF2Text.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4ADNETCONF2Text.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE adrenaline_netconf SYSTEM &quot;/usr/share/adnetconf/adnetconf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -178,7 +178,7 @@
 		 	<outmodel name="OUT" model="vnuml-nsfnet-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-nsfnet-xml" path="outputs/vnuml-nsfnet-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4VNUML2Text.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4VNUML2Text.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE vnuml SYSTEM &quot;/usr/share/xml/vnuml/vnuml.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -205,7 +205,7 @@
 		 	<outmodel name="OUT" model="vnuml-nsfnet-ospf-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-nsfnet-ospf-xml" path="outputs/vnuml-nsfnet-ospf-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4VNUML2TextOspf.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4VNUML2TextOspf.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/xml/vnuml/ospfd.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -242,7 +242,7 @@
 		 	<outmodel name="OUT" model="adnet-nsfnet-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="adnet-nsfnet-xml" path="outputs/adnet-nsfnet-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4ADNETCONF2Text.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4ADNETCONF2Text.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE adrenaline_netconf SYSTEM &quot;/usr/share/adnetconf/adnetconf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -269,7 +269,7 @@
 		 	<outmodel name="OUT" model="adnet-nsfnet-ospf-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="adnet-nsfnet-ospf-xml" path="outputs/adnet-nsfnet-ospf-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4ADNETCONF2TextOspf.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4ADNETCONF2TextOspf.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/adnetconf/ospf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -306,7 +306,7 @@
 		 	<outmodel name="OUT" model="vnuml-rediris-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-rediris-xml" path="outputs/vnuml-rediris-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4VNUML2Text.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4VNUML2Text.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE vnuml SYSTEM &quot;/usr/share/xml/vnuml/vnuml.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -333,7 +333,7 @@
 		 	<outmodel name="OUT" model="vnuml-rediris-ospf-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="vnuml-rediris-ospf-xml" path="outputs/vnuml-rediris-ospf-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4VNUML2TextOspf.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4VNUML2TextOspf.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/xml/vnuml/ospfd.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -370,7 +370,7 @@
 		 	<outmodel name="OUT" model="adnet-rediris-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="adnet-rediris-xml" path="outputs/adnet-rediris-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4ADNETCONF2Text.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4ADNETCONF2Text.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE adrenaline_netconf SYSTEM &quot;/usr/share/adnetconf/adnetconf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
@@ -397,7 +397,7 @@
 		 	<outmodel name="OUT" model="adnet-rediris-ospf-xml" metamodel="XML-m"/>
 		</am3.atl>
 		<!--am3.saveModel model="adnet-rediris-ospf-xml" path="outputs/adnet-rediris-ospf-xml.ecore" /-->
-		<!-- the following am3.query replaces the XML4ADNETCONF2TextOspf.atl as it seems there is no
+		<!-- the following am3.query replaces the old XML4ADNETCONF2TextOspf.atl as it seems there is no
 		     way of invoking .atl queries using AM3 -->
 		<am3.query body="'&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\r\n&lt;!DOCTYPE ospf_conf SYSTEM &quot;/usr/share/adnetconf/ospf.dtd&quot;>\r\n' + XML!Root->allInstances()->first().dumpXml('')" property="file">
 			<inmodel name="XML" model="XML-m"/>
