@@ -105,8 +105,8 @@ Installation
   reading this README.txt, I guess you have already done it :)
   
   # cd /usr/local/src
-  # wget http://www.dit.upm.es/galan/TIMTransformsMDA/TIMTransformsMDA-v2009_10_15.tar.gz
-  # tar xfvz TIMTransforms-v2009_10_15.tar.gz
+  # wget http://www.dit.upm.es/galan/TIMTransforms/TIMTransformsMDA-v2009_10_15.tar.gz
+  # tar xfvz TIMTransformsMDA-v2009_10_15.tar.gz
 
 * Create a New Project (ATL Project) in your Eclipse workspace, import the code under 
   /usr/local/src/TIMTransformsMDA-v2009_10_15 into your Eclipse workspace into that project. 
