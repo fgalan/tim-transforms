@@ -37,6 +37,21 @@ software code and models/documentation, respectively.
 Contents
 --------
 
+* schema, this directory contains the CIM Schema 2.22.0 as reference 
+  (cim_schema_2.22.0Final-MOFs.zip). It is the same file that can be 
+  downloaded from DMTF web site.
+
+* tim, this directory contains the TIM ad hoc Extension (tim.mof) including the
+  classes and associations included in TIM but not in DMTF's CIM Schema. It
+  extends CIM Schema v2.22.0 (althoth it should work with any further 2.x version)
+
+* scenarios, this directory contains the original scenario definitions in
+  the CIM "native" format (the Managed Object Format or MOF). In particular:
+
+  - basic.mof for the basic scenario
+  - nsfnet.mof and nsfnet-ospf.mof for the nsfnet scenario
+  - rediris.mof and rediris-ospf.moff for the rediris scenario
+
 * input, this directory contains the input models (TIM and Testbed Parameters)
   used in the transformations, encoded in XMI for ECore. In particular:
   
@@ -79,6 +94,8 @@ distribution:
 
 http://www.dit.upm.es/galan/TIMTransforms/eclipse-SDK-3.3.2-linux-gtk+EMF+SVN+ATL+AM3.tar.gz (168MB)
 
+(MD5SUM: 71e6e998732aca07bfdf1bc2e2dd6101)
+
 We highly encourage you to use that one.
 
 Installation
@@ -94,7 +111,7 @@ Installation
 * Create a New Project (ATL Project) in your Eclipse workspace, import the code under 
   /usr/local/src/TIMTransformsMDA-v2009_10_15 into your Eclipse workspace into that project. 
    
-* Double click in the build.xml, choose "Run As -> Ant Build...". Then in the "JRE"
+* Right click in the build.xml, choose "Run As -> Ant Build...". Then in the "JRE"
   tag, check the following option:  
 
   "Run in the same JRE as the workspace"
@@ -104,14 +121,14 @@ Installation
 Running the test
 ----------------
 
-Double click in the build.xml, choose "Run As -> Ant Build". 
+Right click in the build.xml, choose "Run As -> Ant Build". 
 After a while, the process ends.
 
-(By default all the transformations are execute, but you can 
+(By default all the transformations are executed, but you can 
 edit the target in build.xml to produce just one).
 
 If the scenarios have been transformed and all is ok 
-you will get at the end ten files in /tmp:
+you will get at the end ten files in /tmp/xml:
 
 * adnet-basic.xml
 * adnet-nsfnet.xml
@@ -127,7 +144,7 @@ you will get at the end ten files in /tmp:
 In can be checked that vnuml-*.xml can be processed by VNUML
 tool and adnet-*.xml by ADNETCONF. For example you can test:
 
-# vnumlparser.pl -t /tmp/vnuml-basic.xml -v -Z
+# vnumlparser.pl -t /tmp/xml/vnuml-basic.xml -v -Z
 
 (The installation of VNUML however it is out of the scope of
 this document; see http://www.dit.upm.es/vnuml if you are
@@ -159,3 +176,16 @@ Eclipse platform.
 However, note that the way in which ATL is invoked 
 (either using Eclipse or not) is not actually a concern 
 from an experimental validation point of view.
+
+Other remarks
+-------------
+
+This proof-of-concept does not consider eiher the text-to-model transformation to
+inject the CIM Schema and TIM ad hoc extension to the UML model (according to
+the DSP0219 mapping) or the scenarios in MOF to UML instances. The final
+result of both transformations is directly provided in metamodels/ and 
+inputs/ subdirectories respectively.
+
+Although tools as ECUTE Modeler (http://sourceforge.net/apps/mediawiki/sblim/index.php?title=Ecute)
+are very promissing, the software is not mature enough at the present moment
+in order to implement automatically that injection process.
